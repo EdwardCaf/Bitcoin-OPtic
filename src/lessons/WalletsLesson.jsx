@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Wallet, Key, Hash, Grid3X3 } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
 import { Card, Accordion } from '../components/common';
-import { KeyPairGenerator, AddressTypeExplorer, SeedPhraseDemo, WalletTypesExplorer } from '../components/lessons/wallets';
+import { KeyPairGenerator, AddressTypeExplorer, SeedPhraseDemo, WalletTypesExplorer, CoordinatorSignerExplorer } from '../components/lessons/wallets';
 import styles from './Lessons.module.css';
 
 const sections = [
@@ -11,7 +11,8 @@ const sections = [
   { id: 'keys', title: 'Keys & Addresses' },
   { id: 'types', title: 'Address Types' },
   { id: 'hd', title: 'HD Wallets & Seeds' },
-  { id: 'wallet-types', title: 'Hot vs Cold Wallets' }
+  { id: 'wallet-types', title: 'Hot vs Cold Wallets' },
+  { id: 'coordinators', title: 'Coordinators & Signers' }
 ];
 
 export function WalletsLesson() {
@@ -29,6 +30,8 @@ export function WalletsLesson() {
         return <HDWalletsSection />;
       case 4:
         return <WalletTypesSection />;
+      case 5:
+        return <CoordinatorSignerSection />;
       default:
         return <IntroSection />;
     }
@@ -216,6 +219,25 @@ function WalletTypesSection() {
       </p>
 
       <WalletTypesExplorer />
+    </motion.div>
+  );
+}
+
+function CoordinatorSignerSection() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={styles.section}
+    >
+      <h2 className={styles.sectionTitle}>Coordinators & Signers</h2>
+      <p className={styles.sectionText}>
+        When using a hardware wallet, you're actually using <strong>two separate tools</strong> that 
+        work together: wallet software (the coordinator) and your hardware device (the signer). 
+        Understanding this separation is key to understanding why hardware wallets are so secure.
+      </p>
+
+      <CoordinatorSignerExplorer />
     </motion.div>
   );
 }
