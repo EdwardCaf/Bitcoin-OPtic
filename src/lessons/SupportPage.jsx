@@ -108,7 +108,7 @@ export function SupportPage() {
               <ArrowRight size={20} />
             </a>
             <p className={styles.ctaSubtext}>
-              30-minute call &bull; No commitment &bull; 100% free
+              15-minute call &bull; No commitment &bull; 100% free
             </p>
           </motion.div>
         </div>
