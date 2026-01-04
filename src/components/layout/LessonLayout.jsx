@@ -37,6 +37,9 @@ export function LessonLayout({
       onSectionChange(currentSection + 1);
     } else if (nextLesson) {
       navigate(nextLesson.path);
+    } else {
+      // Last section of last lesson - go to Resources
+      navigate('/resources');
     }
   };
 
@@ -108,12 +111,11 @@ export function LessonLayout({
           <Button
             variant="primary"
             onClick={handleNext}
-            disabled={currentSection === sections.length - 1 && !nextLesson}
             icon={<ArrowRight size={18} />}
             iconPosition="right"
           >
             {currentSection === sections.length - 1 ? (
-              nextLesson ? `Next: ${nextLesson.title}` : 'Finish'
+              nextLesson ? `Next: ${nextLesson.title}` : 'Go to Resources'
             ) : (
               'Continue'
             )}

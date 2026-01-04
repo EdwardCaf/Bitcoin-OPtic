@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Wallet, Key, Hash, Grid3X3 } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion } from '../components/common';
+import { Card, Accordion, NeedAssistance } from '../components/common';
 import { KeyPairGenerator, AddressTypeExplorer, SeedPhraseDemo, WalletTypesExplorer, CoordinatorSignerExplorer } from '../components/lessons/wallets';
 import styles from './Lessons.module.css';
 
@@ -236,6 +236,8 @@ function CoordinatorSignerSection() {
         work together: wallet software (the coordinator) and your hardware device (the signer). 
         Understanding this separation is key to understanding why hardware wallets are so secure.
       </p>
+
+      <NeedAssistance tagline="Get help setting up your hardware wallet securely." />
 
       <CoordinatorSignerExplorer />
     </motion.div>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Clock, DollarSign, Network, Lock } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion } from '../components/common';
+import { Card, Accordion, NeedAssistance } from '../components/common';
 import { ChannelVisualizer, RoutingSimulator, HTLCDemo, InvoiceExplorer, PrivacyDemo } from '../components/lessons/lightning';
 import styles from './Lessons.module.css';
 
@@ -229,6 +229,8 @@ function InvoicesSection() {
         and finds a route to complete the payment. Invoices are single-use and typically 
         expire after a set time.
       </p>
+
+      <NeedAssistance tagline="Get guidance on setting up Lightning payments." />
 
       <InvoiceExplorer />
     </motion.div>

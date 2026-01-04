@@ -9,7 +9,7 @@ import {
   CheckCircle2,
   XCircle
 } from 'lucide-react';
-import { Card, Badge, Accordion } from '../../common';
+import { Card, Badge, Accordion, NeedAssistance } from '../../common';
 import styles from './NodeTypesExplorer.module.css';
 
 const nodeTypes = [
@@ -75,6 +75,8 @@ export function NodeTypesExplorer() {
   
   return (
     <div className={styles.container}>
+      <NeedAssistance tagline="Get help with running your own node" />
+      
       <Card variant="elevated" padding="large">
         <div className={styles.header}>
           <div className={styles.titleSection}>
@@ -89,6 +91,7 @@ export function NodeTypesExplorer() {
             </div>
           </div>
         </div>
+
         
         {/* Node Type Selector */}
         <div className={styles.typeSelector}>

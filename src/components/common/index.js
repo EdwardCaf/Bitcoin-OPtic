@@ -4,3 +4,4 @@ export { Slider } from './Slider';
 export { Accordion, AccordionGroup } from './Accordion';
 export { Tooltip } from './Tooltip';
 export { Badge } from './Badge';
+export { NeedAssistance } from './NeedAssistance';

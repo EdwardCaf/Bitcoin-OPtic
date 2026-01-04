@@ -9,7 +9,7 @@ import {
   Lock
 } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion } from '../components/common';
+import { Card, Accordion, NeedAssistance } from '../components/common';
 import { HowItWorks, ConfigurationExplorer, KeyManagement, BestPractices } from '../components/lessons/multisig';
 import styles from './Lessons.module.css';
 
@@ -220,6 +220,8 @@ function KeyManagementSection() {
         itself. Learn about different key holder types, geographic distribution strategies, 
         coordinator software options, and collaborative custody providers.
       </p>
+
+      <NeedAssistance tagline="Get help planning your multisig key distribution strategy." />
 
       <KeyManagement />
     </motion.div>

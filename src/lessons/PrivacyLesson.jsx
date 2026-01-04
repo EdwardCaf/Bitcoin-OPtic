@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { EyeOff, Eye, Shield, Shuffle, RefreshCw } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion } from '../components/common';
+import { Card, Accordion, NeedAssistance } from '../components/common';
 import { AddressReuseDemo, TransactionGraph, CoinJoinVisualizer, PrivacyScorecard } from '../components/lessons/privacy';
 import { PegVisualizer } from '../components/lessons/liquid';
 import styles from './Lessons.module.css';
@@ -208,6 +208,8 @@ function CoinJoinSection() {
         It's the most effective way to break transaction links without trusting a 
         third party with your coins.
       </p>
+
+      <NeedAssistance tagline="Learn how to improve your Bitcoin privacy with expert guidance." />
 
       <CoinJoinVisualizer />
     </motion.div>
