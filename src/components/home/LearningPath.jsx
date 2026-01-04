@@ -22,6 +22,17 @@ import styles from './LearningPath.module.css';
 const LEARNING_TREE = {
   foundation: [
     { 
+      id: 'what-is-bitcoin', 
+      title: 'What is Bitcoin?', 
+      icon: Coins, 
+      path: '/lessons/what-is-bitcoin', 
+      level: 1,
+      description: 'A plain-English primer on why Bitcoin exists and how it works.',
+      difficulty: 'Beginner',
+      duration: '10 min',
+      topics: ['Why Bitcoin', '21M Cap', 'Self-Custody']
+    },
+    { 
       id: 'wallets', 
       title: 'Wallets & Addresses', 
       icon: Wallet, 

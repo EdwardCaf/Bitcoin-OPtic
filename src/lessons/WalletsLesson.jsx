@@ -43,6 +43,7 @@ export function WalletsLesson() {
       sections={sections}
       currentSection={currentSection}
       onSectionChange={setCurrentSection}
+      prevLesson={{ path: '/lessons/what-is-bitcoin', title: 'What is Bitcoin?' }}
       nextLesson={{ path: '/lessons/transactions', title: 'Transactions' }}
     >
       {renderSection()}

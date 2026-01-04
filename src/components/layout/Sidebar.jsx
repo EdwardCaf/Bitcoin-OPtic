@@ -12,6 +12,7 @@ import {
   Zap,
   Droplets,
   CircleDollarSign,
+  Bitcoin,
   ChevronRight,
   Library,
   Users
@@ -23,6 +24,7 @@ const sections = [
     id: 'fundamentals',
     title: 'Fundamentals',
     lessons: [
+      { id: 'what-is-bitcoin', title: 'What is Bitcoin?', icon: Bitcoin, path: '/lessons/what-is-bitcoin' },
       { id: 'wallets', title: 'Wallets', icon: Wallet, path: '/lessons/wallets' },
       { id: 'transactions', title: 'Transactions', icon: ArrowLeftRight, path: '/lessons/transactions' },
       { id: 'utxo-management', title: 'UTXO Management', icon: Coins, path: '/lessons/utxo-management' },

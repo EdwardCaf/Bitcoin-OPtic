@@ -252,7 +252,6 @@ export function SeedPhraseDemo() {
               <li>Use a hardware wallet (Coldcard, Jade) for cold storage</li>
               <li>Test recovery process before funding wallet with real Bitcoin</li>
               <li>Keep it offline and completely private - never share with anyone</li>
-              <li>Consider using a passphrase (25th word) for additional security</li>
             </ul>
           </div>
 
@@ -261,8 +260,8 @@ export function SeedPhraseDemo() {
             <ul className={styles.securityList}>
               <li>Take photos or screenshots of your seed phrase</li>
               <li>Store in email, cloud storage, password managers, or any digital format</li>
-              <li>Share with anyone claiming to be "support" or "verification"</li>
-              <li>Enter into websites or apps you don't completely trust</li>
+              <li>Share with anyone claiming to be "support"</li>
+              <li>Enter into websites or apps</li>
               <li>Store on internet-connected devices (computers, phones)</li>
               <li>Type it into any device if you can avoid it</li>
             </ul>
