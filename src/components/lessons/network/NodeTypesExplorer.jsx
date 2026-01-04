@@ -75,8 +75,8 @@ export function NodeTypesExplorer() {
   
   return (
     <div className={styles.container}>
-      <NeedAssistance tagline="Get help with running your own node" />
-      
+      <NeedAssistance tagline="Get help with running your own node." />
+
       <Card variant="elevated" padding="large">
         <div className={styles.header}>
           <div className={styles.titleSection}>
