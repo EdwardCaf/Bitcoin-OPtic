@@ -89,34 +89,36 @@ export function LessonLayout({
 
       {/* Navigation Footer */}
       <footer className={styles.footer}>
-        <Button
-          variant="secondary"
-          onClick={handlePrevious}
-          disabled={currentSection === 0 && !prevLesson}
-          icon={<ArrowLeft size={18} />}
-        >
-          {currentSection === 0 && prevLesson ? `Prev: ${prevLesson.title}` : 'Previous'}
-        </Button>
-        
         <div className={styles.footerCenter}>
           <span className={styles.sectionIndicator}>
             Section {currentSection + 1} of {sections.length}
           </span>
         </div>
         
-        <Button
-          variant="primary"
-          onClick={handleNext}
-          disabled={currentSection === sections.length - 1 && !nextLesson}
-          icon={<ArrowRight size={18} />}
-          iconPosition="right"
-        >
-          {currentSection === sections.length - 1 ? (
-            nextLesson ? `Next: ${nextLesson.title}` : 'Finish'
-          ) : (
-            'Continue'
-          )}
-        </Button>
+        <div className={styles.footerButtons}>
+          <Button
+            variant="secondary"
+            onClick={handlePrevious}
+            disabled={currentSection === 0 && !prevLesson}
+            icon={<ArrowLeft size={18} />}
+          >
+            {currentSection === 0 && prevLesson ? `Prev: ${prevLesson.title}` : 'Previous'}
+          </Button>
+          
+          <Button
+            variant="primary"
+            onClick={handleNext}
+            disabled={currentSection === sections.length - 1 && !nextLesson}
+            icon={<ArrowRight size={18} />}
+            iconPosition="right"
+          >
+            {currentSection === sections.length - 1 ? (
+              nextLesson ? `Next: ${nextLesson.title}` : 'Finish'
+            ) : (
+              'Continue'
+            )}
+          </Button>
+        </div>
       </footer>
     </div>
   );
