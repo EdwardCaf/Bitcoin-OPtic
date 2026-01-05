@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Pickaxe, Hash, Target, Coins } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion } from '../components/common';
+import { Card, Accordion, ResourceLinkCard } from '../components/common';
 import { HashPlayground, NonceFinder, HalvingTimeline } from '../components/lessons/mining';
 import styles from './Lessons.module.css';
 
@@ -132,6 +132,8 @@ function IntroSection() {
           </div>
         </div>
       </div>
+
+      <ResourceLinkCard section="education" title="Educational Resources" />
     </motion.div>
   );
 }

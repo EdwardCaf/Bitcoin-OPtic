@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Wallet, Key, Hash, Grid3X3, QrCode } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion, NeedAssistance } from '../components/common';
+import { Card, Accordion, NeedAssistance, ResourceLinkCard } from '../components/common';
 import { KeyPairGenerator, AddressTypeExplorer, SeedPhraseDemo, WalletTypesExplorer, CoordinatorSignerExplorer, XpubExplainer } from '../components/lessons/wallets';
 import styles from './Lessons.module.css';
 
@@ -137,6 +137,8 @@ function IntroSection() {
           devices - they all just hold copies of your keys.
         </p>
       </Accordion>
+
+      <ResourceLinkCard section="hardware" title="Hardware Wallets" />
 
       <div className={styles.factBox}>
         <h4>Wallet Security</h4>

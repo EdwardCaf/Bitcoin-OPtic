@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeftRight, Coins, Send, Gauge } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion } from '../components/common';
+import { Card, Accordion, ResourceLinkCard } from '../components/common';
 import { TransactionBuilder, FeeVisualizer } from '../components/lessons/transactions';
 import { generateSampleUTXOs } from '../utils/bitcoin';
 import styles from './Lessons.module.css';
@@ -113,6 +113,8 @@ function IntroSection() {
           and get approximately 0.2 BTC back as change (minus a small fee).
         </p>
       </Accordion>
+
+      <ResourceLinkCard section="explorers" title="Block Explorers" />
     </motion.div>
   );
 }

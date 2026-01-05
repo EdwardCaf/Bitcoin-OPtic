@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { EyeOff, Eye, Shield, Shuffle, RefreshCw } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion, NeedAssistance } from '../components/common';
+import { Card, Accordion, NeedAssistance, ResourceLinkCard } from '../components/common';
 import { AddressReuseDemo, TransactionGraph, CoinJoinVisualizer, PrivacyScorecard } from '../components/lessons/privacy';
 import { PegVisualizer } from '../components/lessons/liquid';
 import styles from './Lessons.module.css';
@@ -150,6 +150,8 @@ function IntroSection() {
           </div>
         </div>
       </div>
+
+      <ResourceLinkCard section="desktopWallets" title="Desktop Wallets" />
     </motion.div>
   );
 }

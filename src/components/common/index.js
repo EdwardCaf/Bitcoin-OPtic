@@ -5,3 +5,4 @@ export { Accordion, AccordionGroup } from './Accordion';
 export { Tooltip } from './Tooltip';
 export { Badge } from './Badge';
 export { NeedAssistance } from './NeedAssistance';
+export { ResourceLinkCard } from './ResourceLinkCard';

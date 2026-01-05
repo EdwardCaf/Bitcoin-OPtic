@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Monitor,
@@ -143,6 +145,14 @@ const RESOURCES = {
         description: 'Multi-platform wallet supporting Bitcoin and Liquid Network.',
         tags: ['Liquid', 'Mobile', 'Desktop'],
         icon: Droplets
+      },
+      {
+        name: 'Bull Bitcoin Wallet',
+        url: 'https://bullbitcoin.com',
+        description: 'Self-custody mobile wallet with hardware wallet support and Liquid integration.',
+        tags: ['Mobile', 'Liquid'],
+        favorite: true,
+        icon: Smartphone
       },
       {
         name: 'AQUA Wallet',
@@ -415,11 +425,12 @@ function ResourceCard({ resource }) {
   );
 }
 
-function ResourceSection({ section }) {
+function ResourceSection({ section, sectionId }) {
   const SectionIcon = section.icon;
 
   return (
     <motion.section
+      id={sectionId}
       className={styles.section}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -444,6 +455,22 @@ function ResourceSection({ section }) {
 }
 
 export function ResourcesPage() {
+  const location = useLocation();
+
+  // Handle hash navigation - scroll to section when URL has hash
+  useEffect(() => {
+    if (location.hash) {
+      // Small delay to ensure the DOM is ready
+      const timeoutId = setTimeout(() => {
+        const element = document.getElementById(location.hash.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [location.hash]);
+
   return (
     <div className={styles.container}>
       {/* Hero Section */}
@@ -470,17 +497,17 @@ export function ResourcesPage() {
 
       {/* Resource Sections */}
       <div className={styles.sections}>
-        <ResourceSection section={RESOURCES.desktopWallets} />
-        <ResourceSection section={RESOURCES.mobileWallets} />
-        <ResourceSection section={RESOURCES.lightningWallets} />
-        <ResourceSection section={RESOURCES.ecashWallets} />
-        <ResourceSection section={RESOURCES.liquidWallets} />
-        <ResourceSection section={RESOURCES.hardware} />
-        <ResourceSection section={RESOURCES.nodes} />
-        <ResourceSection section={RESOURCES.exchanges} />
-        <ResourceSection section={RESOURCES.education} />
-        <ResourceSection section={RESOURCES.books} />
-        <ResourceSection section={RESOURCES.explorers} />
+        <ResourceSection section={RESOURCES.desktopWallets} sectionId="desktopWallets" />
+        <ResourceSection section={RESOURCES.mobileWallets} sectionId="mobileWallets" />
+        <ResourceSection section={RESOURCES.lightningWallets} sectionId="lightningWallets" />
+        <ResourceSection section={RESOURCES.ecashWallets} sectionId="ecashWallets" />
+        <ResourceSection section={RESOURCES.liquidWallets} sectionId="liquidWallets" />
+        <ResourceSection section={RESOURCES.hardware} sectionId="hardware" />
+        <ResourceSection section={RESOURCES.nodes} sectionId="nodes" />
+        <ResourceSection section={RESOURCES.exchanges} sectionId="exchanges" />
+        <ResourceSection section={RESOURCES.education} sectionId="education" />
+        <ResourceSection section={RESOURCES.books} sectionId="books" />
+        <ResourceSection section={RESOURCES.explorers} sectionId="explorers" />
       </div>
 
       {/* Disclaimer */}

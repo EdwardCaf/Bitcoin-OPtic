@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion, Badge } from '../components/common';
+import { Card, Accordion, Badge, ResourceLinkCard } from '../components/common';
 import {
   Bitcoin,
   Globe2,
@@ -118,6 +118,8 @@ function IntroSection() {
           </p>
         </Card>
       </div>
+
+      <ResourceLinkCard section="education" title="Educational Resources" />
     </motion.div>
   );
 }

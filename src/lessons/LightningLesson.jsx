@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Clock, DollarSign, Network, Lock } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion, NeedAssistance } from '../components/common';
+import { Card, Accordion, NeedAssistance, ResourceLinkCard } from '../components/common';
 import { ChannelVisualizer, RoutingSimulator, HTLCDemo, InvoiceExplorer, PrivacyDemo } from '../components/lessons/lightning';
 import styles from './Lessons.module.css';
 
@@ -151,6 +151,8 @@ function IntroSection() {
           </div>
         </div>
       </div>
+
+      <ResourceLinkCard section="lightningWallets" title="Lightning Wallets" />
     </motion.div>
   );
 }

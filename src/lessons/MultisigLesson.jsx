@@ -9,7 +9,7 @@ import {
   Lock
 } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion, NeedAssistance } from '../components/common';
+import { Card, Accordion, NeedAssistance, ResourceLinkCard } from '../components/common';
 import { HowItWorks, ConfigurationExplorer, KeyManagement, BestPractices } from '../components/lessons/multisig';
 import styles from './Lessons.module.css';
 
@@ -165,6 +165,8 @@ function IntroSection() {
           </div>
         </div>
       </div>
+
+      <ResourceLinkCard section="hardware" title="Hardware Wallets" />
     </motion.div>
   );
 }

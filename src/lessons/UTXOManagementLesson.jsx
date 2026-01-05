@@ -14,7 +14,7 @@ import {
   Wallet
 } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion } from '../components/common';
+import { Card, Accordion, ResourceLinkCard } from '../components/common';
 import { 
   ConsolidationDemo, 
   CoinSelectionSimulator, 
@@ -158,6 +158,8 @@ function IntroSection() {
           </div>
         </div>
       </div>
+
+      <ResourceLinkCard section="desktopWallets" title="Desktop Wallets" />
     </motion.div>
   );
 }

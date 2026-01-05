@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Coins, Shield, Lock, Users, Target, AlertTriangle, Sparkles } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion } from '../components/common';
+import { Card, Accordion, ResourceLinkCard } from '../components/common';
 import { 
   MintVisualizer, 
   PrivacyComparison, 
@@ -137,6 +137,8 @@ function IntroSection() {
           DigiCash tried to bring it to banks in the 1990s but failed.
         </p>
       </div>
+
+      <ResourceLinkCard section="ecashWallets" title="Ecash Wallets" />
     </motion.div>
   );
 }

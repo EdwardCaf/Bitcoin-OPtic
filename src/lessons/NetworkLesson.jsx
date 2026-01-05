@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Network, Server, Radio, GitFork, Shield } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion } from '../components/common';
+import { Card, Accordion, ResourceLinkCard } from '../components/common';
 import { NetworkVisualizer, ConsensusDemo, NodeTypesExplorer, ForksVisualizer } from '../components/lessons/network';
 import styles from './Lessons.module.css';
 
@@ -139,6 +139,8 @@ function IntroSection() {
           </div>
         </div>
       </div>
+
+      <ResourceLinkCard section="nodes" title="Node Software" />
     </motion.div>
   );
 }

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Blocks, Box, Shield, Link as LinkIcon } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion } from '../components/common';
+import { Card, Accordion, ResourceLinkCard } from '../components/common';
 import { BlockExplorer, MerkleTreeVisualizer, ChainTamperDemo } from '../components/lessons/blocks';
 import styles from './Lessons.module.css';
 
@@ -135,6 +135,8 @@ function IntroSection() {
           </div>
         </div>
       </div>
+
+      <ResourceLinkCard section="explorers" title="Block Explorers" />
     </motion.div>
   );
 }

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Droplets, ArrowLeftRight, Shield, Coins, GitCompare } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
-import { Card, Accordion } from '../components/common';
+import { Card, Accordion, ResourceLinkCard } from '../components/common';
 import { PegVisualizer, ConfidentialTxDemo, AssetExplorer, ComparisonTable } from '../components/lessons/liquid';
 import styles from './Lessons.module.css';
 
@@ -147,6 +147,8 @@ function IntroSection() {
           </div>
         </div>
       </div>
+
+      <ResourceLinkCard section="liquidWallets" title="Liquid Wallets" />
     </motion.div>
   );
 }
