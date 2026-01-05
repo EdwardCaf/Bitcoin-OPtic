@@ -122,6 +122,13 @@ const RESOURCES = {
         description: 'Progressive Web App Cashu wallet with built-in mint discovery.',
         tags: ['Ecash', 'Mobile'],
         icon: Coins
+      },
+      {
+        name: 'Fedi',
+        url: 'https://fedi.xyz',
+        description: 'Fedimint-based community custody wallet with ecash and Lightning support.',
+        tags: ['Ecash', 'Mobile', 'Lightning'],
+        icon: Coins
       }
     ]
   },
@@ -238,19 +245,20 @@ const RESOURCES = {
         icon: ArrowLeftRight
       },
       {
+        name: 'Bull Bitcoin',
+        url: 'https://bullbitcoin.com',
+        description: 'Canadian non-custodial Bitcoin exchange with focus on self-custody.',
+        tags: ['Exchange', 'Canada'],
+        icon: ArrowLeftRight,
+        favorite: true
+      },
+      {
         name: 'Strike',
         url: 'https://strike.me',
         description: 'Lightning-native app for sending money globally.',
         tags: ['Exchange', 'Global', 'Lightning'],
         icon: Zap,
         favorite: true
-      },
-      {
-        name: 'Cash App',
-        url: 'https://cash.app',
-        description: 'Popular US payment app with Bitcoin buying and Lightning support.',
-        tags: ['Exchange', 'US', 'Lightning'],
-        icon: ArrowLeftRight
       },
       {
         name: 'Bisq 2',

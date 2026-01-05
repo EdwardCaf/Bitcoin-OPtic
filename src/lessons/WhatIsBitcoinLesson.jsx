@@ -419,7 +419,7 @@ function PropertiesSection() {
       animate={{ opacity: 1, y: 0 }}
       className={styles.section}
     >
-      <h2 className={styles.sectionTitle}>What makes Bitcoin special</h2>
+      <h2 className={styles.sectionTitle}>What makes Bitcoin unique</h2>
       <p className={styles.sectionText}>
         These properties work together to make Bitcoin useful money for anyone, anywhere.
       </p>
@@ -430,7 +430,7 @@ function PropertiesSection() {
           <div className={styles.conceptIcon}>
             <Coins size={24} />
           </div>
-          <h3>Scarce & sound</h3>
+          <h3>Sound Money</h3>
           <p>
             Hard cap of 21 million makes Bitcoin's supply predictable and resistant to inflation. No central party can dilute it.
           </p>
@@ -462,9 +462,9 @@ function PropertiesSection() {
           <div className={styles.conceptIcon}>
             <ShieldCheck size={24} />
           </div>
-          <h3>Censorship resistant</h3>
+          <h3>Censorship Resistant</h3>
           <p>
-            Transactions follow rules enforced by math, not human approvals. Even if some paths are blocked, your transaction finds a way.
+            Transactions follow rules enforced by math, not humans. Even if some nodes reject you, your transaction can find a way.
           </p>
         </div>
         <div className={styles.propertyVisual}>
@@ -502,7 +502,6 @@ function GettingStartedSection() {
       <h2 className={styles.sectionTitle}>How to start (beginner steps)</h2>
       <p className={styles.sectionText}>
         Keep it simple: learn the basics, use a trustworthy wallet, and practice with a tiny amount.
-        You do not need to be technical.
       </p>
 
       <div className={styles.conceptGrid}>
@@ -512,8 +511,7 @@ function GettingStartedSection() {
           </div>
           <h3>1) Install a wallet</h3>
           <p>
-            Pick a beginner-friendly mobile wallet. Write down the 12 or 24-word recovery phrase
-            privately.
+            Pick a beginner-friendly mobile wallet. Write down the 12 or 24-word recovery phrase on paper.
           </p>
         </Card>
 
@@ -523,7 +521,7 @@ function GettingStartedSection() {
           </div>
           <h3>2) Try a tiny send</h3>
           <p>
-            Receive a small amount, then send a little to see how it works. Treat it like cash: move
+            Receive a small amount, then send a little to see how it works. Move
             slowly and double-check addresses.
           </p>
         </Card>
@@ -534,7 +532,7 @@ function GettingStartedSection() {
           </div>
           <h3>3) Level up security</h3>
           <p>
-            When comfortable, learn hardware wallets and backups. The next lesson covers wallets in
+            When comfortable, take the next steps and learn about hardware wallets. The next lesson covers wallets in
             detail.
           </p>
         </Card>
@@ -548,11 +546,11 @@ function GettingStartedSection() {
             <span className={styles.factLabel}>Seed on paper</span>
           </div>
           <div className={styles.fact}>
-            <span className={styles.factValue}>Test it</span>
+            <span className={styles.factValue}>Send it</span>
             <span className={styles.factLabel}>Small amounts</span>
           </div>
           <div className={styles.fact}>
-            <span className={styles.factValue}>No photos</span>
+            <span className={styles.factValue}>Secure it</span>
             <span className={styles.factLabel}>Keep it offline</span>
           </div>
         </div>
