@@ -55,8 +55,8 @@ const RESOURCES = {
         icon: Smartphone
       },
       {
-        name: 'Bull Bitcoin Wallet',
-        url: 'https://bullbitcoin.com',
+        name: 'Bull Wallet',
+        url: 'https://wallet.bullbitcoin.com',
         description: 'Self-custody mobile wallet with hardware wallet support and Liquid integration.',
         tags: ['Mobile', 'Liquid'],
         favorite: true,
@@ -147,8 +147,8 @@ const RESOURCES = {
         icon: Droplets
       },
       {
-        name: 'Bull Bitcoin Wallet',
-        url: 'https://bullbitcoin.com',
+        name: 'Bull Wallet',
+        url: 'https://wallet.bullbitcoin.com',
         description: 'Self-custody mobile wallet with hardware wallet support and Liquid integration.',
         tags: ['Mobile', 'Liquid'],
         favorite: true,
