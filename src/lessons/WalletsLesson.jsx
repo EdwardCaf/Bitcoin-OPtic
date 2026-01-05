@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Wallet, Key, Hash, Grid3X3 } from 'lucide-react';
+import { Wallet, Key, Hash, Grid3X3, QrCode } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
 import { Card, Accordion, NeedAssistance } from '../components/common';
-import { KeyPairGenerator, AddressTypeExplorer, SeedPhraseDemo, WalletTypesExplorer, CoordinatorSignerExplorer } from '../components/lessons/wallets';
+import { KeyPairGenerator, AddressTypeExplorer, SeedPhraseDemo, WalletTypesExplorer, CoordinatorSignerExplorer, XpubExplainer } from '../components/lessons/wallets';
 import styles from './Lessons.module.css';
 
 const sections = [
@@ -74,6 +74,18 @@ function IntroSection() {
       </div>
 
       <div className={styles.conceptGrid}>
+
+        <Card padding="large" hover>
+          <div className={styles.conceptIcon}>
+            <QrCode size={24} />
+          </div>
+          <h3>Public Keys</h3>
+          <p>
+            Also called xpubs, these can generate all your receiving addresses 
+            without exposing private keys. Useful for watch-only wallets.
+          </p>
+        </Card>
+
         <Card padding="large" hover>
           <div className={styles.conceptIcon}>
             <Key size={24} />
@@ -106,6 +118,7 @@ function IntroSection() {
             multiple addresses. Write it down, keep it safe.
           </p>
         </Card>
+
       </div>
 
       <Accordion title="Analogy: Your Bitcoin Keychain" defaultOpen>
@@ -162,6 +175,10 @@ function KeysSection() {
       </p>
 
       <KeyPairGenerator />
+
+      <div style={{ marginTop: 'var(--spacing-xl)' }}>
+        <XpubExplainer />
+      </div>
     </motion.div>
   );
 }

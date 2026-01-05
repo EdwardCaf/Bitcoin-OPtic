@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7931a"/>
+      <stop offset="100%" stop-color="#c77a15"/>
+    </linearGradient>
+  </defs>
+  <rect width="192" height="192" rx="32" fill="url(#bg)"/>
+  <g transform="translate(96, 96)" stroke="#0a0a0a" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Eye outline -->
+    <path d="M-60 0 C-60 0 -30 -36 0 -36 C30 -36 60 0 60 0 C60 0 30 36 0 36 C-30 36 -60 0 -60 0 Z"/>
+    <!-- Pupil -->
+    <circle cx="0" cy="0" r="16" fill="#0a0a0a"/>
+  </g>
+</svg>
