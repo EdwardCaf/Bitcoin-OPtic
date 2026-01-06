@@ -13,8 +13,7 @@ import {
   BookOpen,
   Search,
   ExternalLink,
-  Library,
-  Star
+  Library
 } from 'lucide-react';
 import { Badge } from '../components/common';
 import styles from './ResourcesPage.module.css';
@@ -436,7 +435,7 @@ function ResourceCard({ resource, index }) {
           <div className={styles.mobileTitleGroup}>
             <h3 className={styles.cardTitle}>
               {resource.name}
-              {resource.favorite && <Star size={12} className={styles.starIcon} />}
+              {resource.favorite && <span className={styles.favoriteBadgeMobile}>Recommended</span>}
             </h3>
           </div>
         </div>

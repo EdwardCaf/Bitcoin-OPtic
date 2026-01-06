@@ -225,6 +225,11 @@
   flex-shrink: 0;
 }
 
+/* Hide mobile-specific badge on desktop */
+.favoriteBadgeMobile {
+  display: none;
+}
+
 /* Disclaimer */
 .disclaimer {
   margin-top: var(--spacing-xl);
@@ -323,9 +328,24 @@
     transform: translateX(4px);
   }
 
-  /* Hide "Recommended" badge on mobile, use star instead */
+  /* Hide desktop "Recommended" badge on mobile */
   .favoriteBadge {
     display: none;
+  }
+
+  /* Mobile inline "Recommended" badge */
+  .favoriteBadgeMobile {
+    display: inline-flex;
+    background: linear-gradient(135deg, #c08002 0%, #d7a85c 100%);
+    color: #1a1a1a;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: var(--radius-md);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-left: var(--spacing-xs);
+    flex-shrink: 0;
   }
 
   .cardFavorite {
