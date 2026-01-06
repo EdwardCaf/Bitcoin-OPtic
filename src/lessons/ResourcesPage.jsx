@@ -13,7 +13,8 @@ import {
   BookOpen,
   Search,
   ExternalLink,
-  Library
+  Library,
+  Star
 } from 'lucide-react';
 import { Badge } from '../components/common';
 import styles from './ResourcesPage.module.css';
@@ -369,7 +370,6 @@ const RESOURCES = {
 const getTagVariant = (tag) => {
   const tagLower = tag.toLowerCase();
   
-  // Colored tags
   if (tagLower === 'desktop') return 'info';
   if (tagLower === 'mobile') return 'success';
   if (tagLower === 'lightning') return 'warning';
@@ -379,11 +379,10 @@ const getTagVariant = (tag) => {
   if (tagLower === 'exchange') return 'exchange';
   if (tagLower === 'p2p') return 'purple';
   
-  // Default gray for descriptive tags
   return 'default';
 };
 
-function ResourceCard({ resource }) {
+function ResourceCard({ resource, index }) {
   const Icon = resource.icon;
   const cardClasses = [styles.card, resource.favorite && styles.cardFavorite].filter(Boolean).join(' ');
 
@@ -393,39 +392,73 @@ function ResourceCard({ resource }) {
       target="_blank"
       rel="noopener noreferrer"
       className={cardClasses}
-      initial={{ opacity: 0, y: 10 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '50px' }}
-      transition={{ duration: 0.15 }}
-      whileHover={{ y: -4 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ 
+        duration: 0.3,
+        delay: index * 0.03,
+        ease: 'easeOut'
+      }}
     >
       {resource.favorite && (
         <span className={styles.favoriteBadge}>Recommended</span>
       )}
-      <div className={styles.cardHeader}>
-        <div className={styles.cardIcon}>
-          <Icon size={20} />
-        </div>
-        <ExternalLink size={16} className={styles.externalIcon} />
-      </div>
       
-      <div className={styles.cardContent}>
-        <h3 className={styles.cardTitle}>{resource.name}</h3>
-        <p className={styles.cardDescription}>{resource.description}</p>
+      {/* Desktop Grid Layout */}
+      <div className={styles.desktopLayout}>
+        <div className={styles.cardHeader}>
+          <div className={styles.cardIcon}>
+            <Icon size={16} />
+          </div>
+          <ExternalLink size={14} className={styles.externalIcon} />
+        </div>
+        
+        <div className={styles.cardContent}>
+          <h3 className={styles.cardTitle}>{resource.name}</h3>
+          <p className={styles.cardDescription}>{resource.description}</p>
+        </div>
+
+        <div className={styles.cardTags}>
+          {resource.tags.map((tag) => (
+            <Badge key={tag} variant={getTagVariant(tag)} size="small">
+              {tag}
+            </Badge>
+          ))}
+        </div>
       </div>
 
-      <div className={styles.cardTags}>
-        {resource.tags.map((tag) => (
-          <Badge key={tag} variant={getTagVariant(tag)} size="small">
-            {tag}
-          </Badge>
-        ))}
+      {/* Mobile Horizontal Layout */}
+      <div className={styles.mobileLayout}>
+        <div className={styles.mobileLeft}>
+          <div className={styles.cardIcon}>
+            <Icon size={18} />
+          </div>
+          <div className={styles.mobileTitleGroup}>
+            <h3 className={styles.cardTitle}>
+              {resource.name}
+              {resource.favorite && <Star size={12} className={styles.starIcon} />}
+            </h3>
+          </div>
+        </div>
+        
+        <p className={styles.mobileDescription}>{resource.description}</p>
+
+        <div className={styles.mobileRight}>
+          <div className={styles.cardTags}>
+            {resource.tags.map((tag) => (
+              <Badge key={tag} variant={getTagVariant(tag)} size="small">
+                {tag}
+              </Badge>
+            ))}
+          </div>
+          <ExternalLink size={14} className={styles.externalIcon} />
+        </div>
       </div>
     </motion.a>
   );
 }
 
-function ResourceSection({ section, sectionId }) {
+function ResourceSection({ section, sectionId, isFirst }) {
   const SectionIcon = section.icon;
 
   return (
@@ -433,21 +466,23 @@ function ResourceSection({ section, sectionId }) {
       id={sectionId}
       className={styles.section}
       initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: '50px' }}
-      transition={{ duration: 0.2 }}
+      animate={{ opacity: 1 }}
+      transition={{ 
+        duration: 0.4,
+        ease: 'easeOut'
+      }}
     >
       <div className={styles.sectionHeader}>
         <div className={styles.sectionBadge}>
-          <SectionIcon size={16} />
+          <SectionIcon size={14} />
           <span>{section.title}</span>
         </div>
         <p className={styles.sectionDescription}>{section.description}</p>
       </div>
 
       <div className={styles.resourceGrid}>
-        {section.resources.map((resource) => (
-          <ResourceCard key={resource.name} resource={resource} />
+        {section.resources.map((resource, index) => (
+          <ResourceCard key={resource.name} resource={resource} index={index} />
         ))}
       </div>
     </motion.section>
@@ -460,7 +495,6 @@ export function ResourcesPage() {
   // Handle hash navigation - scroll to section when URL has hash
   useEffect(() => {
     if (location.hash) {
-      // Small delay to ensure the DOM is ready
       const timeoutId = setTimeout(() => {
         const element = document.getElementById(location.hash.slice(1));
         if (element) {
@@ -471,14 +505,16 @@ export function ResourcesPage() {
     }
   }, [location.hash]);
 
+  const sectionKeys = Object.keys(RESOURCES);
+
   return (
     <div className={styles.container}>
       {/* Hero Section */}
       <motion.section
         className={styles.hero}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
       >
         <Badge variant="primary" size="medium" icon={<Library size={14} />}>
           Bitcoin-Only Resources
@@ -490,38 +526,32 @@ export function ResourcesPage() {
         
         <p className={styles.heroText}>
           A curated collection of Bitcoin-only wallets, hardware, node software, exchanges, 
-          educational content, and tools. All resources are vetted for the Bitcoiner aspiring 
-          to level up their self-custody and understanding of Bitcoin.
+          educational content, and tools.
         </p>
       </motion.section>
 
       {/* Resource Sections */}
       <div className={styles.sections}>
-        <ResourceSection section={RESOURCES.desktopWallets} sectionId="desktopWallets" />
-        <ResourceSection section={RESOURCES.mobileWallets} sectionId="mobileWallets" />
-        <ResourceSection section={RESOURCES.lightningWallets} sectionId="lightningWallets" />
-        <ResourceSection section={RESOURCES.ecashWallets} sectionId="ecashWallets" />
-        <ResourceSection section={RESOURCES.liquidWallets} sectionId="liquidWallets" />
-        <ResourceSection section={RESOURCES.hardware} sectionId="hardware" />
-        <ResourceSection section={RESOURCES.nodes} sectionId="nodes" />
-        <ResourceSection section={RESOURCES.exchanges} sectionId="exchanges" />
-        <ResourceSection section={RESOURCES.education} sectionId="education" />
-        <ResourceSection section={RESOURCES.books} sectionId="books" />
-        <ResourceSection section={RESOURCES.explorers} sectionId="explorers" />
+        {sectionKeys.map((key, index) => (
+          <ResourceSection 
+            key={key}
+            section={RESOURCES[key]} 
+            sectionId={key}
+            isFirst={index === 0}
+          />
+        ))}
       </div>
 
       {/* Disclaimer */}
       <motion.div
         className={styles.disclaimer}
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.2 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
       >
         <p>
           <strong>Disclaimer:</strong> These resources are provided for educational purposes. 
-          Always do your own research (DYOR) before using any service or product. 
-          The Bitcoin OPtic is not responsible for any losses incurred from using these resources.
+          Always do your own research (DYOR) before using any service or product.
         </p>
       </motion.div>
     </div>
