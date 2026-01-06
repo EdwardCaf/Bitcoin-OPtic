@@ -64,7 +64,7 @@ export function HomePage() {
           </p>
           
           <div className={styles.heroButtons}>
-            <Link to="/lessons/wallets">
+            <Link to="/lessons/what-is-bitcoin">
               <Button 
                 variant="primary" 
                 size="large"
@@ -154,7 +154,7 @@ export function HomePage() {
         transition={{ duration: 0.5 }}
       >
         <h2 className={styles.ctaTitle}>Ready to Learn?</h2>
-        <Link to="/lessons/wallets">
+        <Link to="/lessons/what-is-bitcoin">
           <Button 
             variant="primary" 
             size="large"
