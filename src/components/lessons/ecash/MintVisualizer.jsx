@@ -156,7 +156,7 @@ export function MintVisualizer() {
             </li>
             <li>
               <Check size={16} className={styles.checkIcon} />
-              <span>The mint <strong>holds your Bitcoin</strong> - choose one you trust</span>
+              <span>The mint <strong>holds your Bitcoin</strong>, choose one you trust</span>
             </li>
           </ul>
         </div>

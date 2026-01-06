@@ -55,7 +55,7 @@ const communicationMethods = [
   {
     name: 'QR Codes',
     icon: QrCode,
-    description: 'Scan codes with camera - no physical connection needed',
+    description: 'Scan codes with camera, no physical connection needed',
     airGapped: true,
     securityLevel: 'highest',
     securityNote: 'Fully air-gapped. Data transferred visually.'
@@ -63,7 +63,7 @@ const communicationMethods = [
   {
     name: 'SD Card',
     icon: CreditCard,
-    description: 'Transfer files via memory card - completely offline',
+    description: 'Transfer files via memory card, completely offline',
     airGapped: true,
     securityLevel: 'highest',
     securityNote: 'Fully air-gapped. No electronic connection.'
@@ -71,7 +71,7 @@ const communicationMethods = [
   {
     name: 'NFC',
     icon: Radio,
-    description: 'Tap to transfer - quick, short-range wireless',
+    description: 'Tap to transfer, quick, short-range wireless',
     airGapped: true,
     securityLevel: 'high',
     securityNote: 'Air-gapped. Very short range limits attack surface.'
@@ -79,7 +79,7 @@ const communicationMethods = [
   {
     name: 'USB Cable',
     icon: Usb,
-    description: 'Direct cable connection - convenient but less isolated',
+    description: 'Direct cable connection, convenient but less isolated',
     airGapped: false,
     securityLevel: 'lower',
     securityNote: 'Direct connection to potentially compromised computer.'
@@ -87,7 +87,7 @@ const communicationMethods = [
   {
     name: 'Bluetooth',
     icon: Wifi,
-    description: 'Wireless connection - convenient but has larger attack surface',
+    description: 'Wireless connection, convenient but has larger attack surface',
     airGapped: false,
     securityLevel: 'lower',
     securityNote: 'Wireless protocol with known vulnerabilities.'
@@ -105,7 +105,7 @@ export function CoordinatorSignerExplorer() {
         <div className={styles.insightContent}>
           <h4 className={styles.insightTitle}>The Key Insight</h4>
           <p className={styles.insightText}>
-            Your wallet software (like Sparrow) doesn't store your Bitcoin <em>or</em> your keys - 
+            Your wallet software (like Sparrow) doesn't store your Bitcoin <em>or</em> your keys,
             it just watches the blockchain and helps you build transactions. Your hardware wallet 
             (like Coldcard) stores your keys and signs transactions, but never connects to the internet.
           </p>
@@ -297,7 +297,7 @@ export function CoordinatorSignerExplorer() {
 
         {/* PSBT Simple Note */}
         <div className={styles.psbtNote}>
-          <strong>What's a PSBT?</strong> It stands for "Partially Signed Bitcoin Transaction" - 
+          <strong>What's a PSBT?</strong> It stands for "Partially Signed Bitcoin Transaction",
           think of it as an unsigned check. The coordinator fills in all the details, 
           but leaves the signature blank for the hardware signer to complete.
         </div>

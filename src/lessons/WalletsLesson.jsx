@@ -67,7 +67,7 @@ function IntroSection() {
         </div>
         <h2 className={styles.heroTitle}>What is a Bitcoin Wallet?</h2>
         <p className={styles.heroText}>
-          A Bitcoin wallet doesn't actually store Bitcoin - it stores the cryptographic 
+          A Bitcoin wallet doesn't actually store Bitcoin, it stores the cryptographic 
           keys that prove you own Bitcoin on the blockchain. Think of it as a keychain 
           rather than a physical wallet.
         </p>
@@ -134,7 +134,7 @@ function IntroSection() {
         </p>
         <p>
           Unlike a physical wallet, you can have the same "wallet" on multiple 
-          devices - they all just hold copies of your keys.
+          devices, they all just hold copies of your keys.
         </p>
       </Accordion>
 
@@ -170,7 +170,7 @@ function KeysSection() {
     >
       <h2 className={styles.sectionTitle}>Private Keys, Public Keys & Addresses</h2>
       <p className={styles.sectionText}>
-        Every Bitcoin address starts with a private key - a random 256-bit (24-word seed phrase equivalent) number. 
+        Every Bitcoin address starts with a private key, a random 256-bit (24-word seed phrase equivalent) number. 
         Through cryptographic magic, this creates a public key, which is then hashed 
         to create your address. The math works one way only: you can't reverse-engineer 
         a private key from an address.

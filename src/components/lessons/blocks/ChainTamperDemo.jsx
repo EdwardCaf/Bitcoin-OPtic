@@ -211,7 +211,7 @@ export function ChainTamperDemo() {
             <p>
               When you changed the data in a block, its hash changed. But the next block 
               still references the old hash, breaking the chain. To "fix" this, an attacker 
-              would need to recalculate the hash for every subsequent block - and do it 
+              would need to recalculate the hash for every subsequent block, and do it 
               faster than the entire network is adding new blocks.
             </p>
             <p>

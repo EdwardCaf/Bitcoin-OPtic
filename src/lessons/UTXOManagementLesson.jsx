@@ -127,11 +127,11 @@ function IntroSection() {
         </p>
         <ul>
           <li>
-            <strong>Count out hundreds of small coins</strong> - Takes forever, and the cashier 
+            <strong>Count out hundreds of small coins</strong>. Takes forever, and the cashier 
             might charge you extra for the hassle (high fees)
           </li>
           <li>
-            <strong>First roll your coins into larger denominations</strong> - Takes some effort 
+            <strong>First roll your coins into larger denominations</strong>. Takes some effort 
             upfront, but future purchases are much easier (consolidation)
           </li>
         </ul>

@@ -298,7 +298,7 @@ export function KeyManagement() {
         <div>
           <strong>Critical: Back Up Your Output Descriptor</strong>
           <p>
-            Your multisig wallet is defined by an <strong>output descriptor</strong> - a string that 
+            Your multisig wallet is defined by an <strong>output descriptor</strong>, a string that 
             contains all the public keys and the threshold. Without it, you cannot reconstruct the 
             wallet even if you have all the seed phrases. Export and back up the descriptor 
             separately from your seeds.

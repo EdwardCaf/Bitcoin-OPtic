@@ -263,7 +263,7 @@ export function PrivacyScorecard() {
         icon={<Shield size={16} />}
       >
         <p>
-          Bitcoin privacy isn't all-or-nothing - it's a spectrum. Different 
+          Bitcoin privacy isn't all-or-nothing, it's a spectrum. Different 
           threat models require different levels of protection:
         </p>
         <ul>
@@ -282,7 +282,7 @@ export function PrivacyScorecard() {
         </ul>
         <p>
           Remember: Privacy is about <strong>raising the cost of surveillance</strong>. 
-          You don't need perfect privacy - you just need enough to make tracking 
+          You don't need perfect privacy, you just need enough to make tracking 
           economically unfeasible for your specific situation.
         </p>
       </Accordion>

@@ -73,7 +73,7 @@ function IntroSection() {
         <p className={styles.heroText}>
           Multi-signature (multisig) wallets require multiple keys to authorize a transaction. 
           Instead of trusting a single key, you distribute control across multiple devices, 
-          locations, or people - eliminating single points of failure.
+          locations, or people, eliminating single points of failure.
         </p>
       </div>
 
@@ -181,7 +181,7 @@ function HowItWorksSection() {
       <h2 className={styles.sectionTitle}>How Multi-Signature Works</h2>
       <p className={styles.sectionText}>
         In a multisig wallet, spending requires a threshold of signatures from a set of keys. 
-        This is expressed as "M-of-N" - where M signatures are needed from N total keys. 
+        This is expressed as "M-of-N", where M signatures are needed from N total keys. 
         Explore the interactive visualizations below to understand the mechanics.
       </p>
 

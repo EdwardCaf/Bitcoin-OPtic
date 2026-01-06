@@ -86,7 +86,7 @@ function IntroSection() {
           <h3>Inputs & Outputs</h3>
           <p>
             When you send Bitcoin, you select coins to spend (inputs) and 
-            specify where they go (outputs) - typically the recipient and your change address.
+            specify where they go (outputs), typically the recipient and your change address.
           </p>
         </Card>
 
@@ -131,7 +131,7 @@ function UTXOSection() {
       <h2 className={styles.sectionTitle}>Understanding UTXOs</h2>
       <p className={styles.sectionText}>
         <strong>UTXO</strong> stands for "Unspent Transaction Output." Every time you receive 
-        Bitcoin, you get a new UTXO - think of it as a unique, indivisible coin.
+        Bitcoin, you get a new UTXO, think of it as a unique, indivisible coin.
       </p>
 
       {/* Visual UTXO Example */}
@@ -158,15 +158,15 @@ function UTXOSection() {
         <h3>Key Points</h3>
         <ul>
           <li>
-            <strong>Each UTXO is unique</strong> - It has a specific amount and came from 
+            <strong>Each UTXO is unique</strong>, it has a specific amount and came from 
             a specific transaction
           </li>
           <li>
-            <strong>UTXOs must be spent entirely</strong> - You can't spend "part" of a 
+            <strong>UTXOs must be spent entirely</strong>. You can't spend "part" of a 
             coin; you must use the whole thing
           </li>
           <li>
-            <strong>Change goes to a new UTXO</strong> - When you spend more than needed, 
+            <strong>Change goes to a new UTXO</strong>. When you spend more than needed, 
             the difference becomes a new coin in your wallet
           </li>
         </ul>
@@ -226,7 +226,7 @@ function FeesSection() {
       <h2 className={styles.sectionTitle}>Transaction Fees</h2>
       <p className={styles.sectionText}>
         Transaction fees are how you incentivize miners to include your transaction in a block. 
-        The mempool is like a waiting room - transactions with higher fees get picked first.
+        The mempool is like a waiting room, transactions with higher fees get picked first.
       </p>
 
       <FeeVisualizer />

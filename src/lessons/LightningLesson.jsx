@@ -81,7 +81,7 @@ function IntroSection() {
           <h3>Instant Payments</h3>
           <p>
             Payments settle in milliseconds, not minutes. No waiting for block 
-            confirmations - perfect for everyday purchases.
+            confirmations, perfect for everyday purchases.
           </p>
         </Card>
 
@@ -92,7 +92,7 @@ function IntroSection() {
           <h3>Tiny Fees</h3>
           <p>
             Fees are typically less than a satoshi. This makes micropayments 
-            practical - pay per article, per second of video, or tip creators.
+            practical, pay per article, per second of video, or tip creators.
           </p>
         </Card>
 
@@ -116,16 +116,16 @@ function IntroSection() {
         <ul>
           <li>
             <strong>Opening a tab:</strong> You hand over your credit card. This is like 
-            opening a Lightning channel - one on-chain transaction locks up funds.
+            opening a Lightning channel, one on-chain transaction locks up funds.
           </li>
           <li>
             <strong>Ordering drinks:</strong> Throughout the night, you order drinks and 
-            the bartender updates your tab. No payment processing needed - just like 
+            the bartender updates your tab. No payment processing needed, just like 
             Lightning channel updates are instant and free.
           </li>
           <li>
             <strong>Closing your tab:</strong> At the end of the night, you settle up once. 
-            This is like closing a Lightning channel - one final on-chain transaction.
+            This is like closing a Lightning channel, one final on-chain transaction.
           </li>
         </ul>
         <p>
@@ -207,7 +207,7 @@ function HTLCSection() {
       <h2 className={styles.sectionTitle}>Hash Time-Locked Contracts</h2>
       <p className={styles.sectionText}>
         HTLCs are the cryptographic magic that makes multi-hop payments trustless. They 
-        ensure that either the entire payment succeeds, or it fails completely - no 
+        ensure that either the entire payment succeeds, or it fails completely, no 
         intermediate node can steal funds. The receiver reveals a secret that unlocks 
         payments at each hop.
       </p>
@@ -226,7 +226,7 @@ function InvoicesSection() {
     >
       <h2 className={styles.sectionTitle}>Using Lightning</h2>
       <p className={styles.sectionText}>
-        To receive a Lightning payment, you generate an invoice - a string that encodes 
+        To receive a Lightning payment, you generate an invoice, a string that encodes 
         the amount, description, and payment hash. The payer's wallet decodes this invoice 
         and finds a route to complete the payment. Invoices are single-use and typically 
         expire after a set time.

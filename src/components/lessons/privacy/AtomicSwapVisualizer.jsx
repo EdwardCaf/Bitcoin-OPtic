@@ -485,7 +485,7 @@ export function AtomicSwapVisualizer() {
                   <p>
                     You now have {currentScenario.amount} {currentScenario.chainB.asset} on {currentScenario.chainB.name}.
                     Boltz has {currentScenario.amount} {currentScenario.chainA.asset} on {currentScenario.chainA.name}.
-                    No KYC, no custody, no surveillance - just a trustless atomic swap.
+                    No KYC, no custody, no surveillance, just a trustless atomic swap.
                   </p>
                 </div>
               </motion.div>
@@ -548,7 +548,7 @@ export function AtomicSwapVisualizer() {
         <h4>How Boltz Works (Atomic Swaps via HTLCs):</h4>
         <p>
           Boltz uses <strong>Hash Time-Locked Contracts (HTLCs)</strong> to ensure trustless swaps. 
-          The "atomic" property means the swap either completes on both layers or fails on both - 
+          The "atomic" property means the swap either completes on both layers or fails on both,
           there's no scenario where funds can be stolen.
         </p>
         <ul>
@@ -562,7 +562,7 @@ export function AtomicSwapVisualizer() {
           </li>
           <li>
             <strong>Atomic property:</strong> Once you reveal the secret to claim your funds on one 
-            layer, Boltz can use that secret to complete their side - ensuring fairness
+            layer, Boltz can use that secret to complete their side, ensuring fairness
           </li>
         </ul>
 
@@ -672,7 +672,7 @@ export function AtomicSwapVisualizer() {
         <p>
           Boltz represents a new paradigm: privacy without permission. You don't need to ask an 
           exchange for permission to swap, provide ID, or trust them with custody. This makes 
-          financial privacy accessible to everyone, regardless of jurisdiction or identity - just 
+          financial privacy accessible to everyone, regardless of jurisdiction or identity, just 
           like Bitcoin itself.
         </p>
       </Accordion>

@@ -307,7 +307,7 @@ export function InvoiceExplorer() {
         <h5>What's an Offer?</h5>
         <p>
           An Offer is like a reusable payment link. You can publish one static Offer and receive 
-          unlimited payments to it - no more generating a new invoice for every transaction.
+          unlimited payments to it no more generating a new invoice for every transaction.
         </p>
 
         <h5>Key Benefits</h5>
@@ -336,7 +336,7 @@ export function InvoiceExplorer() {
         <p>
           When you scan an Offer, your wallet sends an onion message to request a fresh invoice. 
           The recipient's node automatically responds with a unique invoice just for you. This 
-          happens instantly and privately over the Lightning Network itself - no web server needed.
+          happens instantly and privately over the Lightning Network itself, no web server needed.
         </p>
 
         <p>

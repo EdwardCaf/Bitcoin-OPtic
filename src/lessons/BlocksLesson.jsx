@@ -97,7 +97,7 @@ function IntroSection() {
           <h3>Immutability</h3>
           <p>
             Changing any past transaction would require redoing all subsequent 
-            proof-of-work - computationally impossible.
+            proof-of-work, computationally impossible.
           </p>
         </Card>
       </div>
@@ -110,7 +110,7 @@ function IntroSection() {
         <p>
           Each page is stamped with a unique fingerprint (hash) that includes the 
           fingerprint of the previous page. If anyone tries to alter a page from years 
-          ago, all the fingerprints after it would change - immediately exposing the fraud.
+          ago, all the fingerprints after it would change, immediately exposing the fraud.
         </p>
         <p>
           Over 800,000 pages later, this ledger records every bitcoin transaction ever 

@@ -66,7 +66,7 @@ function IntroSection() {
         <p className={styles.heroText}>
           Liquid is a Bitcoin sidechain. It offers 
           faster settlement, confidential transactions, and the ability to issue custom 
-          assets - all backed by real Bitcoin through a federated two-way peg.
+          assets, all backed by real Bitcoin through a federated two-way peg.
         </p>
       </div>
 
@@ -78,7 +78,7 @@ function IntroSection() {
           <h3>Fast Finality</h3>
           <p>
             Transactions are final in about 2 minutes. No more waiting for 6 
-            confirmations - perfect for exchange settlements.
+            confirmations, perfect for exchange settlements.
           </p>
         </Card>
 
@@ -100,7 +100,7 @@ function IntroSection() {
           <h3>Issued Assets</h3>
           <p>
             Create and transfer custom tokens: stablecoins, security tokens, 
-            collectibles, and more - all on Bitcoin's security.
+            collectibles, and more, all on Bitcoin's security.
           </p>
         </Card>
       </div>

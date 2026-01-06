@@ -26,7 +26,7 @@ const configurations = [
     popular: true,
     security: 4,
     convenience: 4,
-    description: 'The most popular configuration. Provides excellent redundancy - you can lose one key and still access your funds.',
+    description: 'The most popular configuration. Provides excellent redundancy, you can lose one key and still access your funds.',
     useCases: [
       'Personal cold storage',
       'Geographic key distribution',

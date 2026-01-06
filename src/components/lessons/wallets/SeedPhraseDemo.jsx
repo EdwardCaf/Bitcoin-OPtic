@@ -251,7 +251,7 @@ export function SeedPhraseDemo() {
               <li>Store in multiple secure physical locations (fireproof safe, bank vault)</li>
               <li>Use a hardware wallet (Coldcard, Jade) for cold storage</li>
               <li>Test recovery process before funding wallet with real Bitcoin</li>
-              <li>Keep it offline and completely private - never share with anyone</li>
+              <li>Keep it offline and completely private, never share with anyone</li>
             </ul>
           </div>
 

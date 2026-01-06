@@ -68,7 +68,7 @@ function IntroSection() {
         <h2 className={styles.heroTitle}>Chaumian eCash</h2>
         <p className={styles.heroText}>
           eCash is a revolutionary technology that helps bring near-perfect privacy to Bitcoin 
-          using blind signatures - a cryptographic invention from the 1980s. Unlike Lightning's 
+          using blind signatures, a cryptographic invention from the 1980s. Unlike Lightning's 
           onion routing or Bitcoin's pseudonymity, eCash provides true unlinkability where 
           even the mint cannot track users.
         </p>
@@ -82,7 +82,7 @@ function IntroSection() {
           <h3>Near-Perfect Privacy</h3>
           <p>
             Blind signatures mean the mint cannot link withdrawals to spends. Your transactions 
-            are completely untraceable - better privacy than physical cash.
+            are completely untraceable, better privacy than physical cash.
           </p>
         </Card>
 
@@ -133,7 +133,7 @@ function IntroSection() {
       <div className={styles.factBox}>
         <h4>Historical Context</h4>
         <p>
-          David Chaum invented eCash in 1983 - before the internet was mainstream! His company 
+          David Chaum invented eCash in 1983, before the internet was mainstream! His company 
           DigiCash tried to bring it to banks in the 1990s but failed.
         </p>
       </div>
@@ -275,7 +275,7 @@ function UseCasesSection() {
     >
       <h2 className={styles.sectionTitle}>When to Use eCash</h2>
       <p className={styles.sectionText}>
-        eCash isn't meant to replace Bitcoin or Lightning - it's a specialized tool for 
+        eCash isn't meant to replace Bitcoin or Lightning, it's a specialized tool for 
         specific situations where privacy and simplicity matter more than full sovereignty. 
         Here's a practical guide for choosing the right layer.
       </p>

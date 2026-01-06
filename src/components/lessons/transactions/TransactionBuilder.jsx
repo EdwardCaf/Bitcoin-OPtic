@@ -154,7 +154,7 @@ export function TransactionBuilder() {
         </p>
         <ul>
           <li><strong>Inputs</strong> reference previous transaction outputs (UTXOs) that you're spending</li>
-          <li><strong>Outputs</strong> define where the bitcoin goes - typically one to the recipient and one for change</li>
+          <li><strong>Outputs</strong> define where the bitcoin goes, typically one to the recipient and one for change</li>
         </ul>
         <p>
           Each input requires a digital signature to prove you own the coins. 

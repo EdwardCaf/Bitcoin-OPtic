@@ -204,7 +204,7 @@ export function AssetExplorer() {
             <strong>Asset ID</strong>
             <p>
               Each asset has a unique ID derived from its issuance transaction. 
-              This prevents asset spoofing - you always know exactly which asset you're receiving.
+              This prevents asset spoofing, you always know exactly which asset you're receiving.
             </p>
           </div>
         </div>

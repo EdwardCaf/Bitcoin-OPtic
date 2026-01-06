@@ -70,7 +70,7 @@ function IntroSection() {
         <p className={styles.heroText}>
           Bitcoin is pseudonymous, not anonymous. Every transaction is recorded on a 
           public blockchain forever. With the right techniques, you can protect your 
-          financial privacy - but it requires understanding the risks first.
+          financial privacy, but it requires understanding the risks first.
         </p>
       </div>
 
@@ -128,7 +128,7 @@ function IntroSection() {
           </li>
         </ul>
         <p>
-          The goal isn't to hide illegal activity - it's to have the same level of 
+          The goal isn't to hide illegal activity, it's to have the same level of 
           financial privacy that cash provides, in the digital age.
         </p>
       </Accordion>

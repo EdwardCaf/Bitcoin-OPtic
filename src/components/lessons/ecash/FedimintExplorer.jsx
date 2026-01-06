@@ -109,7 +109,7 @@ export function FedimintExplorer() {
               <CheckCircle size={20} />
               <div>
                 <strong>Distributed Trust</strong>
-                <p>No single guardian can steal funds - requires 3 of 5 to collude</p>
+                <p>No single guardian can steal funds, requires 3 of 5 to collude</p>
               </div>
             </div>
             <div className={styles.benefit}>

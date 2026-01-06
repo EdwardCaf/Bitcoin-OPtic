@@ -148,7 +148,7 @@ function HashingSection() {
       <h2 className={styles.sectionTitle}>Understanding Hash Functions</h2>
       <p className={styles.sectionText}>
         At the heart of Bitcoin mining is the <strong>SHA-256 hash function</strong>. 
-        A hash function is like a fingerprint machine - put anything in, get a unique 
+        A hash function is like a fingerprint machine, put anything in, get a unique 
         "fingerprint" out. Even tiny changes create completely different results.
       </p>
 

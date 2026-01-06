@@ -60,7 +60,7 @@ const LAYERS = [
       graphAnalysis: 'No transaction graph exists'
     },
     rating: 5,
-    description: 'Near-perfect privacy via blind signatures - mint cannot track users'
+    description: 'Near-perfect privacy via blind signatures, mint cannot track users'
   }
 ];
 

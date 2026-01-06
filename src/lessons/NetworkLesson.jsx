@@ -213,7 +213,7 @@ function ForksSection() {
       <p className={styles.sectionText}>
         How does a decentralized network upgrade? Unlike traditional software, 
         Bitcoin has no central authority to push updates. Instead, the community 
-        must coordinate changes through "forks" - modifications to the protocol rules.
+        must coordinate changes through "forks", modifications to the protocol rules.
       </p>
 
       <div className={styles.conceptGridTwo}>

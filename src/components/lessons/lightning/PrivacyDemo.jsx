@@ -117,7 +117,7 @@ export function PrivacyDemo() {
             Onion Routing
           </h4>
           <p className={styles.sectionDesc}>
-            Each routing node only sees the previous and next hop - never the full path
+            Each routing node only sees the previous and next hop, never the full path
           </p>
           
           <div className={styles.routePath}>
