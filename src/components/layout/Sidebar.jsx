@@ -15,7 +15,7 @@ import {
   Bitcoin,
   ChevronRight,
   Library,
-  Users
+  MessageSquareMore
 } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
@@ -144,7 +144,7 @@ export function Sidebar({ isOpen, onClose }) {
             }}
           >
             <div className={styles.navIcon}>
-              <Users size={18} />
+              <MessageSquareMore size={18} />
             </div>
             <span className={styles.navTitle}>Bitcoin Mentor</span>
             <ChevronRight size={14} className={styles.navArrow} />
