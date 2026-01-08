@@ -146,7 +146,7 @@ export function Sidebar({ isOpen, onClose }) {
             <div className={styles.navIcon}>
               <MessageSquareMore size={18} />
             </div>
-            <span className={styles.navTitle}>Bitcoin Mentor</span>
+            <span className={styles.navTitle}>Schedule a Call</span>
             <ChevronRight size={14} className={styles.navArrow} />
           </NavLink>
 

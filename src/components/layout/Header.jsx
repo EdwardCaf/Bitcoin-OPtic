@@ -106,7 +106,7 @@ export function Header({ sidebarOpen, onToggleSidebar }) {
       <div className={styles.right}>
         <Link to="/support" className={styles.supportButton}>
           <MessageSquareMore size={18} />
-          <span className={styles.supportText}>Bitcoin Mentor</span>
+          <span className={styles.supportText}>Schedule a Call</span>
         </Link>
         <div 
           ref={statusRef}
