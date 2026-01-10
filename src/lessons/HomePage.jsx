@@ -91,7 +91,7 @@ export function HomePage() {
             </span>
             <span className={styles.badge}>
               <MonitorCheck size={16} />
-              Desktop Optimized
+              Progressive Web App
             </span>
             <span className={styles.badge}>
               <Sparkles size={16} />
