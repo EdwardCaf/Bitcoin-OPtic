@@ -776,7 +776,7 @@
 
 .worldMap {
   width: 100%;
-  height: 100px;
+  height: 120px;
 }
 
 .worldMap .landmass {
@@ -787,6 +787,19 @@
 
 .worldMap .nodePoint {
   fill: var(--bitcoin-orange);
+}
+
+/* Mesh Network Styles */
+.worldMap .meshLine {
+  stroke: var(--bitcoin-orange);
+  stroke-width: 1.5;
+  opacity: 0.4;
+}
+
+.worldMap .meshNode {
+  fill: var(--bitcoin-orange);
+  stroke: var(--bg-secondary);
+  stroke-width: 3;
 }
 
 .worldMapLabel {

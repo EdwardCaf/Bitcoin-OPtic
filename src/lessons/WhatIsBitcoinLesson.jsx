@@ -363,52 +363,66 @@ function CensorshipResistantVisual() {
   );
 }
 
-// World Map with Nodes Visual Component
 function DecentralizedMapVisual() {
-  // Simplified world map path (very basic continental outlines)
-  const worldPath = `
-    M 20,45 Q 25,35 35,38 L 45,35 Q 55,32 65,38 L 75,42 Q 80,48 75,55 L 65,58 Q 55,62 45,58 L 35,52 Q 25,48 20,45 Z
-    M 85,35 Q 95,28 110,32 L 130,35 Q 145,38 155,45 L 160,55 Q 158,65 145,68 L 125,65 Q 105,62 95,55 L 88,48 Q 82,42 85,35 Z
-    M 165,40 Q 180,32 200,35 L 220,38 Q 240,42 250,50 L 255,60 Q 252,72 235,75 L 210,72 Q 185,68 175,58 L 168,50 Q 162,45 165,40 Z
-    M 75,70 Q 85,65 95,68 L 105,75 Q 110,82 105,88 L 90,90 Q 78,88 75,80 L 75,70 Z
-    M 220,78 Q 235,75 250,80 L 260,88 Q 258,95 245,98 L 225,95 Q 215,90 220,78 Z
-  `;
-  
-  // Node positions scattered across continents
+  // 7 nodes in asymmetrical, spread-out arrangement
   const nodes = [
-    // North America
-    { x: 35, y: 42 }, { x: 50, y: 38 }, { x: 60, y: 45 }, { x: 45, y: 50 },
-    // Europe
-    { x: 120, y: 38 }, { x: 135, y: 42 }, { x: 125, y: 50 }, { x: 145, y: 48 },
-    // Asia
-    { x: 185, y: 42 }, { x: 210, y: 45 }, { x: 230, y: 50 }, { x: 200, y: 55 }, { x: 245, y: 55 },
-    // South America
-    { x: 85, y: 75 }, { x: 95, y: 80 },
-    // Australia
-    { x: 235, y: 85 }, { x: 248, y: 88 },
-    // Africa
-    { x: 140, y: 60 }, { x: 150, y: 65 },
+    { x: 100, y: 25 },
+    { x: 220, y: 20 },
+    { x: 260, y: 60 },
+    { x: 200, y: 95 },
+    { x: 80, y: 85 },
+    { x: 30, y: 55 },
+    { x: 150, y: 55 },
+  ];
+
+  // All possible connections (mesh network)
+  const connections = [
+    // Node 0 connections
+    [0, 1], [0, 4], [0, 5], [0, 6],
+    // Node 1 connections
+    [1, 2], [1, 3], [1, 6],
+    // Node 2 connections
+    [2, 3], [2, 6],
+    // Node 3 connections
+    [3, 4], [3, 6],
+    // Node 4 connections
+    [4, 5], [4, 6],
+    // Node 5 connections
+    [5, 6],
   ];
 
   return (
     <motion.div className={styles.worldMapContainer} {...quickFade}>
-      <svg className={styles.worldMap} viewBox="0 0 280 110" preserveAspectRatio="xMidYMid meet">
-        {/* Landmasses */}
-        <path d={worldPath} className={styles.landmass} />
+      <svg className={styles.worldMap} viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet">
+        {/* Connection lines */}
+        {connections.map(([start, end], i) => {
+          const startNode = nodes[start];
+          const endNode = nodes[end];
+          return (
+            <line
+              key={i}
+              x1={startNode.x}
+              y1={startNode.y}
+              x2={endNode.x}
+              y2={endNode.y}
+              className={styles.meshLine}
+            />
+          );
+        })}
         
-        {/* Node points */}
+        {/* Nodes */}
         {nodes.map((node, i) => (
           <circle
             key={i}
             cx={node.x}
             cy={node.y}
-            r="3"
-            className={styles.nodePoint}
+            r="8"
+            className={styles.meshNode}
           />
         ))}
       </svg>
       <p className={styles.worldMapLabel}>
-        <strong>~15,000+</strong> nodes worldwide, no central point of control
+        No central point of control
       </p>
     </motion.div>
   );
