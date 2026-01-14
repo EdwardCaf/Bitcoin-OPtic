@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   Handshake,
+  Globe,
   ExternalLink,
   Mail,
   Check,
@@ -131,6 +132,15 @@ export function SupportPage() {
           >
             <XIcon size={20} />
             <span className={styles.emailText}>@LiveFreeBTC</span>
+          </a>
+          <a 
+            href="https://primal.net/edward" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={styles.socialLink}
+          >
+            <Globe size={20} />
+            <span className={styles.emailText}>Nostr</span>
           </a>
           <button 
             onClick={handleCopyEmail}

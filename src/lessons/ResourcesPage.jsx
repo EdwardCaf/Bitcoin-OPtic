@@ -48,18 +48,18 @@ const RESOURCES = {
     description: 'Bitcoin wallets for iOS and Android devices',
     resources: [
       {
-        name: 'Blue Wallet',
-        url: 'https://bluewallet.io',
-        description: 'Easy-to-use mobile wallet with Watch-only support.',
-        tags: ['Mobile'],
-        icon: Smartphone
-      },
-      {
         name: 'Bull Wallet',
         url: 'https://wallet.bullbitcoin.com',
         description: 'Self-custody mobile wallet with hardware wallet support and Liquid integration.',
         tags: ['Mobile', 'Liquid'],
         favorite: true,
+        icon: Smartphone
+      },
+      {
+        name: 'Blue Wallet',
+        url: 'https://bluewallet.io',
+        description: 'Easy-to-use mobile wallet with Watch-only support.',
+        tags: ['Mobile'],
         icon: Smartphone
       },
       {
@@ -140,19 +140,19 @@ const RESOURCES = {
     description: 'Wallets supporting the Liquid Network sidechain',
     resources: [
       {
-        name: 'Blockstream Wallet',
-        url: 'https://blockstream.com/green',
-        description: 'Multi-platform wallet supporting Bitcoin and Liquid Network.',
-        tags: ['Liquid', 'Mobile', 'Desktop'],
-        icon: Droplets
-      },
-      {
         name: 'Bull Wallet',
         url: 'https://wallet.bullbitcoin.com',
         description: 'Self-custody mobile wallet with hardware wallet support and Liquid integration.',
         tags: ['Mobile', 'Liquid'],
         favorite: true,
         icon: Smartphone
+      },
+      {
+        name: 'Blockstream Wallet',
+        url: 'https://blockstream.com/green',
+        description: 'Multi-platform wallet supporting Bitcoin and Liquid Network.',
+        tags: ['Liquid', 'Mobile', 'Desktop'],
+        icon: Droplets
       },
       {
         name: 'AQUA Wallet',
@@ -219,11 +219,12 @@ const RESOURCES = {
     description: 'Run your own Bitcoin node for sovereignty and privacy',
     resources: [
       {
-        name: 'Bitcoin Core',
-        url: 'https://bitcoincore.org',
-        description: 'The reference implementation of the Bitcoin protocol.',
-        tags: ['Node', 'Reference'],
-        icon: Server
+        name: 'Start9',
+        url: 'https://start9.com',
+        description: 'Sovereign computing platform for running Bitcoin and other services.',
+        tags: ['Node'],
+        icon: Server,
+        favorite: true
       },
       {
         name: 'Umbrel',
@@ -233,12 +234,11 @@ const RESOURCES = {
         icon: Server
       },
       {
-        name: 'Start9',
-        url: 'https://start9.com',
-        description: 'Sovereign computing platform for running Bitcoin and other services.',
-        tags: ['Node'],
-        icon: Server,
-        favorite: true
+        name: 'Bitcoin Core',
+        url: 'https://bitcoincore.org',
+        description: 'The reference implementation of the Bitcoin protocol.',
+        tags: ['Node', 'Reference'],
+        icon: Server
       }
     ]
   },
@@ -247,13 +247,6 @@ const RESOURCES = {
     icon: ArrowLeftRight,
     description: 'Buy, sell, and trade Bitcoin',
     resources: [
-      {
-        name: 'River Financial',
-        url: 'https://river.com',
-        description: 'US-based Bitcoin exchange with Lightning withdrawals.',
-        tags: ['Exchange', 'US', 'Lightning'],
-        icon: ArrowLeftRight
-      },
       {
         name: 'Bull Bitcoin',
         url: 'https://bullbitcoin.com',
@@ -269,6 +262,13 @@ const RESOURCES = {
         tags: ['Exchange', 'Global', 'Lightning'],
         icon: Zap,
         favorite: true
+      },
+      {
+        name: 'River Financial',
+        url: 'https://river.com',
+        description: 'US-based Bitcoin exchange with Lightning withdrawals.',
+        tags: ['Exchange', 'US', 'Lightning'],
+        icon: ArrowLeftRight
       },
       {
         name: 'Bisq 2',
@@ -299,19 +299,19 @@ const RESOURCES = {
     description: 'Learn about Bitcoin from trusted sources',
     resources: [
       {
-        name: 'Bitcoin.org',
-        url: 'https://bitcoin.org',
-        description: 'Official Bitcoin resource with guides, documentation, and wallet info.',
-        tags: ['Reference'],
-        icon: BookOpen
-      },
-      {
         name: 'BTC Sessions',
         url: 'https://youtube.com/@BTCSessions',
         description: 'Video tutorials covering wallets, nodes, Lightning, and privacy.',
         tags: ['Video', 'Tutorials'],
         icon: BookOpen,
         favorite: true
+      },
+      {
+        name: 'Bitcoin.org',
+        url: 'https://bitcoin.org',
+        description: 'Official Bitcoin resource with guides, documentation, and wallet info.',
+        tags: ['Reference'],
+        icon: BookOpen
       },
       {
         name: 'Nakamoto Institute',
