@@ -15,7 +15,8 @@ import {
   Bitcoin,
   ChevronRight,
   Library,
-  MessageSquareMore
+  MessageSquareMore,
+  Code
 } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
@@ -27,6 +28,7 @@ const sections = [
       { id: 'what-is-bitcoin', title: 'What is Bitcoin?', icon: Bitcoin, path: '/lessons/what-is-bitcoin' },
       { id: 'wallets', title: 'Wallets', icon: Wallet, path: '/lessons/wallets' },
       { id: 'transactions', title: 'Transactions', icon: ArrowLeftRight, path: '/lessons/transactions' },
+      { id: 'script', title: 'Bitcoin Script', icon: Code, path: '/lessons/script' },
       { id: 'utxo-management', title: 'UTXO Management', icon: Coins, path: '/lessons/utxo-management' },
       { id: 'privacy', title: 'Privacy', icon: EyeOff, path: '/lessons/privacy' },
       { id: 'multisig', title: 'Multi-Signature', icon: Key, path: '/lessons/multisig' },

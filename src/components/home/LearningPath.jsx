@@ -12,7 +12,8 @@ import {
   Droplets,
   Coins,
   ChevronRight,
-  Clock
+  Clock,
+  Code
 } from 'lucide-react';
 import { Badge } from '../common';
 import styles from './LearningPath.module.css';
@@ -56,6 +57,17 @@ const LEARNING_TREE = {
     },
   ],
   core: [
+    { 
+      id: 'script', 
+      title: 'Bitcoin Script', 
+      icon: Code, 
+      path: '/lessons/script', 
+      level: 2,
+      description: 'Learn how Bitcoin\'s scripting language controls how coins can be spent.',
+      difficulty: 'Intermediate',
+      duration: '20 min',
+      topics: ['Script Execution', 'OP Codes', 'Script Types', 'Time Locks']
+    },
     { 
       id: 'utxo-management', 
       title: 'UTXO Management', 

@@ -11,6 +11,7 @@ import styles from './App.module.css';
 const WhatIsBitcoinLesson = lazy(() => import('./lessons/WhatIsBitcoinLesson'));
 const WalletsLesson = lazy(() => import('./lessons/WalletsLesson'));
 const TransactionsLesson = lazy(() => import('./lessons/TransactionsLesson'));
+const ScriptLesson = lazy(() => import('./lessons/ScriptLesson'));
 const UTXOManagementLesson = lazy(() => import('./lessons/UTXOManagementLesson'));
 const PrivacyLesson = lazy(() => import('./lessons/PrivacyLesson'));
 const MultisigLesson = lazy(() => import('./lessons/MultisigLesson'));
@@ -73,6 +74,7 @@ function App() {
             <Route path="/lessons/what-is-bitcoin" element={<WhatIsBitcoinLesson />} />
             <Route path="/lessons/wallets" element={<WalletsLesson />} />
             <Route path="/lessons/transactions" element={<TransactionsLesson />} />
+            <Route path="/lessons/script" element={<ScriptLesson />} />
             <Route path="/lessons/utxo-management" element={<UTXOManagementLesson />} />
             <Route path="/lessons/privacy" element={<PrivacyLesson />} />
             <Route path="/lessons/multisig" element={<MultisigLesson />} />

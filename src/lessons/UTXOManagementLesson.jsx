@@ -56,7 +56,7 @@ export function UTXOManagementLesson() {
       sections={sections}
       currentSection={currentSection}
       onSectionChange={setCurrentSection}
-      prevLesson={{ path: '/lessons/transactions', title: 'Transactions' }}
+      prevLesson={{ path: '/lessons/script', title: 'Bitcoin Script' }}
       nextLesson={{ path: '/lessons/privacy', title: 'Privacy' }}
     >
       {renderSection()}
