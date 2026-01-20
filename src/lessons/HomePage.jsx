@@ -87,7 +87,7 @@ export function HomePage() {
           <div className={styles.heroBadges}>
             <span className={styles.badge}>
               <BookOpen size={16} />
-              12 Lessons
+              13 Lessons
             </span>
             <span className={styles.badge}>
               <MonitorCheck size={16} />

@@ -5,6 +5,7 @@ import {
   ArrowLeftRight,
   EyeOff,
   Key,
+  Shield,
   Pickaxe,
   Blocks,
   Network,
@@ -42,6 +43,17 @@ const LEARNING_TREE = {
       difficulty: 'Beginner',
       duration: '15 min',
       topics: ['Private Keys', 'Address Types', 'HD Wallets']
+    },
+    { 
+      id: 'coldcard', 
+      title: 'Coldcard Q + Sparrow', 
+      icon: Shield, 
+      path: '/lessons/coldcard', 
+      level: 1,
+      description: 'Set up an airgapped Coldcard Q with Sparrow for secure desktop coordination.',
+      difficulty: 'Beginner',
+      duration: '15 min',
+      topics: ['Airgap', 'PSBT Flow', 'Watch-Only Wallets', 'Recovery']
     },
     { 
       id: 'transactions', 

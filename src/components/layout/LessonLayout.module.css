@@ -80,6 +80,12 @@
   padding-bottom: var(--spacing-xs);
   margin: 0 calc(-1 * var(--spacing-xl));
   padding: 0 var(--spacing-xl);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .tab {
