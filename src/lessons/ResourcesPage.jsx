@@ -15,6 +15,7 @@ import {
   ExternalLink,
   Library,
   Hammer,
+  ShoppingBag,
 } from "lucide-react";
 import { Badge } from "../components/common";
 import styles from "./ResourcesPage.module.css";
@@ -34,6 +35,14 @@ const RESOURCES = {
         tags: ["Desktop"],
         icon: Monitor,
         favorite: true,
+      },
+      {
+        name: "Wasabi Wallet",
+        url: "https://wasabiwallet.io",
+        description:
+          "Open-source, non-custodial, privacy-focused Bitcoin wallet with CoinJoin.",
+        tags: ["Desktop", "Privacy"],
+        icon: Monitor,
       },
       {
         name: "Nunchuk",
@@ -342,6 +351,28 @@ const RESOURCES = {
       },
     ],
   },
+  merchants: {
+    title: "Merchant Services",
+    icon: ShoppingBag,
+    description: "Accept Bitcoin payments for your business",
+    resources: [
+      {
+        name: "Zaprite",
+        url: "https://zaprite.com",
+        description:
+          "Bitcoin invoicing and payments platform for businesses and freelancers.",
+        tags: ["Merchant", "Invoicing"],
+        icon: ShoppingBag,
+      },
+      {
+        name: "BTCPay Server",
+        url: "https://btcpayserver.org",
+        description: "Open-source bitcoin payment processor.",
+        tags: ["Merchant", "Payment Processor"],
+        icon: Server,
+      },
+    ],
+  },
   education: {
     title: "Educational Resources",
     icon: BookOpen,
@@ -398,9 +429,9 @@ const RESOURCES = {
     ],
   },
   explorers: {
-    title: "Block Explorers",
+    title: "Network Tools",
     icon: Search,
-    description: "Explore the Bitcoin blockchain and mempool",
+    description: "Explore the Bitcoin blockchain, mempool, and Lightning Network",
     resources: [
       {
         name: "Mempool.space",
@@ -408,6 +439,14 @@ const RESOURCES = {
         description:
           "Open-source block explorer with mempool visualization and fee estimation.",
         tags: ["Block Explorer"],
+        icon: Search,
+      },
+      {
+        name: "Amboss",
+        url: "https://amboss.space",
+        description:
+          "Leading Lightning Network explorer and data analytics platform.",
+        tags: ["Lightning", "Data"],
         icon: Search,
       },
       {
