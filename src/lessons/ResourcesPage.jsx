@@ -13,7 +13,8 @@ import {
   BookOpen,
   Search,
   ExternalLink,
-  Library
+  Library,
+  Hammer
 } from 'lucide-react';
 import { Badge } from '../components/common';
 import styles from './ResourcesPage.module.css';
@@ -210,6 +211,34 @@ const RESOURCES = {
         description: 'Bitcoin-only edition hardware wallet with secure element and touchscreen.',
         tags: ['Bitcoin-only'],
         icon: Shield
+      }
+    ]
+  },
+  metalBackups: {
+    title: 'Metal Backups',
+    icon: Hammer,
+    description: 'Indestructible steel backups for your recovery seed',
+    resources: [
+      {
+        name: 'StampSeed',
+        url: 'https://stampseed.com',
+        description: 'Titanium seed plates for DIY stamping.',
+        tags: ['Titanium', 'DIY'],
+        icon: Hammer
+      },
+      {
+        name: 'Seedor',
+        url: 'https://www.seedor.io',
+        description: 'Secure stainless steel seed capsule system.',
+        tags: ['Steel', 'Capsule'],
+        icon: Hammer
+      },
+      {
+        name: 'Seedplate',
+        url: 'https://coinkite.com/seedplate',
+        description: 'Simple and robust steel backup plate by Coinkite.',
+        tags: ['Steel', 'Simple'],
+        icon: Hammer
       }
     ]
   },
