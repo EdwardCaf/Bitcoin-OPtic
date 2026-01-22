@@ -4,6 +4,7 @@ import { Header, Sidebar } from './components/layout';
 import { HomePage } from './lessons/HomePage';
 import { ResourcesPage } from './lessons/ResourcesPage';
 import { SupportPage } from './lessons/SupportPage';
+import { RoadmapPage } from './lessons/RoadmapPage';
 import './styles/globals.css';
 import styles from './App.module.css';
 
@@ -68,6 +69,7 @@ function App() {
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/roadmap" element={<RoadmapPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/support" element={<SupportPage />} />
             <Route path="/lessons/what-is-bitcoin" element={<WhatIsBitcoinLesson />} />

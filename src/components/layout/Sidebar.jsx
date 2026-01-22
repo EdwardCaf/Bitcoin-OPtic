@@ -15,7 +15,8 @@ import {
   Bitcoin,
   ChevronRight,
   Library,
-  MessageSquareMore
+  MessageSquareMore,
+  Route
 } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
@@ -109,6 +110,26 @@ export function Sidebar({ isOpen, onClose }) {
 
           {/* Separator */}
           <div className={styles.separator} />
+
+          {/* Roadmap Link */}
+          <NavLink
+            to="/roadmap"
+            className={({ isActive }) => `
+              ${styles.roadmapLink}
+              ${isActive ? styles.active : ''}
+            `}
+            onClick={() => {
+              if (window.innerWidth < 1024) {
+                onClose();
+              }
+            }}
+          >
+            <div className={styles.navIcon}>
+              <Route size={18} />
+            </div>
+            <span className={styles.navTitle}>Roadmap</span>
+            <ChevronRight size={14} className={styles.navArrow} />
+          </NavLink>
 
           {/* Resources Link */}
           <NavLink
