@@ -1,7 +1,7 @@
 import { useState, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
+import {
   ArrowRight,
   Sparkles,
   BookOpen,
@@ -13,6 +13,7 @@ import {
   BarChart3
 } from 'lucide-react';
 import { Button, Badge } from '../components/common';
+import { HeroBackground } from '../components/home/HeroBackground';
 import styles from './HomePage.module.css';
 
 // Lazy load below-fold components
@@ -41,32 +42,42 @@ export function HomePage() {
   return (
     <div className={styles.container}>
       {/* Hero Section */}
-      <motion.section 
+      <motion.section
         className={styles.hero}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
       >
-        <div className={styles.heroContent}>
+        <HeroBackground />
+        <div className={styles.heroGlow} aria-hidden="true" />
+        <div className={styles.heroScanlines} aria-hidden="true" />
+        <motion.div
+          className={styles.heroContent}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+        >
           <Badge variant="primary" size="medium" icon={<Sparkles size={14} />}>
             Visualized Bitcoin Education
           </Badge>
-          
+
           <h1 className={styles.heroTitle}>
-            Welcome to<br />
-            The Bitcoin <span className={styles.heroHighlight}>OP</span>tic
+            <span className={styles.heroTitleLine}>Welcome to</span>
+            <span className={styles.heroTitleMain}>
+              The Bitcoin <span className={styles.heroHighlight}>OP</span>tic
+            </span>
           </h1>
-          
+
           <p className={styles.heroText}>
-            Learn Bitcoin through beautiful visualizations. Explore wallets, 
-            mine blocks, route Lightning payments, and master the technology that's 
+            Learn Bitcoin through beautiful visualizations. Explore wallets,
+            mine blocks, route Lightning payments, and master the technology that's
             revolutionizing money. No setup required, all completely free.
           </p>
-          
+
           <div className={styles.heroButtons}>
             <Link to="/lessons/what-is-bitcoin">
-              <Button 
-                variant="primary" 
+              <Button
+                variant="primary"
                 size="large"
                 icon={<ArrowRight size={18} />}
                 iconPosition="right"
@@ -74,8 +85,8 @@ export function HomePage() {
                 Start Learning
               </Button>
             </Link>
-            <Button 
-              variant="secondary" 
+            <Button
+              variant="secondary"
               size="large"
               icon={<GraduationCap size={18} />}
               onClick={() => document.getElementById('learning-path').scrollIntoView({ behavior: 'smooth' })}
@@ -83,7 +94,7 @@ export function HomePage() {
               Browse Lessons
             </Button>
           </div>
-          
+
           <div className={styles.heroBadges}>
             <span className={styles.badge}>
               <BookOpen size={16} />
@@ -98,8 +109,7 @@ export function HomePage() {
               100% Free
             </span>
           </div>
-        </div>
-        
+        </motion.div>
       </motion.section>
 
       {/* Below-fold content - lazy loaded */}
@@ -121,27 +131,45 @@ export function HomePage() {
       >
         <h2 className={styles.sectionTitle}>Why The Bitcoin <span className={styles.sectionOrange}>OP</span>tic?</h2>
         <div className={styles.featuresGrid}>
-          <div className={styles.feature}>
+          <motion.div
+            className={styles.feature}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1, duration: 0.4 }}
+          >
             <div className={styles.featureIcon}>
               <BarChart3 size={24} />
             </div>
             <h4>Visual Learning</h4>
             <p>Visualizations let you see Bitcoin concepts in real-time</p>
-          </div>
-          <div className={styles.feature}>
+          </motion.div>
+          <motion.div
+            className={styles.feature}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+          >
             <div className={styles.featureIcon}>
               <BookOpen size={24} />
             </div>
             <h4>Beginner Friendly</h4>
             <p>Start from zero knowledge with clear explanations and relatable analogies</p>
-          </div>
-          <div className={styles.feature}>
+          </motion.div>
+          <motion.div
+            className={styles.feature}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.4 }}
+          >
             <div className={styles.featureIcon}>
               <Sparkles size={24} />
             </div>
             <h4>Deep Technical Content</h4>
             <p>Expand certain topics to dive into the underlying technical details</p>
-          </div>
+          </motion.div>
         </div>
       </motion.section>
 

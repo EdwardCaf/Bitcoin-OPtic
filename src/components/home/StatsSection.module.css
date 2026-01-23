@@ -30,12 +30,37 @@
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(247, 147, 26, 0.3),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity var(--transition-base);
 }
 
 .statCard:hover {
-  border-color: var(--border-accent);
+  border-color: rgba(247, 147, 26, 0.3);
   transform: translateY(-4px);
-  box-shadow: var(--shadow-glow);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(247, 147, 26, 0.08);
+}
+
+.statCard:hover::before {
+  opacity: 1;
 }
 
 .iconWrapper {
@@ -44,10 +69,18 @@
   justify-content: center;
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, var(--bitcoin-orange-subtle), rgba(247, 147, 26, 0.05));
+  background: rgba(247, 147, 26, 0.08);
+  border: 1px solid rgba(247, 147, 26, 0.15);
   border-radius: var(--radius-lg);
   color: var(--bitcoin-orange);
   margin-bottom: var(--spacing-md);
+  transition: all var(--transition-base);
+}
+
+.statCard:hover .iconWrapper {
+  background: rgba(247, 147, 26, 0.12);
+  border-color: rgba(247, 147, 26, 0.3);
+  box-shadow: 0 0 15px rgba(247, 147, 26, 0.15);
 }
 
 .value {
@@ -56,10 +89,13 @@
   color: var(--bitcoin-orange);
   line-height: 1;
   margin-bottom: var(--spacing-sm);
+  font-family: var(--font-mono);
+  text-shadow: 0 0 20px rgba(247, 147, 26, 0.2);
 }
 
 .label {
   font-size: var(--text-sm);
   color: var(--text-secondary);
   font-weight: 500;
+  letter-spacing: 0.02em;
 }

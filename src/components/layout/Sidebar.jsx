@@ -111,9 +111,9 @@ export function Sidebar({ isOpen, onClose }) {
           {/* Separator */}
           <div className={styles.separator} />
 
-          {/* Study Guides Link */}
+          {/* Checklist Link */}
           <NavLink
-            to="/roadmap"
+            to="/checklist"
             className={({ isActive }) => `
               ${styles.studyGuidesLink}
               ${isActive ? styles.active : ''}
@@ -127,7 +127,7 @@ export function Sidebar({ isOpen, onClose }) {
             <div className={styles.navIcon}>
               <BookOpen size={18} />
             </div>
-            <span className={styles.navTitle}>Study Guides</span>
+            <span className={styles.navTitle}>Checklist</span>
             <ChevronRight size={14} className={styles.navArrow} />
           </NavLink>
 

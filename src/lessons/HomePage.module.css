@@ -4,18 +4,64 @@
   padding: var(--spacing-xl);
 }
 
-/* Hero */
+/* ═══════════════════════════════════════════
+   HERO SECTION - Cypherpunk Command Center
+   ═══════════════════════════════════════════ */
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: var(--spacing-2xl) 0;
+  padding: var(--spacing-2xl) var(--spacing-lg);
   margin-bottom: var(--spacing-2xl);
+  min-height: 520px;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(247, 147, 26, 0.15);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(247, 147, 26, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 100%, rgba(247, 147, 26, 0.03) 0%, transparent 50%),
+    linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 100%);
+}
+
+.heroGlow {
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(247, 147, 26, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  animation: glowPulse 6s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+}
+
+.heroScanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
 }
 
 .heroContent {
-  max-width: 700px;
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
 }
 
 .heroTitle {
@@ -24,17 +70,51 @@
   line-height: 1.1;
   color: var(--text-primary);
   margin: var(--spacing-lg) 0;
+  letter-spacing: -0.02em;
+}
+
+.heroTitleLine {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+  font-family: var(--font-mono);
+}
+
+.heroTitleMain {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #ffffff 40%,
+    var(--bitcoin-orange-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 @media (max-width: 600px) {
   .heroTitle {
     font-size: 2.5rem;
   }
+  .heroTitleMain {
+    font-size: 2.5rem;
+  }
+  .heroTitleLine {
+    font-size: 1.1rem;
+  }
 }
 
 .heroHighlight {
-  color: var(--bitcoin-orange);
-  display: inline;
+  -webkit-text-fill-color: var(--bitcoin-orange);
+  text-shadow: 0 0 30px rgba(247, 147, 26, 0.4);
+  position: relative;
 }
 
 .heroText {
@@ -70,23 +150,29 @@
   align-items: center;
   gap: var(--spacing-xs);
   padding: var(--spacing-xs) var(--spacing-md);
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
+  background: rgba(247, 147, 26, 0.05);
+  border: 1px solid rgba(247, 147, 26, 0.2);
   border-radius: var(--radius-full);
   font-size: var(--text-sm);
   color: var(--text-secondary);
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
 }
 
 .badge svg {
   color: var(--bitcoin-orange);
 }
 
-/* Lazy loading placeholder */
+/* ═══════════════════════════════════════════
+   LAZY LOADING PLACEHOLDER
+   ═══════════════════════════════════════════ */
 .sectionPlaceholder {
   min-height: 400px;
 }
 
-/* Section Headers */
+/* ═══════════════════════════════════════════
+   SECTION HEADERS
+   ═══════════════════════════════════════════ */
 .sectionHeader {
   text-align: center;
   margin-bottom: var(--spacing-2xl);
@@ -98,10 +184,12 @@
   color: var(--text-primary);
   margin: 0 0 var(--spacing-md);
   text-align: center;
+  letter-spacing: -0.01em;
 }
 
 .sectionOrange {
   color: var(--bitcoin-orange);
+  text-shadow: 0 0 20px rgba(247, 147, 26, 0.3);
 }
 
 @media (max-width: 600px) {
@@ -117,11 +205,14 @@
   margin: 0 auto;
 }
 
-/* Features Section */
+/* ═══════════════════════════════════════════
+   FEATURES SECTION - Terminal Card Grid
+   ═══════════════════════════════════════════ */
 .featuresSection {
   padding: var(--spacing-2xl) 0;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(247, 147, 26, 0.1);
   margin-bottom: var(--spacing-2xl);
+  position: relative;
 }
 
 .featuresGrid {
@@ -139,7 +230,38 @@
 
 .feature {
   text-align: center;
-  padding: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: all var(--transition-base);
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    135deg,
+    rgba(247, 147, 26, 0.05) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.feature:hover {
+  border-color: rgba(247, 147, 26, 0.3);
+  transform: translateY(-4px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(247, 147, 26, 0.1);
+}
+
+.feature:hover::before {
+  opacity: 1;
 }
 
 .featureIcon {
@@ -148,10 +270,18 @@
   justify-content: center;
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, var(--bitcoin-orange-subtle), rgba(247, 147, 26, 0.05));
-  border-radius: var(--radius-xl);
+  background: rgba(247, 147, 26, 0.08);
+  border: 1px solid rgba(247, 147, 26, 0.2);
+  border-radius: var(--radius-lg);
   color: var(--bitcoin-orange);
   margin-bottom: var(--spacing-md);
+  transition: all var(--transition-base);
+}
+
+.feature:hover .featureIcon {
+  background: rgba(247, 147, 26, 0.15);
+  border-color: rgba(247, 147, 26, 0.4);
+  box-shadow: 0 0 20px rgba(247, 147, 26, 0.2);
 }
 
 .feature h4 {
@@ -159,6 +289,7 @@
   font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 var(--spacing-sm);
+  position: relative;
 }
 
 .feature p {
@@ -166,16 +297,38 @@
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
+  position: relative;
 }
 
-/* CTA Section */
+/* ═══════════════════════════════════════════
+   CTA SECTION - Encrypted Transmission
+   ═══════════════════════════════════════════ */
 .ctaSection {
   text-align: center;
   padding: var(--spacing-2xl);
-  background: linear-gradient(135deg, rgba(247, 147, 26, 0.05), rgba(247, 147, 26, 0.02));
-  border: 1px solid rgba(247, 147, 26, 0.1);
+  background:
+    radial-gradient(ellipse at center, rgba(247, 147, 26, 0.06) 0%, transparent 70%),
+    var(--bg-secondary);
+  border: 1px solid rgba(247, 147, 26, 0.15);
   border-radius: var(--radius-xl);
   margin-bottom: var(--spacing-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(247, 147, 26, 0.5),
+    transparent
+  );
 }
 
 .ctaTitle {
@@ -201,23 +354,28 @@
   font-size: var(--text-sm);
   color: var(--text-muted);
   margin-top: var(--spacing-md);
+  font-family: var(--font-mono);
+  letter-spacing: 0.03em;
 }
 
-/* Footer Contact */
+/* ═══════════════════════════════════════════
+   FOOTER CONTACT
+   ═══════════════════════════════════════════ */
 .footerContact {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-md);
   padding: var(--spacing-xl) 0;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid rgba(247, 147, 26, 0.1);
 }
 
 .footerLabel {
   font-size: var(--text-sm);
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  font-family: var(--font-mono);
 }
 
 .footerLinks {
@@ -238,13 +396,15 @@
   text-decoration: none;
   color: var(--text-secondary);
   font-size: var(--text-sm);
+  font-family: var(--font-mono);
   transition: all var(--transition-base);
 }
 
 .footerLink:hover {
-  border-color: var(--bitcoin-orange);
+  border-color: rgba(247, 147, 26, 0.4);
   background: var(--bg-tertiary);
   color: var(--text-primary);
+  box-shadow: 0 0 15px rgba(247, 147, 26, 0.1);
 }
 
 .footerLink svg {
@@ -257,5 +417,5 @@
 
 button.footerLink {
   cursor: pointer;
-  font-family: inherit;
+  font-family: var(--font-mono);
 }

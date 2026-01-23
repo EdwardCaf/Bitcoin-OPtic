@@ -12,6 +12,7 @@
   font-weight: 800;
   color: var(--text-primary);
   margin-bottom: var(--spacing-md);
+  letter-spacing: -0.01em;
 }
 
 .subtitle {
@@ -43,14 +44,15 @@
 .levelBadge {
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-md);
-  background: rgba(247, 147, 26, 0.1);
-  border: 1px solid rgba(247, 147, 26, 0.3);
+  background: rgba(247, 147, 26, 0.08);
+  border: 1px solid rgba(247, 147, 26, 0.25);
   border-radius: var(--radius-full);
   color: var(--bitcoin-orange);
   font-size: var(--text-sm);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  font-family: var(--font-mono);
 }
 
 .nodeContainer {
@@ -77,19 +79,44 @@
   gap: var(--spacing-md);
   padding: var(--spacing-lg);
   background: var(--bg-secondary);
-  border: 2px solid var(--border-subtle);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   text-decoration: none;
   color: inherit;
   transition: all var(--transition-base);
   height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.node::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(247, 147, 26, 0.3),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity var(--transition-base);
 }
 
 .node:hover {
-  border-color: var(--bitcoin-orange);
+  border-color: rgba(247, 147, 26, 0.4);
   background: var(--bg-tertiary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(247, 147, 26, 0.2);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(247, 147, 26, 0.08);
+}
+
+.node:hover::after {
+  opacity: 1;
 }
 
 .nodeHeader {
@@ -105,15 +132,19 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: var(--bitcoin-orange-subtle);
+  background: rgba(247, 147, 26, 0.08);
+  border: 1px solid rgba(247, 147, 26, 0.15);
   border-radius: var(--radius-md);
   color: var(--bitcoin-orange);
   flex-shrink: 0;
+  transition: all var(--transition-base);
 }
 
 .node:hover .nodeIcon {
   background: var(--bitcoin-orange);
+  border-color: var(--bitcoin-orange);
   color: var(--text-inverse);
+  box-shadow: 0 0 15px rgba(247, 147, 26, 0.3);
 }
 
 .nodeMeta {
@@ -128,6 +159,7 @@
   gap: var(--spacing-xs);
   font-size: var(--text-xs);
   color: var(--text-muted);
+  font-family: var(--font-mono);
 }
 
 .nodeContent {
@@ -160,9 +192,11 @@
 .topic {
   font-size: var(--text-xs);
   color: var(--text-muted);
-  background: var(--bg-tertiary);
+  background: rgba(247, 147, 26, 0.05);
+  border: 1px solid rgba(247, 147, 26, 0.1);
   padding: 2px var(--spacing-sm);
   border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
 }
 
 .nodeFooter {
@@ -177,6 +211,7 @@
   font-size: var(--text-sm);
   font-weight: 600;
   color: var(--bitcoin-orange);
+  font-family: var(--font-mono);
 }
 
 .nodeArrow {
@@ -201,15 +236,15 @@
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .nodeWrapper {
     max-width: 100%;
   }
-  
+
   .connector {
     height: 30px;
   }
-  
+
   .tree {
     max-width: 100%;
   }
@@ -219,7 +254,7 @@
   .title {
     font-size: var(--text-2xl);
   }
-  
+
   .subtitle {
     font-size: var(--text-base);
   }
