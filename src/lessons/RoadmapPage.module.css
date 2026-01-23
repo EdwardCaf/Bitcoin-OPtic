@@ -1,218 +1,635 @@
+/* =============================================================================
+   ROADMAP PAGE - Bitcoin Self-Sovereignty Path
+   Tree layout with collapsible topic cards and BTCSessions video links
+   ============================================================================= */
+
 .page {
-  padding: var(--spacing-xl) var(--spacing-lg);
-  max-width: 1200px;
-  margin: 0 auto var(--spacing-2xl);
+  padding-bottom: var(--spacing-4xl);
+  min-height: 100vh;
+  background-color: var(--bg-primary);
 }
+
+/* =============================================================================
+   HERO SECTION
+   ============================================================================= */
 
 .hero {
-  margin-bottom: var(--spacing-2xl);
-  text-align: left;
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  text-align: center;
+  background: radial-gradient(ellipse at top center, var(--bg-secondary) 0%, transparent 70%);
+  margin-bottom: var(--spacing-xl);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-.kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: linear-gradient(135deg, rgba(247, 147, 26, 0.16), rgba(247, 147, 26, 0.08));
-  color: var(--bitcoin-orange);
-  padding: 6px 12px;
-  border-radius: var(--radius-full);
-  font-weight: 600;
-  font-size: var(--text-sm);
-  letter-spacing: 0.02em;
-  border: 1px solid rgba(247, 147, 26, 0.35);
+.heroContent {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .title {
-  font-size: 2.4rem;
-  margin-top: var(--spacing-md);
-  margin-bottom: var(--spacing-sm);
-  letter-spacing: -0.01em;
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
+  font-size: var(--text-lg);
   color: var(--text-secondary);
-  max-width: 720px;
-  line-height: 1.6;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-xl);
 }
 
 .controls {
-  margin-top: var(--spacing-md);
   display: flex;
-  gap: var(--spacing-sm);
-}
-
-.controlButton {
-  background: linear-gradient(135deg, rgba(247, 147, 26, 0.18), rgba(247, 147, 26, 0.08));
-  border: 1px solid rgba(247, 147, 26, 0.4);
-  color: var(--text-primary);
-  padding: 10px 14px;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  font-weight: 600;
-  transition: all var(--transition-fast);
-}
-
-.controlButton:hover {
-  border-color: var(--bitcoin-orange);
-  box-shadow: 0 6px 20px rgba(247, 147, 26, 0.15);
-}
-
-
-.roadmap {
-  position: relative;
-  padding: var(--spacing-xl) var(--spacing-md);
-  background: radial-gradient(circle at 20% 20%, rgba(247, 147, 26, 0.05), transparent 25%),
-    radial-gradient(circle at 80% 40%, rgba(6, 182, 212, 0.05), transparent 22%),
-    var(--bg-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
-  overflow: hidden;
-}
-
-.stack {
-  display: grid;
-  gap: var(--spacing-lg);
-}
-
-.levelSection {
-  display: grid;
-  gap: var(--spacing-sm);
-}
-
-.levelHeader {
-  font-weight: 700;
-  font-size: var(--text-sm);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  padding-left: var(--spacing-sm);
-}
-
-.levelBody {
-  display: grid;
+  justify-content: center;
   gap: var(--spacing-md);
 }
 
+.controlBtn {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.controlBtn:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--bitcoin-orange);
+}
+
+/* =============================================================================
+   TREE CONTAINER - Desktop branching layout
+   ============================================================================= */
+
+.treeContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =============================================================================
+   TREE LEVEL - Horizontal row of cards
+   ============================================================================= */
+
+.treeLevel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.levelCards {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+
+.levelCards > * {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 500px;
+}
+
+.levelCardsBranching {
+  gap: var(--spacing-md);
+}
+
+.levelCardsBranching > * {
+  flex: 1;
+  max-width: 320px;
+  min-width: 280px;
+}
+
+/* =============================================================================
+   CONNECTORS - SVG lines connecting nodes
+   ============================================================================= */
+
+.connectorWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 40px;
+}
+
+.connector {
+  width: 100px;
+  height: 40px;
+}
+
+.connectorBranch {
+  width: 100%;
+  max-width: 700px;
+  height: 50px;
+}
+
+.connectorConverge {
+  width: 100%;
+  max-width: 700px;
+  height: 50px;
+}
+
+/* =============================================================================
+   TOPIC CARD - Collapsible card component
+   ============================================================================= */
+
 .card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: var(--spacing-sm) var(--spacing-md);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-sm);
 }
 
 .cardOpen {
-  border-color: var(--bitcoin-orange);
-  box-shadow: 0 12px 28px rgba(247, 147, 26, 0.18);
-  transform: translateY(-2px);
+  border-color: var(--bitcoin-orange-subtle);
+  box-shadow: 0 0 30px rgba(247, 147, 26, 0.1);
+  background: var(--bg-tertiary);
 }
 
+/* Card Header - Clickable trigger */
 .cardHeader {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
   width: 100%;
-  background: transparent;
-  border: none;
-  color: var(--text-primary);
-  cursor: pointer;
-  padding: var(--spacing-sm) 0;
-  text-align: left;
-}
-
-.iconWrap {
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radius-md);
-  display: grid;
-  place-items: center;
-  background: rgba(247, 147, 26, 0.14);
-  color: var(--bitcoin-orange);
-  border: 1px solid rgba(247, 147, 26, 0.25);
-}
-
-.headerText {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
   gap: var(--spacing-sm);
+}
+
+.headerMain {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex: 1;
+  min-width: 0;
+}
+
+.iconBox {
+  width: 44px;
+  height: 44px;
+  background: var(--bitcoin-orange-subtle);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bitcoin-orange);
+  flex-shrink: 0;
+  transition: all var(--transition-base);
+}
+
+.cardOpen .iconBox {
+  background: var(--bitcoin-orange);
+  color: var(--bg-primary);
+}
+
+.headerContent {
   flex: 1;
   min-width: 0;
 }
 
 .cardTitle {
+  font-size: var(--text-base);
   font-weight: 700;
-  font-size: var(--text-lg);
-  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  margin: 0;
+  margin-bottom: 4px;
 }
 
-.level {
+.cardSummaryPreview {
   font-size: var(--text-xs);
-  color: var(--text-secondary);
-  background: rgba(247, 147, 26, 0.08);
-  padding: 4px 8px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(247, 147, 26, 0.2);
+  color: var(--text-tertiary);
+  margin: 0;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.headerAction {
+  color: var(--text-tertiary);
+  transition: color var(--transition-base);
+  flex-shrink: 0;
+}
+
+.cardHeader:hover .headerAction {
+  color: var(--text-primary);
 }
 
 .chevron {
-  transition: transform var(--transition-fast);
+  transition: transform 0.3s ease;
 }
 
 .chevronOpen {
   transform: rotate(180deg);
 }
 
-.cardBody {
+/* =============================================================================
+   CARD BODY - Expanded content
+   ============================================================================= */
+
+.cardBodyWrapper {
   overflow: hidden;
-  padding: 0 var(--spacing-xs) var(--spacing-sm);
-  display: grid;
-  gap: var(--spacing-md);
 }
 
-.section {
-  display: grid;
-  gap: 6px;
+.cardBody {
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+  padding-left: calc(44px + var(--spacing-md) + var(--spacing-lg));
+}
+
+/* Prerequisites Section */
+.prerequisitesSection {
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-subtle);
+}
+
+.prerequisitesLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.prerequisitesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.prerequisiteChip {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  padding: 2px var(--spacing-sm);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Summary */
+.fullSummary {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* =============================================================================
+   ACTIONABLE STEPS SECTION
+   ============================================================================= */
+
+.actionSection {
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: var(--spacing-md);
 }
 
 .sectionLabel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
   font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--bitcoin-orange);
+  margin-bottom: var(--spacing-md);
 }
 
-ul {
-  list-style: disc;
-  padding-left: 18px;
-  color: var(--text-secondary);
-  display: grid;
-  gap: 6px;
-}
-
-.milestones {
+.stepsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
-.milestone {
-  background: rgba(247, 147, 26, 0.12);
-  border: 1px solid rgba(247, 147, 26, 0.2);
-  color: var(--text-primary);
-  padding: 6px 10px;
-  border-radius: var(--radius-full);
+.stepItem {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+.stepNumber {
+  width: 24px;
+  height: 24px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-default);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.stepItem:hover .stepNumber {
+  border-color: var(--bitcoin-orange);
+  color: var(--bitcoin-orange);
+}
+
+.stepContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.stepText {
   font-size: var(--text-sm);
+  color: var(--text-primary);
+  line-height: 1.5;
 }
 
-@media (max-width: 768px) {
-  .page {
-    padding: var(--spacing-lg) var(--spacing-md);
+/* Resource Links - Default style */
+.resourceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-xs);
+  color: var(--bitcoin-orange);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  width: fit-content;
+  font-weight: 500;
+}
+
+.resourceLink:hover {
+  color: var(--bitcoin-orange-light);
+  text-decoration: underline;
+}
+
+/* YouTube Links - Red styling */
+.youtubeLink {
+  color: #FF0000;
+  background: rgba(255, 0, 0, 0.08);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 0, 0, 0.2);
+}
+
+.youtubeLink:hover {
+  color: #CC0000;
+  background: rgba(255, 0, 0, 0.15);
+  border-color: rgba(255, 0, 0, 0.4);
+  text-decoration: none;
+}
+
+/* =============================================================================
+   SOVEREIGNTY NOTE
+   ============================================================================= */
+
+.sovereigntyNote {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: linear-gradient(135deg, var(--bitcoin-orange-subtle), transparent);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--bitcoin-orange);
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.sovereigntyNote svg {
+  flex-shrink: 0;
+  color: var(--bitcoin-orange);
+  margin-top: 2px;
+}
+
+/* =============================================================================
+   FOOTER CTA
+   ============================================================================= */
+
+.footerCta {
+  margin-top: var(--spacing-3xl);
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  background: radial-gradient(ellipse at bottom center, var(--bg-secondary) 0%, transparent 70%);
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+}
+
+.footerContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footerContent h3 {
+  font-size: var(--text-xl);
+  color: var(--bitcoin-orange);
+  margin-bottom: var(--spacing-sm);
+}
+
+.footerContent p {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* =============================================================================
+   MOBILE TIMELINE - Fallback for small screens
+   ============================================================================= */
+
+.mobileTimeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileTimelineItem {
+  display: flex;
+  gap: var(--spacing-md);
+  position: relative;
+}
+
+.mobileTimelineMarker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 20px;
+  padding-top: var(--spacing-lg);
+}
+
+.mobileMarkerDot {
+  width: 12px;
+  height: 12px;
+  background: var(--bitcoin-orange);
+  border-radius: 50%;
+  border: 2px solid var(--bg-primary);
+  box-shadow: 0 0 0 3px var(--bitcoin-orange-subtle);
+  z-index: 2;
+}
+
+.mobileTimelineLine {
+  width: 2px;
+  flex-grow: 1;
+  background: linear-gradient(to bottom, var(--bitcoin-orange), var(--border-subtle));
+  margin-top: var(--spacing-xs);
+  margin-bottom: calc(-1 * var(--spacing-lg));
+}
+
+.mobileTimelineItem .card {
+  flex: 1;
+  margin-bottom: var(--spacing-md);
+}
+
+/* =============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================================= */
+
+@media (max-width: 1100px) {
+  .levelCardsBranching > * {
+    max-width: 280px;
+    min-width: 240px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Tree layout switches to mobile timeline at this breakpoint */
+  .hero {
+    padding: var(--spacing-xl) var(--spacing-md);
   }
 
-  .stack {
-    gap: var(--spacing-md);
+  .title {
+    font-size: var(--text-3xl);
   }
+
+  .subtitle {
+    font-size: var(--text-base);
+  }
+
+  .treeContainer {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  .title {
+    font-size: var(--text-2xl);
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .controlBtn {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .cardHeader {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .iconBox {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cardTitle {
+    font-size: var(--text-sm);
+  }
+
+  .cardBody {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+    padding-left: var(--spacing-md);
+  }
+
+  .stepItem {
+    gap: var(--spacing-sm);
+  }
+
+  .stepNumber {
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+  }
+
+  .mobileTimelineMarker {
+    width: 16px;
+  }
+
+  .mobileMarkerDot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .footerCta {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
+
+  .footerContent h3 {
+    font-size: var(--text-lg);
+  }
+}
+
+/* =============================================================================
+   HOVER & FOCUS STATES
+   ============================================================================= */
+
+/* Subtle hover lift for cards */
+.card:hover:not(.cardOpen) {
+  transform: translateY(-2px);
+}
+
+/* Focus states for accessibility */
+.cardHeader:focus-visible {
+  outline: 2px solid var(--bitcoin-orange);
+  outline-offset: 2px;
+}
+
+.resourceLink:focus-visible {
+  outline: 2px solid var(--bitcoin-orange);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.youtubeLink:focus-visible {
+  outline: 2px solid #FF0000;
+}
+
+.controlBtn:focus-visible {
+  outline: 2px solid var(--bitcoin-orange);
+  outline-offset: 2px;
 }
