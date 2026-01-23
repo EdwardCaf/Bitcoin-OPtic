@@ -154,8 +154,8 @@
   margin: var(--spacing-lg) 0;
 }
 
-/* Roadmap Link - Green styling */
-.roadmapLink {
+/* Study Guides Link - Green styling */
+.studyGuidesLink {
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
@@ -170,28 +170,28 @@
   border: 1px solid rgba(34, 197, 94, 0.3);
 }
 
-.roadmapLink:hover {
+.studyGuidesLink:hover {
   background: linear-gradient(135deg, rgba(34, 197, 94, 0.18), rgba(34, 197, 94, 0.08));
   border-color: rgba(34, 197, 94, 0.5);
   color: var(--text-primary);
 }
 
-.roadmapLink.active {
+.studyGuidesLink.active {
   background: linear-gradient(135deg, rgba(34, 197, 94, 0.22), rgba(34, 197, 94, 0.12));
   border-color: var(--success);
   color: var(--text-primary);
 }
 
-.roadmapLink.active .navIcon {
+.studyGuidesLink.active .navIcon {
   color: #0a2f17;
   background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
 }
 
-.roadmapLink.active .navIcon svg {
+.studyGuidesLink.active .navIcon svg {
   color: #0a2f17;
 }
 
-.roadmapLink.active::before {
+.studyGuidesLink.active::before {
   content: '';
   position: absolute;
   left: 0;
@@ -203,12 +203,12 @@
   border-radius: var(--radius-full);
 }
 
-.roadmapLink:hover .navArrow {
+.studyGuidesLink:hover .navArrow {
   opacity: 1;
   transform: translateX(0);
 }
 
-.roadmapLink.active .navArrow {
+.studyGuidesLink.active .navArrow {
   opacity: 1;
   transform: translateX(0);
   color: var(--success);

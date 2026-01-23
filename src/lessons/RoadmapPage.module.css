@@ -1,12 +1,11 @@
 /* =============================================================================
-   ROADMAP PAGE - Bitcoin Self-Sovereignty Path
-   Tree layout with collapsible topic cards and BTCSessions video links
+   STUDY GUIDES - Editorial Chapter Layout
    ============================================================================= */
 
 .page {
-  padding-bottom: var(--spacing-4xl);
   min-height: 100vh;
   background-color: var(--bg-primary);
+  padding-bottom: 120px;
 }
 
 /* =============================================================================
@@ -14,622 +13,640 @@
    ============================================================================= */
 
 .hero {
-  padding: var(--spacing-3xl) var(--spacing-lg);
-  text-align: center;
-  background: radial-gradient(ellipse at top center, var(--bg-secondary) 0%, transparent 70%);
-  margin-bottom: var(--spacing-xl);
+  position: relative;
+  padding: 64px var(--spacing-lg) var(--spacing-2xl);
+  overflow: hidden;
   border-bottom: 1px solid var(--border-subtle);
 }
 
-.heroContent {
-  max-width: 700px;
+.heroInner {
+  max-width: 680px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-align: center;
 }
 
-.title {
-  font-size: var(--text-4xl);
+.heroLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--bitcoin-orange);
+  background: var(--bitcoin-orange-subtle);
+  border: 1px solid rgba(247, 147, 26, 0.2);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--spacing-lg);
+}
+
+.heroTitle {
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
   font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: var(--spacing-md);
-  letter-spacing: -0.02em;
+  margin: 0 0 var(--spacing-md);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
-.subtitle {
-  font-size: var(--text-lg);
+.heroSubtitle {
+  font-size: var(--text-base);
   color: var(--text-secondary);
   line-height: 1.7;
-  margin-bottom: var(--spacing-xl);
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-md);
-}
-
-.controlBtn {
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  padding: var(--spacing-sm) var(--spacing-lg);
-  border-radius: var(--radius-full);
-  font-size: var(--text-sm);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all var(--transition-base);
-}
-
-.controlBtn:hover {
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  border-color: var(--bitcoin-orange);
-}
-
-/* =============================================================================
-   TREE CONTAINER - Desktop branching layout
-   ============================================================================= */
-
-.treeContainer {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-lg);
-}
-
-.tree {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* =============================================================================
-   TREE LEVEL - Horizontal row of cards
-   ============================================================================= */
-
-.treeLevel {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.levelCards {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-lg);
-  width: 100%;
-}
-
-.levelCards > * {
-  flex: 0 0 auto;
-  width: 100%;
+  margin: 0 0 var(--spacing-xl);
   max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.levelCardsBranching {
-  gap: var(--spacing-md);
-}
-
-.levelCardsBranching > * {
-  flex: 1;
-  max-width: 320px;
-  min-width: 280px;
-}
-
-/* =============================================================================
-   CONNECTORS - SVG lines connecting nodes
-   ============================================================================= */
-
-.connectorWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  height: 40px;
-}
-
-.connector {
-  width: 100px;
-  height: 40px;
-}
-
-.connectorBranch {
-  width: 100%;
-  max-width: 700px;
-  height: 50px;
-}
-
-.connectorConverge {
-  width: 100%;
-  max-width: 700px;
-  height: 50px;
-}
-
-/* =============================================================================
-   TOPIC CARD - Collapsible card component
-   ============================================================================= */
-
-.card {
+.heroStats {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-lg);
   background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  overflow: hidden;
-  transition: all var(--transition-base);
+  padding: var(--spacing-md) var(--spacing-xl);
 }
 
-.card:hover {
-  border-color: var(--border-default);
-  box-shadow: var(--shadow-sm);
-}
-
-.cardOpen {
-  border-color: var(--bitcoin-orange-subtle);
-  box-shadow: 0 0 30px rgba(247, 147, 26, 0.1);
-  background: var(--bg-tertiary);
-}
-
-/* Card Header - Clickable trigger */
-.cardHeader {
-  width: 100%;
+.stat {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: var(--spacing-md) var(--spacing-lg);
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  gap: var(--spacing-sm);
+  gap: 2px;
 }
 
-.headerMain {
+.statValue {
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+}
+
+.statLabel {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.statDivider {
+  width: 1px;
+  height: 28px;
+  background: var(--border-subtle);
+}
+
+.heroGlow {
+  position: absolute;
+  top: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(247, 147, 26, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* =============================================================================
+   CHAPTERS CONTAINER
+   ============================================================================= */
+
+.chaptersContainer {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl) var(--spacing-lg) 0;
+}
+
+/* =============================================================================
+   CHAPTER BLOCK
+   ============================================================================= */
+
+.chapter {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
-  flex: 1;
-  min-width: 0;
+  gap: var(--spacing-lg);
+  position: relative;
+  padding-bottom: var(--spacing-2xl);
 }
 
-.iconBox {
+.chapter:last-child {
+  padding-bottom: 0;
+}
+
+/* Track (number + connecting line) */
+.chapterTrack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
   width: 44px;
-  height: 44px;
-  background: var(--bitcoin-orange-subtle);
-  border-radius: var(--radius-md);
+  padding-top: 4px;
+}
+
+.chapterNumber {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  z-index: 1;
+  transition: all var(--transition-base);
+}
+
+.chapterOpen .chapterNumber {
+  background: var(--bitcoin-orange);
+  color: var(--bg-primary);
+  border-color: var(--bitcoin-orange);
+  box-shadow: 0 0 16px rgba(247, 147, 26, 0.3);
+}
+
+.trackLine {
+  width: 1px;
+  flex: 1;
+  background: linear-gradient(to bottom, var(--border-subtle), transparent);
+  margin-top: var(--spacing-sm);
+}
+
+/* Chapter Content */
+.chapterContent {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  transition: all var(--transition-base);
+  overflow: hidden;
+}
+
+.chapterContent:hover {
+  border-color: var(--border-medium);
+}
+
+.chapterOpen .chapterContent {
+  border-color: rgba(247, 147, 26, 0.25);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3), 0 0 40px rgba(247, 147, 26, 0.04);
+}
+
+/* Header */
+.chapterHeader {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.chapterMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.difficultyTag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   color: var(--bitcoin-orange);
+  background: var(--bitcoin-orange-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.timeMeta {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.chapterTitleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.chapterIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
   flex-shrink: 0;
   transition: all var(--transition-base);
 }
 
-.cardOpen .iconBox {
+.chapterIconActive {
+  background: var(--bitcoin-orange-subtle);
+  color: var(--bitcoin-orange);
+}
+
+.chapterTitle {
+  flex: 1;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.expandIcon {
+  color: var(--text-muted);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.expandIconOpen {
+  transform: rotate(90deg);
+  color: var(--bitcoin-orange);
+}
+
+.chapterDescription {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 44px;
+}
+
+/* =============================================================================
+   EXPANDED BODY
+   ============================================================================= */
+
+.chapterBodyWrapper {
+  overflow: hidden;
+}
+
+.chapterBody {
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 0;
+  padding-top: var(--spacing-lg);
+}
+
+/* Two-column grid */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Column Headers */
+.columnHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* =============================================================================
+   LESSONS COLUMN
+   ============================================================================= */
+
+.lessonsColumn {
+  min-width: 0;
+}
+
+.lessonsList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lessonItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.lessonItem:hover {
+  border-color: var(--bitcoin-orange);
+  background: rgba(247, 147, 26, 0.04);
+}
+
+.lessonNumber {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
+}
+
+.lessonItem:hover .lessonNumber {
   background: var(--bitcoin-orange);
   color: var(--bg-primary);
 }
 
-.headerContent {
+.lessonContent {
   flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.lessonTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.lessonDesc {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lessonArrow {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all var(--transition-fast);
+}
+
+.lessonItem:hover .lessonArrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--bitcoin-orange);
+}
+
+/* =============================================================================
+   RESOURCES COLUMN
+   ============================================================================= */
+
+.resourcesColumn {
   min-width: 0;
 }
 
-.cardTitle {
-  font-size: var(--text-base);
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
-  margin-bottom: 4px;
+.resourcesList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.cardSummaryPreview {
-  font-size: var(--text-xs);
-  color: var(--text-tertiary);
-  margin: 0;
-  line-height: 1.4;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.headerAction {
-  color: var(--text-tertiary);
-  transition: color var(--transition-base);
-  flex-shrink: 0;
-}
-
-.cardHeader:hover .headerAction {
-  color: var(--text-primary);
-}
-
-.chevron {
-  transition: transform 0.3s ease;
-}
-
-.chevronOpen {
-  transform: rotate(180deg);
-}
-
-/* =============================================================================
-   CARD BODY - Expanded content
-   ============================================================================= */
-
-.cardBodyWrapper {
-  overflow: hidden;
-}
-
-.cardBody {
-  padding: 0 var(--spacing-lg) var(--spacing-lg);
-  padding-left: calc(44px + var(--spacing-md) + var(--spacing-lg));
-}
-
-/* Prerequisites Section */
-.prerequisitesSection {
-  margin-bottom: var(--spacing-md);
-  padding: var(--spacing-sm) var(--spacing-md);
-  background: var(--bg-primary);
-  border-radius: var(--radius-md);
-  border: 1px dashed var(--border-subtle);
-}
-
-.prerequisitesLabel {
+.resourceItem {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
-  font-size: var(--text-xs);
-  color: var(--text-muted);
-  margin-bottom: var(--spacing-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  background: transparent;
 }
 
-.prerequisitesList {
+.resourceItem:hover {
+  background: var(--bg-primary);
+}
+
+.resourceIconBox {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-sm);
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-xs);
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--bg-tertiary);
+  transition: all var(--transition-fast);
 }
 
-.prerequisiteChip {
-  background: var(--bg-secondary);
-  color: var(--text-secondary);
-  font-size: var(--text-xs);
-  padding: 2px var(--spacing-sm);
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-subtle);
+.resourceContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
-/* Summary */
-.fullSummary {
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: var(--spacing-lg);
+.resourceTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resourceMeta {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* Resource type styling */
+.resource_video .resourceIconBox {
+  color: #e53935;
+  background: rgba(229, 57, 53, 0.1);
+}
+
+.resource_video:hover .resourceIconBox {
+  background: rgba(229, 57, 53, 0.2);
+}
+
+.resource_article .resourceIconBox {
+  color: var(--bitcoin-orange);
+  background: var(--bitcoin-orange-subtle);
+}
+
+.resource_article:hover .resourceIconBox {
+  background: rgba(247, 147, 26, 0.2);
+}
+
+.resource_tool .resourceIconBox {
+  color: var(--success);
+  background: var(--success-bg);
+}
+
+.resource_tool:hover .resourceIconBox {
+  background: rgba(34, 197, 94, 0.15);
 }
 
 /* =============================================================================
-   ACTIONABLE STEPS SECTION
+   SUGGESTED PATH
    ============================================================================= */
 
-.actionSection {
+.suggestedBlock {
   background: var(--bg-primary);
   border-radius: var(--radius-md);
   padding: var(--spacing-md);
   border: 1px solid var(--border-subtle);
-  margin-bottom: var(--spacing-md);
-}
-
-.sectionLabel {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  font-size: var(--text-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 700;
-  color: var(--bitcoin-orange);
-  margin-bottom: var(--spacing-md);
-}
-
-.stepsList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.stepItem {
-  display: flex;
-  gap: var(--spacing-md);
-  align-items: flex-start;
-}
-
-.stepNumber {
-  width: 24px;
-  height: 24px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-default);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--text-xs);
-  font-weight: 700;
-  color: var(--text-secondary);
-  flex-shrink: 0;
-}
-
-.stepItem:hover .stepNumber {
-  border-color: var(--bitcoin-orange);
-  color: var(--bitcoin-orange);
-}
-
-.stepContent {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
-}
-
-.stepText {
-  font-size: var(--text-sm);
-  color: var(--text-primary);
-  line-height: 1.5;
-}
-
-/* Resource Links - Default style */
-.resourceLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: var(--text-xs);
-  color: var(--bitcoin-orange);
-  text-decoration: none;
-  transition: all var(--transition-fast);
-  width: fit-content;
-  font-weight: 500;
-}
-
-.resourceLink:hover {
-  color: var(--bitcoin-orange-light);
-  text-decoration: underline;
-}
-
-/* YouTube Links - Red styling */
-.youtubeLink {
-  color: #FF0000;
-  background: rgba(255, 0, 0, 0.08);
-  padding: 2px 8px;
-  border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 0, 0, 0.2);
-}
-
-.youtubeLink:hover {
-  color: #CC0000;
-  background: rgba(255, 0, 0, 0.15);
-  border-color: rgba(255, 0, 0, 0.4);
-  text-decoration: none;
-}
-
-/* =============================================================================
-   SOVEREIGNTY NOTE
-   ============================================================================= */
-
-.sovereigntyNote {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-md);
-  background: linear-gradient(135deg, var(--bitcoin-orange-subtle), transparent);
-  border-radius: var(--radius-md);
-  border-left: 3px solid var(--bitcoin-orange);
-  font-size: var(--text-xs);
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.sovereigntyNote svg {
-  flex-shrink: 0;
-  color: var(--bitcoin-orange);
-  margin-top: 2px;
-}
-
-/* =============================================================================
-   FOOTER CTA
-   ============================================================================= */
-
-.footerCta {
-  margin-top: var(--spacing-3xl);
-  padding: var(--spacing-2xl) var(--spacing-lg);
-  background: radial-gradient(ellipse at bottom center, var(--bg-secondary) 0%, transparent 70%);
-  border-top: 1px solid var(--border-subtle);
-  text-align: center;
-}
-
-.footerContent {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.footerContent h3 {
-  font-size: var(--text-xl);
-  color: var(--bitcoin-orange);
-  margin-bottom: var(--spacing-sm);
-}
-
-.footerContent p {
-  font-size: var(--text-sm);
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* =============================================================================
-   MOBILE TIMELINE - Fallback for small screens
-   ============================================================================= */
-
-.mobileTimeline {
-  display: flex;
-  flex-direction: column;
-}
-
-.mobileTimelineItem {
-  display: flex;
-  gap: var(--spacing-md);
   position: relative;
 }
 
-.mobileTimelineMarker {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  width: 20px;
-  padding-top: var(--spacing-lg);
-}
-
-.mobileMarkerDot {
-  width: 12px;
-  height: 12px;
-  background: var(--bitcoin-orange);
-  border-radius: 50%;
-  border: 2px solid var(--bg-primary);
-  box-shadow: 0 0 0 3px var(--bitcoin-orange-subtle);
-  z-index: 2;
-}
-
-.mobileTimelineLine {
+.suggestedBlock::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
   width: 2px;
-  flex-grow: 1;
-  background: linear-gradient(to bottom, var(--bitcoin-orange), var(--border-subtle));
-  margin-top: var(--spacing-xs);
-  margin-bottom: calc(-1 * var(--spacing-lg));
+  background: var(--bitcoin-orange);
+  border-radius: 2px;
 }
 
-.mobileTimelineItem .card {
-  flex: 1;
-  margin-bottom: var(--spacing-md);
+.suggestedHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--bitcoin-orange);
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-sm);
+}
+
+.suggestedText {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+  padding-left: var(--spacing-sm);
 }
 
 /* =============================================================================
-   RESPONSIVE ADJUSTMENTS
+   RESPONSIVE
    ============================================================================= */
 
-@media (max-width: 1100px) {
-  .levelCardsBranching > * {
-    max-width: 280px;
-    min-width: 240px;
-  }
-}
-
-@media (max-width: 900px) {
-  /* Tree layout switches to mobile timeline at this breakpoint */
+@media (max-width: 768px) {
   .hero {
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-xl) var(--spacing-md) var(--spacing-xl);
   }
 
-  .title {
-    font-size: var(--text-3xl);
+  .heroTitle {
+    font-size: 2rem;
   }
 
-  .subtitle {
-    font-size: var(--text-base);
+  .heroStats {
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-lg);
   }
 
-  .treeContainer {
-    padding: 0 var(--spacing-md);
+  .chaptersContainer {
+    padding: var(--spacing-xl) var(--spacing-md) 0;
+  }
+
+  .chapter {
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  .chapterTrack {
+    width: 36px;
+  }
+
+  .chapterNumber {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+  }
+
+  .chapterHeader {
+    padding: var(--spacing-md);
+  }
+
+  .chapterDescription {
+    padding-left: 0;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .chapterBody {
+    padding: 0 var(--spacing-md) var(--spacing-md);
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
   .hero {
     padding: var(--spacing-lg) var(--spacing-sm);
   }
 
-  .title {
-    font-size: var(--text-2xl);
+  .heroTitle {
+    font-size: 1.6rem;
   }
 
-  .controls {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .controlBtn {
-    width: 100%;
-    max-width: 200px;
-  }
-
-  .cardHeader {
-    padding: var(--spacing-sm) var(--spacing-md);
-  }
-
-  .iconBox {
-    width: 36px;
-    height: 36px;
-  }
-
-  .cardTitle {
+  .heroSubtitle {
     font-size: var(--text-sm);
   }
 
-  .cardBody {
-    padding: 0 var(--spacing-md) var(--spacing-md);
-    padding-left: var(--spacing-md);
+  .heroStats {
+    flex-direction: row;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-md);
   }
 
-  .stepItem {
-    gap: var(--spacing-sm);
+  .chapterTrack {
+    display: none;
   }
 
-  .stepNumber {
-    width: 20px;
-    height: 20px;
-    font-size: 10px;
+  .chapter {
+    padding-bottom: var(--spacing-lg);
   }
 
-  .mobileTimelineMarker {
-    width: 16px;
+  .chapterContent {
+    border-radius: var(--radius-md);
   }
 
-  .mobileMarkerDot {
-    width: 10px;
-    height: 10px;
+  .chapterTitleRow {
+    gap: 8px;
   }
 
-  .footerCta {
-    padding: var(--spacing-xl) var(--spacing-sm);
+  .chapterIcon {
+    width: 28px;
+    height: 28px;
   }
 
-  .footerContent h3 {
-    font-size: var(--text-lg);
+  .chapterTitle {
+    font-size: var(--text-base);
   }
-}
 
-/* =============================================================================
-   HOVER & FOCUS STATES
-   ============================================================================= */
-
-/* Subtle hover lift for cards */
-.card:hover:not(.cardOpen) {
-  transform: translateY(-2px);
-}
-
-/* Focus states for accessibility */
-.cardHeader:focus-visible {
-  outline: 2px solid var(--bitcoin-orange);
-  outline-offset: 2px;
-}
-
-.resourceLink:focus-visible {
-  outline: 2px solid var(--bitcoin-orange);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-.youtubeLink:focus-visible {
-  outline: 2px solid #FF0000;
-}
-
-.controlBtn:focus-visible {
-  outline: 2px solid var(--bitcoin-orange);
-  outline-offset: 2px;
+  .lessonItem {
+    padding: 8px 10px;
+  }
 }

@@ -16,7 +16,7 @@ import {
   ChevronRight,
   Library,
   MessageSquareMore,
-  Route
+  BookOpen
 } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
@@ -111,11 +111,11 @@ export function Sidebar({ isOpen, onClose }) {
           {/* Separator */}
           <div className={styles.separator} />
 
-          {/* Roadmap Link */}
+          {/* Study Guides Link */}
           <NavLink
             to="/roadmap"
             className={({ isActive }) => `
-              ${styles.roadmapLink}
+              ${styles.studyGuidesLink}
               ${isActive ? styles.active : ''}
             `}
             onClick={() => {
@@ -125,9 +125,9 @@ export function Sidebar({ isOpen, onClose }) {
             }}
           >
             <div className={styles.navIcon}>
-              <Route size={18} />
+              <BookOpen size={18} />
             </div>
-            <span className={styles.navTitle}>Roadmap</span>
+            <span className={styles.navTitle}>Study Guides</span>
             <ChevronRight size={14} className={styles.navArrow} />
           </NavLink>
 
