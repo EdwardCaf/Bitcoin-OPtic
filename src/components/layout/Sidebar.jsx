@@ -16,7 +16,6 @@ import {
   ChevronRight,
   Library,
   MessageSquareMore,
-  BookOpen
 } from 'lucide-react';
 import styles from './Sidebar.module.css';
 
@@ -110,26 +109,6 @@ export function Sidebar({ isOpen, onClose }) {
 
           {/* Separator */}
           <div className={styles.separator} />
-
-          {/* Checklist Link */}
-          <NavLink
-            to="/checklist"
-            className={({ isActive }) => `
-              ${styles.studyGuidesLink}
-              ${isActive ? styles.active : ''}
-            `}
-            onClick={() => {
-              if (window.innerWidth < 1024) {
-                onClose();
-              }
-            }}
-          >
-            <div className={styles.navIcon}>
-              <BookOpen size={18} />
-            </div>
-            <span className={styles.navTitle}>Checklist</span>
-            <ChevronRight size={14} className={styles.navArrow} />
-          </NavLink>
 
           {/* Resources Link */}
           <NavLink
