@@ -1,17 +1,17 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
-const HEX_CHARS = '0123456789abcdef';
+const HEX_CHARS = "0123456789abcdef";
 const HASH_SNIPPETS = [
-  '0000000000000000000',
-  'f7931a',
-  'deadbeef',
-  '21000000',
-  'cafebabe',
-  'ff',
-  '00',
-  'a1b2c3',
-  'bitcoin',
-  'sha256',
+  "000000000000000",
+  "f7931a",
+  "de18e2af",
+  "21000000",
+  "caf277c1",
+  "ffa0",
+  "0011",
+  "a1b2c3",
+  "bitcoin",
+  "sha256",
 ];
 
 export function HeroBackground() {
@@ -25,10 +25,12 @@ export function HeroBackground() {
     if (!canvas) return;
 
     // Respect reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (prefersReducedMotion) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     let width, height;
 
     const resize = () => {
@@ -43,7 +45,9 @@ export function HeroBackground() {
 
     const initParticles = () => {
       const count = Math.min(Math.floor(width / 40), 35);
-      particlesRef.current = Array.from({ length: count }, () => createParticle());
+      particlesRef.current = Array.from({ length: count }, () =>
+        createParticle(),
+      );
     };
 
     const createParticle = () => {
@@ -55,9 +59,10 @@ export function HeroBackground() {
         opacity: 0.03 + Math.random() * 0.12,
         char: isHash
           ? HASH_SNIPPETS[Math.floor(Math.random() * HASH_SNIPPETS.length)]
-          : Array.from({ length: 4 + Math.floor(Math.random() * 8) }, () =>
-              HEX_CHARS[Math.floor(Math.random() * HEX_CHARS.length)]
-            ).join(''),
+          : Array.from(
+              { length: 4 + Math.floor(Math.random() * 8) },
+              () => HEX_CHARS[Math.floor(Math.random() * HEX_CHARS.length)],
+            ).join(""),
         fontSize: 10 + Math.random() * 4,
         drift: (Math.random() - 0.5) * 0.3,
       };
@@ -95,9 +100,9 @@ export function HeroBackground() {
     resize();
     animationRef.current = requestAnimationFrame(draw);
 
-    window.addEventListener('resize', resize);
+    window.addEventListener("resize", resize);
     return () => {
-      window.removeEventListener('resize', resize);
+      window.removeEventListener("resize", resize);
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
   }, []);
@@ -107,11 +112,11 @@ export function HeroBackground() {
       ref={canvasRef}
       aria-hidden="true"
       style={{
-        position: 'absolute',
+        position: "absolute",
         inset: 0,
-        width: '100%',
-        height: '100%',
-        pointerEvents: 'none',
+        width: "100%",
+        height: "100%",
+        pointerEvents: "none",
         zIndex: 0,
       }}
     />
