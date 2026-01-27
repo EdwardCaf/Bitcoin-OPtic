@@ -76,6 +76,13 @@ const RESOURCES = {
         icon: Smartphone,
       },
       {
+        name: "Cove Wallet",
+        url: "https://covebitcoinwallet.com",
+        description: "Self-custody mobile wallet with hardware wallet support.",
+        tags: ["Mobile"],
+        icon: Smartphone,
+      },
+      {
         name: "Nunchuk",
         url: "https://nunchuk.io",
         description:
@@ -431,7 +438,8 @@ const RESOURCES = {
   explorers: {
     title: "Network Tools",
     icon: Search,
-    description: "Explore the Bitcoin blockchain, mempool, and Lightning Network",
+    description:
+      "Explore the Bitcoin blockchain, mempool, and Lightning Network",
     resources: [
       {
         name: "Mempool.space",
