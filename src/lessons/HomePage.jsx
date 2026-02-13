@@ -1,6 +1,6 @@
-import { useState, lazy, Suspense } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { useState, lazy, Suspense } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   ArrowRight,
   Sparkles,
@@ -10,15 +10,23 @@ import {
   Mail,
   Check,
   MonitorCheck,
-  BarChart3
-} from 'lucide-react';
-import { Button, Badge } from '../components/common';
-import { HeroBackground } from '../components/home/HeroBackground';
-import styles from './HomePage.module.css';
+  BarChart3,
+} from "lucide-react";
+import { Button, Badge } from "../components/common";
+import { HeroBackground } from "../components/home/HeroBackground";
+import styles from "./HomePage.module.css";
 
 // Lazy load below-fold components
-const StatsSection = lazy(() => import('../components/home/StatsSection').then(m => ({ default: m.StatsSection })));
-const LearningPath = lazy(() => import('../components/home/LearningPath').then(m => ({ default: m.LearningPath })));
+const StatsSection = lazy(() =>
+  import("../components/home/StatsSection").then((m) => ({
+    default: m.StatsSection,
+  })),
+);
+const LearningPath = lazy(() =>
+  import("../components/home/LearningPath").then((m) => ({
+    default: m.LearningPath,
+  })),
+);
 
 // Minimal placeholder for below-fold content
 function SectionPlaceholder() {
@@ -33,12 +41,21 @@ const XIcon = ({ size = 18 }) => (
 
 export function HomePage() {
   const [copied, setCopied] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState("");
+  const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('edward@bitcoinmentor.io');
+    navigator.clipboard.writeText("edward@bitcoinmentor.io");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const handleNewsletterSubmit = (event) => {
+    event.preventDefault();
+    setNewsletterSubmitted(true);
+    setNewsletterEmail("");
+  };
+
   return (
     <div className={styles.container}>
       {/* Hero Section */}
@@ -57,10 +74,6 @@ export function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
         >
-          <Badge variant="primary" size="medium" icon={<Sparkles size={14} />}>
-            Visualized Bitcoin Education
-          </Badge>
-
           <h1 className={styles.heroTitle}>
             <span className={styles.heroTitleLine}>Welcome to</span>
             <span className={styles.heroTitleMain}>
@@ -70,8 +83,9 @@ export function HomePage() {
 
           <p className={styles.heroText}>
             Learn Bitcoin through beautiful visualizations. Explore wallets,
-            mine blocks, route Lightning payments, and master the technology that's
-            revolutionizing money. No setup required, all completely free.
+            mine blocks, route Lightning payments, and master the technology
+            that's revolutionizing money. No setup required, all completely
+            free.
           </p>
 
           <div className={styles.heroButtons}>
@@ -85,29 +99,51 @@ export function HomePage() {
                 Start Learning
               </Button>
             </Link>
-            <Button
-              variant="secondary"
-              size="large"
-              icon={<GraduationCap size={18} />}
-              onClick={() => document.getElementById('learning-path').scrollIntoView({ behavior: 'smooth' })}
-            >
-              Browse Lessons
-            </Button>
           </div>
 
-          <div className={styles.heroBadges}>
-            <span className={styles.badge}>
-              <BookOpen size={16} />
-              12 Lessons
-            </span>
-            <span className={styles.badge}>
-              <MonitorCheck size={16} />
-              Progressive Web App
-            </span>
-            <span className={styles.badge}>
-              <Sparkles size={16} />
-              100% Free
-            </span>
+          <div className={styles.newsletterSignup}>
+            <p className={styles.newsletterTitle}>
+              Sign up for my Free Newsletter
+            </p>
+            <form
+              className={styles.newsletterForm}
+              onSubmit={handleNewsletterSubmit}
+            >
+              <label
+                htmlFor="newsletter-email"
+                className={styles.newsletterLabel}
+              >
+                Email
+              </label>
+              <input
+                id="newsletter-email"
+                type="email"
+                value={newsletterEmail}
+                onChange={(event) => {
+                  setNewsletterEmail(event.target.value);
+                  if (newsletterSubmitted) {
+                    setNewsletterSubmitted(false);
+                  }
+                }}
+                placeholder="you@example.com"
+                className={styles.newsletterInput}
+                required
+              />
+              <Button
+                type="submit"
+                size="medium"
+                icon={<Mail size={16} />}
+                className={styles.newsletterButton}
+              >
+                Subscribe
+              </Button>
+            </form>
+            {newsletterSubmitted && (
+              <p className={styles.newsletterSuccess}>
+                <Check size={16} />
+                Thanks for subscribing.
+              </p>
+            )}
           </div>
         </motion.div>
       </motion.section>
@@ -126,10 +162,12 @@ export function HomePage() {
         className={styles.featuresSection}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: '-100px' }}
+        viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className={styles.sectionTitle}>Why The Bitcoin <span className={styles.sectionOrange}>OP</span>tic?</h2>
+        <h2 className={styles.sectionTitle}>
+          Why The Bitcoin <span className={styles.sectionOrange}>OP</span>tic?
+        </h2>
         <div className={styles.featuresGrid}>
           <motion.div
             className={styles.feature}
@@ -155,7 +193,10 @@ export function HomePage() {
               <BookOpen size={24} />
             </div>
             <h4>Beginner Friendly</h4>
-            <p>Start from zero knowledge with clear explanations and relatable analogies</p>
+            <p>
+              Start from zero knowledge with clear explanations and relatable
+              analogies
+            </p>
           </motion.div>
           <motion.div
             className={styles.feature}
@@ -168,7 +209,10 @@ export function HomePage() {
               <Sparkles size={24} />
             </div>
             <h4>Deep Technical Content</h4>
-            <p>Expand certain topics to dive into the underlying technical details</p>
+            <p>
+              Expand certain topics to dive into the underlying technical
+              details
+            </p>
           </motion.div>
         </div>
       </motion.section>
@@ -178,13 +222,13 @@ export function HomePage() {
         className={styles.ctaSection}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: '-100px' }}
+        viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.5 }}
       >
         <h2 className={styles.ctaTitle}>Ready to Learn?</h2>
         <Link to="/lessons/what-is-bitcoin">
-          <Button 
-            variant="primary" 
+          <Button
+            variant="primary"
             size="large"
             icon={<ArrowRight size={18} />}
             iconPosition="right"
@@ -202,28 +246,28 @@ export function HomePage() {
         className={styles.footerContact}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: '-50px' }}
+        viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5 }}
       >
         <span className={styles.footerLabel}>Connect with me</span>
         <div className={styles.footerLinks}>
-          <a 
-            href="https://x.com/LiveFreeBTC" 
-            target="_blank" 
+          <a
+            href="https://x.com/LiveFreeBTC"
+            target="_blank"
             rel="noopener noreferrer"
             className={styles.footerLink}
           >
             <XIcon size={18} />
             <span className={styles.emailText}>@LiveFreeBTC</span>
           </a>
-          <button 
+          <button
             onClick={handleCopyEmail}
             className={styles.footerLink}
             type="button"
           >
             {copied ? <Check size={18} /> : <Mail size={18} />}
             <span className={styles.emailText}>
-              {copied ? 'Copied!' : 'edward@bitcoinmentor.io'}
+              {copied ? "Copied!" : "edward@bitcoinmentor.io"}
             </span>
           </button>
         </div>
