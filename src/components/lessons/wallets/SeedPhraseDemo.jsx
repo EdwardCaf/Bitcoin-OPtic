@@ -12,7 +12,7 @@ import {
   ChevronDown,
   ChevronUp
 } from 'lucide-react';
-import { Card, Button, Badge, Accordion } from '../../common';
+import { Card, Button, Badge } from '../../common';
 import styles from './SeedPhraseDemo.module.css';
 
 // BIP39 word list (first 100 words for demo)
@@ -218,6 +218,45 @@ export function SeedPhraseDemo() {
           </p>
         </div>
 
+        <div className={styles.derivationSection}>
+          <h4 className={styles.derivationTitle}>BIP39 & Derivation Paths</h4>
+          <p className={styles.derivationIntro}>
+            <strong>BIP39</strong> defines how seed phrases are created and validated, and 
+            derivation paths tell the wallet exactly which address to generate.
+          </p>
+
+          <div className={styles.derivationGrid}>
+            <div className={styles.derivationCard}>
+              <h5>Seed Phrase (BIP39)</h5>
+              <ul>
+                <li>12 words = 128 bits of entropy (very secure)</li>
+                <li>24 words = 256 bits of entropy (extremely secure)</li>
+                <li>Words come from a standardized list of 2048 words</li>
+                <li>The last word includes a checksum for error detection</li>
+              </ul>
+            </div>
+
+            <div className={styles.derivationCard}>
+              <h5>Path Breakdown</h5>
+              <code className={styles.pathExample}>m/84'/0'/0'/0/0</code>
+              <ul className={styles.pathList}>
+                <li><code>m</code> - Master key</li>
+                <li><code>84'</code> - Purpose (84 = Native SegWit)</li>
+                <li><code>0'</code> - Coin type (0 = Bitcoin)</li>
+                <li><code>0'</code> - Account number</li>
+                <li><code>0</code> - External (0) or change (1)</li>
+                <li><code>0</code> - Address index</li>
+              </ul>
+            </div>
+          </div>
+
+          <p className={styles.derivationNote}>
+            One seed phrase can deterministically create many addresses. If you restore the same 
+            seed with the wrong derivation path, your wallet may appear empty even though your funds 
+            are still there on-chain.
+          </p>
+        </div>
+
         {/* Security Warning */}
         <div className={styles.warning}>
           <AlertTriangle size={20} />
@@ -283,36 +322,6 @@ export function SeedPhraseDemo() {
         </div>
       </Card>
 
-      <Accordion
-        title="Deep Dive: BIP39 & Derivation Paths"
-        variant="deepdive"
-        icon={<Grid3X3 size={16} />}
-      >
-        <p>
-          <strong>BIP39</strong> defines how seed phrases work:
-        </p>
-        <ul>
-          <li>12 words = 128 bits of entropy (very secure)</li>
-          <li>24 words = 256 bits of entropy (extremely secure)</li>
-          <li>Words come from a standardized list of 2048 words</li>
-          <li>The last word includes a checksum for error detection</li>
-        </ul>
-        <p>
-          <strong>Derivation Paths</strong> (like m/84'/0'/0'/0/0) tell the wallet which address to generate:
-        </p>
-        <ul>
-          <li><code>m</code> - Master key</li>
-          <li><code>84'</code> - Purpose (84 = Native SegWit)</li>
-          <li><code>0'</code> - Coin type (0 = Bitcoin)</li>
-          <li><code>0'</code> - Account number</li>
-          <li><code>0</code> - External (0) or change (1)</li>
-          <li><code>0</code> - Address index</li>
-        </ul>
-        <p>
-          This hierarchical structure (HD = Hierarchical Deterministic) means one backup 
-          protects multiple addresses.
-        </p>
-      </Accordion>
     </div>
   );
 }
