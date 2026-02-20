@@ -42,7 +42,8 @@ const XIcon = ({ size = 18 }) => (
 export function HomePage() {
   const [copied, setCopied] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
-  const [newsletterSubmitted, setNewsletterSubmitted] = useState(false);
+  const [newsletterStatus, setNewsletterStatus] = useState("idle");
+  const [newsletterError, setNewsletterError] = useState("");
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("edward@bitcoinmentor.io");
@@ -50,10 +51,100 @@ export function HomePage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleNewsletterSubmit = (event) => {
+  const submitNewsletter = (email) =>
+    new Promise((resolve, reject) => {
+      if (typeof window === "undefined") {
+        reject(new Error("Newsletter signup is only available in the browser."));
+        return;
+      }
+
+      const callbackName = `mlcb_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+      const script = document.createElement("script");
+      const params = new URLSearchParams({
+        "fields[email]": email,
+        "ml-submit": "1",
+        anticsrf: "true",
+        callback: callbackName,
+      });
+      const endpoint =
+        "https://assets.mailerlite.com/jsonp/2111034/forms/179249626676725407/subscribe";
+
+      let settled = false;
+      let timeoutId;
+
+      const cleanup = () => {
+        delete window[callbackName];
+        script.remove();
+      };
+
+      const fail = (message) => {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(timeoutId);
+        cleanup();
+        reject(new Error(message));
+      };
+
+      window[callbackName] = (response) => {
+        if (settled) return;
+        settled = true;
+        window.clearTimeout(timeoutId);
+        cleanup();
+        resolve(response);
+      };
+
+      script.onerror = () => {
+        fail("Unable to connect to MailerLite. Please try again.");
+      };
+
+      timeoutId = window.setTimeout(() => {
+        fail("The request timed out. Please try again.");
+      }, 10000);
+
+      script.src = `${endpoint}?${params.toString()}`;
+      document.body.appendChild(script);
+    });
+
+  const handleNewsletterSubmit = async (event) => {
     event.preventDefault();
-    setNewsletterSubmitted(true);
-    setNewsletterEmail("");
+
+    const email = newsletterEmail.trim();
+    const isEmailValid = /^\S+@\S+\.\S+$/.test(email);
+
+    setNewsletterError("");
+
+    if (!isEmailValid) {
+      setNewsletterStatus("error");
+      setNewsletterError("Please enter a valid email address.");
+      return;
+    }
+
+    setNewsletterStatus("loading");
+
+    try {
+      const response = await submitNewsletter(email);
+      const message = response?.msg || response?.message || "";
+      const wasSuccessful =
+        response?.success === true ||
+        response?.success === "true" ||
+        response?.status === "success" ||
+        /success/i.test(message) ||
+        /already/i.test(message);
+
+      if (wasSuccessful) {
+        setNewsletterStatus("success");
+        setNewsletterEmail("");
+        return;
+      }
+
+      setNewsletterStatus("error");
+      setNewsletterError(message || "Unable to subscribe right now. Please try again.");
+    } catch (error) {
+      setNewsletterStatus("error");
+      setNewsletterError(
+        error?.message || "Unable to subscribe right now. Please try again.",
+      );
+    }
   };
 
   return (
@@ -121,27 +212,38 @@ export function HomePage() {
                 value={newsletterEmail}
                 onChange={(event) => {
                   setNewsletterEmail(event.target.value);
-                  if (newsletterSubmitted) {
-                    setNewsletterSubmitted(false);
+                  if (newsletterStatus !== "idle") {
+                    setNewsletterStatus("idle");
+                    setNewsletterError("");
                   }
                 }}
                 placeholder="you@example.com"
                 className={styles.newsletterInput}
                 required
+                disabled={newsletterStatus === "loading"}
               />
               <Button
                 type="submit"
                 size="medium"
                 icon={<Mail size={16} />}
                 className={styles.newsletterButton}
+                loading={newsletterStatus === "loading"}
               >
                 Subscribe
               </Button>
             </form>
-            {newsletterSubmitted && (
+            {newsletterStatus === "success" && (
               <p className={styles.newsletterSuccess}>
-                <Check size={16} />
-                Thanks for subscribing.
+                <span className={styles.newsletterSuccessPrimary}>
+                  <Check size={16} />
+                  Thanks for subscribing.
+                </span>
+                <span>Check your inbox to confirm your subscription.</span>
+              </p>
+            )}
+            {newsletterStatus === "error" && (
+              <p className={styles.newsletterError} role="alert" aria-live="assertive">
+                {newsletterError}
               </p>
             )}
           </div>
