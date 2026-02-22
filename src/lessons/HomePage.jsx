@@ -39,6 +39,9 @@ const XIcon = ({ size = 18 }) => (
   </svg>
 );
 
+const MAILERLITE_SUBSCRIBE_ENDPOINT =
+  "https://assets.mailerlite.com/jsonp/2111034/forms/179249626676725407/subscribe";
+
 export function HomePage() {
   const [copied, setCopied] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
@@ -51,59 +54,74 @@ export function HomePage() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const submitNewsletter = (email) =>
-    new Promise((resolve, reject) => {
-      if (typeof window === "undefined") {
-        reject(new Error("Newsletter signup is only available in the browser."));
-        return;
+  const submitNewsletter = async (email) => {
+    if (typeof window === "undefined") {
+      throw new Error("Newsletter signup is only available in the browser.");
+    }
+
+    const params = new URLSearchParams({
+      "fields[email]": email,
+      "ml-submit": "1",
+      anticsrf: "true",
+    });
+
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 10000);
+
+    try {
+      const response = await fetch(`${MAILERLITE_SUBSCRIBE_ENDPOINT}?${params.toString()}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+        },
+        signal: controller.signal,
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to subscribe right now. Please try again.");
       }
 
-      const callbackName = `mlcb_${Date.now()}_${Math.random().toString(36).slice(2)}`;
-      const script = document.createElement("script");
-      const params = new URLSearchParams({
-        "fields[email]": email,
-        "ml-submit": "1",
-        anticsrf: "true",
-        callback: callbackName,
-      });
-      const endpoint =
-        "https://assets.mailerlite.com/jsonp/2111034/forms/179249626676725407/subscribe";
+      const contentType = response.headers.get("content-type") || "";
 
-      let settled = false;
-      let timeoutId;
+      if (contentType.includes("application/json")) {
+        return response.json();
+      }
 
-      const cleanup = () => {
-        delete window[callbackName];
-        script.remove();
+      return {
+        success: response.ok,
+        message: await response.text(),
       };
+    } catch (error) {
+      if (error?.name === "AbortError") {
+        throw new Error("The request timed out. Please try again.");
+      }
 
-      const fail = (message) => {
-        if (settled) return;
-        settled = true;
-        window.clearTimeout(timeoutId);
-        cleanup();
-        reject(new Error(message));
-      };
+      throw new Error("Unable to connect to MailerLite. Please try again.");
+    } finally {
+      window.clearTimeout(timeoutId);
+    }
+  };
 
-      window[callbackName] = (response) => {
-        if (settled) return;
-        settled = true;
-        window.clearTimeout(timeoutId);
-        cleanup();
-        resolve(response);
-      };
+  const getNewsletterOutcome = (response) => {
+    const rawMessage =
+      typeof response === "string"
+        ? response
+        : response?.msg || response?.message || response?.error || "";
+    const message = String(rawMessage)
+      .replace(/<[^>]*>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    const wasSuccessful =
+      response?.success === true ||
+      response?.success === "true" ||
+      response?.status === "success" ||
+      response?.result === "success" ||
+      /success/i.test(message) ||
+      /thank you/i.test(message) ||
+      /already/i.test(message);
 
-      script.onerror = () => {
-        fail("Unable to connect to MailerLite. Please try again.");
-      };
-
-      timeoutId = window.setTimeout(() => {
-        fail("The request timed out. Please try again.");
-      }, 10000);
-
-      script.src = `${endpoint}?${params.toString()}`;
-      document.body.appendChild(script);
-    });
+    return { wasSuccessful, message };
+  };
 
   const handleNewsletterSubmit = async (event) => {
     event.preventDefault();
@@ -123,13 +141,7 @@ export function HomePage() {
 
     try {
       const response = await submitNewsletter(email);
-      const message = response?.msg || response?.message || "";
-      const wasSuccessful =
-        response?.success === true ||
-        response?.success === "true" ||
-        response?.status === "success" ||
-        /success/i.test(message) ||
-        /already/i.test(message);
+      const { wasSuccessful, message } = getNewsletterOutcome(response);
 
       if (wasSuccessful) {
         setNewsletterStatus("success");
