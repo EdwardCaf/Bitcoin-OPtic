@@ -26,14 +26,131 @@ const valueProps = [
   { icon: Zap, text: 'Accelerated learning' },
 ];
 
+const MAILERLITE_SUBSCRIBE_ENDPOINT =
+  'https://assets.mailerlite.com/jsonp/2111034/forms/179249626676725407/subscribe';
+
 export function SupportPage() {
   const [copied, setCopied] = useState(false);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState('idle');
+  const [newsletterError, setNewsletterError] = useState('');
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('edward@bitcoinmentor.io');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  const submitNewsletter = async (email) => {
+    if (typeof window === 'undefined') {
+      throw new Error('Newsletter signup is only available in the browser.');
+    }
+
+    const params = new URLSearchParams({
+      'fields[email]': email,
+      'ml-submit': '1',
+      anticsrf: 'true',
+    });
+
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 10000);
+
+    try {
+      const response = await fetch(
+        `${MAILERLITE_SUBSCRIBE_ENDPOINT}?${params.toString()}`,
+        {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+          },
+          signal: controller.signal,
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error('Unable to subscribe right now. Please try again.');
+      }
+
+      const contentType = response.headers.get('content-type') || '';
+
+      if (contentType.includes('application/json')) {
+        return response.json();
+      }
+
+      return {
+        success: response.ok,
+        message: await response.text(),
+      };
+    } catch (error) {
+      if (error?.name === 'AbortError') {
+        throw new Error('The request timed out. Please try again.');
+      }
+
+      throw new Error('Unable to connect to MailerLite. Please try again.');
+    } finally {
+      window.clearTimeout(timeoutId);
+    }
+  };
+
+  const getNewsletterOutcome = (response) => {
+    const rawMessage =
+      typeof response === 'string'
+        ? response
+        : response?.msg || response?.message || response?.error || '';
+    const message = String(rawMessage)
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const wasSuccessful =
+      response?.success === true ||
+      response?.success === 'true' ||
+      response?.status === 'success' ||
+      response?.result === 'success' ||
+      /success/i.test(message) ||
+      /thank you/i.test(message) ||
+      /already/i.test(message);
+
+    return { wasSuccessful, message };
+  };
+
+  const handleNewsletterSubmit = async (event) => {
+    event.preventDefault();
+
+    const email = newsletterEmail.trim();
+    const isEmailValid = /^\S+@\S+\.\S+$/.test(email);
+
+    setNewsletterError('');
+
+    if (!isEmailValid) {
+      setNewsletterStatus('error');
+      setNewsletterError('Please enter a valid email address.');
+      return;
+    }
+
+    setNewsletterStatus('loading');
+
+    try {
+      const response = await submitNewsletter(email);
+      const { wasSuccessful, message } = getNewsletterOutcome(response);
+
+      if (wasSuccessful) {
+        setNewsletterStatus('success');
+        setNewsletterEmail('');
+        return;
+      }
+
+      setNewsletterStatus('error');
+      setNewsletterError(
+        message || 'Unable to subscribe right now. Please try again.',
+      );
+    } catch (error) {
+      setNewsletterStatus('error');
+      setNewsletterError(
+        error?.message || 'Unable to subscribe right now. Please try again.',
+      );
+    }
+  };
+
   return (
     <div className={styles.container}>
       {/* Hero Section */}
@@ -112,6 +229,75 @@ export function SupportPage() {
               15-minute call &bull; No commitment &bull; 100% free
             </p>
           </motion.div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        className={styles.newsletterSection}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.55 }}
+      >
+        <div className={styles.newsletterSignup}>
+          <p className={styles.newsletterTitle}>Sign up for my Free Newsletter</p>
+          <p className={styles.newsletterPromo}>
+            Subscribe to get a free 4-page PDF on "First Steps to Self Custody,"
+            plus future promotions and resources.
+          </p>
+          <form
+            className={styles.newsletterForm}
+            onSubmit={handleNewsletterSubmit}
+          >
+            <label
+              htmlFor="support-newsletter-email"
+              className={styles.newsletterLabel}
+            >
+              Email
+            </label>
+            <input
+              id="support-newsletter-email"
+              type="email"
+              value={newsletterEmail}
+              onChange={(event) => {
+                setNewsletterEmail(event.target.value);
+                if (newsletterStatus !== 'idle') {
+                  setNewsletterStatus('idle');
+                  setNewsletterError('');
+                }
+              }}
+              placeholder="you@example.com"
+              className={styles.newsletterInput}
+              required
+              disabled={newsletterStatus === 'loading'}
+            />
+            <Button
+              type="submit"
+              size="medium"
+              icon={<Mail size={16} />}
+              className={styles.newsletterButton}
+              loading={newsletterStatus === 'loading'}
+            >
+              Subscribe
+            </Button>
+          </form>
+          {newsletterStatus === 'success' && (
+            <p className={styles.newsletterSuccess}>
+              <span className={styles.newsletterSuccessPrimary}>
+                <Check size={16} />
+                Thanks for subscribing.
+              </span>
+              <span>Check your inbox to confirm your subscription.</span>
+            </p>
+          )}
+          {newsletterStatus === 'error' && (
+            <p
+              className={styles.newsletterError}
+              role="alert"
+              aria-live="assertive"
+            >
+              {newsletterError}
+            </p>
+          )}
         </div>
       </motion.section>
 

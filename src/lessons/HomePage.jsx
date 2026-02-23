@@ -69,13 +69,16 @@ export function HomePage() {
     const timeoutId = window.setTimeout(() => controller.abort(), 10000);
 
     try {
-      const response = await fetch(`${MAILERLITE_SUBSCRIBE_ENDPOINT}?${params.toString()}`, {
-        method: "GET",
-        headers: {
-          Accept: "application/json, text/plain, */*",
+      const response = await fetch(
+        `${MAILERLITE_SUBSCRIBE_ENDPOINT}?${params.toString()}`,
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json, text/plain, */*",
+          },
+          signal: controller.signal,
         },
-        signal: controller.signal,
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Unable to subscribe right now. Please try again.");
@@ -150,7 +153,9 @@ export function HomePage() {
       }
 
       setNewsletterStatus("error");
-      setNewsletterError(message || "Unable to subscribe right now. Please try again.");
+      setNewsletterError(
+        message || "Unable to subscribe right now. Please try again.",
+      );
     } catch (error) {
       setNewsletterStatus("error");
       setNewsletterError(
@@ -208,6 +213,10 @@ export function HomePage() {
             <p className={styles.newsletterTitle}>
               Sign up for my Free Newsletter
             </p>
+            <p className={styles.newsletterPromo}>
+              Subscribe to get a free 4-page PDF on "First Steps to Self Custody,"
+              plus future promotions and resources.
+            </p>
             <form
               className={styles.newsletterForm}
               onSubmit={handleNewsletterSubmit}
@@ -254,7 +263,11 @@ export function HomePage() {
               </p>
             )}
             {newsletterStatus === "error" && (
-              <p className={styles.newsletterError} role="alert" aria-live="assertive">
+              <p
+                className={styles.newsletterError}
+                role="alert"
+                aria-live="assertive"
+              >
                 {newsletterError}
               </p>
             )}
