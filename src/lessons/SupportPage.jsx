@@ -234,87 +234,116 @@ export function SupportPage() {
 
       <motion.section
         className={styles.newsletterSection}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.55 }}
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.55 }}
       >
-        <div className={styles.newsletterSignup}>
-          <p className={styles.newsletterTitle}>Sign up for my Free Newsletter</p>
-          <p className={styles.newsletterPromo}>
-            Subscribe to get a free 4-page PDF on "First Steps to Self Custody,"
-            plus future promotions and resources.
-          </p>
-          <form
-            className={styles.newsletterForm}
-            onSubmit={handleNewsletterSubmit}
-          >
-            <label
-              htmlFor="support-newsletter-email"
-              className={styles.newsletterLabel}
-            >
-              Email
-            </label>
-            <input
-              id="support-newsletter-email"
-              type="email"
-              value={newsletterEmail}
-              onChange={(event) => {
-                setNewsletterEmail(event.target.value);
-                if (newsletterStatus !== 'idle') {
-                  setNewsletterStatus('idle');
-                  setNewsletterError('');
-                }
-              }}
-              placeholder="you@example.com"
-              className={styles.newsletterInput}
-              required
-              disabled={newsletterStatus === 'loading'}
-            />
-            <Button
-              type="submit"
-              size="medium"
-              icon={<Mail size={16} />}
-              className={styles.newsletterButton}
-              loading={newsletterStatus === 'loading'}
-            >
-              Subscribe
-            </Button>
-          </form>
-          {newsletterStatus === 'success' && (
-            <p className={styles.newsletterSuccess}>
-              <span className={styles.newsletterSuccessPrimary}>
-                <Check size={16} />
-                Thanks for subscribing.
-              </span>
-              <span>Check your inbox to confirm your subscription.</span>
+        <div className={styles.newsletterTexture} aria-hidden="true" />
+        <div className={styles.newsletterShell}>
+          <div className={styles.newsletterIntro}>
+            <p className={styles.newsletterIntroEyebrow}>Read Between Blocks</p>
+            <h2 className={styles.newsletterIntroTitle}>
+              <span className={styles.newsletterHeadingMain}>
+                The Bitcoin <span className={styles.heroHighlight}>OP</span>tic
+              </span>{' '}
+              <span className={styles.newsletterTitleAccent}>Newsletter</span>
+            </h2>
+            <p className={styles.newsletterIntroText}>
+              Stay up-to-date on the latest tools, best practices, and avoid
+              common mistakes.
             </p>
-          )}
-          {newsletterStatus === 'error' && (
-            <p
-              className={styles.newsletterError}
-              role="alert"
-              aria-live="assertive"
-            >
-              {newsletterError}
-            </p>
-          )}
+          </div>
+
+          <div className={styles.newsletterCardWrap}>
+            <div className={styles.newsletterSignup}>
+              <p className={styles.newsletterTitle}>
+                Self-custody guidance in your inbox
+              </p>
+              <p className={styles.newsletterPromo}>
+                Get first access to exclusive promotions, resources, and new
+                content I create.
+              </p>
+              <p className={styles.newsletterTrust}>
+                Free 4-page PDF included.
+              </p>
+              <div className={styles.newsletterMeta}>
+                <span>1-2 emails/month</span>
+                <span>Unsubscribe anytime</span>
+              </div>
+              <form
+                className={styles.newsletterForm}
+                onSubmit={handleNewsletterSubmit}
+              >
+                <label
+                  htmlFor="newsletter-email"
+                  className={styles.newsletterLabel}
+                >
+                  Email
+                </label>
+                <input
+                  id="newsletter-email"
+                  type="email"
+                  value={newsletterEmail}
+                  onChange={(event) => {
+                    setNewsletterEmail(event.target.value);
+                    if (newsletterStatus !== 'idle') {
+                      setNewsletterStatus('idle');
+                      setNewsletterError('');
+                    }
+                  }}
+                  placeholder="you@example.com"
+                  className={styles.newsletterInput}
+                  required
+                  disabled={newsletterStatus === 'loading'}
+                />
+                <Button
+                  type="submit"
+                  size="medium"
+                  icon={<Mail size={16} />}
+                  className={styles.newsletterButton}
+                  loading={newsletterStatus === 'loading'}
+                >
+                  Subscribe
+                </Button>
+              </form>
+              {newsletterStatus === 'success' && (
+                <p className={styles.newsletterSuccess}>
+                  <span className={styles.newsletterSuccessPrimary}>
+                    <Check size={16} />
+                    Thanks for subscribing.
+                  </span>
+                  <span>Check your inbox to confirm your subscription.</span>
+                </p>
+              )}
+              {newsletterStatus === 'error' && (
+                <p
+                  className={styles.newsletterError}
+                  role="alert"
+                  aria-live="assertive"
+                >
+                  {newsletterError}
+                </p>
+              )}
+            </div>
+          </div>
         </div>
       </motion.section>
 
       {/* Connect Section */}
       <motion.section 
-        className={styles.connectSection}
+        className={styles.footerContact}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <span className={styles.socialLabel}>Connect with me</span>
-        <div className={styles.socialLinks}>
+        <span className={styles.footerLabel}>Connect with me</span>
+        <div className={styles.footerLinks}>
           <a 
             href="https://x.com/LiveFreeBTC" 
             target="_blank" 
             rel="noopener noreferrer"
-            className={styles.socialLink}
+            className={styles.footerLink}
           >
             <XIcon size={20} />
             <span className={styles.emailText}>@LiveFreeBTC</span>
@@ -323,14 +352,14 @@ export function SupportPage() {
             href="https://primal.net/edward" 
             target="_blank" 
             rel="noopener noreferrer"
-            className={styles.socialLink}
+            className={styles.footerLink}
           >
             <Globe size={20} />
             <span className={styles.emailText}>Nostr</span>
           </a>
           <button 
             onClick={handleCopyEmail}
-            className={styles.socialLink}
+            className={styles.footerLink}
             type="button"
           >
             {copied ? <Check size={20} /> : <Mail size={20} />}
