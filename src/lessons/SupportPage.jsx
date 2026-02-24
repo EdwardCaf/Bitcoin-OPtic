@@ -12,6 +12,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { Badge, Button } from '../components/common';
+import { useMailerLiteOnVisible } from '../hooks/useMailerLite';
 import styles from './SupportPage.module.css';
 
 const XIcon = ({ size = 20 }) => (
@@ -34,6 +35,7 @@ export function SupportPage() {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState('idle');
   const [newsletterError, setNewsletterError] = useState('');
+  const { targetRef: newsletterSectionRef } = useMailerLiteOnVisible();
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('edward@bitcoinmentor.io');
@@ -233,6 +235,7 @@ export function SupportPage() {
       </motion.section>
 
       <motion.section
+        ref={newsletterSectionRef}
         className={styles.newsletterSection}
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}

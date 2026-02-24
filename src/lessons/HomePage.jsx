@@ -1,4 +1,4 @@
-import { useState, lazy, Suspense } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Button, Badge } from "../components/common";
 import { HeroBackground } from "../components/home/HeroBackground";
+import { useMailerLiteOnVisible } from "../hooks/useMailerLite";
 import styles from "./HomePage.module.css";
 
 // Lazy load below-fold components
@@ -39,10 +40,32 @@ const MAILERLITE_SUBSCRIBE_ENDPOINT =
   "https://assets.mailerlite.com/jsonp/2111034/forms/179249626676725407/subscribe";
 
 export function HomePage() {
+  const learningPathTriggerRef = useRef(null);
+  const [shouldRenderLearningPath, setShouldRenderLearningPath] = useState(false);
   const [copied, setCopied] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState("idle");
   const [newsletterError, setNewsletterError] = useState("");
+  const { targetRef: newsletterSectionRef } = useMailerLiteOnVisible();
+
+  useEffect(() => {
+    const target = learningPathTriggerRef.current;
+    if (!target || shouldRenderLearningPath) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        setShouldRenderLearningPath(true);
+        observer.disconnect();
+      },
+      {
+        rootMargin: "550px 0px",
+      },
+    );
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, [shouldRenderLearningPath]);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("edward@bitcoinmentor.io");
@@ -220,6 +243,7 @@ export function HomePage() {
 
       {/* Newsletter Section */}
       <motion.section
+        ref={newsletterSectionRef}
         className={styles.newsletterSection}
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -319,15 +343,19 @@ export function HomePage() {
 
       <div
         id="learning-path-section"
+        ref={learningPathTriggerRef}
         className={styles.learningPathAnchor}
         aria-hidden="true"
       />
 
       {/* Below-fold content - lazy loaded */}
-      <Suspense fallback={<SectionPlaceholder />}>
-        {/* Learning Path */}
-        <LearningPath />
-      </Suspense>
+      {shouldRenderLearningPath ? (
+        <Suspense fallback={<SectionPlaceholder />}>
+          <LearningPath />
+        </Suspense>
+      ) : (
+        <SectionPlaceholder />
+      )}
 
       {/* Features Section */}
       <motion.section

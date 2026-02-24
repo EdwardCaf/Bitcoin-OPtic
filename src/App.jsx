@@ -2,8 +2,6 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Header, Sidebar } from './components/layout';
 import { HomePage } from './lessons/HomePage';
-import { ResourcesPage } from './lessons/ResourcesPage';
-import { SupportPage } from './lessons/SupportPage';
 import './styles/globals.css';
 import styles from './App.module.css';
 
@@ -20,6 +18,8 @@ const NetworkLesson = lazy(() => import('./lessons/NetworkLesson'));
 const LightningLesson = lazy(() => import('./lessons/LightningLesson'));
 const LiquidLesson = lazy(() => import('./lessons/LiquidLesson'));
 const EcashLesson = lazy(() => import('./lessons/EcashLesson'));
+const ResourcesPage = lazy(() => import('./lessons/ResourcesPage'));
+const SupportPage = lazy(() => import('./lessons/SupportPage'));
 
 // Minimal loading spinner for Suspense fallback
 function LoadingSpinner() {
