@@ -41,7 +41,8 @@ const MAILERLITE_SUBSCRIBE_ENDPOINT =
 
 export function HomePage() {
   const learningPathTriggerRef = useRef(null);
-  const [shouldRenderLearningPath, setShouldRenderLearningPath] = useState(false);
+  const [shouldRenderLearningPath, setShouldRenderLearningPath] =
+    useState(false);
   const [copied, setCopied] = useState(false);
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState("idle");
@@ -185,7 +186,9 @@ export function HomePage() {
 
   const handleScrollToLearningPath = () => {
     if (typeof window === "undefined") return;
-    const learningPathSection = document.getElementById("learning-path-section");
+    const learningPathSection = document.getElementById(
+      "learning-path-section",
+    );
     if (!learningPathSection) return;
 
     learningPathSection.scrollIntoView({
@@ -275,9 +278,14 @@ export function HomePage() {
                 Get first access to exclusive promotions, resources, and new
                 content I create.
               </p>
-              <p className={styles.newsletterTrust}>
-                Free 4-page PDF included.
-              </p>
+              <div className={styles.newsletterTrust}>
+                <p>3 Free PDFs included:</p>
+                <ul className={styles.newsletterTrustList}>
+                  <li>Seed Security Best Practices</li>
+                  <li>First Steps to Self Custody</li>
+                  <li>Sparrow Wallet with Coldcard Q</li>
+                </ul>
+              </div>
               <div className={styles.newsletterMeta}>
                 <span>1-2 emails/month</span>
                 <span>Unsubscribe anytime</span>

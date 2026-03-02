@@ -371,6 +371,20 @@
     color: #f1cd94;
     font-size: 0.82rem;
     line-height: 1.45;
+    text-align: left;
+}
+
+.newsletterTrust p {
+    margin: 0;
+}
+
+.newsletterTrustList {
+    margin: 0.35rem 0 0;
+    padding-inline-start: 1.25rem;
+}
+
+.newsletterTrustList li + li {
+    margin-top: 0.15rem;
 }
 
 .newsletterMeta {
