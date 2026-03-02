@@ -6,7 +6,7 @@ import { useBlockHeight } from '../../hooks/useBlockHeight';
 import styles from './Header.module.css';
 
 export function Header({ sidebarOpen, onToggleSidebar }) {
-  const { blockHeight, isLoading, error } = useBlockHeight(5000);
+  const { blockHeight, isLoading, error } = useBlockHeight(10000);
   const [isNewBlock, setIsNewBlock] = useState(false);
   const [showBlockModal, setShowBlockModal] = useState(false);
   const prevBlockHeight = useRef(null);

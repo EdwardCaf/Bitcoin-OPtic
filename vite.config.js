@@ -18,10 +18,6 @@ export default defineConfig({
         manualChunks: {
           // Core React libraries - rarely change
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          // Animation library - separate chunk
-          'framer': ['framer-motion'],
-          // Icons - separate chunk (large library)
-          'icons': ['lucide-react'],
           // Drag and drop - only needed for specific lessons
           'dnd': ['@dnd-kit/core', '@dnd-kit/sortable', '@dnd-kit/utilities'],
         },
