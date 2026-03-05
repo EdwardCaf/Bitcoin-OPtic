@@ -282,7 +282,7 @@ export function SupportPage() {
               </div>
               <div className={styles.newsletterMeta}>
                 <span>1-2 emails/month</span>
-                <span>Unsubscribe anytime</span>
+                <span>100% Free</span>
               </div>
               <form
                 className={styles.newsletterForm}
