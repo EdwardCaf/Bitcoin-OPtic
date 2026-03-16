@@ -876,7 +876,15 @@ button.footerLink {
 
 :global(:root[data-theme='light']) .heroTitleMain,
 :global(:root[data-theme='light']) .newsletterHeadingMain {
-    background: linear-gradient(135deg, #111827 0%, #1f2937 45%, var(--bitcoin-orange) 100%);
+    background: none;
+    color: #1f2937;
+    -webkit-text-fill-color: #1f2937;
+}
+
+:global(:root[data-theme='light']) .heroHighlight {
+    color: var(--bitcoin-orange);
+    -webkit-text-fill-color: var(--bitcoin-orange);
+    text-shadow: 0 0 12px rgba(247, 147, 26, 0.22);
 }
 
 :global(:root[data-theme='light']) .newsletterSection {
@@ -906,11 +914,11 @@ button.footerLink {
 }
 
 :global(:root[data-theme='light']) .newsletterIntroEyebrow {
-    color: #b45309;
+    color: var(--bitcoin-orange-dark);
 }
 
 :global(:root[data-theme='light']) .newsletterTitleAccent {
-    color: #9a3412;
+    color: var(--bitcoin-orange-dark);
 }
 
 :global(:root[data-theme='light']) .newsletterIntroText {
@@ -925,7 +933,7 @@ button.footerLink {
 :global(:root[data-theme='light']) .newsletterMeta span {
     border-color: rgba(217, 119, 6, 0.35);
     background: rgba(251, 191, 36, 0.2);
-    color: #7c2d12;
+    color: var(--bitcoin-orange-dark);
 }
 
 :global(:root[data-theme='light']) .newsletterSignup,
@@ -946,7 +954,7 @@ button.footerLink {
 
 :global(:root[data-theme='light']) .newsletterEyebrow,
 :global(:root[data-theme='light']) .newsletterTrust {
-    color: #9a3412;
+    color: var(--bitcoin-orange-dark);
 }
 
 :global(:root[data-theme='light']) .newsletterInput {

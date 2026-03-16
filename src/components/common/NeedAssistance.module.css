@@ -109,17 +109,17 @@
 }
 
 :global(:root[data-theme='light']) .iconWrapper {
-  color: #92400e;
+  color: var(--bitcoin-orange-dark);
   border-color: rgba(180, 83, 9, 0.35);
   box-shadow: 0 0 10px rgba(217, 119, 6, 0.16);
 }
 
 :global(:root[data-theme='light']) .title {
-  color: #7c2d12;
+  color: var(--bitcoin-orange-dark);
 }
 
 :global(:root[data-theme='light']) .tagline {
-  color: rgba(124, 45, 18, 0.75);
+  color: rgba(220, 109, 0, 0.82);
 }
 
 :global(:root[data-theme='light']) .button {

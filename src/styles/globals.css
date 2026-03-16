@@ -139,6 +139,10 @@
 }
 
 :root[data-theme='light'] {
+  --bitcoin-orange: #f28a0a;
+  --bitcoin-orange-light: #ffb84d;
+  --bitcoin-orange-dark: #dc6d00;
+
   --bg-primary: #f6f7fa;
   --bg-secondary: #ffffff;
   --bg-tertiary: #f1f3f8;
@@ -177,7 +181,7 @@
   --support-bg-end: #ffd38f;
   --support-border: rgba(245, 158, 11, 0.55);
   --support-border-hover: rgba(217, 119, 6, 0.75);
-  --support-text: #7c2d12;
+  --support-text: #b45309;
   --support-shadow-1: rgba(217, 119, 6, 0.2);
   --support-shadow-2: rgba(16, 19, 25, 0.1);
   --support-shadow-3: rgba(255, 255, 255, 0.45);
