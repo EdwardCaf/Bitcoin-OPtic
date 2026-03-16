@@ -223,10 +223,9 @@ export function HomePage() {
           </h1>
 
           <p className={styles.heroText}>
-            Learn Bitcoin through beautiful visualizations. Explore wallets,
-            mine blocks, route Lightning payments, and master the technology
-            that's revolutionizing money. No setup required, all completely
-            free.
+            Learn Bitcoin through beautiful visualizations. Explore lessons on
+            wallets, privacy, Lightning payments, and more. Master the
+            technology, all completely for free.
           </p>
 
           <div className={styles.heroButtons}>
