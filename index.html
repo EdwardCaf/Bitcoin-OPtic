@@ -48,6 +48,19 @@
     </noscript>
 
     <!-- Critical CSS: Prevent FOUC and enable instant first paint -->
+    <script>
+      (function () {
+        try {
+          var storedTheme = JSON.parse(window.localStorage.getItem('theme'));
+          var theme = storedTheme === 'light' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.style.colorScheme = theme;
+        } catch (error) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.style.colorScheme = 'dark';
+        }
+      })();
+    </script>
     <style>
       /* Minimal critical styles for instant first paint */
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -60,6 +73,10 @@
         min-height: 100vh;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+      }
+      html[data-theme='light'] body {
+        background-color: #f6f7fa;
+        color: #101319;
       }
       #root { min-height: 100vh; }
       /* Loading state before React hydrates */
@@ -76,6 +93,10 @@
         border-top-color: #f7931a;
         border-radius: 50%;
         animation: spin 0.8s linear infinite;
+      }
+      html[data-theme='light'] #root:empty::after {
+        border-color: #d7dce8;
+        border-top-color: #f7931a;
       }
       @keyframes spin { to { transform: rotate(360deg); } }
     </style>

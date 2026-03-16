@@ -855,3 +855,110 @@ button.footerLink {
     cursor: pointer;
     font-family: var(--font-mono);
 }
+
+:global(:root[data-theme='light']) .hero {
+    border-color: rgba(217, 119, 6, 0.24);
+    background:
+        radial-gradient(ellipse at 50% 0%, rgba(247, 147, 26, 0.16) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(247, 147, 26, 0.08) 0%, transparent 52%),
+        linear-gradient(180deg, #fffaf2 0%, #fff5e6 100%);
+}
+
+:global(:root[data-theme='light']) .heroScanlines {
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(217, 119, 6, 0.05) 2px,
+        rgba(217, 119, 6, 0.05) 4px
+    );
+}
+
+:global(:root[data-theme='light']) .heroTitleMain,
+:global(:root[data-theme='light']) .newsletterHeadingMain {
+    background: linear-gradient(135deg, #111827 0%, #1f2937 45%, var(--bitcoin-orange) 100%);
+}
+
+:global(:root[data-theme='light']) .newsletterSection {
+    border-color: rgba(217, 119, 6, 0.3);
+    background:
+        radial-gradient(circle at 16% 18%, rgba(247, 147, 26, 0.22) 0%, transparent 34%),
+        radial-gradient(circle at 84% 10%, rgba(247, 147, 26, 0.16) 0%, transparent 32%),
+        linear-gradient(145deg, #fff9f1 0%, #fff3e2 55%, #ffe8c4 100%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.75),
+        0 20px 45px rgba(16, 19, 25, 0.12);
+}
+
+:global(:root[data-theme='light']) .newsletterTexture {
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(124, 45, 18, 0.04),
+        rgba(124, 45, 18, 0.04) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+}
+
+:global(:root[data-theme='light']) .newsletterIntro,
+:global(:root[data-theme='light']) .newsletterIntroTitle {
+    color: #1f2937;
+}
+
+:global(:root[data-theme='light']) .newsletterIntroEyebrow {
+    color: #b45309;
+}
+
+:global(:root[data-theme='light']) .newsletterTitleAccent {
+    color: #9a3412;
+}
+
+:global(:root[data-theme='light']) .newsletterIntroText {
+    color: #4b5563;
+}
+
+:global(:root[data-theme='light']) .newsletterIntroSubtext {
+    color: #6b7280;
+}
+
+:global(:root[data-theme='light']) .newsletterIntroBadges span,
+:global(:root[data-theme='light']) .newsletterMeta span {
+    border-color: rgba(217, 119, 6, 0.35);
+    background: rgba(251, 191, 36, 0.2);
+    color: #7c2d12;
+}
+
+:global(:root[data-theme='light']) .newsletterSignup,
+:global(:root[data-theme='light']) .newsletterCardWrap .newsletterSignup {
+    border-color: rgba(217, 119, 6, 0.34);
+    background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 251, 245, 0.94) 58%, rgba(255, 240, 214, 0.92) 100%),
+        linear-gradient(135deg, rgba(247, 147, 26, 0.14), rgba(247, 147, 26, 0));
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 12px 28px rgba(16, 19, 25, 0.13),
+        0 0 0 1px rgba(247, 147, 26, 0.12);
+}
+
+:global(:root[data-theme='light']) .newsletterSignup::before {
+    background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.35), transparent);
+}
+
+:global(:root[data-theme='light']) .newsletterEyebrow,
+:global(:root[data-theme='light']) .newsletterTrust {
+    color: #9a3412;
+}
+
+:global(:root[data-theme='light']) .newsletterInput {
+    border-color: rgba(217, 119, 6, 0.34);
+    background: rgba(255, 255, 255, 0.9);
+    color: #111827;
+}
+
+:global(:root[data-theme='light']) .newsletterSuccess {
+    color: #15803d;
+}
+
+:global(:root[data-theme='light']) .newsletterError {
+    color: #b91c1c;
+}

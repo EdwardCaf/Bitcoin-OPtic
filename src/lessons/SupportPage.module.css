@@ -701,3 +701,111 @@ button.footerLink {
   cursor: pointer;
   font-family: var(--font-mono);
 }
+
+:global(:root[data-theme='light']) .heroSection {
+  border-color: rgba(217, 119, 6, 0.28);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.18) 0%, rgba(247, 147, 26, 0.08) 52%, rgba(245, 158, 11, 0.12) 100%);
+}
+
+:global(:root[data-theme='light']) .heroGrid {
+  background-image:
+    linear-gradient(rgba(217, 119, 6, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 119, 6, 0.08) 1px, transparent 1px);
+}
+
+:global(:root[data-theme='light']) .ctaPrimary {
+  background: linear-gradient(135deg, var(--support-bg-start) 0%, var(--support-bg-end) 100%);
+  color: var(--support-text);
+  border-color: var(--support-border);
+  box-shadow:
+    0 4px 20px var(--support-hover-shadow-1),
+    0 0 0 0 var(--support-hover-shadow-2),
+    inset 0 1px 0 var(--support-shadow-3);
+}
+
+:global(:root[data-theme='light']) .ctaPrimary:hover {
+  background: linear-gradient(135deg, var(--support-bg-start) 0%, var(--support-bg-mid) 55%, var(--support-bg-end) 100%);
+  color: #78350f;
+  border-color: var(--support-border-hover);
+}
+
+:global(:root[data-theme='light']) .heroHighlight {
+  text-shadow: 0 0 16px rgba(247, 147, 26, 0.25);
+}
+
+:global(:root[data-theme='light']) .newsletterSection {
+  border-color: rgba(217, 119, 6, 0.3);
+  background:
+    radial-gradient(circle at 16% 18%, rgba(247, 147, 26, 0.22) 0%, transparent 34%),
+    radial-gradient(circle at 84% 10%, rgba(247, 147, 26, 0.16) 0%, transparent 32%),
+    linear-gradient(145deg, #fff9f1 0%, #fff3e2 55%, #ffe8c4 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 16px 34px rgba(16, 19, 25, 0.13),
+    0 0 0 1px rgba(247, 147, 26, 0.1);
+}
+
+:global(:root[data-theme='light']) .newsletterTexture {
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(124, 45, 18, 0.04),
+    rgba(124, 45, 18, 0.04) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+:global(:root[data-theme='light']) .newsletterIntroEyebrow {
+  color: #b45309;
+}
+
+:global(:root[data-theme='light']) .newsletterIntroTitle,
+:global(:root[data-theme='light']) .newsletterIntro {
+  color: #1f2937;
+}
+
+:global(:root[data-theme='light']) .newsletterHeadingMain {
+  background: linear-gradient(135deg, #111827 0%, #1f2937 45%, var(--bitcoin-orange) 100%);
+}
+
+:global(:root[data-theme='light']) .newsletterTitleAccent,
+:global(:root[data-theme='light']) .newsletterEyebrow,
+:global(:root[data-theme='light']) .newsletterTrust {
+  color: #9a3412;
+}
+
+:global(:root[data-theme='light']) .newsletterIntroText {
+  color: #4b5563;
+}
+
+:global(:root[data-theme='light']) .newsletterIntroBadges span,
+:global(:root[data-theme='light']) .newsletterMeta span {
+  border-color: rgba(217, 119, 6, 0.35);
+  background: rgba(251, 191, 36, 0.2);
+  color: #7c2d12;
+}
+
+:global(:root[data-theme='light']) .newsletterSignup {
+  border-color: rgba(217, 119, 6, 0.34);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 251, 245, 0.94) 58%, rgba(255, 240, 214, 0.92) 100%),
+    linear-gradient(135deg, rgba(247, 147, 26, 0.14), rgba(247, 147, 26, 0));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 12px 28px rgba(16, 19, 25, 0.13),
+    0 0 0 1px rgba(247, 147, 26, 0.12);
+}
+
+:global(:root[data-theme='light']) .newsletterInput {
+  border-color: rgba(217, 119, 6, 0.34);
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
+}
+
+:global(:root[data-theme='light']) .newsletterSuccess {
+  color: #15803d;
+}
+
+:global(:root[data-theme='light']) .newsletterError {
+  color: #b91c1c;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Header, Sidebar } from './components/layout';
 import { HomePage } from './lessons/HomePage';
+import { useLocalStorage } from './hooks/useLocalStorage';
 import './styles/globals.css';
 import styles from './App.module.css';
 
@@ -40,7 +41,7 @@ function ScrollToTop() {
   return null;
 }
 
-function AppLayout({ children }) {
+function AppLayout({ children, theme, onToggleTheme }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -49,6 +50,8 @@ function AppLayout({ children }) {
       <Header 
         sidebarOpen={sidebarOpen} 
         onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} 
+        theme={theme}
+        onToggleTheme={onToggleTheme}
       />
       <Sidebar 
         isOpen={sidebarOpen} 
@@ -62,9 +65,21 @@ function AppLayout({ children }) {
 }
 
 function App() {
+  const [theme, setTheme] = useLocalStorage('theme', 'dark');
+
+  useEffect(() => {
+    const normalizedTheme = theme === 'light' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = normalizedTheme;
+    document.documentElement.style.colorScheme = normalizedTheme;
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
+
   return (
     <BrowserRouter>
-      <AppLayout>
+      <AppLayout theme={theme} onToggleTheme={toggleTheme}>
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<HomePage />} />

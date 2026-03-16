@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Eye, Menu, X, MessageSquareMore } from 'lucide-react';
+import { Eye, Menu, X, MessageSquareMore, Sun, Moon } from 'lucide-react';
 import { useBlockHeight } from '../../hooks/useBlockHeight';
 import styles from './Header.module.css';
 
-export function Header({ sidebarOpen, onToggleSidebar }) {
+export function Header({ sidebarOpen, onToggleSidebar, theme, onToggleTheme }) {
   const { blockHeight, isLoading, error } = useBlockHeight(10000);
   const [isNewBlock, setIsNewBlock] = useState(false);
   const [showBlockModal, setShowBlockModal] = useState(false);
@@ -104,6 +104,15 @@ export function Header({ sidebarOpen, onToggleSidebar }) {
       </div>
       
       <div className={styles.right}>
+        <button
+          className={styles.themeToggle}
+          onClick={onToggleTheme}
+          aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+          title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+        >
+          {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+          <span className={styles.themeToggleText}>{theme === 'light' ? 'Dark' : 'Light'}</span>
+        </button>
         <Link to="/support" className={styles.supportButton}>
           <MessageSquareMore size={18} />
           <span className={styles.supportText}>Schedule a Call</span>

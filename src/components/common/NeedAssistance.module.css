@@ -99,6 +99,38 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
+:global(:root[data-theme='light']) .container {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.22) 0%, rgba(245, 158, 11, 0.16) 45%, rgba(217, 119, 6, 0.08) 100%);
+  border-color: rgba(217, 119, 6, 0.42);
+  box-shadow:
+    0 0 18px rgba(217, 119, 6, 0.16),
+    0 8px 20px rgba(16, 19, 25, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+:global(:root[data-theme='light']) .iconWrapper {
+  color: #92400e;
+  border-color: rgba(180, 83, 9, 0.35);
+  box-shadow: 0 0 10px rgba(217, 119, 6, 0.16);
+}
+
+:global(:root[data-theme='light']) .title {
+  color: #7c2d12;
+}
+
+:global(:root[data-theme='light']) .tagline {
+  color: rgba(124, 45, 18, 0.75);
+}
+
+:global(:root[data-theme='light']) .button {
+  color: #111827;
+  border-color: rgba(180, 83, 9, 0.5);
+}
+
+:global(:root[data-theme='light']) .button:hover {
+  color: #0b1220;
+}
+
 /* Mobile styles */
 @media (max-width: 600px) {
   .container {
