@@ -398,9 +398,11 @@
   color: #ffffff;
 }
 
-:global(:root[data-theme='light']) .resourcesLink.active::before,
-:global(:root[data-theme='light']) .resourcesLink.active .navArrow {
+:global(:root[data-theme='light']) .resourcesLink.active::before {
   background: #3972df;
+}
+
+:global(:root[data-theme='light']) .resourcesLink.active .navArrow {
   color: #3972df;
 }
 
@@ -577,9 +579,11 @@
   color: #ffffff;
 }
 
-:global(:root[data-theme='dark']) .resourcesLink.active::before,
-:global(:root[data-theme='dark']) .resourcesLink.active .navArrow {
+:global(:root[data-theme='dark']) .resourcesLink.active::before {
   background: #4b84df;
+}
+
+:global(:root[data-theme='dark']) .resourcesLink.active .navArrow {
   color: #4b84df;
 }
 
