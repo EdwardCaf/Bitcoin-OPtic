@@ -87,12 +87,13 @@
 }
 
 .navItem.active .navIcon {
-  color: var(--bitcoin-orange);
-  background: var(--bitcoin-orange);
+  color: #3f2f1b;
+  background: #d4c3a8;
+  border: 1px solid #b39d79;
 }
 
 .navItem.active .navIcon svg {
-  color: var(--text-inverse);
+  color: #3f2f1b;
 }
 
 .navItem.active::before {
@@ -103,7 +104,7 @@
   transform: translateY(-50%);
   width: 3px;
   height: 70%;
-  background: var(--bitcoin-orange);
+  background: #b58a4a;
   border-radius: var(--radius-full);
 }
 
@@ -144,7 +145,7 @@
 .navItem.active .navArrow {
   opacity: 1;
   transform: translateX(0);
-  color: var(--bitcoin-orange);
+  color: #b58a4a;
 }
 
 /* Separator */
@@ -364,15 +365,43 @@
 }
 
 :global(:root[data-theme='light']) .resourcesLink {
-  background: linear-gradient(135deg, rgba(14, 116, 144, 0.2), rgba(3, 105, 161, 0.12));
-  border-color: rgba(8, 89, 130, 0.5);
-  color: #0f3b57;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.24), rgba(14, 165, 233, 0.15));
+  border-color: rgba(37, 99, 235, 0.5);
+  color: #18456f;
 }
 
 :global(:root[data-theme='light']) .resourcesLink:hover {
-  background: linear-gradient(135deg, rgba(14, 116, 144, 0.28), rgba(3, 105, 161, 0.18));
-  border-color: rgba(8, 89, 130, 0.64);
-  color: #0b2f45;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.33), rgba(14, 165, 233, 0.23));
+  border-color: rgba(37, 99, 235, 0.64);
+  color: #133b60;
+}
+
+:global(:root[data-theme='light']) .resourcesLink.active {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.44), rgba(14, 165, 233, 0.31));
+  border-color: #3972df;
+  color: #113358;
+}
+
+:global(:root[data-theme='light']) .resourcesLink .navIcon {
+  background: rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(37, 99, 235, 0.36);
+  color: #2c5cae;
+}
+
+:global(:root[data-theme='light']) .resourcesLink:hover .navIcon,
+:global(:root[data-theme='light']) .resourcesLink.active .navIcon {
+  background: linear-gradient(135deg, #3972df 0%, #3394ce 100%);
+  color: #ffffff;
+}
+
+:global(:root[data-theme='light']) .resourcesLink.active .navIcon svg {
+  color: #ffffff;
+}
+
+:global(:root[data-theme='light']) .resourcesLink.active::before,
+:global(:root[data-theme='light']) .resourcesLink.active .navArrow {
+  background: #3972df;
+  color: #3972df;
 }
 
 :global(:root[data-theme='light']) .supportLink {
@@ -385,6 +414,12 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
+:global(:root[data-theme='light']) .supportLink .navIcon {
+  background: rgba(217, 119, 6, 0.18);
+  border: 1px solid rgba(180, 83, 9, 0.34);
+  color: #a94d06;
+}
+
 :global(:root[data-theme='light']) .supportLink:hover {
   background: linear-gradient(135deg, rgba(234, 128, 0, 0.36), rgba(217, 119, 6, 0.24));
   border-color: rgba(180, 83, 9, 0.72);
@@ -395,7 +430,171 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
+:global(:root[data-theme='light']) .supportLink:hover .navIcon,
+:global(:root[data-theme='light']) .supportLink.active .navIcon {
+  background: linear-gradient(135deg, #c56614 0%, #d4831a 100%);
+  color: #fff8ec;
+}
+
+:global(:root[data-theme='light']) .supportLink.active .navIcon svg {
+  color: #fff8ec;
+}
+
 :global(:root[data-theme='light']) .supportLink.active {
   border-color: rgba(146, 64, 14, 0.9);
   background: linear-gradient(135deg, rgba(234, 128, 0, 0.4), rgba(217, 119, 6, 0.3));
+}
+
+:global(:root[data-theme='light']) .sidebar {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fc 100%);
+  border-right-color: #c6cfde;
+  box-shadow: 6px 0 22px rgba(16, 19, 25, 0.08);
+}
+
+:global(:root[data-theme='light']) .sectionTitle {
+  color: #5b6477;
+}
+
+:global(:root[data-theme='light']) .navItem {
+  color: #50586a;
+}
+
+:global(:root[data-theme='light']) .navItem:hover {
+  background: #e8edf7;
+}
+
+:global(:root[data-theme='light']) .navIcon {
+  background: #e2e8f4;
+  border: 1px solid #d1d9e8;
+}
+
+:global(:root[data-theme='light']) .navItem.active .navIcon {
+  background: #d6c9b5;
+  border-color: #b6a486;
+  color: #4b3a23;
+}
+
+:global(:root[data-theme='light']) .navItem.active .navIcon svg {
+  color: #4b3a23;
+}
+
+:global(:root[data-theme='light']) .navItem.active::before {
+  background: #ae8348;
+}
+
+:global(:root[data-theme='light']) .navItem.active .navArrow {
+  color: #9c7440;
+}
+
+:global(:root[data-theme='light']) .separator {
+  background: #ced6e6;
+}
+
+:global(:root[data-theme='light']) .footer {
+  border-top-color: #ced6e6;
+}
+
+:global(:root[data-theme='dark']) .sidebar {
+  background: linear-gradient(180deg, #131313 0%, #101010 100%);
+  border-right-color: #2f2f2f;
+  box-shadow: 4px 0 14px rgba(0, 0, 0, 0.24);
+}
+
+:global(:root[data-theme='dark']) .sectionTitle {
+  color: #7f7f7f;
+}
+
+:global(:root[data-theme='dark']) .navItem {
+  color: #a7a7a7;
+}
+
+:global(:root[data-theme='dark']) .navItem:hover {
+  background: #1e1e1e;
+}
+
+:global(:root[data-theme='dark']) .navIcon {
+  background: #1b1b1b;
+  border: 1px solid #282828;
+}
+
+:global(:root[data-theme='dark']) .navItem.active .navIcon {
+  background: #5f4f38;
+  border-color: #7a6748;
+  color: #f0e7d7;
+}
+
+:global(:root[data-theme='dark']) .navItem.active .navIcon svg {
+  color: #f0e7d7;
+}
+
+:global(:root[data-theme='dark']) .navItem.active::before {
+  background: #ba8c4b;
+}
+
+:global(:root[data-theme='dark']) .navItem.active .navArrow {
+  color: #ba8c4b;
+}
+
+:global(:root[data-theme='dark']) .separator {
+  background: #2b2b2b;
+}
+
+:global(:root[data-theme='dark']) .footer {
+  border-top-color: #2b2b2b;
+}
+
+:global(:root[data-theme='dark']) .resourcesLink {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(14, 165, 233, 0.13));
+  border-color: rgba(59, 130, 246, 0.46);
+  color: #bfd5ec;
+}
+
+:global(:root[data-theme='dark']) .resourcesLink:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.28), rgba(14, 165, 233, 0.2));
+  border-color: rgba(59, 130, 246, 0.6);
+  color: #d4e3f4;
+}
+
+:global(:root[data-theme='dark']) .resourcesLink.active {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.36), rgba(14, 165, 233, 0.27));
+  border-color: #4b84df;
+  color: #e6effa;
+}
+
+:global(:root[data-theme='dark']) .resourcesLink .navIcon {
+  background: rgba(37, 99, 235, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.34);
+  color: #82addb;
+}
+
+:global(:root[data-theme='dark']) .resourcesLink:hover .navIcon,
+:global(:root[data-theme='dark']) .resourcesLink.active .navIcon {
+  background: linear-gradient(135deg, #4b84df 0%, #3e9cd4 100%);
+  color: #ffffff;
+}
+
+:global(:root[data-theme='dark']) .resourcesLink.active .navIcon svg {
+  color: #ffffff;
+}
+
+:global(:root[data-theme='dark']) .resourcesLink.active::before,
+:global(:root[data-theme='dark']) .resourcesLink.active .navArrow {
+  background: #4b84df;
+  color: #4b84df;
+}
+
+:global(:root[data-theme='dark']) .supportLink .navIcon {
+  background: rgba(251, 191, 36, 0.14);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  color: #f2bc5c;
+}
+
+:global(:root[data-theme='dark']) .supportLink:hover .navIcon,
+:global(:root[data-theme='dark']) .supportLink.active .navIcon {
+  background: linear-gradient(135deg, #c67818 0%, #dd9525 100%);
+  color: #fff8ec;
+}
+
+:global(:root[data-theme='dark']) .supportLink.active .navIcon svg {
+  color: #fff8ec;
 }
