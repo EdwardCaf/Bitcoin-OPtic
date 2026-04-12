@@ -1,7 +1,9 @@
 .app {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .main {
@@ -9,6 +11,8 @@
   margin-top: var(--header-height);
   margin-left: 0;
   transition: margin-left var(--transition-base);
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 @media (min-width: 1024px) {

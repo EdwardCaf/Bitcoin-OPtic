@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -18,11 +18,47 @@ export function LessonLayout({
   prevLesson
 }) {
   const navigate = useNavigate();
+  const tabsRef = useRef(null);
+  const [tabsOverflow, setTabsOverflow] = useState({ left: false, right: false });
 
   // Scroll to top when section changes
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [currentSection]);
+
+  useEffect(() => {
+    const updateTabsOverflow = () => {
+      const tabs = tabsRef.current;
+
+      if (!tabs) {
+        setTabsOverflow({ left: false, right: false });
+        return;
+      }
+
+      const { scrollLeft, clientWidth, scrollWidth } = tabs;
+      const maxScrollLeft = scrollWidth - clientWidth;
+
+      setTabsOverflow({
+        left: scrollLeft > 4,
+        right: maxScrollLeft - scrollLeft > 4
+      });
+    };
+
+    updateTabsOverflow();
+
+    const tabs = tabsRef.current;
+    if (!tabs) {
+      return undefined;
+    }
+
+    tabs.addEventListener('scroll', updateTabsOverflow, { passive: true });
+    window.addEventListener('resize', updateTabsOverflow);
+
+    return () => {
+      tabs.removeEventListener('scroll', updateTabsOverflow);
+      window.removeEventListener('resize', updateTabsOverflow);
+    };
+  }, [sections.length, currentSection]);
 
   const handlePrevious = () => {
     if (currentSection > 0) {
@@ -63,17 +99,33 @@ export function LessonLayout({
         
         {/* Section tabs */}
         {sections.length > 1 && (
-          <div className={styles.tabs}>
-            {sections.map((section, index) => (
-              <button
-                key={section.id}
-                className={`${styles.tab} ${index === currentSection ? styles.active : ''}`}
-                onClick={() => onSectionChange(index)}
-              >
-                <span className={styles.tabNumber}>{index + 1}</span>
-                <span className={styles.tabTitle}>{section.title}</span>
-              </button>
-            ))}
+          <div className={styles.tabsShell}>
+            <div ref={tabsRef} className={styles.tabs}>
+              {sections.map((section, index) => (
+                <button
+                  key={section.id}
+                  className={`${styles.tab} ${index === currentSection ? styles.active : ''}`}
+                  onClick={() => onSectionChange(index)}
+                >
+                  <span className={styles.tabNumber}>{index + 1}</span>
+                  <span className={styles.tabTitle}>{section.title}</span>
+                </button>
+              ))}
+            </div>
+
+            {tabsOverflow.left && (
+              <div className={`${styles.tabsOverflowIndicator} ${styles.left}`} aria-hidden="true">
+                <div className={styles.tabsFade} />
+                <ArrowLeft size={14} className={styles.tabsOverflowIcon} />
+              </div>
+            )}
+
+            {tabsOverflow.right && (
+              <div className={`${styles.tabsOverflowIndicator} ${styles.right}`} aria-hidden="true">
+                <div className={styles.tabsFade} />
+                <ArrowRight size={14} className={styles.tabsOverflowIcon} />
+              </div>
+            )}
           </div>
         )}
       </header>
