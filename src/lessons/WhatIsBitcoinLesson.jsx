@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { LessonLayout } from '../components/layout';
-import { Card, Accordion, Badge, ResourceLinkCard } from '../components/common';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { LessonLayout } from "../components/layout";
+import { Card, Accordion, Badge, ResourceLinkCard } from "../components/common";
 import {
   Bitcoin,
   Globe2,
@@ -17,22 +17,22 @@ import {
   Check,
   X,
   TrendingUp,
-  Infinity
-} from 'lucide-react';
-import styles from './Lessons.module.css';
+  Infinity,
+} from "lucide-react";
+import styles from "./Lessons.module.css";
 
 // Quick, subtle fade-in animation
 const quickFade = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
-  transition: { duration: 0.2 }
+  transition: { duration: 0.2 },
 };
 
 const sections = [
-  { id: 'intro', title: 'Introduction' },
-  { id: 'understanding', title: 'Understanding Bitcoin' },
-  { id: 'properties', title: 'Key Properties' },
-  { id: 'start', title: 'Getting Started' }
+  { id: "intro", title: "Introduction" },
+  { id: "understanding", title: "Understanding Bitcoin" },
+  { id: "properties", title: "Key Properties" },
+  { id: "start", title: "Getting Started" },
 ];
 
 export function WhatIsBitcoinLesson() {
@@ -62,7 +62,7 @@ export function WhatIsBitcoinLesson() {
       sections={sections}
       currentSection={currentSection}
       onSectionChange={setCurrentSection}
-      nextLesson={{ path: '/lessons/wallets', title: 'Wallets & Addresses' }}
+      nextLesson={{ path: "/lessons/wallets", title: "Wallets & Addresses" }}
     >
       {renderSection()}
     </LessonLayout>
@@ -82,8 +82,9 @@ function IntroSection() {
         </div>
         <h2 className={styles.heroTitle}>Digital money you actually control</h2>
         <p className={styles.heroText}>
-          Bitcoin is a form of digital money that lives on the internet. There is no company, bank, or
-          government running it. The rules are programmatically set in code, and anyone can use it.
+          Bitcoin is a form of digital money that lives on the internet. There
+          is no company, bank, or government running it. The rules are
+          programmatically set in code, and anyone can use it.
         </p>
       </div>
 
@@ -94,7 +95,8 @@ function IntroSection() {
           </div>
           <h3>Open to everyone</h3>
           <p>
-            If you have the internet, you can use Bitcoin. No permission or account required.
+            If you have the internet, you can use Bitcoin. No permission or
+            account required.
           </p>
         </Card>
 
@@ -104,7 +106,8 @@ function IntroSection() {
           </div>
           <h3>Self-custody</h3>
           <p>
-            You hold your own keys, like owning cash or precious metals. No one can freeze or take it.
+            You hold your own keys, like owning cash or precious metals. No one
+            can freeze or take it.
           </p>
         </Card>
 
@@ -114,7 +117,8 @@ function IntroSection() {
           </div>
           <h3>Sound money</h3>
           <p>
-            The total supply is capped at 21 million. No one can print more, so it cannot be inflated away.
+            The total supply is capped at 21 million. No one can print more, so
+            it cannot be inflated away.
           </p>
         </Card>
       </div>
@@ -133,9 +137,10 @@ function UnderstandingBitcoinSection() {
     >
       <h2 className={styles.sectionTitle}>Understanding Bitcoin</h2>
       <p className={styles.sectionText}>
-        Bitcoin was created so anyone can hold and send value without asking permission. It is money
-        that cannot be easily censored, inflated, or shut down. This matters most to people who need
-        reliable savings and payments in a world of fragile banks and unstable currencies.
+        Bitcoin was created so anyone can hold and send value without asking
+        permission. It is money that cannot be easily censored, inflated, or
+        shut down. This matters most to people who need reliable savings and
+        payments in a world of fragile banks and unstable currencies.
       </p>
 
       {/* Two-column layout: Why it matters + How it works */}
@@ -149,13 +154,16 @@ function UnderstandingBitcoinSection() {
           </div>
           <ul className={styles.columnList}>
             <li>
-              <strong>Fixed supply:</strong> Only 21 million will ever exist, protecting your savings from inflation
+              <strong>Fixed supply:</strong> Only 21 million will ever exist,
+              protecting your savings from inflation
             </li>
             <li>
-              <strong>Borderless:</strong> Send value anywhere like an email, no waiting for bank wires
+              <strong>Borderless:</strong> Send value anywhere like an email, no
+              waiting for bank wires
             </li>
             <li>
-              <strong>Permissionless:</strong> No bank account or ID required to participate
+              <strong>Permissionless:</strong> No bank account or ID required to
+              participate
             </li>
           </ul>
         </div>
@@ -169,13 +177,16 @@ function UnderstandingBitcoinSection() {
           </div>
           <ul className={styles.columnList}>
             <li>
-              <strong>Shared ledger:</strong> Thousands of computers maintain the same transaction list
+              <strong>Shared ledger:</strong> Thousands of computers maintain
+              the same transaction list
             </li>
             <li>
-              <strong>Cryptographic keys:</strong> Your private key proves ownership and authorizes spending
+              <strong>Cryptographic keys:</strong> Your private key proves
+              ownership and authorizes spending
             </li>
             <li>
-              <strong>Consensus rules:</strong> The network automatically rejects invalid transactions
+              <strong>Consensus rules:</strong> The network automatically
+              rejects invalid transactions
             </li>
           </ul>
         </div>
@@ -239,46 +250,28 @@ function UnderstandingBitcoinSection() {
 // Supply Comparison Visual Component
 function SupplyComparisonVisual() {
   return (
-    <motion.div className={styles.supplyBars} {...quickFade}>
-      {/* Bitcoin */}
-      <div className={styles.supplyItem}>
+    <motion.div className={styles.supplyTiles} {...quickFade}>
+      <div className={`${styles.supplyTile} ${styles.bitcoinTile}`}>
         <span className={styles.supplyLabel}>Bitcoin</span>
-        <div className={styles.supplyBarContainer}>
-          <div 
-            className={`${styles.supplyBarFill} ${styles.bitcoin}`} 
-            style={{ width: '93%' }}
-          />
-        </div>
+        <div className={styles.supplyTileValue}>21M fixed</div>
         <div className={`${styles.supplyIndicator} ${styles.fixed}`}>
-          <Check size={12} /> 21M fixed
+          <Check size={12} /> Fixed Supply
         </div>
       </div>
-      
-      {/* Gold */}
-      <div className={styles.supplyItem}>
+
+      <div className={`${styles.supplyTile} ${styles.goldTile}`}>
         <span className={styles.supplyLabel}>Gold</span>
-        <div className={styles.supplyBarContainer}>
-          <div 
-            className={`${styles.supplyBarFill} ${styles.gold}`} 
-            style={{ width: '100%' }}
-          />
-        </div>
+        <div className={styles.supplyTileValue}>+1.5%/yr</div>
         <div className={`${styles.supplyIndicator} ${styles.growing}`}>
-          <TrendingUp size={12} /> +1.5%/yr
+          <TrendingUp size={12} /> Inflating
         </div>
       </div>
-      
-      {/* USD */}
-      <div className={styles.supplyItem}>
+
+      <div className={`${styles.supplyTile} ${styles.usdTile}`}>
         <span className={styles.supplyLabel}>USD</span>
-        <div className={styles.supplyBarContainer}>
-          <div 
-            className={`${styles.supplyBarFill} ${styles.usd}`} 
-            style={{ width: '100%' }}
-          />
-        </div>
+        <div className={styles.supplyTileValue}>unlimited</div>
         <div className={`${styles.supplyIndicator} ${styles.unlimited}`}>
-          <Infinity size={12} /> unlimited
+          <Infinity size={12} /> No restraints
         </div>
       </div>
     </motion.div>
@@ -306,12 +299,14 @@ function AccessComparisonVisual() {
           </span>
         </div>
       </div>
-      
+
       {/* Bitcoin */}
       <div className={styles.accessFlow}>
         <span className={styles.accessFlowLabel}>Bitcoin</span>
         <div className={styles.accessFlowSteps}>
-          <span className={`${styles.accessStep} ${styles.highlight}`}>Download wallet</span>
+          <span className={`${styles.accessStep} ${styles.highlight}`}>
+            Download wallet
+          </span>
           <ChevronRight size={14} className={styles.accessArrow} />
           <span className={`${styles.accessStep} ${styles.success}`}>
             <Check size={12} /> Ready
@@ -326,38 +321,73 @@ function AccessComparisonVisual() {
 function CensorshipResistantVisual() {
   return (
     <motion.div {...quickFade}>
-      <svg className={styles.networkDiagram} viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet">
+      <svg
+        className={styles.networkDiagram}
+        viewBox="0 0 300 120"
+        preserveAspectRatio="xMidYMid meet"
+      >
         {/* Connection paths */}
         {/* Top path - active */}
-        <path d="M 40 60 Q 100 20 150 30 Q 200 40 260 60" className={`${styles.nodePath} ${styles.active}`} />
+        <path
+          d="M 40 60 Q 100 20 150 30 Q 200 40 260 60"
+          className={`${styles.nodePath} ${styles.active}`}
+        />
         {/* Middle path - blocked */}
-        <path d="M 40 60 L 100 60 L 150 60" className={`${styles.nodePath} ${styles.blocked}`} />
+        <path
+          d="M 40 60 L 100 60 L 150 60"
+          className={`${styles.nodePath} ${styles.blocked}`}
+        />
         {/* Bottom path - active */}
-        <path d="M 40 60 Q 100 100 150 90 Q 200 80 260 60" className={`${styles.nodePath} ${styles.active}`} />
+        <path
+          d="M 40 60 Q 100 100 150 90 Q 200 80 260 60"
+          className={`${styles.nodePath} ${styles.active}`}
+        />
         {/* Continuation from middle block */}
-        <path d="M 150 60 L 200 60 L 260 60" className={`${styles.nodePath} ${styles.active}`} />
-        
+        <path
+          d="M 150 60 L 200 60 L 260 60"
+          className={`${styles.nodePath} ${styles.active}`}
+        />
+
         {/* Sender node */}
-        <circle cx="40" cy="60" r="16" className={`${styles.nodeCircle} ${styles.endpoint}`} />
-        <text x="40" y="90" className={styles.nodeLabel}>You</text>
-        
+        <circle
+          cx="40"
+          cy="60"
+          r="16"
+          className={`${styles.nodeCircle} ${styles.endpoint}`}
+        />
+        <text x="40" y="90" className={styles.nodeLabel}>
+          You
+        </text>
+
         {/* Top relay node */}
         <circle cx="150" cy="30" r="10" className={styles.nodeCircle} />
-        
+
         {/* Middle blocked node */}
-        <circle cx="150" cy="60" r="10" className={`${styles.nodeCircle} ${styles.blocked}`} />
+        <circle
+          cx="150"
+          cy="60"
+          r="10"
+          className={`${styles.nodeCircle} ${styles.blocked}`}
+        />
         <line x1="144" y1="54" x2="156" y2="66" className={styles.blockedX} />
         <line x1="156" y1="54" x2="144" y2="66" className={styles.blockedX} />
-        
+
         {/* Bottom relay node */}
         <circle cx="150" cy="90" r="10" className={styles.nodeCircle} />
-        
+
         {/* Right relay node */}
         <circle cx="200" cy="60" r="10" className={styles.nodeCircle} />
-        
+
         {/* Recipient node */}
-        <circle cx="260" cy="60" r="16" className={`${styles.nodeCircle} ${styles.endpoint}`} />
-        <text x="260" y="90" className={styles.nodeLabel}>Recipient</text>
+        <circle
+          cx="260"
+          cy="60"
+          r="16"
+          className={`${styles.nodeCircle} ${styles.endpoint}`}
+        />
+        <text x="260" y="90" className={styles.nodeLabel}>
+          Recipient
+        </text>
       </svg>
     </motion.div>
   );
@@ -378,22 +408,34 @@ function DecentralizedMapVisual() {
   // All possible connections (mesh network)
   const connections = [
     // Node 0 connections
-    [0, 1], [0, 4], [0, 5], [0, 6],
+    [0, 1],
+    [0, 4],
+    [0, 5],
+    [0, 6],
     // Node 1 connections
-    [1, 2], [1, 3], [1, 6],
+    [1, 2],
+    [1, 3],
+    [1, 6],
     // Node 2 connections
-    [2, 3], [2, 6],
+    [2, 3],
+    [2, 6],
     // Node 3 connections
-    [3, 4], [3, 6],
+    [3, 4],
+    [3, 6],
     // Node 4 connections
-    [4, 5], [4, 6],
+    [4, 5],
+    [4, 6],
     // Node 5 connections
     [5, 6],
   ];
 
   return (
     <motion.div className={styles.worldMapContainer} {...quickFade}>
-      <svg className={styles.worldMap} viewBox="0 0 300 120" preserveAspectRatio="xMidYMid meet">
+      <svg
+        className={styles.worldMap}
+        viewBox="0 0 300 120"
+        preserveAspectRatio="xMidYMid meet"
+      >
         {/* Connection lines */}
         {connections.map(([start, end], i) => {
           const startNode = nodes[start];
@@ -409,7 +451,7 @@ function DecentralizedMapVisual() {
             />
           );
         })}
-        
+
         {/* Nodes */}
         {nodes.map((node, i) => (
           <circle
@@ -421,9 +463,7 @@ function DecentralizedMapVisual() {
           />
         ))}
       </svg>
-      <p className={styles.worldMapLabel}>
-        No central point of control
-      </p>
+      <p className={styles.worldMapLabel}>No central point of control</p>
     </motion.div>
   );
 }
@@ -437,7 +477,8 @@ function PropertiesSection() {
     >
       <h2 className={styles.sectionTitle}>What makes Bitcoin unique</h2>
       <p className={styles.sectionText}>
-        These properties work together to make Bitcoin useful money for anyone, anywhere.
+        These properties work together to make Bitcoin useful money for anyone,
+        anywhere.
       </p>
 
       {/* Property 1: Scarce & Sound */}
@@ -448,7 +489,8 @@ function PropertiesSection() {
           </div>
           <h3>Sound Money</h3>
           <p>
-            Hard cap of 21 million makes Bitcoin's supply predictable and resistant to inflation. No central party can dilute it.
+            Hard cap of 21 million makes Bitcoin's supply predictable and
+            resistant to inflation. No central party can dilute it.
           </p>
         </div>
         <div className={styles.propertyVisual}>
@@ -464,7 +506,8 @@ function PropertiesSection() {
           </div>
           <h3>Permissionless</h3>
           <p>
-            Anyone can join, build, or leave at any time. No application, no approval, no waiting.
+            Anyone can join, build, or leave at any time. No application, no
+            approval, no waiting.
           </p>
         </div>
         <div className={styles.propertyVisual}>
@@ -480,7 +523,8 @@ function PropertiesSection() {
           </div>
           <h3>Censorship Resistant</h3>
           <p>
-            Transactions follow rules enforced by math, not humans. Even if some nodes reject you, your transaction can find a way.
+            Transactions follow rules enforced by math, not humans. Even if some
+            nodes reject you, your transaction can find a way.
           </p>
         </div>
         <div className={styles.propertyVisual}>
@@ -496,14 +540,14 @@ function PropertiesSection() {
           </div>
           <h3>Decentralized</h3>
           <p>
-            The network is made up of thousands of independent nodes across the world. No single point of failure or control.
+            The network is made up of thousands of independent nodes across the
+            world. No single point of failure or control.
           </p>
         </div>
         <div className={styles.propertyVisual}>
           <DecentralizedMapVisual />
         </div>
       </div>
-
     </motion.div>
   );
 }
@@ -517,7 +561,8 @@ function GettingStartedSection() {
     >
       <h2 className={styles.sectionTitle}>How to start (beginner steps)</h2>
       <p className={styles.sectionText}>
-        Keep it simple: learn the basics, use a trustworthy wallet, and practice with a tiny amount.
+        Keep it simple: learn the basics, use a trustworthy wallet, and practice
+        with a tiny amount.
       </p>
 
       <div className={styles.conceptGrid}>
@@ -527,7 +572,8 @@ function GettingStartedSection() {
           </div>
           <h3>1) Install a wallet</h3>
           <p>
-            Pick a beginner-friendly mobile wallet. Write down the 12 or 24-word recovery phrase on paper.
+            Pick a beginner-friendly mobile wallet. Write down the 12 or 24-word
+            recovery phrase on paper.
           </p>
         </Card>
 
@@ -548,8 +594,8 @@ function GettingStartedSection() {
           </div>
           <h3>3) Level up security</h3>
           <p>
-            When comfortable, take the next steps and learn about hardware wallets. The next lesson covers wallets in
-            detail.
+            When comfortable, take the next steps and learn about hardware
+            wallets. The next lesson covers wallets in detail.
           </p>
         </Card>
       </div>

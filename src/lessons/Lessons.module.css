@@ -588,53 +588,50 @@
 }
 
 /* Supply Comparison Visual */
-.supplyBars {
-  display: flex;
-  flex-direction: column;
+.supplyTiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--spacing-md);
 }
 
-.supplyItem {
+.supplyTile {
   display: flex;
-  align-items: center;
-  gap: var(--spacing-md);
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  min-width: 0;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-default);
+  background: color-mix(in srgb, var(--bg-secondary) 88%, transparent);
 }
 
 .supplyLabel {
-  flex: 0 0 70px;
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.supplyTileValue {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.1;
   color: var(--text-primary);
+  word-break: break-word;
 }
 
-.supplyBarContainer {
-  flex: 1;
-  height: 24px;
-  background: var(--bg-tertiary);
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  position: relative;
+.supplyTile.bitcoinTile {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bitcoin-orange) 12%, var(--bg-secondary)), var(--bg-secondary));
+  border-color: color-mix(in srgb, var(--bitcoin-orange) 30%, var(--border-default));
 }
 
-.supplyBarFill {
-  height: 100%;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: var(--spacing-sm);
+.supplyTile.goldTile {
+  background: linear-gradient(180deg, color-mix(in srgb, #ffd700 14%, var(--bg-secondary)), var(--bg-secondary));
+  border-color: color-mix(in srgb, #d4af37 32%, var(--border-default));
 }
 
-.supplyBarFill.bitcoin {
-  background: linear-gradient(90deg, var(--bitcoin-orange-dark), var(--bitcoin-orange));
-}
-
-.supplyBarFill.gold {
-  background: linear-gradient(90deg, #b8860b, #ffd700);
-}
-
-.supplyBarFill.usd {
-  background: linear-gradient(90deg, #166534, #22c55e);
+.supplyTile.usdTile {
+  background: linear-gradient(180deg, color-mix(in srgb, #22c55e 12%, var(--bg-secondary)), var(--bg-secondary));
+  border-color: color-mix(in srgb, #22c55e 26%, var(--border-default));
 }
 
 .supplyIndicator {
@@ -643,9 +640,11 @@
   gap: var(--spacing-xs);
   font-size: var(--text-xs);
   color: var(--text-secondary);
+  width: fit-content;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--bg-tertiary) 82%, transparent);
   white-space: nowrap;
-  margin-left: var(--spacing-sm);
-  flex: 0 0 100px;
 }
 
 .supplyIndicator.fixed {
@@ -829,24 +828,20 @@
     width: 100%;
   }
 
-  .supplyItem {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-xs);
+  .supplyTiles {
+    grid-template-columns: 1fr;
   }
 
   .supplyLabel {
-    flex: none;
+    font-size: var(--text-xs);
   }
 
-  .supplyBarContainer {
-    width: 100%;
+  .supplyTile {
+    padding: var(--spacing-md);
   }
 
-  .supplyIndicator {
-    flex: none;
-    margin-left: 0;
-    margin-top: var(--spacing-xs);
+  .supplyTileValue {
+    font-size: 1.375rem;
   }
 
   .accessFlowSteps {
@@ -861,4 +856,3 @@
     height: 80px;
   }
 }
-
