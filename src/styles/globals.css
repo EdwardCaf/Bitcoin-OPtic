@@ -43,7 +43,7 @@
   --text-inverse: #0a0a0a;
   
   /* Border colors */
-  --border-subtle: #2a2a2a;
+  --border-subtle: #343434;
   --border-medium: #3a3a3a;
   --border-accent: rgba(247, 147, 26, 0.3);
   
@@ -96,18 +96,18 @@
   --warning-500: var(--warning);
   --warning-dark: #a16207;
 
-  --support-bg-start: #111111;
-  --support-bg-mid: #110e0a;
-  --support-bg-end: #2c1f0c;
-  --support-border: rgba(251, 191, 36, 0.6);
-  --support-border-hover: #fcd34d;
-  --support-text: #fbbf24;
-  --support-shadow-1: rgba(251, 191, 36, 0.12);
-  --support-shadow-2: rgba(0, 0, 0, 0.35);
-  --support-shadow-3: rgba(251, 191, 36, 0.15);
-  --support-hover-shadow-1: rgba(251, 191, 36, 0.28);
-  --support-hover-shadow-2: rgba(0, 0, 0, 0.5);
-  --support-hover-shadow-3: rgba(251, 191, 36, 0.25);
+  --support-bg-start: #24180b;
+  --support-bg-mid: #3a2610;
+  --support-bg-end: #6b4312;
+  --support-border: rgba(251, 191, 36, 0.58);
+  --support-border-hover: #f8cd67;
+  --support-text: #ffd78a;
+  --support-shadow-1: rgba(251, 191, 36, 0.2);
+  --support-shadow-2: rgba(0, 0, 0, 0.34);
+  --support-shadow-3: rgba(255, 233, 181, 0.12);
+  --support-hover-shadow-1: rgba(251, 191, 36, 0.34);
+  --support-hover-shadow-2: rgba(0, 0, 0, 0.48);
+  --support-hover-shadow-3: rgba(255, 233, 181, 0.2);
 
   --font-xs: var(--text-xs);
   --font-sm: var(--text-sm);
@@ -167,7 +167,7 @@
   --text-muted: #676f82;
   --text-inverse: #ffffff;
 
-  --border-subtle: #d7dce8;
+  --border-subtle: #c5cedd;
   --border-medium: #b7bfd2;
   --border-accent: rgba(247, 147, 26, 0.35);
 

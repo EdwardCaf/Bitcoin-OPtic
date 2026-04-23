@@ -563,7 +563,7 @@ function ResourceCard({ resource, index }) {
   );
 }
 
-function ResourceSection({ section, sectionId, isFirst }) {
+function ResourceSection({ section, sectionId }) {
   const SectionIcon = section.icon;
 
   return (
@@ -637,12 +637,11 @@ export function ResourcesPage() {
 
       {/* Resource Sections */}
       <div className={styles.sections}>
-        {sectionKeys.map((key, index) => (
+        {sectionKeys.map((key) => (
           <ResourceSection
             key={key}
             section={RESOURCES[key]}
             sectionId={key}
-            isFirst={index === 0}
           />
         ))}
       </div>
