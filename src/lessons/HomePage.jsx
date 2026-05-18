@@ -14,7 +14,6 @@ import {
   Globe,
 } from "lucide-react";
 import { Button, Badge } from "../components/common";
-import { HeroBackground } from "../components/home/HeroBackground";
 import { useMailerLiteOnVisible } from "../hooks/useMailerLite";
 import styles from "./HomePage.module.css";
 
@@ -206,9 +205,7 @@ export function HomePage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <HeroBackground />
         <div className={styles.heroGlow} aria-hidden="true" />
-        <div className={styles.heroScanlines} aria-hidden="true" />
         <motion.div
           className={styles.heroContent}
           initial={{ opacity: 0, y: 30 }}
@@ -252,7 +249,6 @@ export function HomePage() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.55 }}
       >
-        <div className={styles.newsletterTexture} aria-hidden="true" />
         <div className={styles.newsletterShell}>
           <div className={styles.newsletterIntro}>
             <p className={styles.newsletterIntroEyebrow}>Read Between Blocks</p>
