@@ -1,0 +1,435 @@
+.newsletterSection {
+  position: relative;
+  margin-bottom: var(--spacing-2xl);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(247, 147, 26, 0.3);
+  background:
+    radial-gradient(circle at 16% 18%, rgba(247, 147, 26, 0.14) 0%, transparent 30%),
+    radial-gradient(circle at 84% 10%, rgba(247, 147, 26, 0.1) 0%, transparent 28%),
+    linear-gradient(145deg, #10100f 0%, #0b0b0a 55%, #13110d 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 30px 60px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.newsletterSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(247, 147, 26, 0.7), transparent);
+  opacity: 1;
+}
+
+.standalone {
+  margin: clamp(3rem, 7vw, 5rem) auto;
+  width: min(1200px, calc(100% - 2rem));
+}
+
+.newsletterShell {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(1.1rem, 3vw, 2.8rem);
+  align-items: center;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.newsletterIntro {
+  color: #f5efe5;
+  text-align: left;
+}
+
+.newsletterIntroEyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #e7c69a;
+}
+
+.newsletterIntroTitle {
+  margin: 0.5rem 0 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.newsletterHeadingMain {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #ffffff 40%,
+    var(--bitcoin-orange-light) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.heroHighlight {
+  -webkit-text-fill-color: var(--bitcoin-orange);
+  text-shadow: 0 0 30px rgba(247, 147, 26, 0.4);
+  position: relative;
+}
+
+.newsletterTitleAccent {
+  color: #f7e5c8;
+  font-style: italic;
+  letter-spacing: -0.015em;
+  text-decoration: underline;
+  text-decoration-color: rgba(247, 147, 26, 0.65);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.14em;
+}
+
+.newsletterIntroText {
+  margin: 0.9rem 0 0;
+  max-width: 36ch;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  line-height: 1.55;
+  color: #e4dbcf;
+}
+
+.newsletterCardWrap {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.newsletterSignup {
+  position: relative;
+  margin: 0 auto;
+  width: min(100%, 510px);
+  padding: clamp(1rem, 2.4vw, 1.4rem);
+  border-radius: calc(var(--radius-lg) + 2px);
+  border: 1px solid rgba(247, 147, 26, 0.32);
+  background:
+    linear-gradient(160deg, rgba(21, 18, 13, 0.93) 0%, rgba(12, 11, 9, 0.9) 55%, rgba(26, 18, 10, 0.9) 100%),
+    linear-gradient(135deg, rgba(247, 147, 26, 0.14), rgba(247, 147, 26, 0));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 18px 45px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(247, 147, 26, 0.08);
+  overflow: hidden;
+  text-align: left;
+}
+
+.newsletterSignup::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+}
+
+.newsletterSignup::after {
+  content: "";
+  position: absolute;
+  inset: auto -35% -70% auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(247, 147, 26, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.newsletterTitle {
+  margin: 0.45rem 0 0;
+  color: var(--text-primary);
+  font-weight: 650;
+  font-size: clamp(1.15rem, 2.3vw, 1.35rem);
+  letter-spacing: -0.012em;
+  font-family: var(--font-sans);
+  line-height: 1.3;
+}
+
+.newsletterPromo {
+  margin: 0.55rem 0 0;
+  max-width: 46ch;
+  color: color-mix(in srgb, var(--text-secondary) 76%, var(--text-primary) 24%);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  font-family: var(--font-sans);
+}
+
+.newsletterTrust {
+  margin: 0.6rem 0 0;
+  color: #f6ddb5;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.newsletterTrust p {
+  margin: 0;
+}
+
+.newsletterTrustList {
+  margin: 0.35rem 0 0;
+  padding-inline-start: 1.25rem;
+}
+
+.newsletterTrustList li + li {
+  margin-top: 0.15rem;
+}
+
+.newsletterMeta {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.newsletterMeta span {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(247, 147, 26, 0.36);
+  background: rgba(247, 147, 26, 0.07);
+  color: #f9e9d0;
+  font-size: 0.73rem;
+  letter-spacing: 0.015em;
+  padding: 0.22rem 0.55rem;
+  white-space: nowrap;
+}
+
+.newsletterForm {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0;
+}
+
+.newsletterLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.newsletterInput {
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  padding: 0 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(247, 147, 26, 0.34);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background: rgba(8, 8, 8, 0.55);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.newsletterInput::placeholder {
+  color: var(--text-muted);
+}
+
+.newsletterInput:focus {
+  outline: none;
+  border-color: rgba(247, 147, 26, 0.72);
+  box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.2);
+}
+
+.newsletterButton {
+  height: 52px;
+  padding: 0 var(--spacing-md);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: var(--radius-md);
+  border-bottom-right-radius: var(--radius-md);
+  margin-left: -1px;
+}
+
+.newsletterSuccess {
+  margin: var(--spacing-sm) 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  text-align: left;
+  font-size: var(--text-sm);
+  color: #6ee7b7;
+}
+
+.newsletterSuccessPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: 0.4rem;
+  font-weight: 600;
+}
+
+.newsletterError {
+  margin: var(--spacing-sm) 0 0;
+  font-size: var(--text-sm);
+  color: #fca5a5;
+  text-align: left;
+}
+
+:global(:root[data-theme='light']) .newsletterSection {
+  border-color: rgba(217, 119, 6, 0.42);
+  background:
+    radial-gradient(circle at 16% 18%, rgba(247, 147, 26, 0.22) 0%, transparent 34%),
+    radial-gradient(circle at 84% 10%, rgba(247, 147, 26, 0.16) 0%, transparent 32%),
+    linear-gradient(145deg, #fff9f1 0%, #fff3e2 55%, #ffe8c4 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 16px 34px rgba(16, 19, 25, 0.13),
+    0 0 0 1px rgba(247, 147, 26, 0.1);
+}
+
+:global(:root[data-theme='light']) .newsletterIntroEyebrow {
+  color: #8d4a09;
+}
+
+:global(:root[data-theme='light']) .newsletterIntroTitle,
+:global(:root[data-theme='light']) .newsletterIntro {
+  color: #1f2937;
+}
+
+:global(:root[data-theme='light']) .newsletterHeadingMain {
+  background: none;
+  color: #1f2937;
+  -webkit-text-fill-color: #1f2937;
+}
+
+:global(:root[data-theme='light']) .heroHighlight {
+  color: var(--bitcoin-orange);
+  -webkit-text-fill-color: var(--bitcoin-orange);
+  text-shadow: 0 0 16px rgba(247, 147, 26, 0.25);
+}
+
+:global(:root[data-theme='light']) .newsletterTitleAccent,
+:global(:root[data-theme='light']) .newsletterTrust {
+  color: #7f4309;
+}
+
+:global(:root[data-theme='light']) .newsletterIntroText {
+  color: #372f28;
+}
+
+:global(:root[data-theme='light']) .newsletterMeta span {
+  border-color: rgba(217, 119, 6, 0.46);
+  background: rgba(251, 191, 36, 0.2);
+  color: #7f4309;
+}
+
+:global(:root[data-theme='light']) .newsletterSignup {
+  border-color: rgba(217, 119, 6, 0.46);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 251, 245, 0.94) 58%, rgba(255, 240, 214, 0.92) 100%),
+    linear-gradient(135deg, rgba(247, 147, 26, 0.14), rgba(247, 147, 26, 0));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 12px 28px rgba(16, 19, 25, 0.13),
+    0 0 0 1px rgba(247, 147, 26, 0.12);
+}
+
+:global(:root[data-theme='light']) .newsletterInput {
+  border-color: rgba(217, 119, 6, 0.46);
+  background: rgba(255, 255, 255, 0.9);
+  color: #111827;
+}
+
+:global(:root[data-theme='light']) .newsletterPromo {
+  color: #463d35;
+}
+
+:global(:root[data-theme='light']) .newsletterSuccess {
+  color: #15803d;
+}
+
+:global(:root[data-theme='light']) .newsletterError {
+  color: #b91c1c;
+}
+
+@media (max-width: 900px) {
+  .newsletterShell {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletterCardWrap {
+    justify-content: stretch;
+  }
+
+  .newsletterSignup {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .newsletterSection {
+    border-radius: var(--radius-lg);
+  }
+
+  .standalone {
+    width: auto;
+    margin: var(--spacing-lg);
+  }
+
+  .newsletterShell {
+    grid-template-columns: 1fr;
+    padding: var(--spacing-md);
+  }
+
+  .newsletterIntro {
+    text-align: center;
+  }
+
+  .newsletterIntroText {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .newsletterCardWrap {
+    justify-content: center;
+  }
+
+  .newsletterForm {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .newsletterMeta {
+    justify-content: center;
+  }
+
+  .newsletterSuccess {
+    align-items: center;
+    text-align: center;
+  }
+
+  .newsletterError {
+    text-align: center;
+  }
+
+  .newsletterInput {
+    border-radius: var(--radius-md);
+  }
+
+  .newsletterButton {
+    margin-left: 0;
+    border-radius: var(--radius-md);
+  }
+}
