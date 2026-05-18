@@ -16,7 +16,7 @@
 /manifest.json
   Cache-Control: public, max-age=1209600
 
-/og-image-v2.png
+/og-image.png
   Cache-Control: public, max-age=1209600
 
 /index.html

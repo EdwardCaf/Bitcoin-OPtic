@@ -1,108 +1,160 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/icon-512.svg" />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="The Bitcoin OPtic - See Bitcoin Clearly through interactive visualizations" />
-    <meta name="theme-color" content="#f7931a" />
-    
-    <!-- Open Graph / Facebook / LinkedIn / Discord -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://thebitcoinoptic.com/" />
-    <meta property="og:title" content="The Bitcoin OPtic - See Bitcoin Clearly" />
-    <meta property="og:description" content="See Bitcoin Clearly through interactive visualizations" />
-    <meta property="og:image" content="https://thebitcoinoptic.com/og-image-v2.png" />
-    <meta property="og:image:width" content="2052" />
-    <meta property="og:image:height" content="1110" />
-    <meta property="og:image:type" content="image/png" />
-    <meta property="og:site_name" content="The Bitcoin OPtic" />
-    <meta property="og:locale" content="en_US" />
-    
-    <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://thebitcoinoptic.com/" />
-    <meta name="twitter:title" content="The Bitcoin OPtic - See Bitcoin Clearly" />
-    <meta name="twitter:description" content="See Bitcoin Clearly through interactive visualizations" />
-    <meta name="twitter:image" content="https://thebitcoinoptic.com/og-image-v2.png" />
-    <meta name="twitter:image:alt" content="The Bitcoin OPtic - Interactive Bitcoin Learning Platform" />
-    
-    <title>The Bitcoin OPtic - See Bitcoin Clearly</title>
-    
-    <!-- Preconnect to font origins for faster loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <!-- Load font CSS without blocking initial render -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
-    </noscript>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/icon-512.svg" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+            name="description"
+            content="The Bitcoin OPtic - See Bitcoin Clearly through interactive visualizations"
+        />
+        <meta name="theme-color" content="#f7931a" />
 
-    <!-- Critical CSS: Prevent FOUC and enable instant first paint -->
-    <script>
-      (function () {
-        try {
-          var storedTheme = JSON.parse(window.localStorage.getItem('theme'));
-          var theme = storedTheme === 'light' ? 'light' : 'dark';
-          document.documentElement.setAttribute('data-theme', theme);
-          document.documentElement.style.colorScheme = theme;
-        } catch (error) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-          document.documentElement.style.colorScheme = 'dark';
-        }
-      })();
-    </script>
-    <style>
-      /* Minimal critical styles for instant first paint */
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      html { font-size: 16px; }
-      body {
-        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background-color: #0a0a0a;
-        color: #ffffff;
-        line-height: 1.6;
-        min-height: 100vh;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      html[data-theme='light'] body {
-        background-color: #f6f7fa;
-        color: #101319;
-      }
-      #root { min-height: 100vh; }
-      /* Loading state before React hydrates */
-      #root:empty {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      #root:empty::after {
-        content: '';
-        width: 32px;
-        height: 32px;
-        border: 3px solid #2a2a2a;
-        border-top-color: #f7931a;
-        border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-      }
-      html[data-theme='light'] #root:empty::after {
-        border-color: #d7dce8;
-        border-top-color: #f7931a;
-      }
-      @keyframes spin { to { transform: rotate(360deg); } }
-    </style>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+        <!-- Open Graph / Facebook / LinkedIn / Discord -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://thebitcoinoptic.com/" />
+        <meta
+            property="og:title"
+            content="The Bitcoin OPtic - See Bitcoin Clearly"
+        />
+        <meta
+            property="og:description"
+            content="See Bitcoin Clearly through interactive visualizations"
+        />
+        <meta
+            property="og:image"
+            content="https://thebitcoinoptic.com/og-image.png"
+        />
+        <meta property="og:image:width" content="2052" />
+        <meta property="og:image:height" content="1110" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:site_name" content="The Bitcoin OPtic" />
+        <meta property="og:locale" content="en_US" />
+
+        <!-- Twitter / X -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content="https://thebitcoinoptic.com/" />
+        <meta
+            name="twitter:title"
+            content="The Bitcoin OPtic - See Bitcoin Clearly"
+        />
+        <meta
+            name="twitter:description"
+            content="See Bitcoin Clearly through interactive visualizations"
+        />
+        <meta
+            name="twitter:image"
+            content="https://thebitcoinoptic.com/og-image.png"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="The Bitcoin OPtic - Interactive Bitcoin Learning Platform"
+        />
+
+        <title>The Bitcoin OPtic - See Bitcoin Clearly</title>
+
+        <!-- Preconnect to font origins for faster loading -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <!-- Load font CSS without blocking initial render -->
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+            onload="
+                this.onload = null;
+                this.rel = 'stylesheet';
+            "
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+            />
+        </noscript>
+
+        <!-- Critical CSS: Prevent FOUC and enable instant first paint -->
+        <script>
+            (function () {
+                try {
+                    var storedTheme = JSON.parse(
+                        window.localStorage.getItem("theme"),
+                    );
+                    var theme = storedTheme === "light" ? "light" : "dark";
+                    document.documentElement.setAttribute("data-theme", theme);
+                    document.documentElement.style.colorScheme = theme;
+                } catch (error) {
+                    document.documentElement.setAttribute("data-theme", "dark");
+                    document.documentElement.style.colorScheme = "dark";
+                }
+            })();
+        </script>
+        <style>
+            /* Minimal critical styles for instant first paint */
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html {
+                font-size: 16px;
+            }
+            body {
+                font-family:
+                    "DM Sans",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    Roboto,
+                    sans-serif;
+                background-color: #0a0a0a;
+                color: #ffffff;
+                line-height: 1.6;
+                min-height: 100vh;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            html[data-theme="light"] body {
+                background-color: #f6f7fa;
+                color: #101319;
+            }
+            #root {
+                min-height: 100vh;
+            }
+            /* Loading state before React hydrates */
+            #root:empty {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            #root:empty::after {
+                content: "";
+                width: 32px;
+                height: 32px;
+                border: 3px solid #2a2a2a;
+                border-top-color: #f7931a;
+                border-radius: 50%;
+                animation: spin 0.8s linear infinite;
+            }
+            html[data-theme="light"] #root:empty::after {
+                border-color: #d7dce8;
+                border-top-color: #f7931a;
+            }
+            @keyframes spin {
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="/src/main.jsx"></script>
+    </body>
 </html>
