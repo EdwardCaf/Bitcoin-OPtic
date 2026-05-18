@@ -15,9 +15,17 @@
   overflow-x: hidden;
 }
 
+.mainCentered {
+  margin-left: 0;
+}
+
 @media (min-width: 1024px) {
   .main {
     margin-left: var(--sidebar-width);
+  }
+
+  .mainCentered {
+    margin-left: 0;
   }
 }
 

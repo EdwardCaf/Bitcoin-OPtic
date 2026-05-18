@@ -21,6 +21,7 @@ const LiquidLesson = lazy(() => import('./lessons/LiquidLesson'));
 const EcashLesson = lazy(() => import('./lessons/EcashLesson'));
 const ResourcesPage = lazy(() => import('./lessons/ResourcesPage'));
 const SupportPage = lazy(() => import('./lessons/SupportPage'));
+const NewsletterPage = lazy(() => import('./lessons/NewsletterPage'));
 
 // Minimal loading spinner for Suspense fallback
 function LoadingSpinner() {
@@ -43,6 +44,8 @@ function ScrollToTop() {
 
 function AppLayout({ children, theme, onToggleTheme }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { pathname } = useLocation();
+  const hideSidebar = pathname === '/newsletter';
 
   return (
     <div className={styles.app}>
@@ -53,11 +56,13 @@ function AppLayout({ children, theme, onToggleTheme }) {
         theme={theme}
         onToggleTheme={onToggleTheme}
       />
-      <Sidebar 
-        isOpen={sidebarOpen} 
-        onClose={() => setSidebarOpen(false)} 
-      />
-      <main className={styles.main}>
+      {!hideSidebar && (
+        <Sidebar 
+          isOpen={sidebarOpen} 
+          onClose={() => setSidebarOpen(false)} 
+        />
+      )}
+      <main className={`${styles.main} ${hideSidebar ? styles.mainCentered : ''}`}>
         {children}
       </main>
     </div>
@@ -85,6 +90,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/resources" element={<ResourcesPage />} />
             <Route path="/support" element={<SupportPage />} />
+            <Route path="/newsletter" element={<NewsletterPage />} />
             <Route path="/lessons/what-is-bitcoin" element={<WhatIsBitcoinLesson />} />
             <Route path="/lessons/wallets" element={<WalletsLesson />} />
             <Route path="/lessons/transactions" element={<TransactionsLesson />} />
