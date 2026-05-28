@@ -1,11 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  Handshake,
-  Shield,
-  Map,
-  Zap,
-  ArrowRight,
-} from "lucide-react";
+import { Handshake, Shield, Map, Zap, ArrowRight } from "lucide-react";
 import { Badge } from "../components/common";
 import { ConnectSection } from "../components/common/ConnectSection";
 import styles from "./SupportPage.module.css";
@@ -32,74 +26,103 @@ export function SupportPage() {
         </div>
 
         <div className={styles.heroContent}>
-          <motion.div
-            className={styles.heroBadge}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <Badge
-              variant="primary"
-              size="medium"
-              icon={<Handshake size={14} />}
+          <div className={styles.heroCopy}>
+            <motion.div
+              className={styles.heroBadge}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-              1-on-1 Bitcoin Mentorship
-            </Badge>
-          </motion.div>
+              <Badge
+                variant="primary"
+                size="medium"
+                icon={<Handshake size={14} />}
+              >
+                Work with me 1-on-1
+              </Badge>
+            </motion.div>
 
-          <motion.h1
-            className={styles.heroTitle}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            Your Path to
-            <span className={styles.heroHighlight}> Financial Sovereignty</span>
-          </motion.h1>
-
-          <motion.p
-            className={styles.heroSubtitle}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            Get personalized guidance from an experienced mentor who will help
-            you achieve true self-sovereign bitcoin ownership.
-          </motion.p>
-
-          <motion.div
-            className={styles.valueProps}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            {valueProps.map((prop, index) => (
-              <div key={index} className={styles.valueProp}>
-                <prop.icon size={18} className={styles.valuePropIcon} />
-                <span>{prop.text}</span>
-              </div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            className={styles.heroCta}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-          >
-            <a
-              href="https://bitcoinmentor.io/?fluent-booking=calendar&host=edward-1712805121&event=30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.ctaPrimary}
+            <motion.h1
+              className={styles.heroTitle}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <span>Book Your Free Session</span>
-              <ArrowRight size={20} />
-            </a>
-            <p className={styles.ctaSubtext}>
-              15-minute call &bull; No commitment &bull; 100% free
-            </p>
-          </motion.div>
+              Your path to
+              <span className={styles.heroHighlight}>
+                {" "}
+                Financial Sovereignty
+              </span>
+            </motion.h1>
+
+            <motion.p
+              className={styles.heroSubtitle}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              Get personalized guidance for what you need to achieve true
+              self-sovereign bitcoin ownership.
+            </motion.p>
+
+            <motion.div
+              className={styles.valueProps}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              {valueProps.map((prop, index) => (
+                <div key={index} className={styles.valueProp}>
+                  <prop.icon size={18} className={styles.valuePropIcon} />
+                  <span>{prop.text}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              className={styles.heroCta}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <a
+                href="https://calendar.proton.me/bookings#hAO6Yxm96KHGyHF8Be-K3A1mMjE-jIMnG2MgNj8UnDg="
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.ctaPrimary}
+              >
+                <span>Book Your Free Session</span>
+                <ArrowRight size={20} />
+              </a>
+              <p className={styles.ctaSubtext}>
+                15-minute call &bull; No commitment &bull; 100% free
+              </p>
+            </motion.div>
+          </div>
+
+          <motion.aside
+            className={styles.profileCard}
+            initial={{ opacity: 0, y: 24, rotate: 1.5 }}
+            animate={{ opacity: 1, y: 0, rotate: 0 }}
+            transition={{ duration: 0.55, delay: 0.25 }}
+            aria-label="About Edward"
+          >
+            <div className={styles.profileImageFrame}>
+              <img
+                src="/bio.jpg"
+                alt="Edward, your Bitcoin mentor"
+                className={styles.profileImage}
+              />
+            </div>
+            <div className={styles.profileDetails}>
+              <p className={styles.profileEyebrow}>Your Mentor</p>
+              <h2 className={styles.profileName}>Edward</h2>
+              <p className={styles.profileBio}>
+                Bitcoin educator focused on self-custody, privacy, inheritance
+                planning, and all of the latest freedom tech.
+              </p>
+            </div>
+          </motion.aside>
         </div>
       </motion.section>
 
