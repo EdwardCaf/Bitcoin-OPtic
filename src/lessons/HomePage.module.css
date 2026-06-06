@@ -550,11 +550,11 @@
     align-items: center;
     gap: var(--spacing-xs);
     padding: var(--spacing-xs) var(--spacing-md);
-    background: rgba(247, 147, 26, 0.05);
-    border: 1px solid rgba(247, 147, 26, 0.2);
+    background: rgba(247, 147, 26, 0.12);
+    border: 1px solid rgba(247, 147, 26, 0.34);
     border-radius: var(--radius-full);
     font-size: var(--text-sm);
-    color: var(--text-secondary);
+    color: color-mix(in srgb, var(--text-primary) 88%, var(--bitcoin-orange) 12%);
     font-family: var(--font-mono);
     letter-spacing: 0.02em;
 }
@@ -891,9 +891,17 @@ button.footerLink {
 
 :global(:root[data-theme='light']) .newsletterIntroBadges span,
 :global(:root[data-theme='light']) .newsletterMeta span {
-    border-color: rgba(217, 119, 6, 0.46);
-    background: rgba(251, 191, 36, 0.2);
-    color: #7f4309;
+    border-color: rgba(146, 64, 14, 0.56);
+    background: rgba(255, 247, 237, 0.88);
+    color: #5f2500;
+    font-weight: 700;
+}
+
+:global(:root[data-theme='light']) .badge {
+    border-color: rgba(146, 64, 14, 0.5);
+    background: rgba(255, 247, 237, 0.9);
+    color: #5f2500;
+    font-weight: 700;
 }
 
 :global(:root[data-theme='light']) .newsletterSignup,

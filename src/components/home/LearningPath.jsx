@@ -234,7 +234,11 @@ function LessonNode({ lesson, delay = 0 }) {
             <Icon size={20} />
           </div>
           <div className={styles.nodeMeta}>
-            <Badge variant={getDifficultyColor(lesson.difficulty)} size="small">
+            <Badge
+              variant={getDifficultyColor(lesson.difficulty)}
+              size="small"
+              className={styles.difficultyBadge}
+            >
               {lesson.difficulty}
             </Badge>
             <span className={styles.duration}>
@@ -278,7 +282,7 @@ export function LearningPath() {
         {/* Foundation Level */}
         <div className={styles.level}>
           <div className={styles.levelLabel}>
-            <span className={styles.levelBadge}>Foundation</span>
+            <h3 className={styles.levelTitle}>Foundation</h3>
           </div>
           <div className={styles.nodeContainer}>
             {LEARNING_TREE.foundation.map((lesson, index) => (
@@ -308,7 +312,7 @@ export function LearningPath() {
         {/* Core Level - Branching */}
         <div className={styles.level}>
           <div className={styles.levelLabel}>
-            <span className={styles.levelBadge}>Core Concepts</span>
+            <h3 className={styles.levelTitle}>Core Concepts</h3>
           </div>
           <div className={`${styles.nodeContainer} ${styles.branching}`}>
             {LEARNING_TREE.core.map((lesson, index) => (
@@ -358,7 +362,7 @@ export function LearningPath() {
         {/* Protocol Level */}
         <div className={styles.level}>
           <div className={styles.levelLabel}>
-            <span className={styles.levelBadge}>Protocol</span>
+            <h3 className={styles.levelTitle}>Protocol</h3>
           </div>
           <div className={styles.nodeContainer}>
             {LEARNING_TREE.protocol.map((lesson, index) => (
@@ -388,7 +392,7 @@ export function LearningPath() {
         {/* Advanced Level */}
         <div className={styles.level}>
           <div className={styles.levelLabel}>
-            <span className={styles.levelBadge}>Layer 2 / Sidechains</span>
+            <h3 className={styles.levelTitle}>Layer 2 / Sidechains</h3>
           </div>
           <div className={styles.nodeContainer}>
             {LEARNING_TREE.advanced.map((lesson, index) => (
