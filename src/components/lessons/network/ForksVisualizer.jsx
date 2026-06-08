@@ -1,17 +1,19 @@
 import { useState, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   GitFork, 
   GitMerge,
   CheckCircle2, 
   XCircle,
   ArrowRight,
-  ArrowDown,
   Box,
   RotateCcw,
   Server,
   AlertTriangle,
-  Info
+  Info,
+  Pickaxe,
+  Zap,
+  Gauge
 } from 'lucide-react';
 import { Card, Button, Badge, Accordion } from '../../common';
 import styles from './ForksVisualizer.module.css';
@@ -38,6 +40,13 @@ const initialBlocks = [
   { id: 3, label: 'Block 102', rules: 'old' },
 ];
 
+const hardForkMiningRounds = [
+  { winner: 'new', height: 103, label: 'Block 103A', note: 'Upgraded miners find the first incompatible block.' },
+  { winner: 'old', height: 103, label: 'Block 103B', note: 'Legacy miners also find a block at height 103 under old rules.' },
+  { winner: 'new', height: 104, label: 'Block 104A', note: 'More hashpower means the new-rules side tends to extend faster.' },
+  { winner: 'new', height: 105, label: 'Block 105A', note: 'The split persists because legacy nodes still reject these blocks.' },
+];
+
 export function ForksVisualizer() {
   const [forkType, setForkType] = useState(null); // 'soft' | 'hard' | null
   const [step, setStep] = useState(0);
@@ -45,6 +54,8 @@ export function ForksVisualizer() {
   const [mainChain, setMainChain] = useState(initialBlocks);
   const [forkChain, setForkChain] = useState([]);
   const [showOutcome, setShowOutcome] = useState(false);
+  const [hardForkRound, setHardForkRound] = useState(0);
+  const [lastMinedSide, setLastMinedSide] = useState(null);
   
   const reset = useCallback(() => {
     setForkType(null);
@@ -53,6 +64,8 @@ export function ForksVisualizer() {
     setMainChain(initialBlocks);
     setForkChain([]);
     setShowOutcome(false);
+    setHardForkRound(0);
+    setLastMinedSide(null);
   }, []);
   
   const startSoftFork = () => {
@@ -73,6 +86,20 @@ export function ForksVisualizer() {
       ...node,
       upgraded: i < 4 // First 4 nodes upgrade, creating a split
     })));
+  };
+
+  const getHardForkStats = () => {
+    const newBlocks = mainChain.filter(block => block.rules === 'new').length;
+    const oldBlocks = forkChain.length;
+
+    return {
+      newBlocks,
+      oldBlocks,
+      newWork: 102 + newBlocks,
+      oldWork: 102 + oldBlocks,
+      newHashpower: 58,
+      oldHashpower: 42,
+    };
   };
   
   const advanceSimulation = () => {
@@ -97,38 +124,35 @@ export function ForksVisualizer() {
         setStep(3);
       }
     } else if (forkType === 'hard') {
-      if (step === 1) {
-        // Create diverging chains
-        setMainChain(prev => [...prev, { 
-          id: 4, 
-          label: 'Block 103', 
-          rules: 'new',
-          highlight: true 
-        }]);
-        setForkChain([{ 
-          id: 'f1', 
-          label: 'Block 103\'', 
-          rules: 'old',
-          highlight: true 
-        }]);
-        setStep(2);
-      } else if (step === 2) {
-        // Both chains continue
-        setMainChain(prev => [...prev, { 
-          id: 5, 
-          label: 'Block 104', 
-          rules: 'new' 
-        }]);
-        setForkChain(prev => [...prev, { 
-          id: 'f2', 
-          label: 'Block 104\'', 
-          rules: 'old' 
-        }]);
+      const round = hardForkMiningRounds[hardForkRound];
+      if (!round) return;
+
+      const nextBlock = {
+        id: `${round.winner}-${round.height}-${hardForkRound}`,
+        label: round.label,
+        rules: round.winner === 'new' ? 'new' : 'old',
+        highlight: true,
+        height: round.height,
+        work: 1,
+      };
+
+      if (round.winner === 'new') {
+        setMainChain(prev => [...prev.map(block => ({ ...block, highlight: false })), nextBlock]);
+      } else {
+        setForkChain(prev => [...prev.map(block => ({ ...block, highlight: false })), nextBlock]);
+      }
+
+      setLastMinedSide(round.winner);
+      setHardForkRound(prev => prev + 1);
+      setStep(Math.min(3, step + 1));
+
+      if (hardForkRound === hardForkMiningRounds.length - 1) {
         setShowOutcome(true);
-        setStep(3);
       }
     }
   };
+
+  const getCurrentMiningRound = () => hardForkMiningRounds[Math.max(0, hardForkRound - 1)];
   
   const getStepDescription = () => {
     if (!forkType) return '';
@@ -145,13 +169,14 @@ export function ForksVisualizer() {
           return '';
       }
     } else {
+      const stats = getHardForkStats();
       switch (step) {
         case 1:
-          return 'Nodes split into two groups with incompatible rules. They can no longer agree on what\'s valid.';
+          return 'Nodes split into two mining camps with incompatible rules. Each camp can build blocks its own nodes accept, but rejects the other camp\'s blocks.';
         case 2:
-          return 'Each group creates their own block. Neither accepts the other\'s block as valid.';
+          return `${getCurrentMiningRound()?.note || 'A miner found a block.'} Cumulative work: new-rules chain ${stats.newWork}, legacy chain ${stats.oldWork}.`;
         case 3:
-          return 'Two separate blockchains now exist! Each has its own transaction history going forward.';
+          return `${getCurrentMiningRound()?.note || 'Mining continues on separate rule sets.'} Hashpower influences speed, but incompatible rules prevent automatic reunion.`;
         default:
           return '';
       }
@@ -219,6 +244,21 @@ export function ForksVisualizer() {
         {/* Simulation View */}
         {forkType && (
           <>
+            {forkType === 'hard' && (
+              <div className={styles.competitionBanner}>
+                <div>
+                  <span className={styles.eyebrow}>Hard fork mining competition</span>
+                  <h4>Two rule sets, two valid histories</h4>
+                  <p>
+                    Miners are not racing to resolve a temporary fork. They are extending chains that disagree about validity.
+                  </p>
+                </div>
+                <div className={styles.roundBadge}>
+                  Round {Math.min(hardForkRound + 1, hardForkMiningRounds.length)} / {hardForkMiningRounds.length}
+                </div>
+              </div>
+            )}
+
             {/* Network Visualization */}
             <div className={styles.networkSection}>
               <h4 className={styles.sectionLabel}>
@@ -279,6 +319,44 @@ export function ForksVisualizer() {
                 </div>
               </div>
             </div>
+
+            {forkType === 'hard' && (() => {
+              const stats = getHardForkStats();
+
+              return (
+                <div className={styles.miningDashboard}>
+                  <div className={`${styles.minerCamp} ${styles.newMinerCamp} ${lastMinedSide === 'new' ? styles.activeCamp : ''}`}>
+                    <div className={styles.campHeader}>
+                      <Pickaxe size={18} />
+                      <span>Upgraded Miners</span>
+                    </div>
+                    <div className={styles.hashMeter} aria-label="Upgraded miner hashpower">
+                      <span style={{ width: `${stats.newHashpower}%` }}></span>
+                    </div>
+                    <div className={styles.campStats}>
+                      <span><Gauge size={14} /> {stats.newHashpower}% hashpower</span>
+                      <span><Zap size={14} /> {stats.newWork} cumulative work</span>
+                    </div>
+                    <p>Accepts larger/new-rule blocks. Rejects legacy blocks after the split.</p>
+                  </div>
+
+                  <div className={`${styles.minerCamp} ${styles.oldMinerCamp} ${lastMinedSide === 'old' ? styles.activeCamp : ''}`}>
+                    <div className={styles.campHeader}>
+                      <Pickaxe size={18} />
+                      <span>Legacy Miners</span>
+                    </div>
+                    <div className={styles.hashMeter} aria-label="Legacy miner hashpower">
+                      <span style={{ width: `${stats.oldHashpower}%` }}></span>
+                    </div>
+                    <div className={styles.campStats}>
+                      <span><Gauge size={14} /> {stats.oldHashpower}% hashpower</span>
+                      <span><Zap size={14} /> {stats.oldWork} cumulative work</span>
+                    </div>
+                    <p>Keeps old validation rules. Treats new-rule blocks as invalid, no matter how much work they have.</p>
+                  </div>
+                </div>
+              );
+            })()}
             
             {/* Blockchain Visualization */}
             <div className={styles.chainSection}>
@@ -310,6 +388,9 @@ export function ForksVisualizer() {
                           {block.rules === 'new' && (
                             <span className={styles.rulesTag}>new</span>
                           )}
+                          {forkType === 'hard' && block.work && (
+                            <span className={styles.workTag}>+{block.work} work</span>
+                          )}
                         </motion.div>
                         {i < mainChain.length - 1 && (
                           <ArrowRight size={16} className={styles.arrow} />
@@ -324,7 +405,7 @@ export function ForksVisualizer() {
                   <>
                     <div className={styles.forkIndicator}>
                       <GitFork size={16} />
-                      <span>Chain Split at Block 102</span>
+                      <span>Rule Split at Block 102: each side rejects the other side's next blocks</span>
                     </div>
                     
                     <div className={`${styles.chainRow} ${styles.forkChainRow}`}>
@@ -348,6 +429,9 @@ export function ForksVisualizer() {
                               <Box size={14} />
                               <span>{block.label}</span>
                               <span className={styles.rulesTag}>old</span>
+                              {block.work && (
+                                <span className={styles.workTag}>+{block.work} work</span>
+                              )}
                             </motion.div>
                             {i < forkChain.length - 1 && (
                               <ArrowRight size={16} className={styles.arrow} />
@@ -376,7 +460,7 @@ export function ForksVisualizer() {
                   icon={<ArrowRight size={16} />}
                   iconPosition="right"
                 >
-                  {step === 1 ? 'Mine New Block' : 'Continue Mining'}
+                  {forkType === 'hard' ? 'Run Mining Round' : (step === 1 ? 'Mine New Block' : 'Continue Mining')}
                 </Button>
               </div>
             )}
@@ -408,9 +492,9 @@ export function ForksVisualizer() {
                     <div>
                       <h4>Permanent Chain Split!</h4>
                       <p>
-                        Two separate cryptocurrencies now exist. This is how Bitcoin Cash 
-                        split from Bitcoin in 2017. Each chain has its own community, 
-                        miners, and value.
+                        Both groups kept mining, but their nodes disagree about validity. 
+                        More hashpower can make one side grow faster; users, markets, and 
+                        miners decide whether both chains keep economic value.
                       </p>
                     </div>
                   </>
