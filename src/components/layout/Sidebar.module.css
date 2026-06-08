@@ -41,11 +41,18 @@
   flex-direction: column;
   height: 100%;
   padding: var(--spacing-md);
+  overflow: hidden;
+}
+
+.lessonList {
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  padding-right: 2px;
 }
 
 .section {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
 }
 
 .sectionTitle {
@@ -62,6 +69,78 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
+  overflow: hidden;
+  padding-top: var(--spacing-xs);
+  padding-bottom: var(--spacing-sm);
+}
+
+.groupHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.groupHeader::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 25%;
+  bottom: 25%;
+  width: 2px;
+  border-radius: var(--radius-full);
+  background: var(--bitcoin-orange);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.groupHeader:hover {
+  border-color: color-mix(in srgb, var(--bitcoin-orange) 10%, transparent);
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.groupHeader:hover::before,
+.activeGroupHeader::before {
+  opacity: 0.34;
+}
+
+.activeGroupHeader {
+  border-color: color-mix(in srgb, var(--bitcoin-orange) 12%, var(--border-subtle));
+  background: transparent;
+}
+
+.groupTitle {
+  flex: 1;
+  color: color-mix(in srgb, var(--text-primary) 88%, var(--bitcoin-orange));
+  font-size: 0.925rem;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+}
+
+.groupChevron {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.groupHeader:hover .groupChevron,
+.activeGroupHeader .groupChevron {
+  color: color-mix(in srgb, var(--text-muted) 70%, var(--bitcoin-orange));
+}
+
+.groupChevronOpen {
+  transform: rotate(180deg);
 }
 
 .navItem {
@@ -155,6 +234,13 @@
   margin: var(--spacing-lg) 0;
 }
 
+.quickLinks {
+  flex-shrink: 0;
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-subtle);
+}
+
 /* Study Guides Link - Green styling */
 .studyGuidesLink {
   display: flex;
@@ -226,7 +312,7 @@
   text-decoration: none;
   transition: all var(--transition-fast);
   position: relative;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   background: linear-gradient(135deg, rgba(6, 182, 212, 0.05), rgba(6, 182, 212, 0.02));
   border: 1px solid rgba(6, 182, 212, 0.2);
 }
@@ -286,7 +372,7 @@
   text-decoration: none;
   transition: all var(--transition-fast);
   position: relative;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.06));
   border: 1px solid rgba(251, 191, 36, 0.45);
   box-shadow:
@@ -348,8 +434,8 @@
 }
 
 .footer {
-  margin-top: auto;
-  padding-top: var(--spacing-md);
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
   border-top: 1px solid var(--border-subtle);
 }
 

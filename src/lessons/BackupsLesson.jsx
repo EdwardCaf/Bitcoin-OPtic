@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   AlertTriangle,
   Archive,
@@ -68,7 +69,11 @@ export function BackupsLesson() {
 
 function IntroSection() {
   return (
-    <div className={styles.section}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={styles.section}
+    >
       <div className={styles.heroCard}>
         <div className={styles.heroIcon}>
           <Archive size={48} />
@@ -119,13 +124,17 @@ function IntroSection() {
       </div>
 
       <RecoveryScenarioExplorer />
-    </div>
+    </motion.div>
   );
 }
 
 function SeedBackupsSection() {
   return (
-    <div className={styles.section}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={styles.section}
+    >
       <h2 className={styles.sectionTitle}>Seed Backups</h2>
       <p className={styles.sectionText}>
         Your seed phrase is the root secret for a single-signature wallet. Treat
@@ -248,13 +257,17 @@ function SeedBackupsSection() {
           use a standard backup scheme rather than inventing your own.
         </p>
       </Accordion>
-    </div>
+    </motion.div>
   );
 }
 
 function PassphrasesSection() {
   return (
-    <div className={styles.section}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={styles.section}
+    >
       <h2 className={styles.sectionTitle}>Passphrases</h2>
       <p className={styles.sectionText}>
         A BIP39 passphrase acts like an extra secret on top of your seed. It can
@@ -294,13 +307,17 @@ function PassphrasesSection() {
           injury, age, or death can make memory-based recovery fail.
         </p>
       </Accordion>
-    </div>
+    </motion.div>
   );
 }
 
 function InheritanceSection() {
   return (
-    <div className={styles.section}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={styles.section}
+    >
       <h2 className={styles.sectionTitle}>Inheritance Planning</h2>
       <p className={styles.sectionText}>
         Inheritance planning is about making sure the right people can discover,
@@ -343,7 +360,9 @@ function InheritanceSection() {
             <li>
               <div>
                 <strong>What not to do</strong>
-                <span>Warn against entering seed words into random websites.</span>
+                <span>
+                  Warn against entering seed words into random websites.
+                </span>
               </div>
             </li>
           </ul>
@@ -396,13 +415,17 @@ function InheritanceSection() {
           </ul>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function MultisigSection() {
   return (
-    <div className={styles.section}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={styles.section}
+    >
       <h2 className={styles.sectionTitle}>Multisig Inheritance</h2>
       <p className={styles.sectionText}>
         Multisig is useful when inheritance needs both safety and
@@ -435,7 +458,10 @@ function MultisigSection() {
           </div>
           <div>
             <strong>Instructions still matter</strong>
-            <span>Heirs need the coordinator, quorum, and helpers.</span>
+            <span>
+              Heirs need the coordinator, quorum, output descriptor, and
+              helpers.
+            </span>
           </div>
         </div>
         <Link
@@ -455,12 +481,14 @@ function MultisigSection() {
       <Accordion title="Multisig tradeoff" variant="deepdive" defaultOpen>
         <p>
           Multisig reduces single-point failure, but it adds setup and
-          documentation requirements. Heirs need the coordinator wallet, quorum,
-          device names, and trusted helpers. A simple, well-documented 2-of-3 is
+          documentation requirements. Heirs need the quorum of keys, output
+          descriptor, device names, and trusted helpers. Without the output
+          descriptor, the wallet can be difficult or impossible to reconstruct
+          even if the seeds still exist. A simple, well-documented 2-of-3 is
           better than a clever setup nobody can recover.
         </p>
       </Accordion>
-    </div>
+    </motion.div>
   );
 }
 

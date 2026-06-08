@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Wallet,
@@ -15,6 +17,7 @@ import {
   CircleDollarSign,
   Bitcoin,
   ChevronRight,
+  ChevronDown,
   Library,
   MessageSquareMore,
 } from 'lucide-react';
@@ -23,12 +26,18 @@ import styles from './Sidebar.module.css';
 const sections = [
   {
     id: 'fundamentals',
-    title: 'Fundamentals',
+    title: 'Self-Custody',
     lessons: [
       { id: 'what-is-bitcoin', title: 'What is Bitcoin?', icon: Bitcoin, path: '/lessons/what-is-bitcoin' },
       { id: 'wallets', title: 'Wallets', icon: Wallet, path: '/lessons/wallets' },
       { id: 'backups', title: 'Backups', icon: Archive, path: '/lessons/backups' },
       { id: 'transactions', title: 'Transactions', icon: ArrowLeftRight, path: '/lessons/transactions' },
+    ]
+  },
+  {
+    id: 'advanced-custody',
+    title: 'Advanced Custody',
+    lessons: [
       { id: 'utxo-management', title: 'UTXO Management', icon: Coins, path: '/lessons/utxo-management' },
       { id: 'privacy', title: 'Privacy', icon: EyeOff, path: '/lessons/privacy' },
       { id: 'multisig', title: 'Multi-Signature', icon: Key, path: '/lessons/multisig' },
@@ -45,7 +54,7 @@ const sections = [
   },
   {
     id: 'layer2',
-    title: 'Layer 2 / Sidechains',
+    title: 'Scaling',
     lessons: [
       { id: 'lightning', title: 'Lightning', icon: Zap, path: '/lessons/lightning' },
       { id: 'liquid', title: 'Liquid', icon: Droplets, path: '/lessons/liquid' },
@@ -55,6 +64,30 @@ const sections = [
 ];
 
 export function Sidebar({ isOpen, onClose }) {
+  const location = useLocation();
+  const activeSectionId = sections.find((section) =>
+    section.lessons.some((lesson) => lesson.path === location.pathname)
+  )?.id;
+  const [expandedSections, setExpandedSections] = useState(() =>
+    activeSectionId ? { [activeSectionId]: true } : { fundamentals: true }
+  );
+
+  useEffect(() => {
+    if (!activeSectionId) return;
+
+    setExpandedSections((prev) => ({
+      ...prev,
+      [activeSectionId]: true,
+    }));
+  }, [activeSectionId]);
+
+  const toggleSection = (sectionId) => {
+    setExpandedSections((prev) => ({
+      ...prev,
+      [sectionId]: !prev[sectionId],
+    }));
+  };
+
   return (
     <>
       {/* Mobile overlay */}
@@ -76,90 +109,116 @@ export function Sidebar({ isOpen, onClose }) {
         initial={false}
       >
         <div className={styles.content}>
-          {sections.map((section) => (
-            <div key={section.id} className={styles.section}>
-              <h3 className={styles.sectionTitle}>{section.title}</h3>
-              <nav className={styles.nav}>
-                {section.lessons.map((lesson) => {
-                  const Icon = lesson.icon;
+          <div className={styles.lessonList}>
+            {sections.map((section) => {
+              const isExpanded = !!expandedSections[section.id];
+              const isActiveGroup = section.id === activeSectionId;
 
-                  return (
-                    <NavLink
-                      key={lesson.id}
-                      to={lesson.path}
-                      className={({ isActive }) => `
-                        ${styles.navItem}
-                        ${isActive ? styles.active : ''}
-                      `}
-                      onClick={() => {
-                        if (window.innerWidth < 1024) {
-                          onClose();
-                        }
-                      }}
-                    >
-                      <div className={styles.navIcon}>
-                        <Icon size={18} />
-                      </div>
-                      <span className={styles.navTitle}>{lesson.title}</span>
-                      <ChevronRight size={14} className={styles.navArrow} />
-                    </NavLink>
-                  );
-                })}
-              </nav>
+              return (
+                <div key={section.id} className={styles.section}>
+                  <button
+                    type="button"
+                    className={`${styles.groupHeader} ${isActiveGroup ? styles.activeGroupHeader : ''}`}
+                    onClick={() => toggleSection(section.id)}
+                    aria-expanded={isExpanded}
+                  >
+                    <span className={styles.groupTitle}>{section.title}</span>
+                    <ChevronDown
+                      size={14}
+                      className={`${styles.groupChevron} ${isExpanded ? styles.groupChevronOpen : ''}`}
+                    />
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isExpanded && (
+                      <motion.nav
+                        className={styles.nav}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2, ease: 'easeOut' }}
+                      >
+                        {section.lessons.map((lesson) => {
+                          const Icon = lesson.icon;
+
+                          return (
+                            <NavLink
+                              key={lesson.id}
+                              to={lesson.path}
+                              className={({ isActive }) => `
+                                ${styles.navItem}
+                                ${isActive ? styles.active : ''}
+                              `}
+                              onClick={() => {
+                                if (window.innerWidth < 1024) {
+                                  onClose();
+                                }
+                              }}
+                            >
+                              <div className={styles.navIcon}>
+                                <Icon size={18} />
+                              </div>
+                              <span className={styles.navTitle}>{lesson.title}</span>
+                              <ChevronRight size={14} className={styles.navArrow} />
+                            </NavLink>
+                          );
+                        })}
+                      </motion.nav>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className={styles.quickLinks}>
+            <NavLink
+              to="/resources"
+              className={({ isActive }) => `
+                ${styles.resourcesLink}
+                ${isActive ? styles.active : ''}
+              `}
+              onClick={() => {
+                if (window.innerWidth < 1024) {
+                  onClose();
+                }
+              }}
+            >
+              <div className={styles.navIcon}>
+                <Library size={18} />
+              </div>
+              <span className={styles.navTitle}>Resources</span>
+              <ChevronRight size={14} className={styles.navArrow} />
+            </NavLink>
+
+            <NavLink
+              to="/support"
+              className={({ isActive }) => `
+                ${styles.supportLink}
+                ${isActive ? styles.active : ''}
+              `}
+              onClick={() => {
+                if (window.innerWidth < 1024) {
+                  onClose();
+                }
+              }}
+            >
+              <div className={styles.navIcon}>
+                <MessageSquareMore size={18} />
+              </div>
+              <span className={styles.navTitle}>Schedule a Call</span>
+              <ChevronRight size={14} className={styles.navArrow} />
+            </NavLink>
+
+            <div className={styles.footer}>
+              <p className={styles.footerText}>
+                All visuals are for educational purposes.
+                Nothing stated is finanical advice.
+              </p>
+              <p className={styles.footerText}>
+                Created by Edward Cafarella
+              </p>
             </div>
-          ))}
-
-          {/* Separator */}
-          <div className={styles.separator} />
-
-          {/* Resources Link */}
-          <NavLink
-            to="/resources"
-            className={({ isActive }) => `
-              ${styles.resourcesLink}
-              ${isActive ? styles.active : ''}
-            `}
-            onClick={() => {
-              if (window.innerWidth < 1024) {
-                onClose();
-              }
-            }}
-          >
-            <div className={styles.navIcon}>
-              <Library size={18} />
-            </div>
-            <span className={styles.navTitle}>Resources</span>
-            <ChevronRight size={14} className={styles.navArrow} />
-          </NavLink>
-
-          {/* Support Link */}
-          <NavLink
-            to="/support"
-            className={({ isActive }) => `
-              ${styles.supportLink}
-              ${isActive ? styles.active : ''}
-            `}
-            onClick={() => {
-              if (window.innerWidth < 1024) {
-                onClose();
-              }
-            }}
-          >
-            <div className={styles.navIcon}>
-              <MessageSquareMore size={18} />
-            </div>
-            <span className={styles.navTitle}>Schedule a Call</span>
-            <ChevronRight size={14} className={styles.navArrow} />
-          </NavLink>
-
-          <div className={styles.footer}>
-            <p className={styles.footerText}>
-              All visuals are for educational purposes.
-              Nothing stated is finanical advice.
-            </p>
-            <p className={styles.footerText}>
-              Created by Edward Cafarella
-            </p>
           </div>
         </div>
       </motion.aside>

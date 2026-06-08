@@ -71,13 +71,11 @@
   overflow: hidden;
   padding: var(--spacing-lg);
   background:
-    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--bitcoin-orange) 14%, transparent), transparent 13rem),
-    linear-gradient(160deg, color-mix(in srgb, var(--bg-tertiary) 88%, transparent), var(--bg-secondary));
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 24%, var(--border-subtle));
-  border-radius: var(--radius-xl);
-  box-shadow:
-    0 16px 34px color-mix(in srgb, black 14%, transparent),
-    inset 0 1px 0 color-mix(in srgb, white 7%, transparent);
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--bitcoin-orange) 9%, transparent), transparent 12rem),
+    linear-gradient(160deg, color-mix(in srgb, var(--bg-tertiary) 82%, transparent), var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 18%, var(--border-subtle));
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 28px color-mix(in srgb, black 10%, transparent);
 }
 
 .attentionListCard::before {
@@ -173,13 +171,11 @@
   overflow: hidden;
   padding: var(--spacing-lg);
   background:
-    radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--bitcoin-orange) 13%, transparent), transparent 12rem),
-    linear-gradient(155deg, color-mix(in srgb, var(--bg-tertiary) 90%, transparent), color-mix(in srgb, var(--bg-secondary) 98%, transparent));
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 22%, var(--border-subtle));
-  border-radius: var(--radius-xl);
-  box-shadow:
-    0 16px 34px color-mix(in srgb, black 14%, transparent),
-    inset 0 1px 0 color-mix(in srgb, white 7%, transparent);
+    radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--bitcoin-orange) 8%, transparent), transparent 12rem),
+    linear-gradient(155deg, color-mix(in srgb, var(--bg-tertiary) 84%, transparent), color-mix(in srgb, var(--bg-secondary) 98%, transparent));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 16%, var(--border-subtle));
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 28px color-mix(in srgb, black 10%, transparent);
 }
 
 .inheritanceListCard::after {
@@ -256,13 +252,11 @@
   overflow: hidden;
   padding: var(--spacing-lg);
   background:
-    radial-gradient(circle at 92% 0%, color-mix(in srgb, var(--bitcoin-orange) 18%, transparent), transparent 15rem),
-    linear-gradient(145deg, color-mix(in srgb, var(--bg-tertiary) 86%, transparent), color-mix(in srgb, var(--bg-secondary) 96%, transparent));
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-subtle));
-  border-radius: var(--radius-xl);
-  box-shadow:
-    0 18px 44px color-mix(in srgb, black 18%, transparent),
-    inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
+    radial-gradient(circle at 92% 0%, color-mix(in srgb, var(--bitcoin-orange) 11%, transparent), transparent 15rem),
+    linear-gradient(145deg, color-mix(in srgb, var(--bg-tertiary) 84%, transparent), color-mix(in srgb, var(--bg-secondary) 96%, transparent));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 22%, var(--border-subtle));
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 34px color-mix(in srgb, black 12%, transparent);
 }
 
 .multisigHeader {
