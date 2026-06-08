@@ -168,26 +168,26 @@ export function NodeTypesExplorer() {
       </Card>
       
       <Accordion
-        title="Deep Dive: Why Run Your Own Node?"
+        title="Bridge: From Network Nodes to Your Node"
         variant="deepdive"
         icon={<Shield size={16} />}
       >
         <p>
-          Running your own full node gives you security 
-          and privacy in Bitcoin:
+          This section explains what different nodes do for the Bitcoin network. 
+          The next lesson focuses on what changes when you personally run one.
         </p>
         <ul>
           <li>
-            <strong>Don't trust, verify:</strong> You independently verify that 
-            all transactions follow the rules, including your own
+            <strong>Wallet connection:</strong> your wallet can ask your own node 
+            instead of a public server
           </li>
           <li>
-            <strong>Privacy:</strong> You don't reveal your addresses to third-party 
-            servers when checking balances
+            <strong>Setup choices:</strong> hardware, pruning, Tor, and sync time 
+            affect the experience
           </li>
           <li>
-            <strong>Network health:</strong> More nodes make the Bitcoin ledger more decentralized 
-            and resilient
+            <strong>Extra services:</strong> Electrum and Lightning build on top of 
+            a validating Bitcoin node
           </li>
         </ul>
       </Accordion>

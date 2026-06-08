@@ -10,6 +10,7 @@ import {
   Pickaxe, 
   Blocks, 
   Network,
+  ServerCog,
   Zap,
   Droplets,
   CircleDollarSign,
@@ -41,6 +42,7 @@ const sections = [
       { id: 'mining', title: 'Mining', icon: Pickaxe, path: '/lessons/mining' },
       { id: 'blocks', title: 'Blocks', icon: Blocks, path: '/lessons/blocks' },
       { id: 'network', title: 'Network', icon: Network, path: '/lessons/network' },
+      { id: 'running-a-node', title: 'Running a Node', icon: ServerCog, path: '/lessons/running-a-node' },
     ]
   },
   {
