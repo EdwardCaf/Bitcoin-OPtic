@@ -17,6 +17,7 @@ const MultisigLesson = lazy(() => import('./lessons/MultisigLesson'));
 const MiningLesson = lazy(() => import('./lessons/MiningLesson'));
 const BlocksLesson = lazy(() => import('./lessons/BlocksLesson'));
 const NetworkLesson = lazy(() => import('./lessons/NetworkLesson'));
+const RunningNodeLesson = lazy(() => import('./lessons/RunningNodeLesson'));
 const LightningLesson = lazy(() => import('./lessons/LightningLesson'));
 const LiquidLesson = lazy(() => import('./lessons/LiquidLesson'));
 const EcashLesson = lazy(() => import('./lessons/EcashLesson'));
@@ -102,6 +103,7 @@ function App() {
             <Route path="/lessons/mining" element={<MiningLesson />} />
             <Route path="/lessons/blocks" element={<BlocksLesson />} />
             <Route path="/lessons/network" element={<NetworkLesson />} />
+            <Route path="/lessons/running-a-node" element={<RunningNodeLesson />} />
             <Route path="/lessons/lightning" element={<LightningLesson />} />
             <Route path="/lessons/liquid" element={<LiquidLesson />} />
             <Route path="/lessons/ecash" element={<EcashLesson />} />
