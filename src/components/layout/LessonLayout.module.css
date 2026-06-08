@@ -243,9 +243,14 @@
   .progress {
     width: 100%;
   }
+
+  .tabsShell {
+    margin-left: calc(-1 * var(--spacing-md));
+    margin-right: calc(-1 * var(--spacing-md));
+  }
   
   .tabs {
-    margin: 0 calc(-1 * var(--spacing-md));
+    margin: 0;
     padding: 0.15rem var(--spacing-md) 0.3rem;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
@@ -257,7 +262,8 @@
     bottom: 0;
     display: flex;
     align-items: center;
-    width: 2.5rem;
+    width: 4.25rem;
+    z-index: 2;
     pointer-events: none;
   }
 
@@ -274,18 +280,59 @@
   .tabsFade {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, color-mix(in srgb, var(--bg-secondary) 92%, transparent), transparent);
+    background: linear-gradient(
+      90deg,
+      var(--bg-secondary) 0%,
+      var(--bg-secondary) 62%,
+      transparent 100%
+    );
   }
 
   .tabsOverflowIndicator.right .tabsFade {
-    background: linear-gradient(270deg, color-mix(in srgb, var(--bg-secondary) 92%, transparent), transparent);
+    background: linear-gradient(
+      270deg,
+      var(--bg-secondary) 0%,
+      var(--bg-secondary) 62%,
+      transparent 100%
+    );
   }
 
   .tabsOverflowIcon {
+    display: flex;
     position: relative;
     z-index: 1;
+    width: 1.65rem;
+    height: 1.65rem;
+    padding: 0.3rem;
+    background: color-mix(in srgb, var(--bg-secondary) 96%, var(--bg-elevated));
+    border: 1px solid color-mix(in srgb, var(--border-subtle) 85%, transparent);
+    border-radius: 50%;
     color: var(--text-muted);
     margin: 0 var(--spacing-xs);
+    box-shadow: 0 6px 16px color-mix(in srgb, black 16%, transparent);
+  }
+
+  :global(:root[data-theme='light']) .tabsOverflowIcon {
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 6px 16px rgba(16, 19, 25, 0.12);
+  }
+
+  :global(:root[data-theme='light']) .tabsFade {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(255, 255, 255, 0.98) 62%,
+      transparent 100%
+    );
+  }
+
+  :global(:root[data-theme='light']) .tabsOverflowIndicator.right .tabsFade {
+    background: linear-gradient(
+      270deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(255, 255, 255, 0.98) 62%,
+      transparent 100%
+    );
   }
   
   .main {

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
   Wallet,
+  Archive,
   ArrowLeftRight,
   EyeOff,
   Key,
@@ -44,6 +45,18 @@ const LEARNING_TREE = {
       difficulty: "Beginner",
       duration: "15 min",
       topics: ["Private Keys", "Address Types", "HD Wallets"],
+    },
+    {
+      id: "backups",
+      title: "Backups & Recovery",
+      icon: Archive,
+      path: "/lessons/backups",
+      level: 1,
+      description:
+        "Build a practical plan for seed backups, passphrases, and inheritance.",
+      difficulty: "Beginner",
+      duration: "18 min",
+      topics: ["Seed Backups", "Passphrases", "Inheritance"],
     },
     {
       id: "transactions",

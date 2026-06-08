@@ -9,6 +9,7 @@ import styles from './App.module.css';
 // Lazy load lesson components for code splitting
 const WhatIsBitcoinLesson = lazy(() => import('./lessons/WhatIsBitcoinLesson'));
 const WalletsLesson = lazy(() => import('./lessons/WalletsLesson'));
+const BackupsLesson = lazy(() => import('./lessons/BackupsLesson'));
 const TransactionsLesson = lazy(() => import('./lessons/TransactionsLesson'));
 const UTXOManagementLesson = lazy(() => import('./lessons/UTXOManagementLesson'));
 const PrivacyLesson = lazy(() => import('./lessons/PrivacyLesson'));
@@ -93,6 +94,7 @@ function App() {
             <Route path="/newsletter" element={<NewsletterPage />} />
             <Route path="/lessons/what-is-bitcoin" element={<WhatIsBitcoinLesson />} />
             <Route path="/lessons/wallets" element={<WalletsLesson />} />
+            <Route path="/lessons/backups" element={<BackupsLesson />} />
             <Route path="/lessons/transactions" element={<TransactionsLesson />} />
             <Route path="/lessons/utxo-management" element={<UTXOManagementLesson />} />
             <Route path="/lessons/privacy" element={<PrivacyLesson />} />

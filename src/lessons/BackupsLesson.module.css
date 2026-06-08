@@ -1,0 +1,415 @@
+.criticalWarning {
+  padding: var(--spacing-lg);
+  background: color-mix(in srgb, var(--error) 7%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--error) 36%, var(--border-subtle));
+  border-left: 4px solid var(--error);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 34px color-mix(in srgb, var(--error) 7%, transparent);
+}
+
+.warningHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.warningIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--error) 12%, transparent);
+  border-radius: var(--radius-md);
+  color: var(--error);
+}
+
+.warningHeader h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: var(--text-lg);
+  font-weight: 750;
+  letter-spacing: -0.025em;
+}
+
+.severityBadge {
+  margin-left: auto;
+  padding: 3px 9px;
+  background: var(--error);
+  border-radius: var(--radius-sm);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.criticalWarning p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.criticalWarning p + p {
+  margin-top: var(--spacing-md);
+}
+
+.criticalWarning strong {
+  color: var(--text-primary);
+}
+
+.attentionListGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.attentionListCard {
+  position: relative;
+  overflow: hidden;
+  padding: var(--spacing-lg);
+  background:
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--bitcoin-orange) 14%, transparent), transparent 13rem),
+    linear-gradient(160deg, color-mix(in srgb, var(--bg-tertiary) 88%, transparent), var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 24%, var(--border-subtle));
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 16px 34px color-mix(in srgb, black 14%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 7%, transparent);
+}
+
+.attentionListCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--bitcoin-orange), color-mix(in srgb, var(--bitcoin-orange) 35%, transparent));
+}
+
+.attentionListHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.attentionListIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--bitcoin-orange) 13%, var(--bg-tertiary));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 28%, var(--border-subtle));
+  border-radius: var(--radius-lg);
+  color: var(--bitcoin-orange);
+}
+
+.attentionListHeader h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: var(--text-xl);
+  letter-spacing: -0.035em;
+}
+
+.attentionList {
+  display: grid;
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.attentionList li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+  padding: var(--spacing-md);
+  background: color-mix(in srgb, var(--bg-secondary) 76%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border-subtle) 76%, transparent);
+  border-radius: var(--radius-lg);
+}
+
+.attentionMarker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  background: var(--bitcoin-orange);
+  border-radius: var(--radius-full);
+  color: var(--text-inverse);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+}
+
+.attentionList strong,
+.attentionList span:not(.attentionMarker) {
+  display: block;
+}
+
+.attentionList strong {
+  margin-bottom: 3px;
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+}
+
+.attentionList span:not(.attentionMarker) {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.55;
+}
+
+.inheritanceListGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.inheritanceListCard {
+  position: relative;
+  overflow: hidden;
+  padding: var(--spacing-lg);
+  background:
+    radial-gradient(circle at 8% 0%, color-mix(in srgb, var(--bitcoin-orange) 13%, transparent), transparent 12rem),
+    linear-gradient(155deg, color-mix(in srgb, var(--bg-tertiary) 90%, transparent), color-mix(in srgb, var(--bg-secondary) 98%, transparent));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 22%, var(--border-subtle));
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 16px 34px color-mix(in srgb, black 14%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 7%, transparent);
+}
+
+.inheritanceListCard::after {
+  content: "";
+  position: absolute;
+  inset: auto var(--spacing-lg) 0 var(--spacing-lg);
+  height: 3px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--bitcoin-orange) 58%, transparent), transparent);
+}
+
+.inheritanceListHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid color-mix(in srgb, var(--border-subtle) 68%, transparent);
+}
+
+.inheritanceListIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--bitcoin-orange) 12%, var(--bg-tertiary));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 30%, var(--border-subtle));
+  border-radius: var(--radius-lg);
+  color: var(--bitcoin-orange);
+}
+
+.inheritanceListHeader h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: var(--text-xl);
+  letter-spacing: -0.035em;
+}
+
+.inheritanceList {
+  display: grid;
+  gap: var(--spacing-sm);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inheritanceList li {
+  padding: var(--spacing-md);
+  background: color-mix(in srgb, var(--bg-secondary) 74%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border-subtle) 74%, transparent);
+  border-radius: var(--radius-lg);
+}
+
+.inheritanceList strong,
+.inheritanceList span {
+  display: block;
+}
+
+.inheritanceList strong {
+  margin-bottom: 3px;
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+}
+
+.inheritanceList span {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.58;
+}
+
+.multisigFeature {
+  position: relative;
+  overflow: hidden;
+  padding: var(--spacing-lg);
+  background:
+    radial-gradient(circle at 92% 0%, color-mix(in srgb, var(--bitcoin-orange) 18%, transparent), transparent 15rem),
+    linear-gradient(145deg, color-mix(in srgb, var(--bg-tertiary) 86%, transparent), color-mix(in srgb, var(--bg-secondary) 96%, transparent));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-subtle));
+  border-radius: var(--radius-xl);
+  box-shadow:
+    0 18px 44px color-mix(in srgb, black 18%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
+}
+
+.multisigHeader {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.multisigIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: color-mix(in srgb, var(--bitcoin-orange) 14%, var(--bg-tertiary));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-subtle));
+  border-radius: var(--radius-lg);
+  color: var(--bitcoin-orange);
+}
+
+.multisigHeader h3 {
+  margin: 0 0 var(--spacing-xs);
+  color: var(--text-primary);
+  font-size: var(--text-xl);
+  letter-spacing: -0.035em;
+}
+
+.multisigHeader p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.multisigBadge {
+  padding: 5px 10px;
+  background: var(--bitcoin-orange);
+  border-radius: var(--radius-full);
+  color: var(--text-inverse);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.multisigPoints {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.multisigPoints div {
+  padding: var(--spacing-md);
+  background: color-mix(in srgb, var(--bg-secondary) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border-subtle) 72%, transparent);
+  border-radius: var(--radius-lg);
+}
+
+.multisigPoints strong,
+.multisigPoints span {
+  display: block;
+}
+
+.multisigPoints strong {
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  margin-bottom: var(--spacing-xs);
+}
+
+.multisigPoints span {
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  line-height: 1.45;
+}
+
+.multisigLessonLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: color-mix(in srgb, var(--bitcoin-orange) 12%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 32%, var(--border-subtle));
+  border-radius: var(--radius-lg);
+  color: var(--text-primary);
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.multisigLessonLink:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--bitcoin-orange) 17%, var(--bg-secondary));
+  border-color: color-mix(in srgb, var(--bitcoin-orange) 56%, var(--border-subtle));
+}
+
+.multisigLessonLink span,
+.multisigLessonLink small {
+  display: block;
+}
+
+.multisigLessonLink small {
+  margin-top: 2px;
+  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.multisigLessonLink svg {
+  flex-shrink: 0;
+  color: var(--bitcoin-orange);
+}
+
+@media (max-width: 900px) {
+  .attentionListGrid,
+  .inheritanceListGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .warningHeader {
+    align-items: flex-start;
+  }
+
+  .severityBadge {
+    margin-left: 0;
+  }
+
+  .multisigHeader {
+    grid-template-columns: auto 1fr;
+  }
+
+  .multisigBadge {
+    grid-column: 1 / -1;
+    width: fit-content;
+  }
+
+  .multisigPoints {
+    grid-template-columns: 1fr;
+  }
+}

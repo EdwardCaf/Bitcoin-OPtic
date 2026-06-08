@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Wallet,
+  Archive,
   ArrowLeftRight,
   Coins,
   EyeOff,
@@ -26,6 +27,7 @@ const sections = [
     lessons: [
       { id: 'what-is-bitcoin', title: 'What is Bitcoin?', icon: Bitcoin, path: '/lessons/what-is-bitcoin' },
       { id: 'wallets', title: 'Wallets', icon: Wallet, path: '/lessons/wallets' },
+      { id: 'backups', title: 'Backups', icon: Archive, path: '/lessons/backups' },
       { id: 'transactions', title: 'Transactions', icon: ArrowLeftRight, path: '/lessons/transactions' },
       { id: 'utxo-management', title: 'UTXO Management', icon: Coins, path: '/lessons/utxo-management' },
       { id: 'privacy', title: 'Privacy', icon: EyeOff, path: '/lessons/privacy' },

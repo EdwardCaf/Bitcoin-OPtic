@@ -1,0 +1,167 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  color: var(--bitcoin-orange);
+}
+
+.header h3 {
+  margin: 0 0 var(--spacing-xs);
+  color: var(--text-primary);
+  font-size: var(--text-xl);
+  letter-spacing: -0.03em;
+}
+
+.header p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.thresholdPanel {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: color-mix(in srgb, var(--bitcoin-orange) 9%, var(--bg-secondary));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 28%, var(--border-subtle));
+  border-radius: var(--radius-lg);
+}
+
+.thresholdIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--bitcoin-orange) 12%, var(--bg-tertiary));
+  border-radius: var(--radius-md);
+  color: var(--bitcoin-orange);
+}
+
+.thresholdPanel strong {
+  display: block;
+  color: var(--text-primary);
+  font-size: var(--text-base);
+}
+
+.thresholdPanel span {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.locationGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-md);
+}
+
+.locationCard {
+  min-height: 150px;
+  padding: var(--spacing-md);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-tertiary) 82%, transparent), var(--bg-secondary));
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.locationHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  font-weight: 700;
+}
+
+.locationHeader svg {
+  color: var(--bitcoin-orange);
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.itemChip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  width: fit-content;
+  padding: 6px 9px;
+  background: color-mix(in srgb, var(--bitcoin-orange) 10%, var(--bg-tertiary));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 22%, var(--border-subtle));
+  border-radius: 999px;
+  color: var(--text-primary);
+  font-size: var(--text-xs);
+  font-weight: 650;
+}
+
+.itemChip svg {
+  color: var(--bitcoin-orange);
+}
+
+.emptyState {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  font-style: italic;
+}
+
+.resultPanel {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  color: var(--success);
+  background: color-mix(in srgb, var(--success) 7%, var(--bg-secondary));
+  border-color: color-mix(in srgb, var(--success) 28%, var(--border-subtle));
+}
+
+.resultPanel strong {
+  display: block;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.resultPanel p,
+.instructionsNote p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.instructionsNote {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: color-mix(in srgb, var(--bg-tertiary) 70%, transparent);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--bitcoin-orange);
+}
+
+@media (max-width: 850px) {
+  .locationGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .locationGrid {
+    grid-template-columns: 1fr;
+  }
+}
