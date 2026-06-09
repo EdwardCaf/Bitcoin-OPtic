@@ -70,8 +70,8 @@
   flex-direction: column;
   gap: 2px;
   overflow: hidden;
-  margin-left: 10px;
-  padding: 6px 0 10px 10px;
+  margin-left: 5px;
+  padding: 5px 0 9px 6px;
   border-left: 1px solid color-mix(in srgb, var(--border-subtle) 78%, transparent);
 }
 
@@ -124,10 +124,9 @@
 .groupTitle {
   flex: 1;
   color: var(--text-secondary);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
 }
 
 .activeGroupHeader .groupTitle,
@@ -321,20 +320,29 @@
   transition: all var(--transition-fast);
   position: relative;
   margin-bottom: var(--spacing-sm);
-  background: transparent;
-  border: 1px solid transparent;
+  background: color-mix(in srgb, var(--cyan) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--cyan) 14%, transparent);
+  box-shadow:
+    0 2px 8px color-mix(in srgb, var(--cyan) 7%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 .resourcesLink:hover {
-  background: color-mix(in srgb, var(--bg-tertiary) 72%, transparent);
-  border-color: color-mix(in srgb, var(--border-subtle) 72%, transparent);
+  background: color-mix(in srgb, var(--cyan) 12%, var(--bg-tertiary));
+  border-color: color-mix(in srgb, var(--cyan) 24%, var(--border-subtle));
   color: var(--text-primary);
+  box-shadow:
+    0 3px 10px color-mix(in srgb, var(--cyan) 10%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .resourcesLink.active {
-  background: color-mix(in srgb, var(--cyan) 10%, transparent);
-  border-color: color-mix(in srgb, var(--cyan) 22%, var(--border-subtle));
+  background: color-mix(in srgb, var(--cyan) 14%, transparent);
+  border-color: color-mix(in srgb, var(--cyan) 28%, var(--border-subtle));
   color: var(--text-primary);
+  box-shadow:
+    0 4px 12px color-mix(in srgb, var(--cyan) 12%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .resourcesLink.active .navIcon {
@@ -452,37 +460,47 @@
 }
 
 :global(:root[data-theme='light']) .resourcesLink {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.24), rgba(14, 165, 233, 0.15));
-  border-color: rgba(37, 99, 235, 0.5);
-  color: #18456f;
+  background: rgba(37, 99, 235, 0.08);
+  border-color: rgba(37, 99, 235, 0.16);
+  color: #50586a;
+  box-shadow:
+    0 2px 8px rgba(37, 99, 235, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 :global(:root[data-theme='light']) .resourcesLink:hover {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.33), rgba(14, 165, 233, 0.23));
-  border-color: rgba(37, 99, 235, 0.64);
-  color: #133b60;
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.24);
+  color: #30384a;
+  box-shadow:
+    0 3px 10px rgba(37, 99, 235, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
 :global(:root[data-theme='light']) .resourcesLink.active {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.44), rgba(14, 165, 233, 0.31));
-  border-color: #3972df;
-  color: #113358;
+  background: rgba(37, 99, 235, 0.14);
+  border-color: rgba(37, 99, 235, 0.28);
+  color: #26364f;
+  box-shadow:
+    0 4px 12px rgba(37, 99, 235, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
 :global(:root[data-theme='light']) .resourcesLink .navIcon {
-  background: rgba(37, 99, 235, 0.18);
-  border: 1px solid rgba(37, 99, 235, 0.36);
-  color: #2c5cae;
+  background: #efe7da;
+  border: 1px solid #ded0bd;
+  color: #6f5b40;
 }
 
 :global(:root[data-theme='light']) .resourcesLink:hover .navIcon,
 :global(:root[data-theme='light']) .resourcesLink.active .navIcon {
-  background: linear-gradient(135deg, #3972df 0%, #3394ce 100%);
-  color: #ffffff;
+  background: rgba(37, 99, 235, 0.12);
+  border-color: rgba(37, 99, 235, 0.22);
+  color: #315fa8;
 }
 
 :global(:root[data-theme='light']) .resourcesLink.active .navIcon svg {
-  color: #ffffff;
+  color: currentColor;
 }
 
 :global(:root[data-theme='light']) .resourcesLink.active::before {
@@ -494,50 +512,44 @@
 }
 
 :global(:root[data-theme='light']) .supportLink {
-  background: linear-gradient(135deg, rgba(234, 128, 0, 0.28), rgba(217, 119, 6, 0.18));
-  border-color: rgba(180, 83, 9, 0.56);
-  color: #73330a;
-  box-shadow:
-    0 2px 8px rgba(180, 83, 9, 0.2),
-    0 4px 16px rgba(16, 19, 25, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  background: rgba(217, 119, 6, 0.08);
+  border-color: rgba(180, 83, 9, 0.16);
+  color: #50586a;
+  box-shadow: none;
 }
 
 :global(:root[data-theme='light']) .supportLink .navIcon {
-  background: rgba(217, 119, 6, 0.18);
-  border: 1px solid rgba(180, 83, 9, 0.34);
-  color: #a94d06;
+  background: rgba(217, 119, 6, 0.08);
+  border: 1px solid rgba(180, 83, 9, 0.16);
+  color: #8a4d12;
 }
 
 :global(:root[data-theme='light']) .supportLink:hover {
-  background: linear-gradient(135deg, rgba(234, 128, 0, 0.36), rgba(217, 119, 6, 0.24));
-  border-color: rgba(180, 83, 9, 0.72);
-  color: #5f2906;
-  box-shadow:
-    0 3px 10px rgba(180, 83, 9, 0.24),
-    0 6px 18px rgba(16, 19, 25, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  background: rgba(217, 119, 6, 0.12);
+  border-color: rgba(180, 83, 9, 0.24);
+  color: #30384a;
+  box-shadow: none;
 }
 
 :global(:root[data-theme='light']) .supportLink:hover .navIcon,
 :global(:root[data-theme='light']) .supportLink.active .navIcon {
-  background: linear-gradient(135deg, #c56614 0%, #d4831a 100%);
-  color: #fff8ec;
+  background: rgba(217, 119, 6, 0.14);
+  color: #8a4d12;
 }
 
 :global(:root[data-theme='light']) .supportLink.active .navIcon svg {
-  color: #fff8ec;
+  color: currentColor;
 }
 
 :global(:root[data-theme='light']) .supportLink.active {
-  border-color: rgba(146, 64, 14, 0.9);
-  background: linear-gradient(135deg, rgba(234, 128, 0, 0.4), rgba(217, 119, 6, 0.3));
+  border-color: rgba(180, 83, 9, 0.28);
+  background: rgba(217, 119, 6, 0.14);
 }
 
 :global(:root[data-theme='light']) .sidebar {
-  background: linear-gradient(180deg, #ffffff 0%, #f4f7fc 100%);
-  border-right-color: #c6cfde;
-  box-shadow: 6px 0 22px rgba(16, 19, 25, 0.08);
+  background: linear-gradient(180deg, #ffffff 0%, #f7f9fd 100%);
+  border-right-color: #d6deeb;
+  box-shadow: 4px 0 18px rgba(16, 19, 25, 0.05);
 }
 
 :global(:root[data-theme='light']) .sectionTitle {
@@ -552,14 +564,29 @@
   background: #e8edf7;
 }
 
+:global(:root[data-theme='light']) .nav {
+  border-left-color: #dce3ef;
+}
+
+:global(:root[data-theme='light']) .groupHeader:hover {
+  background: #edf2fa;
+  border-color: #dce3ef;
+}
+
+:global(:root[data-theme='light']) .activeGroupHeader {
+  background: rgba(217, 119, 6, 0.08);
+  border-color: rgba(180, 83, 9, 0.16);
+}
+
 :global(:root[data-theme='light']) .navIcon {
-  background: #e2e8f4;
-  border: 1px solid #d1d9e8;
+  background: #efe7da;
+  border: 1px solid #ded0bd;
+  color: #6f5b40;
 }
 
 :global(:root[data-theme='light']) .navItem.active .navIcon {
-  background: #d6c9b5;
-  border-color: #b6a486;
+  background: rgba(217, 119, 6, 0.14);
+  border-color: rgba(180, 83, 9, 0.24);
   color: #4b3a23;
 }
 
@@ -584,9 +611,9 @@
 }
 
 :global(:root[data-theme='dark']) .sidebar {
-  background: linear-gradient(180deg, #131313 0%, #101010 100%);
-  border-right-color: #2f2f2f;
-  box-shadow: 4px 0 14px rgba(0, 0, 0, 0.24);
+  background: linear-gradient(180deg, #131313 0%, #111111 100%);
+  border-right-color: #2b2b2b;
+  box-shadow: 3px 0 14px rgba(0, 0, 0, 0.2);
 }
 
 :global(:root[data-theme='dark']) .sectionTitle {
@@ -601,14 +628,28 @@
   background: #1e1e1e;
 }
 
+:global(:root[data-theme='dark']) .nav {
+  border-left-color: #282828;
+}
+
+:global(:root[data-theme='dark']) .groupHeader:hover {
+  background: #1b1b1b;
+  border-color: #2b2b2b;
+}
+
+:global(:root[data-theme='dark']) .activeGroupHeader {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.16);
+}
+
 :global(:root[data-theme='dark']) .navIcon {
   background: #1b1b1b;
   border: 1px solid #282828;
 }
 
 :global(:root[data-theme='dark']) .navItem.active .navIcon {
-  background: #5f4f38;
-  border-color: #7a6748;
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.22);
   color: #f0e7d7;
 }
 
@@ -633,37 +674,47 @@
 }
 
 :global(:root[data-theme='dark']) .resourcesLink {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(14, 165, 233, 0.13));
-  border-color: rgba(59, 130, 246, 0.46);
-  color: #bfd5ec;
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.16);
+  color: #a7a7a7;
+  box-shadow:
+    0 2px 8px rgba(59, 130, 246, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
 }
 
 :global(:root[data-theme='dark']) .resourcesLink:hover {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.28), rgba(14, 165, 233, 0.2));
-  border-color: rgba(59, 130, 246, 0.6);
-  color: #d4e3f4;
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.24);
+  color: #d4d4d4;
+  box-shadow:
+    0 3px 10px rgba(59, 130, 246, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
 }
 
 :global(:root[data-theme='dark']) .resourcesLink.active {
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.36), rgba(14, 165, 233, 0.27));
-  border-color: #4b84df;
-  color: #e6effa;
+  background: rgba(59, 130, 246, 0.14);
+  border-color: rgba(59, 130, 246, 0.28);
+  color: #d4d4d4;
+  box-shadow:
+    0 4px 12px rgba(59, 130, 246, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045);
 }
 
 :global(:root[data-theme='dark']) .resourcesLink .navIcon {
-  background: rgba(37, 99, 235, 0.2);
-  border: 1px solid rgba(59, 130, 246, 0.34);
-  color: #82addb;
+  background: #1b1b1b;
+  border: 1px solid #282828;
+  color: #a7a7a7;
 }
 
 :global(:root[data-theme='dark']) .resourcesLink:hover .navIcon,
 :global(:root[data-theme='dark']) .resourcesLink.active .navIcon {
-  background: linear-gradient(135deg, #4b84df 0%, #3e9cd4 100%);
-  color: #ffffff;
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.22);
+  color: #92b8e8;
 }
 
 :global(:root[data-theme='dark']) .resourcesLink.active .navIcon svg {
-  color: #ffffff;
+  color: currentColor;
 }
 
 :global(:root[data-theme='dark']) .resourcesLink.active::before {
@@ -675,17 +726,17 @@
 }
 
 :global(:root[data-theme='dark']) .supportLink .navIcon {
-  background: rgba(251, 191, 36, 0.14);
-  border: 1px solid rgba(245, 158, 11, 0.28);
-  color: #f2bc5c;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.16);
+  color: #d9a85f;
 }
 
 :global(:root[data-theme='dark']) .supportLink:hover .navIcon,
 :global(:root[data-theme='dark']) .supportLink.active .navIcon {
-  background: linear-gradient(135deg, #c67818 0%, #dd9525 100%);
-  color: #fff8ec;
+  background: rgba(245, 158, 11, 0.14);
+  color: #f0c27d;
 }
 
 :global(:root[data-theme='dark']) .supportLink.active .navIcon svg {
-  color: #fff8ec;
+  color: currentColor;
 }
