@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Coins, 
@@ -20,6 +19,7 @@ import {
   CoinSelectionSimulator, 
   DustAnalyzer 
 } from '../components/lessons/utxo';
+import { useLessonSection } from '../hooks/useLessonSection';
 import styles from './Lessons.module.css';
 
 const sections = [
@@ -30,7 +30,7 @@ const sections = [
 ];
 
 export function UTXOManagementLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {

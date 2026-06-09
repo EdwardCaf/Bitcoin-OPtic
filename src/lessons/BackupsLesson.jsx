@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
@@ -19,6 +18,7 @@ import {
   PassphraseWalletVisualizer,
   RecoveryScenarioExplorer,
 } from "../components/lessons/backups";
+import { useLessonSection } from '../hooks/useLessonSection';
 import styles from "./Lessons.module.css";
 import backupStyles from "./BackupsLesson.module.css";
 
@@ -31,7 +31,7 @@ const sections = [
 ];
 
 export function BackupsLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {

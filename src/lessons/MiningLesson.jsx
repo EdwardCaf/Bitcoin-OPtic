@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Pickaxe, Hash, Target, Coins } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
 import { Card, Accordion, ResourceLinkCard } from '../components/common';
 import { HashPlayground, NonceFinder, HalvingTimeline } from '../components/lessons/mining';
+import { useLessonSection } from '../hooks/useLessonSection';
 import styles from './Lessons.module.css';
 
 const sections = [
@@ -14,7 +14,7 @@ const sections = [
 ];
 
 export function MiningLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {

@@ -3,71 +3,17 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Wallet,
-  Archive,
-  ArrowLeftRight,
-  Coins,
-  EyeOff,
-  Key,
-  Pickaxe, 
-  Blocks, 
-  Network,
-  Server,
-  Zap,
-  Droplets,
-  CircleDollarSign,
-  Bitcoin,
   ChevronRight,
   ChevronDown,
   Library,
   MessageSquareMore,
 } from 'lucide-react';
+import { lessonSections } from '../../data/lessonSearch';
 import styles from './Sidebar.module.css';
-
-const sections = [
-  {
-    id: 'fundamentals',
-    title: 'Self-Custody',
-    lessons: [
-      { id: 'what-is-bitcoin', title: 'What is Bitcoin?', icon: Bitcoin, path: '/lessons/what-is-bitcoin' },
-      { id: 'wallets', title: 'Wallets', icon: Wallet, path: '/lessons/wallets' },
-      { id: 'backups', title: 'Backups', icon: Archive, path: '/lessons/backups' },
-      { id: 'transactions', title: 'Transactions', icon: ArrowLeftRight, path: '/lessons/transactions' },
-    ]
-  },
-  {
-    id: 'advanced-custody',
-    title: 'Advanced Custody',
-    lessons: [
-      { id: 'utxo-management', title: 'UTXO Management', icon: Coins, path: '/lessons/utxo-management' },
-      { id: 'privacy', title: 'Privacy', icon: EyeOff, path: '/lessons/privacy' },
-      { id: 'multisig', title: 'Multi-Signature', icon: Key, path: '/lessons/multisig' },
-    ]
-  },
-  {
-    id: 'protocol',
-    title: 'Protocol',
-    lessons: [
-      { id: 'mining', title: 'Mining', icon: Pickaxe, path: '/lessons/mining' },
-      { id: 'blocks', title: 'Blocks', icon: Blocks, path: '/lessons/blocks' },
-      { id: 'network', title: 'Network', icon: Network, path: '/lessons/network' },
-      { id: 'running-a-node', title: 'Running a Node', icon: Server, path: '/lessons/running-a-node' },
-    ]
-  },
-  {
-    id: 'layer2',
-    title: 'Scaling',
-    lessons: [
-      { id: 'lightning', title: 'Lightning', icon: Zap, path: '/lessons/lightning' },
-      { id: 'liquid', title: 'Liquid', icon: Droplets, path: '/lessons/liquid' },
-      { id: 'ecash', title: 'eCash', icon: CircleDollarSign, path: '/lessons/ecash' },
-    ]
-  },
-];
 
 export function Sidebar({ isOpen, onClose }) {
   const location = useLocation();
-  const activeSectionId = sections.find((section) =>
+  const activeSectionId = lessonSections.find((section) =>
     section.lessons.some((lesson) => lesson.path === location.pathname)
   )?.id;
   const [expandedSections, setExpandedSections] = useState(() =>
@@ -112,7 +58,7 @@ export function Sidebar({ isOpen, onClose }) {
       >
         <div className={styles.content}>
           <div className={styles.lessonList}>
-            {sections.map((section) => {
+            {lessonSections.map((section) => {
               const isExpanded = !!expandedSections[section.id];
               const isActiveGroup = section.id === activeSectionId;
 

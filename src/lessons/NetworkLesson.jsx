@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Network, Server, Radio, GitFork, Shield } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
 import { Card, Accordion, ResourceLinkCard } from '../components/common';
 import { NetworkVisualizer, ConsensusDemo, NodeTypesExplorer, ForksVisualizer } from '../components/lessons/network';
+import { useLessonSection } from '../hooks/useLessonSection';
 import styles from './Lessons.module.css';
 
 const sections = [
@@ -15,7 +15,7 @@ const sections = [
 ];
 
 export function NetworkLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {

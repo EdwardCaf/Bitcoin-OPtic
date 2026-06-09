@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeftRight, Coins, Send, Gauge } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
 import { Card, Accordion, ResourceLinkCard } from '../components/common';
 import { TransactionBuilder, FeeVisualizer } from '../components/lessons/transactions';
+import { useLessonSection } from '../hooks/useLessonSection';
 import { generateSampleUTXOs } from '../utils/bitcoin';
 import styles from './Lessons.module.css';
 
@@ -15,7 +15,7 @@ const sections = [
 ];
 
 export function TransactionsLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {

@@ -1,10 +1,10 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { EyeOff, Eye, Shield, Shuffle, RefreshCw } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
 import { Card, Accordion, NeedAssistance, ResourceLinkCard } from '../components/common';
 import { AddressReuseDemo, TransactionGraph, CoinJoinVisualizer, PrivacyScorecard } from '../components/lessons/privacy';
 import { PegVisualizer } from '../components/lessons/liquid';
+import { useLessonSection } from '../hooks/useLessonSection';
 import styles from './Lessons.module.css';
 
 const sections = [
@@ -17,7 +17,7 @@ const sections = [
 ];
 
 export function PrivacyLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {

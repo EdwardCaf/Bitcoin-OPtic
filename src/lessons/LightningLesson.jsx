@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Clock, DollarSign, Network, Lock } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
 import { Card, Accordion, NeedAssistance, ResourceLinkCard } from '../components/common';
 import { ChannelVisualizer, RoutingSimulator, HTLCDemo, InvoiceExplorer, PrivacyDemo } from '../components/lessons/lightning';
+import { useLessonSection } from '../hooks/useLessonSection';
 import styles from './Lessons.module.css';
 
 const sections = [
@@ -16,7 +16,7 @@ const sections = [
 ];
 
 export function LightningLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {

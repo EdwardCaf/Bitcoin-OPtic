@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { LessonLayout } from "../components/layout";
 import { Card, Accordion, Badge, ResourceLinkCard } from "../components/common";
+import { useLessonSection } from '../hooks/useLessonSection';
 import {
   Bitcoin,
   Globe2,
@@ -36,7 +36,7 @@ const sections = [
 ];
 
 export function WhatIsBitcoinLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {

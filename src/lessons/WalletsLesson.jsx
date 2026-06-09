@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Wallet, Key, Hash, Grid3X3, QrCode } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
 import { Card, Accordion, NeedAssistance, ResourceLinkCard } from '../components/common';
 import { KeyPairGenerator, AddressTypeExplorer, SeedPhraseDemo, WalletTypesExplorer, CoordinatorSignerExplorer, XpubExplainer } from '../components/lessons/wallets';
+import { useLessonSection } from '../hooks/useLessonSection';
 import styles from './Lessons.module.css';
 
 const sections = [
@@ -16,7 +16,7 @@ const sections = [
 ];
 
 export function WalletsLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {

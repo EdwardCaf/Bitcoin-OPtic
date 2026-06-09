@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Droplets, ArrowLeftRight, Shield, Coins, GitCompare } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
 import { Card, Accordion, ResourceLinkCard } from '../components/common';
 import { PegVisualizer, ConfidentialTxDemo, AssetExplorer, ComparisonTable } from '../components/lessons/liquid';
+import { useLessonSection } from '../hooks/useLessonSection';
 import styles from './Lessons.module.css';
 
 const sections = [
@@ -15,7 +15,7 @@ const sections = [
 ];
 
 export function LiquidLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Server,
@@ -21,6 +20,7 @@ import {
   LightningNodeTools,
   WalletBackendComparison,
 } from "../components/lessons/running-node";
+import { useLessonSection } from '../hooks/useLessonSection';
 import styles from "./Lessons.module.css";
 
 const sections = [
@@ -32,7 +32,7 @@ const sections = [
 ];
 
 export function RunningNodeLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Coins, Shield, Lock, Users, Target, AlertTriangle, Sparkles } from 'lucide-react';
 import { LessonLayout } from '../components/layout';
@@ -8,6 +7,7 @@ import {
   PrivacyComparison, 
   FedimintExplorer 
 } from '../components/lessons/ecash';
+import { useLessonSection } from '../hooks/useLessonSection';
 import styles from './Lessons.module.css';
 
 const sections = [
@@ -19,7 +19,7 @@ const sections = [
 ];
 
 export function EcashLesson() {
-  const [currentSection, setCurrentSection] = useState(0);
+  const [currentSection, setCurrentSection] = useLessonSection(sections);
 
   const renderSection = () => {
     switch (currentSection) {
