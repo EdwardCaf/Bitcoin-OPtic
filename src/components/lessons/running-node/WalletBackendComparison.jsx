@@ -1,45 +1,50 @@
-import { useState } from 'react';
-import { Globe, Server, Route, EyeOff, ShieldCheck, AlertTriangle } from 'lucide-react';
-import { Card, Badge } from '../../common';
-import styles from './WalletBackendComparison.module.css';
+import { useState } from "react";
+import {
+  Globe,
+  Server,
+  EyeOff,
+  ShieldCheck,
+  AlertTriangle,
+  Wrench,
+} from "lucide-react";
+import { Card, Badge } from "../../common";
+import styles from "./WalletBackendComparison.module.css";
 
 const backends = [
   {
-    id: 'public',
-    name: 'Public Wallet Server',
+    id: "public",
+    name: "Public Server",
     icon: Globe,
-    effort: 'Low',
-    privacy: 'Weak',
-    verification: 'Someone else tells your wallet what happened',
-    addressLeak: 'Server may learn your addresses and balances',
-    canLie: 'Can hide transactions or show an incomplete view',
-    tools: 'Default mobile wallet backends, public Electrum servers',
-    summary: 'Convenient, but it gives up the main privacy and verification benefits of running a node.'
+    color: "#ef4444",
+    effort: "Low",
+    privacy: "Weak",
+    verification: "Trusts server",
+    verificationTone: "bad",
+    addressLeak: "Server sees queries",
+    addressTone: "bad",
+    canLie: "Can omit or distort history",
+    failureTone: "bad",
+    tools: "Mobile defaults, public Electrum",
+    toolsTone: "neutral",
+    summary: "Convenient, but least private.",
   },
   {
-    id: 'core',
-    name: 'Direct Bitcoin Core',
+    id: "electrum",
+    name: "Own Electrum Server",
     icon: Server,
-    effort: 'Medium',
-    privacy: 'Strong',
-    verification: 'Your node verifies blocks, transactions, and your wallet history',
-    addressLeak: 'Your wallet queries stay on your machine or home network',
-    canLie: 'No third-party backend can lie about your balance',
-    tools: 'Bitcoin Core wallet, Sparrow connected to Core, Specter Desktop',
-    summary: 'The simplest self-sovereign setup when your wallet can connect directly to Bitcoin Core.'
+    color: "#22c55e",
+    effort: "Higher",
+    privacy: "Strong",
+    verification: "Core/Knots validates; Electrum indexes",
+    verificationTone: "good",
+    addressLeak: "Queries your server",
+    addressTone: "good",
+    canLie: "Requires Full Node",
+    failureTone: "neutral",
+    tools: "Electrs, Fulcrum, ElectrumX",
+    toolsTone: "good",
+    summary: "Best for Sparrow/Electrum workflows.",
   },
-  {
-    id: 'electrum',
-    name: 'Own Electrum Server',
-    icon: Route,
-    effort: 'Higher',
-    privacy: 'Strong',
-    verification: 'Bitcoin Core validates; Electrum server indexes wallet lookups',
-    addressLeak: 'Wallet queries go to your own server instead of a public one',
-    canLie: 'Your own backend follows your own node',
-    tools: 'Electrs, Fulcrum, ElectrumX, Sparrow, Electrum Wallet',
-    summary: 'Best for wallets that speak the Electrum protocol, especially if you use Sparrow or Electrum Wallet from multiple devices.'
-  }
 ];
 
 export function WalletBackendComparison() {
@@ -54,22 +59,36 @@ export function WalletBackendComparison() {
         </div>
         <div>
           <h3 className={styles.title}>Who Is Your Wallet Asking?</h3>
-          <p className={styles.subtitle}>Running a node matters most when your wallet actually uses it.</p>
+          <p className={styles.subtitle}>
+            Your privacy depends on the backend your wallet queries.
+          </p>
         </div>
       </div>
 
       <div className={styles.backendGrid}>
         {backends.map((backend) => {
           const BackendIcon = backend.icon;
+          const isSelected = selectedBackend.id === backend.id;
 
           return (
             <button
               key={backend.id}
-              className={`${styles.backendButton} ${selectedBackend.id === backend.id ? styles.selected : ''}`}
+              className={`${styles.backendButton} ${isSelected ? styles.selected : ""}`}
               onClick={() => setSelectedBackend(backend)}
             >
-              <BackendIcon size={20} />
-              <span>{backend.name}</span>
+              <span className={styles.backendIcon}>
+                <BackendIcon size={22} />
+              </span>
+              <span className={styles.backendText}>
+                <strong>{backend.name}</strong>
+                <span>{backend.summary}</span>
+              </span>
+              <Badge
+                variant={backend.privacy === "Weak" ? "warning" : "success"}
+                size="small"
+              >
+                {backend.privacy}
+              </Badge>
             </button>
           );
         })}
@@ -78,45 +97,54 @@ export function WalletBackendComparison() {
       <div className={styles.details}>
         <div className={styles.detailsHeader}>
           <div className={styles.detailsIcon}>
-            <SelectedIcon size={30} />
+            <SelectedIcon size={28} />
           </div>
           <div>
             <h4>{selectedBackend.name}</h4>
             <div className={styles.badges}>
-              <Badge variant="outline">Effort: {selectedBackend.effort}</Badge>
-              <Badge variant={selectedBackend.privacy === 'Weak' ? 'warning' : 'success'}>Privacy: {selectedBackend.privacy}</Badge>
+              <Badge variant="outline" size="small">
+                Effort: {selectedBackend.effort}
+              </Badge>
+              <Badge
+                variant={
+                  selectedBackend.privacy === "Weak" ? "warning" : "success"
+                }
+                size="small"
+              >
+                Privacy: {selectedBackend.privacy}
+              </Badge>
             </div>
           </div>
         </div>
 
-        <div className={styles.rows}>
-          <div className={styles.row}>
-            <ShieldCheck size={18} />
-            <div>
-              <strong>Verification</strong>
-              <p>{selectedBackend.verification}</p>
-            </div>
+        <div className={styles.detailGrid}>
+          <div
+            className={`${styles.detailItem} ${styles[selectedBackend.verificationTone]}`}
+          >
+            <ShieldCheck size={17} />
+            <span>Verification</span>
+            <strong>{selectedBackend.verification}</strong>
           </div>
-          <div className={styles.row}>
-            <EyeOff size={18} />
-            <div>
-              <strong>Address Privacy</strong>
-              <p>{selectedBackend.addressLeak}</p>
-            </div>
+          <div
+            className={`${styles.detailItem} ${styles[selectedBackend.addressTone]}`}
+          >
+            <EyeOff size={17} />
+            <span>Address Privacy</span>
+            <strong>{selectedBackend.addressLeak}</strong>
           </div>
-          <div className={styles.row}>
-            <AlertTriangle size={18} />
-            <div>
-              <strong>Tools</strong>
-              <p>{selectedBackend.tools}</p>
-            </div>
+          <div
+            className={`${styles.detailItem} ${styles[selectedBackend.toolsTone]}`}
+          >
+            <Wrench size={17} />
+            <span>Tools</span>
+            <strong>{selectedBackend.tools}</strong>
           </div>
-          <div className={styles.row}>
-            <AlertTriangle size={18} />
-            <div>
-              <strong>Failure Mode</strong>
-              <p>{selectedBackend.canLie}</p>
-            </div>
+          <div
+            className={`${styles.detailItem} ${styles[selectedBackend.failureTone]}`}
+          >
+            <AlertTriangle size={17} />
+            <span>Failure Mode</span>
+            <strong>{selectedBackend.canLie}</strong>
           </div>
         </div>
 

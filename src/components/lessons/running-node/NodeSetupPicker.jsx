@@ -1,69 +1,34 @@
-import { useState } from 'react';
-import { Monitor, Server, Boxes, Clock, ShieldCheck, SlidersHorizontal } from 'lucide-react';
-import { Card, Badge } from '../../common';
-import styles from './NodeSetupPicker.module.css';
+import { useState } from "react";
+import { Monitor, Boxes, SlidersHorizontal, Wrench } from "lucide-react";
+import { Card, Badge } from "../../common";
+import styles from "./NodeSetupPicker.module.css";
 
 const setups = [
   {
-    id: 'core',
-    name: 'Bitcoin Core',
+    id: "desktop",
+    name: "Core / Knots Desktop",
     icon: Monitor,
-    bestFor: 'Best first serious node for most people',
-    cost: 'Free software, existing computer is fine',
-    storage: 'Pruned or 1-2 TB SSD archival',
-    effort: 'Low',
-    privacy: 'Good when your wallet connects to it',
-    tools: 'Built-in wallet, RPC, direct Sparrow connection',
-    notes: 'The reference implementation and cleanest baseline. Start here if you want to learn what your node is actually doing.'
+    bestFor: "Learning, wallet verification, and direct control",
+    hardware: "Existing laptop or desktop with an SSD",
+    simplicity: "Manual, but transparent",
+    control: "Highest direct control",
+    services: "Best for tinkering with all available tools",
+    notes:
+      "Choose this if you are comfortable with a more manual desktop setup and want maximum visibility into what the node is doing.",
   },
   {
-    id: 'knots',
-    name: 'Bitcoin Knots',
-    icon: SlidersHorizontal,
-    bestFor: 'Users who want more policy/configuration choices',
-    cost: 'Free software, same hardware class as Core',
-    storage: 'Pruned or 1-2 TB SSD archival',
-    effort: 'Medium',
-    privacy: 'Good when paired with your own wallet backend',
-    tools: 'Core-derived node with additional options',
-    notes: 'Knots follows Bitcoin consensus rules but exposes different policy defaults and configuration choices than Core.'
-  },
-  {
-    id: 'umbrel',
-    name: 'Umbrel',
+    id: "node-box",
+    name: "Umbrel / Start9 Box",
     icon: Boxes,
-    bestFor: 'Easy app-store style exploration',
-    cost: 'Mini PC or Umbrel hardware',
-    storage: '2 TB SSD recommended for a full stack',
-    effort: 'Low to medium',
-    privacy: 'Depends on app choices and remote access setup',
-    tools: 'Bitcoin node, Electrs, LND, ThunderHub, RTL',
-    notes: 'Great for learning and trying tools quickly. The tradeoff is that the platform abstracts details you should eventually understand.'
+    bestFor: "Always-on node services with less manual setup",
+    hardware: "Dedicated mini PC, server, or vendor device with a 2 TB SSD",
+    simplicity: "Simpler app management",
+    control: "More platform abstraction",
+    services:
+      "Best for out-of-the-box functionality and very little modification",
+    notes:
+      "This is usually the more beginner-friendly path if you want a practical home node with guided app installs. Still take time to understand what each service does.",
   },
-  {
-    id: 'start9',
-    name: 'Start9',
-    icon: Server,
-    bestFor: 'Self-hosted services with stronger service management',
-    cost: 'Server hardware or Start9 device',
-    storage: '2 TB SSD recommended',
-    effort: 'Medium',
-    privacy: 'Strong when configured intentionally',
-    tools: 'Bitcoin node, Electrs, Lightning, Tor services',
-    notes: 'A practical choice if you want Bitcoin services plus broader self-hosting without managing every Linux detail by hand.'
-  },
-  {
-    id: 'diy',
-    name: 'DIY Mini PC',
-    icon: Server,
-    bestFor: 'Maximum control and minimum platform dependency',
-    cost: 'Moderate hardware, free software',
-    storage: '2 TB SSD, or smaller with pruning',
-    effort: 'Higher',
-    privacy: 'Strong if you configure services carefully',
-    tools: 'Core or Knots, Electrs/Fulcrum, LND/Core Lightning',
-    notes: 'The most flexible path, but you own updates, service configuration, firewalling, backups, and troubleshooting.'
-  }
 ];
 
 export function NodeSetupPicker() {
@@ -75,11 +40,14 @@ export function NodeSetupPicker() {
       <Card variant="elevated" padding="large">
         <div className={styles.header}>
           <div className={styles.iconWrapper}>
-            <Server size={24} />
+            <Boxes size={24} />
           </div>
           <div>
-            <h3 className={styles.title}>Choose a Node Stack</h3>
-            <p className={styles.subtitle}>Pick the software or platform that matches how much abstraction you want.</p>
+            <h3 className={styles.title}>Choose a Node Setup</h3>
+            <p className={styles.subtitle}>
+              The practical tradeoff is hardware plus simplicity versus direct
+              control.
+            </p>
           </div>
         </div>
 
@@ -90,7 +58,7 @@ export function NodeSetupPicker() {
             return (
               <button
                 key={setup.id}
-                className={`${styles.option} ${selectedSetup.id === setup.id ? styles.selected : ''}`}
+                className={`${styles.option} ${selectedSetup.id === setup.id ? styles.selected : ""}`}
                 onClick={() => setSelectedSetup(setup)}
               >
                 <SetupIcon size={20} />
@@ -113,25 +81,29 @@ export function NodeSetupPicker() {
 
           <div className={styles.metrics}>
             <div className={styles.metric}>
-              <Clock size={16} />
-              <span>Effort</span>
-              <strong>{selectedSetup.effort}</strong>
+              <Monitor size={16} />
+              <span>Hardware</span>
+              <strong>{selectedSetup.hardware}</strong>
             </div>
             <div className={styles.metric}>
-              <Boxes size={16} />
-              <span>Common Tools</span>
-              <strong>{selectedSetup.tools}</strong>
+              <Wrench size={16} />
+              <span>Simplicity</span>
+              <strong>{selectedSetup.simplicity}</strong>
             </div>
             <div className={styles.metric}>
-              <ShieldCheck size={16} />
-              <span>Storage</span>
-              <strong>{selectedSetup.storage}</strong>
+              <SlidersHorizontal size={16} />
+              <span>Control</span>
+              <strong>{selectedSetup.control}</strong>
             </div>
           </div>
 
+          <div className={styles.serviceBox}>
+            <span>Service Fit</span>
+            <strong>{selectedSetup.services}</strong>
+          </div>
+
           <div className={styles.footer}>
-            <Badge variant="outline">Cost: {selectedSetup.cost}</Badge>
-            <Badge variant="outline">Privacy: {selectedSetup.privacy}</Badge>
+            <Badge variant="outline">Full node recommended</Badge>
             <p>{selectedSetup.notes}</p>
           </div>
         </div>
