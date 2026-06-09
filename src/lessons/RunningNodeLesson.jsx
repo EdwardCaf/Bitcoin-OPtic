@@ -10,7 +10,7 @@ import {
   Lock,
 } from "lucide-react";
 import { LessonLayout } from "../components/layout";
-import { Card, Accordion, ResourceLinkCard } from "../components/common";
+import { Card, Accordion, NeedAssistance, ResourceLinkCard } from "../components/common";
 import {
   NodeSetupPicker,
   LightningNodeTools,
@@ -143,11 +143,16 @@ function SoftwareSection() {
     >
       <h2 className={styles.sectionTitle}>Node Setup Options</h2>
       <p className={styles.sectionText}>
-        Your main choice is whether to run a transparent desktop app on hardware
-        you already use, or a dedicated node-in-a-box that makes services easier
-        to manage. For most beginners, Umbrel or Start9 will be the friendlier
-        starting point.
+        Your main choice is whether to run a desktop app on hardware you already
+        use, or a dedicated node-in-a-box Operating System that makes services
+        easier to manage. For most beginners, Umbrel or Start9 will be the
+        friendlier starting point.
       </p>
+
+      <NeedAssistance
+        tagline="Get help choosing and setting up your Bitcoin node."
+        className={styles.tightBlock}
+      />
 
       <NodeSetupPicker />
 
@@ -261,8 +266,9 @@ function MaintenanceSection() {
           </div>
           <h3>Updates</h3>
           <p>
-            Keep node software reasonably current. You do not need every release
-            immediately, but avoid running abandoned software or forgotten apps.
+            Keep app software reasonably current. You do not need to update to
+            new major Core Versions, but generally avoid running old software
+            for security reasons.
           </p>
         </Card>
 
@@ -286,7 +292,7 @@ function MaintenanceSection() {
           <h3>Security</h3>
           <p>
             Do not expose RPC or admin interfaces publicly. Back up wallet seeds
-            and Lightning channel backup material, not the blockchain.
+            and Lightning channel backup material.
           </p>
         </Card>
       </div>

@@ -6,6 +6,10 @@
   gap: var(--spacing-xl);
 }
 
+.tightBlock {
+  margin-bottom: 0;
+}
+
 .heroCard {
   position: relative;
   overflow: hidden;

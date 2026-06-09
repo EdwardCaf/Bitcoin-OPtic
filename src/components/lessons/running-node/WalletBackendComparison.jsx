@@ -43,7 +43,7 @@ const backends = [
     failureTone: "neutral",
     tools: "Electrs, Fulcrum, ElectrumX",
     toolsTone: "good",
-    summary: "Best for Sparrow/Electrum workflows.",
+    summary: "Best for privacy and self-verification.",
   },
 ];
 
