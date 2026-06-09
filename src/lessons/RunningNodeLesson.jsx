@@ -10,7 +10,12 @@ import {
   Lock,
 } from "lucide-react";
 import { LessonLayout } from "../components/layout";
-import { Card, Accordion, NeedAssistance, ResourceLinkCard } from "../components/common";
+import {
+  Card,
+  Accordion,
+  NeedAssistance,
+  ResourceLinkCard,
+} from "../components/common";
 import {
   NodeSetupPicker,
   LightningNodeTools,
@@ -89,8 +94,8 @@ function WhySection() {
           </div>
           <h3>Verify Yourself</h3>
           <p>
-            Your node checks proof-of-work, blocks, transactions, and the UTXO
-            set before your wallet trusts the result.
+            Your node verifies blocks, transactions, and the UTXO set before
+            your wallet trusts the result.
           </p>
         </Card>
 
@@ -101,7 +106,7 @@ function WhySection() {
           <h3>Improve Privacy</h3>
           <p>
             Public wallet servers can learn which addresses belong together.
-            Your own node keeps those queries closer to home.
+            Your own node keeps those queries private.
           </p>
         </Card>
 
@@ -129,7 +134,6 @@ function WhySection() {
         </p>
       </Accordion>
 
-      <ResourceLinkCard section="nodes" title="Node Software" />
     </motion.div>
   );
 }
@@ -155,6 +159,8 @@ function SoftwareSection() {
       />
 
       <NodeSetupPicker />
+
+      <ResourceLinkCard section="nodes" title="Node Software" />
 
       <div className={styles.factBox}>
         <h4>Hardware Defaults</h4>
@@ -204,7 +210,9 @@ function WalletSection() {
         A node is most useful when your wallet actually uses it. Otherwise, you
         may still be asking a public server for balances and transaction history
         while your own node sits unused. Electrum servers fit here: they are
-        wallet-query layers that sit on top of your validating node.
+        wallet-query layers that sit on top of your validating node. Electrs is
+        a common, lightweight choice for connecting wallets like Sparrow to your
+        own node.
       </p>
 
       <WalletBackendComparison />
