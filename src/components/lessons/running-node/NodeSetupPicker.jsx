@@ -10,8 +10,8 @@ const setups = [
     icon: Monitor,
     bestFor: "Learning, wallet verification, and direct control",
     hardware: "Existing laptop or desktop with an SSD",
-    simplicity: "Manual, but transparent",
-    control: "Highest direct control",
+    simplicity: "Manual, but more complex",
+    control: "Highest degree of control",
     services: "Best for tinkering with all available tools",
     notes:
       "Choose this if you are comfortable with a more manual desktop setup and want maximum visibility into what the node is doing.",
@@ -25,7 +25,7 @@ const setups = [
     simplicity: "Simpler app management",
     control: "More platform abstraction",
     services:
-      "Best for out-of-the-box functionality and very little modification",
+      "Best for out-of-the-box functionality and very little modification is needed",
     notes:
       "This is usually the more beginner-friendly path if you want a practical home node with guided app installs. Still take time to understand what each service does.",
   },
