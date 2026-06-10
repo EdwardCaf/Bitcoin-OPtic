@@ -428,9 +428,9 @@ function MultisigSection() {
     >
       <h2 className={styles.sectionTitle}>Multisig Inheritance</h2>
       <p className={styles.sectionText}>
-        Multisig is useful when you want both security and recoverability.
-        Instead of one seed phrase controlling everything, a 2-of-3 setup
-        spreads control across multiple keys, locations, and roles.
+        Multisig is also useful for inheritance planning with your Bitcoin. In a
+        2-of-3 setup you can spread control across multiple keys, locations, and
+        beneficiaries.
       </p>
 
       <div className={backupStyles.multisigFeature}>
@@ -478,16 +478,69 @@ function MultisigSection() {
 
       <InheritanceMultisigVisualizer />
 
-      <Accordion title="Multisig tradeoff" variant="deepdive" defaultOpen>
-        <p>
-          Multisig reduces single-point failure, but it adds setup and
-          documentation requirements. Heirs need the quorum of keys, output
-          descriptor, device names, and trusted helpers. Without the output
-          descriptor, the wallet can be difficult or impossible to reconstruct
-          even if the seeds still exist. A simple, well-documented 2-of-3 is
-          better than a clever setup nobody can recover.
-        </p>
-      </Accordion>
+      <div className={backupStyles.inheritanceListCard}>
+        <div className={backupStyles.inheritanceListHeader}>
+          <div className={backupStyles.inheritanceListIcon}>
+            <CheckCircle size={20} />
+          </div>
+          <h3>What heirs need to recover multisig</h3>
+        </div>
+        <ul className={backupStyles.inheritanceList}>
+          <li>
+            <div>
+              <strong>Quorum and key locations</strong>
+              <span>
+                Record the threshold, such as 2-of-3, and where each signing
+                key or backup is stored.
+              </span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Required unlock details</strong>
+              <span>
+                Include hardware wallets, seed backups, PINs, passphrases, or
+                encrypted backup instructions needed to sign.
+              </span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Wallet descriptor</strong>
+              <span>
+                Save the output descriptor or config export with xpubs,
+                fingerprints, script type, and key origin data.
+              </span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Derivation paths</strong>
+              <span>
+                Note the path, account, and address type for every cosigner.
+              </span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Coordinator software</strong>
+              <span>
+                Name the wallet app, device models, and trusted helper or
+                service heirs should contact.
+              </span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Tested instructions</strong>
+              <span>
+                Keep a short recovery runbook and warn heirs not to enter seed
+                words into random websites.
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
     </motion.div>
   );
 }

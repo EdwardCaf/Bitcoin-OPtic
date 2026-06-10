@@ -83,7 +83,7 @@ function WhySection() {
         <p className={styles.heroText}>
           Running a Bitcoin node means you verify incoming transactions based on
           consensus rules you accept. Start simple, connect your wallet, and add
-          extra services only when they solve a real problem.
+          extra services when needed.
         </p>
       </div>
 
@@ -93,10 +93,7 @@ function WhySection() {
             <ShieldCheck size={24} />
           </div>
           <h3>Verify Yourself</h3>
-          <p>
-            Your node verifies blocks, transactions, and the UTXO set before
-            your wallet trusts the result.
-          </p>
+          <p>Your node verifies blocks, transactions, and the UTXO set.</p>
         </Card>
 
         <Card padding="large" hover>
@@ -148,8 +145,8 @@ function SoftwareSection() {
       <p className={styles.sectionText}>
         Your main choice is whether to run a desktop app on hardware you already
         use, or a dedicated node-in-a-box Operating System that makes services
-        easier to manage. For most beginners, Umbrel or Start9 will be the
-        friendlier starting point.
+        easier to manage. For most beginners, Umbrel or Start9 will be the best
+        starting point.
       </p>
 
       <NeedAssistance
@@ -165,32 +162,36 @@ function SoftwareSection() {
         <h4>Hardware Defaults</h4>
         <div className={styles.factGrid}>
           <div className={styles.fact}>
-            <span className={styles.factValue}>SSD</span>
-            <span className={styles.factLabel}>Strongly preferred</span>
-          </div>
-          <div className={styles.fact}>
-            <span className={styles.factValue}>2 TB</span>
+            <span className={styles.factValue}>2 TB SSD</span>
             <span className={styles.factLabel}>
               Recommended full-node storage
             </span>
           </div>
           <div className={styles.fact}>
-            <span className={styles.factValue}>Full Node</span>
-            <span className={styles.factLabel}>Better for UTXO lookup</span>
+            <span className={styles.factValue}>16 GB RAM</span>
+            <span className={styles.factLabel}>
+              Minimum for running the essential apps
+            </span>
+          </div>
+          <div className={styles.fact}>
+            <span className={styles.factValue}>Modern CPU</span>
+            <span className={styles.factLabel}>
+              Better for UTXO lookup and Initial Block Download
+            </span>
           </div>
         </div>
       </div>
 
       <Accordion title="Why Full Nodes Are Preferred" defaultOpen>
         <p>
-          Prefer a full archival node. It preserves historical block data, which
-          gives you the most flexibility for wallet indexing, Electrum servers,
-          rescans, troubleshooting, and future services.
+          Full Nodes preserve historical block data, which gives you the most
+          flexibility for wallet indexing, Electrum servers, rescans,
+          troubleshooting, and future services.
         </p>
         <p>
-          Pruning is a storage compromise, not the ideal setup. A pruned node
-          can still validate current consensus rules, but it discards old block
-          data and limits what your node can do for your wallets, your own
+          Pruning is a storage compromise, but not the ideal setup. A pruned
+          node can still validate current consensus rules, but it discards old
+          block data and limits what your node can do for your wallets, your own
           services, and other peers.
         </p>
       </Accordion>
@@ -208,11 +209,11 @@ function WalletSection() {
       <h2 className={styles.sectionTitle}>Connecting Your Wallet</h2>
       <p className={styles.sectionText}>
         A node is most useful when your wallet software actually connects to it.
-        Otherwise, you may have downloaded and verified the blockchain, but your
-        wallet could still be asking a public server for balances and
-        transaction history. That means the public server can learn which
-        addresses belong together, and your wallet is not relying on your own
-        node's view of Bitcoin.
+        You may have downloaded and verified the blockchain, but your wallet
+        could still be asking a public server for balances and transaction
+        history. That means the public server can learn which addresses belong
+        together, and your wallet is not relying on your own node's view of
+        Bitcoin.
       </p>
       <p className={styles.sectionText}>
         Electrum servers fit here: they are wallet-query layers that sit on top
@@ -244,14 +245,14 @@ function LightningNodeSection() {
 
       <Accordion title="Before You Run Lightning" defaultOpen>
         <p>
-          Running Lightning is not necessary for every Bitcoin user. It can be
-          useful, but it introduces liquidity management, channel backups,
-          force-close risk, and more software to keep updated.
+          Running a Lightning node is not necessary for every Bitcoin user. It
+          can be useful, but it introduces liquidity management, channel
+          backups, force-close risk, and more software to keep updated.
         </p>
         <p>
           Platforms like Umbrel and Start9 make installation easier, but they do
-          not remove the need to understand what channels, liquidity, and
-          backups mean.
+          not remove the need to understand channels, liquidity, and the
+          importance of backups.
         </p>
       </Accordion>
     </motion.div>
@@ -267,9 +268,9 @@ function MaintenanceSection() {
     >
       <h2 className={styles.sectionTitle}>Maintenance & Tradeoffs</h2>
       <p className={styles.sectionText}>
-        Running a node is not set-and-forget forever. The ongoing work is
-        manageable, but it helps to know what actually matters and what does not
-        put your funds at risk.
+        Running a node is not set-and-forget. The ongoing work is manageable,
+        but it helps to know what actually matters and what does not put your
+        funds at risk.
       </p>
       <p className={styles.sectionText}>
         Downloading and validating the blockchain is only the starting point. To
@@ -299,7 +300,7 @@ function MaintenanceSection() {
           <h3>Uptime</h3>
           <p>
             If your Bitcoin node is offline, your wallet may not refresh through
-            it, but your bitcoin is not lost. Lightning is different: channel
+            it until it is turned back on. Lightning is different: channel
             monitoring, peer connectivity, and force-close safety make uptime
             essential.
           </p>
@@ -322,11 +323,12 @@ function MaintenanceSection() {
           <div className={styles.conceptIcon}>
             <Server size={24} />
           </div>
-          <h3>Full Node Maintenance</h3>
+          <h3>Full Nodes</h3>
           <p>
             A full node is the recommended target for a dedicated setup because
-            it keeps historical block data available for rescans, indexing,
-            Electrum servers, and future services.
+            of what features it allows for. It is important to check storage
+            space on your Node as this can quickly run out if your are running
+            other apps.
           </p>
           <p>
             Pruned nodes reduce disk usage, but are just insufficient for what
@@ -342,8 +344,8 @@ function MaintenanceSection() {
           <p>
             If your node only makes outbound connections, it can still verify
             your own wallet activity, but it is not as helpful to other peers.
-            Consider forwarding TCP port 8333 on your router so other Bitcoin
-            nodes can connect to you and download blocks.
+            Consider forwarding port 8333 on your router so other Bitcoin nodes
+            can connect to you and download blocks.
           </p>
         </Card>
 
