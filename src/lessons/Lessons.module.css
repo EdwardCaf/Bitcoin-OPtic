@@ -18,7 +18,7 @@
   background:
     radial-gradient(circle at 86% 12%, color-mix(in srgb, var(--bitcoin-orange) 18%, transparent), transparent 16rem),
     linear-gradient(145deg, color-mix(in srgb, var(--bg-tertiary) 86%, transparent), color-mix(in srgb, var(--bg-secondary) 96%, transparent));
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 24%, var(--border-subtle));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 30%, var(--border-subtle));
   border-radius: 28px;
   box-shadow:
     0 22px 60px color-mix(in srgb, black 26%, transparent),
@@ -48,7 +48,7 @@
   background:
     linear-gradient(145deg, color-mix(in srgb, var(--bitcoin-orange) 24%, transparent), color-mix(in srgb, var(--bitcoin-orange-dark) 9%, transparent)),
     var(--bg-elevated);
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 42%, var(--border-subtle));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 48%, var(--border-subtle));
   border-radius: 22px;
   color: var(--bitcoin-orange);
   margin-bottom: var(--spacing-xl);
@@ -116,7 +116,7 @@
   position: relative;
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--bg-elevated) 74%, transparent), color-mix(in srgb, var(--bg-secondary) 94%, transparent));
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 76%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border-medium) 84%, transparent);
   border-radius: 22px;
   padding: clamp(1rem, 2.5vw, 1.5rem);
   box-shadow: 0 14px 34px color-mix(in srgb, black 16%, transparent);
@@ -146,7 +146,7 @@
   width: 36px;
   height: 36px;
   background: color-mix(in srgb, var(--bitcoin-orange) 14%, var(--bg-tertiary));
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 30%, var(--border-subtle));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 36%, var(--border-subtle));
   border-radius: 13px;
   color: var(--bitcoin-orange);
 }
@@ -174,7 +174,7 @@
 .flowSection {
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--bg-tertiary) 82%, transparent), color-mix(in srgb, var(--bg-secondary) 96%, transparent));
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 78%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border-medium) 84%, transparent);
   border-radius: 24px;
   padding: clamp(1rem, 3vw, 1.75rem);
   box-shadow: inset 0 1px 0 color-mix(in srgb, white 6%, transparent);
@@ -213,7 +213,7 @@
   width: 48px;
   height: 48px;
   background: color-mix(in srgb, var(--bitcoin-orange) 13%, var(--bg-elevated));
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 58%, var(--border-subtle));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 62%, var(--border-subtle));
   border-radius: 50%;
   color: var(--bitcoin-orange);
   box-shadow: 0 10px 22px color-mix(in srgb, var(--bitcoin-orange) 12%, transparent);
@@ -307,7 +307,7 @@
   background:
     linear-gradient(145deg, color-mix(in srgb, var(--bitcoin-orange) 18%, transparent), color-mix(in srgb, var(--bitcoin-orange-dark) 7%, transparent)),
     var(--bg-elevated);
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-subtle));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 40%, var(--border-subtle));
   border-radius: 16px;
   color: var(--bitcoin-orange);
   box-shadow: inset 0 1px 0 color-mix(in srgb, white 9%, transparent);
@@ -338,7 +338,7 @@
   gap: var(--spacing-xs);
   padding: var(--spacing-md);
   background: color-mix(in srgb, var(--bitcoin-orange) 8%, var(--bg-tertiary));
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 58%, var(--border-subtle));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 62%, var(--border-subtle));
   border-radius: 18px;
   color: var(--bitcoin-orange);
 }
@@ -369,7 +369,7 @@
   background:
     linear-gradient(90deg, color-mix(in srgb, var(--bitcoin-orange) 9%, transparent), transparent 34%),
     color-mix(in srgb, var(--bg-tertiary) 84%, transparent);
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 78%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border-medium) 84%, transparent);
   border-left: 4px solid var(--bitcoin-orange);
   border-radius: 20px;
   padding: clamp(1rem, 2.5vw, 1.5rem);
@@ -407,7 +407,7 @@
   background:
     radial-gradient(circle at top right, color-mix(in srgb, var(--bitcoin-orange) 15%, transparent), transparent 14rem),
     color-mix(in srgb, var(--bg-tertiary) 72%, transparent);
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 28%, var(--border-subtle));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-subtle));
   border-radius: 24px;
   padding: clamp(1rem, 3vw, 1.75rem);
   box-shadow: inset 0 1px 0 color-mix(in srgb, white 7%, transparent);
@@ -439,7 +439,7 @@
   text-align: left;
   padding: var(--spacing-md);
   background: color-mix(in srgb, var(--bg-secondary) 66%, transparent);
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 64%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border-medium) 76%, transparent);
   border-radius: 18px;
 }
 
@@ -622,7 +622,7 @@
   padding: clamp(1rem, 3vw, 1.75rem);
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--bg-elevated) 58%, transparent), color-mix(in srgb, var(--bg-secondary) 95%, transparent));
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 76%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border-medium) 84%, transparent);
   border-radius: 24px;
   margin-bottom: var(--spacing-lg);
   align-items: center;
@@ -934,11 +934,21 @@
   background:
     radial-gradient(circle at 86% 12%, color-mix(in srgb, var(--bitcoin-orange) 18%, transparent), transparent 16rem),
     linear-gradient(145deg, #ffffff, #fff8ed 72%, #fff3df);
+  border-color: color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-medium));
   box-shadow: 0 22px 50px rgba(146, 92, 24, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+:global(:root[data-theme='light']) .heroIcon,
+:global(:root[data-theme='light']) .columnIcon,
+:global(:root[data-theme='light']) .conceptIcon,
+:global(:root[data-theme='light']) .flowStepIcon,
+:global(:root[data-theme='light']) .utxoCoin {
+  border-color: color-mix(in srgb, var(--bitcoin-orange) 42%, var(--border-medium));
 }
 
 :global(:root[data-theme='light']) .columnCard,
 :global(:root[data-theme='light']) .propertyRow {
+  border-color: color-mix(in srgb, var(--border-medium) 90%, #8d96a6);
   box-shadow: 0 14px 30px rgba(16, 19, 25, 0.08);
 }
 
@@ -946,6 +956,11 @@
 :global(:root[data-theme='light']) .flowSection,
 :global(:root[data-theme='light']) .keyPoints {
   background-color: rgba(255, 255, 255, 0.72);
+  border-color: color-mix(in srgb, var(--border-medium) 90%, #8d96a6);
+}
+
+:global(:root[data-theme='light']) .factBox {
+  border-color: color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-medium));
 }
 
 @media (max-width: 640px) {
