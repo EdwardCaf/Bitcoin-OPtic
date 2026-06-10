@@ -20,7 +20,7 @@ import {
   LightningNodeTools,
   WalletBackendComparison,
 } from "../components/lessons/running-node";
-import { useLessonSection } from '../hooks/useLessonSection';
+import { useLessonSection } from "../hooks/useLessonSection";
 import styles from "./Lessons.module.css";
 
 const sections = [
@@ -133,7 +133,6 @@ function WhySection() {
           software you chose before your wallet accepts what it sees.
         </p>
       </Accordion>
-
     </motion.div>
   );
 }
@@ -160,7 +159,7 @@ function SoftwareSection() {
 
       <NodeSetupPicker />
 
-      <ResourceLinkCard section="nodes" title="Node Software" />
+      <ResourceLinkCard section="nodes" title="Node Hardware & Software" />
 
       <div className={styles.factBox}>
         <h4>Hardware Defaults</h4>
@@ -182,16 +181,17 @@ function SoftwareSection() {
         </div>
       </div>
 
-      <Accordion title="Full Node First, Pruned When Needed" defaultOpen>
+      <Accordion title="Why Full Nodes Are Preferred" defaultOpen>
         <p>
-          Prefer a full archival node if you can afford the disk space. It gives
-          you the most flexibility for wallet indexing, Electrum servers,
-          rescans, and future services.
+          Prefer a full archival node. It preserves historical block data, which
+          gives you the most flexibility for wallet indexing, Electrum servers,
+          rescans, troubleshooting, and future services.
         </p>
         <p>
-          A pruned node still validates Bitcoin for you, which is valuable when
-          storage is limited. The tradeoff is that it discards old block data,
-          so some services and wallet indexing workflows will not work properly.
+          Pruning is a storage compromise, not the ideal setup. A pruned node
+          can still validate current consensus rules, but it discards old block
+          data and limits what your node can do for your wallets, your own
+          services, and other peers.
         </p>
       </Accordion>
     </motion.div>
@@ -207,12 +207,17 @@ function WalletSection() {
     >
       <h2 className={styles.sectionTitle}>Connecting Your Wallet</h2>
       <p className={styles.sectionText}>
-        A node is most useful when your wallet actually uses it. Otherwise, you
-        may still be asking a public server for balances and transaction history
-        while your own node sits unused. Electrum servers fit here: they are
-        wallet-query layers that sit on top of your validating node. Electrs is
-        a common, lightweight choice for connecting wallets like Sparrow to your
-        own node.
+        A node is most useful when your wallet software actually connects to it.
+        Otherwise, you may have downloaded and verified the blockchain, but your
+        wallet could still be asking a public server for balances and
+        transaction history. That means the public server can learn which
+        addresses belong together, and your wallet is not relying on your own
+        node's view of Bitcoin.
+      </p>
+      <p className={styles.sectionText}>
+        Electrum servers fit here: they are wallet-query layers that sit on top
+        of your validating node. Electrs is a common, lightweight choice for
+        connecting wallets like Sparrow to your own node.
       </p>
 
       <WalletBackendComparison />
@@ -266,6 +271,12 @@ function MaintenanceSection() {
         manageable, but it helps to know what actually matters and what does not
         put your funds at risk.
       </p>
+      <p className={styles.sectionText}>
+        Downloading and validating the blockchain is only the starting point. To
+        get the personal benefit, connect your wallet software to your node. To
+        help the wider network, make your node reachable so other peers can
+        download blocks from you.
+      </p>
 
       <div className={styles.conceptGrid}>
         <Card padding="large" hover>
@@ -274,9 +285,10 @@ function MaintenanceSection() {
           </div>
           <h3>Updates</h3>
           <p>
-            Keep app software reasonably current. You do not need to update to
-            new major Core Versions, but generally avoid running old software
-            for security reasons.
+            Updating to new major versions of the Bitcoin Node software (Bitcoin
+            Core) is not required unless you desire the latest features. For
+            other node applications like Lightning apps and others, generally
+            avoid running old software for security and compatibility reasons.
           </p>
         </Card>
 
@@ -289,7 +301,7 @@ function MaintenanceSection() {
             If your Bitcoin node is offline, your wallet may not refresh through
             it, but your bitcoin is not lost. Lightning is different: channel
             monitoring, peer connectivity, and force-close safety make uptime
-            more important.
+            essential.
           </p>
         </Card>
 
@@ -305,28 +317,48 @@ function MaintenanceSection() {
         </Card>
       </div>
 
-      <Accordion title="Full vs Pruned Maintenance" defaultOpen>
-        <p>
-          A full node is the better default for a dedicated setup because it
-          preserves historical block data for rescans, indexing, Electrum
-          servers, and future services.
-        </p>
-        <p>
-          A pruned node is still a real validating node and can be a good choice
-          on a laptop or low-storage machine. Just understand that you may need
-          to resync from scratch if you later want services that require full
-          history.
-        </p>
-      </Accordion>
+      <div className={styles.conceptGrid}>
+        <Card padding="large" hover>
+          <div className={styles.conceptIcon}>
+            <Server size={24} />
+          </div>
+          <h3>Full Node Maintenance</h3>
+          <p>
+            A full node is the recommended target for a dedicated setup because
+            it keeps historical block data available for rescans, indexing,
+            Electrum servers, and future services.
+          </p>
+          <p>
+            Pruned nodes reduce disk usage, but are just insufficient for what
+            mode node runners will demand of their node.
+          </p>
+        </Card>
 
-      <Accordion title="Tor, Privacy, and Remote Access" defaultOpen>
-        <p>
-          Tor can hide your home IP from peers and make remote wallet
-          connections easier, but it adds another moving part. Start with a
-          local setup, then add Tor or remote access once you understand the
-          basics.
-        </p>
-      </Accordion>
+        <Card padding="large" hover>
+          <div className={styles.conceptIcon}>
+            <ShieldCheck size={24} />
+          </div>
+          <h3>Serving the Network</h3>
+          <p>
+            If your node only makes outbound connections, it can still verify
+            your own wallet activity, but it is not as helpful to other peers.
+            Consider forwarding TCP port 8333 on your router so other Bitcoin
+            nodes can connect to you and download blocks.
+          </p>
+        </Card>
+
+        <Card padding="large" hover>
+          <div className={styles.conceptIcon}>
+            <EyeOff size={24} />
+          </div>
+          <h3>Tor, Privacy, and Remote Access</h3>
+          <p>
+            Tor can hide your home IP from peers and make remote wallet
+            connections easier. You can also connect on your local network, then
+            use Tor for remote access.
+          </p>
+        </Card>
+      </div>
     </motion.div>
   );
 }

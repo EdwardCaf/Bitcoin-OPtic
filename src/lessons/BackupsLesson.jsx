@@ -18,7 +18,7 @@ import {
   PassphraseWalletVisualizer,
   RecoveryScenarioExplorer,
 } from "../components/lessons/backups";
-import { useLessonSection } from '../hooks/useLessonSection';
+import { useLessonSection } from "../hooks/useLessonSection";
 import styles from "./Lessons.module.css";
 import backupStyles from "./BackupsLesson.module.css";
 
@@ -428,9 +428,9 @@ function MultisigSection() {
     >
       <h2 className={styles.sectionTitle}>Multisig Inheritance</h2>
       <p className={styles.sectionText}>
-        Multisig is useful when inheritance needs both safety and
-        recoverability. Instead of one seed phrase controlling everything, a
-        2-of-3 setup spreads control across multiple keys, locations, and roles.
+        Multisig is useful when you want both security and recoverability.
+        Instead of one seed phrase controlling everything, a 2-of-3 setup
+        spreads control across multiple keys, locations, and roles.
       </p>
 
       <div className={backupStyles.multisigFeature}>
