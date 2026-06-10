@@ -143,6 +143,32 @@ function SeedBackupsSection() {
         long-term storage, paper is a temporary starting point; a properly made
         metal backup is the durable version you should plan around.
       </p>
+      <p className={styles.sectionText}>
+        Seed phrases are an important component of backups becasue they have
+        been standardized through BIP-39. This means you can take your seed
+        phrase form one device and be certain you can recover with another
+        device. Be weary of backups/recovery without seed phrases.
+      </p>
+
+      <div className={backupStyles.criticalWarning}>
+        <div className={backupStyles.warningHeader}>
+          <div className={backupStyles.warningIcon}>
+            <AlertTriangle size={20} />
+          </div>
+          <h3>Never digitize your seed phrase</h3>
+          <span className={backupStyles.severityBadge}>Critical</span>
+        </div>
+        <p>
+          Do not type seed words into a computer, phone, website, chat, email,
+          cloud note, password manager, or spreadsheet. Do not photograph, scan,
+          screenshot, print, or upload them.
+        </p>
+        <p>
+          Only enter seed words directly into a trusted hardware wallet during
+          recovery. If your seed has touched an internet-connected device, treat
+          it as compromised and move funds to a new wallet.
+        </p>
+      </div>
 
       <BackupLocationPlanner />
 
@@ -490,8 +516,8 @@ function MultisigSection() {
             <div>
               <strong>Quorum and key locations</strong>
               <span>
-                Record the threshold, such as 2-of-3, and where each signing
-                key or backup is stored.
+                Record the threshold, such as 2-of-3, and where each signing key
+                or backup is stored.
               </span>
             </div>
           </li>
