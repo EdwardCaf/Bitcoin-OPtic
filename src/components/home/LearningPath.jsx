@@ -44,12 +44,7 @@ const LEARNING_TREE = {
       description:
         "Learn how Bitcoin moves from one wallet to another through inputs, outputs, and fees.",
       difficulty: "Beginner",
-      topics: [
-        "UTXOs",
-        "Inputs & Outputs",
-        "Transaction Fees",
-        "Change Addresses",
-      ],
+      topics: ["UTXOs", "Inputs & Outputs", "Transaction Fees"],
     },
   ],
   core: [
@@ -61,12 +56,7 @@ const LEARNING_TREE = {
       description:
         "Master the art of managing your Bitcoin UTXOs for optimal fees and privacy.",
       difficulty: "Intermediate",
-      topics: [
-        "Consolidation",
-        "Coin Selection",
-        "Dust Management",
-        "Fee Optimization",
-      ],
+      topics: ["Consolidation", "Coin Selection", "Fee Optimization"],
     },
     {
       id: "multisig",
@@ -76,12 +66,7 @@ const LEARNING_TREE = {
       description:
         "Learn how multi-signature wallets enhance Bitcoin security with multiple keys.",
       difficulty: "Intermediate",
-      topics: [
-        "M-of-N Setup",
-        "Key Management",
-        "Security Models",
-        "Best Practices",
-      ],
+      topics: ["M-of-N Setup", "Key Management", "Security"],
     },
     {
       id: "privacy",
@@ -91,7 +76,7 @@ const LEARNING_TREE = {
       description:
         "Explore Bitcoin privacy - how transactions can be traced and how to protect yourself.",
       difficulty: "Intermediate",
-      topics: ["Address Reuse", "Chain Analysis", "CoinJoin", "Best Practices"],
+      topics: ["Address Reuse", "Chain Analysis", "CoinJoin"],
     },
   ],
   protocol: [
@@ -103,12 +88,7 @@ const LEARNING_TREE = {
       description:
         "Understand how blocks are structured and chained together to form an immutable ledger.",
       difficulty: "Intermediate",
-      topics: [
-        "Block Structure",
-        "Merkle Trees",
-        "Chain of Hashes",
-        "Immutability",
-      ],
+      topics: ["Block Structure", "Chain of Hashes", "Immutability"],
     },
     {
       id: "mining",
@@ -118,12 +98,7 @@ const LEARNING_TREE = {
       description:
         "Discover how miners secure the network and create new Bitcoin through proof-of-work.",
       difficulty: "Intermediate",
-      topics: [
-        "Hash Functions",
-        "Proof of Work",
-        "Difficulty",
-        "Block Rewards",
-      ],
+      topics: ["Hashing", "Proof of Work", "Difficulty Adjustment"],
     },
     {
       id: "network",
@@ -133,12 +108,17 @@ const LEARNING_TREE = {
       description:
         "Explore how Bitcoin's peer-to-peer network operates and reaches consensus.",
       difficulty: "Intermediate",
-      topics: [
-        "Node Types",
-        "Transaction Propagation",
-        "Consensus Rules",
-        "Forks",
-      ],
+      topics: ["Node Types", "Consensus Rules", "Forks"],
+    },
+    {
+      id: "running-a-node",
+      title: "Running a Node",
+      path: "/lessons/running-a-node",
+      level: 3,
+      description:
+        "Learn why and how to run your own Bitcoin node for self-verification.",
+      difficulty: "Intermediate",
+      topics: ["Full Nodes", "Self Verification", "Bitcoin Core"],
     },
   ],
   advanced: [
@@ -150,7 +130,7 @@ const LEARNING_TREE = {
       description:
         "Learn how Lightning enables instant, low-fee Bitcoin payments through payment channels.",
       difficulty: "Advanced",
-      topics: ["Payment Channels", "Routing", "HTLCs", "Invoices"],
+      topics: ["Payment Channels", "Routing", "Invoices"],
     },
     {
       id: "liquid",
@@ -160,7 +140,7 @@ const LEARNING_TREE = {
       description:
         "Explore Bitcoin's federated sidechain for fast settlement and confidential transactions.",
       difficulty: "Advanced",
-      topics: ["Peg-In/Out", "Confidential TX", "Issued Assets", "Trade-offs"],
+      topics: ["Peg-In/Out", "Confidential TX", "Trade-offs"],
     },
     {
       id: "ecash",
@@ -217,10 +197,11 @@ function LessonNode({ lesson, index, delay = 0 }) {
       className={styles.nodeWrapper}
     >
       <Link to={lesson.path} className={styles.node}>
-        <span className={styles.stepNumber}>{String(index + 1).padStart(2, "0")}</span>
+        <span className={styles.stepNumber}>
+          {String(index + 1).padStart(2, "0")}
+        </span>
         <div className={styles.nodeContent}>
           <span className={styles.nodeTitle}>{lesson.title}</span>
-          <p className={styles.nodeDescription}>{lesson.description}</p>
           <div className={styles.nodeTopics}>
             {lesson.topics.map((topic) => (
               <span key={topic} className={styles.topic}>
@@ -237,7 +218,6 @@ function LessonNode({ lesson, index, delay = 0 }) {
           >
             {lesson.difficulty}
           </Badge>
-          <span className={styles.startLesson}>Start Lesson</span>
           <ChevronRight size={14} className={styles.nodeArrow} />
         </div>
       </Link>
@@ -251,11 +231,8 @@ export function LearningPath() {
   return (
     <section id="learning-path" className={styles.container}>
       <div className={styles.header}>
-        <h2 className={styles.title}>Your Learning Journey</h2>
-        <p className={styles.subtitle}>
-          Progress from Bitcoin basics to advanced topics through a structured
-          curriculum
-        </p>
+        <h2 className={styles.title}>Learning Path</h2>
+        <p className={styles.subtitle}>Bitcoin basics to advanced topics.</p>
       </div>
 
       <div className={styles.tree}>
