@@ -115,8 +115,25 @@ export function SupportPage() {
               />
             </div>
             <div className={styles.profileDetails}>
-              <p className={styles.profileEyebrow}>Your Mentor</p>
-              <h2 className={styles.profileName}>Edward</h2>
+              <div className={styles.profileIdentityRow}>
+                <div>
+                  <p className={styles.profileEyebrow}>Your Mentor</p>
+                  <h2 className={styles.profileName}>Edward</h2>
+                </div>
+                <a
+                  href="https://btcmentor.io/mentor/edward-cafarella"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.profileBrand}
+                  aria-label="View Edward on BTC Mentor"
+                >
+                  <img
+                    src="/btcmentor-logo.png"
+                    alt="BTC Mentor"
+                    className={styles.profileBrandLogo}
+                  />
+                </a>
+              </div>
               <p className={styles.profileBio}>
                 Bitcoin educator focused on self-custody, privacy, inheritance
                 planning, and all of the latest freedom tech.

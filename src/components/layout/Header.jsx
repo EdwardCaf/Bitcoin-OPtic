@@ -278,7 +278,7 @@ export function Header({ sidebarOpen, onToggleSidebar, theme, onToggleTheme }) {
           </button>
           <Link to="/support" className={styles.supportButton}>
             <MessageSquareMore size={18} />
-            <span className={styles.supportText}>Schedule a Call</span>
+            <span className={styles.supportText}>Book a Free Call</span>
           </Link>
           <div 
             ref={statusRef}

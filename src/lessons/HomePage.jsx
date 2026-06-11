@@ -5,13 +5,12 @@ import {
   ArrowRight,
   Sparkles,
   BookOpen,
-  Gamepad2,
   GraduationCap,
   Mail,
   Check,
-  MonitorCheck,
   BarChart3,
   Globe,
+  Handshake,
 } from "lucide-react";
 import { Button, Badge } from "../components/common";
 import { useMailerLiteOnVisible } from "../hooks/useMailerLite";
@@ -344,6 +343,94 @@ export function HomePage() {
         </div>
       </motion.section>
 
+      {/* Personal Introduction */}
+      <motion.section
+        className={styles.mentorSection}
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.55 }}
+        aria-labelledby="mentor-heading"
+      >
+        <div className={styles.mentorCopy}>
+          <div className={styles.mentorBadge}>
+            <Badge
+              variant="primary"
+              size="medium"
+              icon={<Handshake size={14} />}
+            >
+              Work with me 1-on-1
+            </Badge>
+          </div>
+          <h2 id="mentor-heading" className={styles.mentorTitle}>
+            I'm Edward, I
+          </h2>
+          <p className={styles.mentorText}>
+            I&apos;ve been fascinated with bitcoin for over a decade and built
+            The Bitcoin OPtic as my way of giving back to the community. If you
+            are interested in self-custody then book a call with me and get
+            started on your journey to financial sovereignty.
+          </p>
+          <div
+            className={styles.mentorTopics}
+            aria-label="Topics Edward helps with"
+          >
+            <span>Self-custody</span>
+            <span>Privacy</span>
+            <span>Inheritance</span>
+          </div>
+          <div className={styles.mentorCta}>
+            <a
+              href="https://calendar.proton.me/bookings#hAO6Yxm96KHGyHF8Be-K3A1mMjE-jIMnG2MgNj8UnDg="
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.mentorLink}
+            >
+              <span>Book Your Free Session</span>
+              <ArrowRight size={20} />
+            </a>
+            <p className={styles.mentorCtaSubtext}>
+              15-minute call &bull; No commitment &bull; 100% free
+            </p>
+          </div>
+        </div>
+
+        <aside className={styles.mentorCard} aria-label="About Edward">
+          <div className={styles.mentorImageFrame}>
+            <img
+              src="/bio.jpg"
+              alt="Edward, your Bitcoin mentor"
+              className={styles.mentorImage}
+            />
+          </div>
+          <div className={styles.mentorDetails}>
+            <div className={styles.mentorIdentityRow}>
+              <div>
+                <p className={styles.mentorCardEyebrow}>Your Mentor</p>
+                <h3 className={styles.mentorName}>Edward</h3>
+              </div>
+              <a
+                href="https://btcmentor.io/mentor/edward-cafarella"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.mentorBrand}
+                aria-label="View Edward on BTC Mentor"
+              >
+                <img
+                  src="/btcmentor-logo.png"
+                  alt="BTC Mentor"
+                  className={styles.mentorBrandLogo}
+                />
+              </a>
+            </div>
+            <p className={styles.mentorBio}>
+              Bitcoin educator focused on self-custody, privacy, inheritance
+              planning, and all of the latest freedom tech.
+            </p>
+          </div>
+        </aside>
+      </motion.section>
+
       <div
         id="learning-path-section"
         ref={learningPathTriggerRef}
@@ -359,66 +446,6 @@ export function HomePage() {
       ) : (
         <SectionPlaceholder />
       )}
-
-      {/* Features Section */}
-      <motion.section
-        className={styles.featuresSection}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-      >
-        <h2 className={styles.sectionTitle}>
-          Why The Bitcoin <span className={styles.sectionOrange}>OP</span>tic?
-        </h2>
-        <div className={styles.featuresGrid}>
-          <motion.div
-            className={styles.feature}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1, duration: 0.4 }}
-          >
-            <div className={styles.featureIcon}>
-              <BarChart3 size={24} />
-            </div>
-            <h4>Visual Learning</h4>
-            <p>Visualizations let you see Bitcoin concepts in real-time</p>
-          </motion.div>
-          <motion.div
-            className={styles.feature}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-          >
-            <div className={styles.featureIcon}>
-              <BookOpen size={24} />
-            </div>
-            <h4>Beginner Friendly</h4>
-            <p>
-              Start from zero knowledge with clear explanations and relatable
-              analogies
-            </p>
-          </motion.div>
-          <motion.div
-            className={styles.feature}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.4 }}
-          >
-            <div className={styles.featureIcon}>
-              <Sparkles size={24} />
-            </div>
-            <h4>Deep Technical Content</h4>
-            <p>
-              Expand certain topics to dive into the underlying technical
-              details
-            </p>
-          </motion.div>
-        </div>
-      </motion.section>
 
       {/* CTA Section */}
       <motion.section

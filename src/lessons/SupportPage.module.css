@@ -188,6 +188,13 @@
   padding: 0 var(--spacing-xs) var(--spacing-xs);
 }
 
+.profileIdentityRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
 .profileEyebrow {
   margin: 0 0 var(--spacing-xs);
   color: var(--bitcoin-orange);
@@ -202,6 +209,38 @@
   color: var(--text-primary);
   font-size: clamp(1.5rem, 3vw, 2rem);
   line-height: 1;
+}
+
+.profileBrand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 0.13rem 0.58rem;
+  border: 1px solid rgba(247, 147, 26, 0.28);
+  border-radius: 999px;
+  background: #fbf8f2;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.profileBrand:hover {
+  transform: translateY(-1px);
+  border-color: rgba(247, 147, 26, 0.46);
+  box-shadow:
+    0 12px 28px rgba(247, 147, 26, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.profileBrandLogo {
+  display: block;
+  width: clamp(48px, 5vw, 64px);
+  height: auto;
 }
 
 .profileBio {
@@ -282,6 +321,14 @@
 @media (max-width: 600px) {
   .featureGrid {
     grid-template-columns: 1fr;
+  }
+
+  .profileBrand {
+    padding: 0.17rem 0.64rem;
+  }
+
+  .profileBrandLogo {
+    width: 68px;
   }
 }
 
@@ -499,4 +546,12 @@
 
 :global(:root[data-theme='light']) .newsletterError {
   color: #b91c1c;
+}
+
+:global(:root[data-theme='light']) .profileBrand {
+  background: #ffffff;
+  border-color: rgba(146, 64, 14, 0.28);
+  box-shadow:
+    0 10px 22px rgba(16, 19, 25, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
