@@ -7,7 +7,7 @@
 /* Variants */
 .default {
   background: color-mix(in srgb, var(--bg-tertiary) 86%, transparent);
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 78%, transparent);
+  border: 1px solid color-mix(in srgb, var(--border-medium) 84%, transparent);
 }
 
 .ghost {
@@ -19,7 +19,7 @@
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--bitcoin-orange) 10%, transparent), transparent),
     color-mix(in srgb, var(--bg-tertiary) 72%, transparent);
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 30%, var(--border-subtle));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-subtle));
   margin: 0;
 }
 
@@ -121,6 +121,14 @@
 :global(:root[data-theme='light']) .deepdive {
   background-color: rgba(255, 255, 255, 0.78);
   box-shadow: 0 10px 24px rgba(16, 19, 25, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+:global(:root[data-theme='light']) .default {
+  border-color: color-mix(in srgb, var(--border-medium) 90%, #8d96a6);
+}
+
+:global(:root[data-theme='light']) .deepdive {
+  border-color: color-mix(in srgb, var(--bitcoin-orange) 36%, var(--border-medium));
 }
 
 /* Group */

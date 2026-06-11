@@ -384,9 +384,9 @@ export function HomePage() {
               href="https://calendar.proton.me/bookings#hAO6Yxm96KHGyHF8Be-K3A1mMjE-jIMnG2MgNj8UnDg="
               target="_blank"
               rel="noopener noreferrer"
-              className={styles.mentorLink}
+              className={styles.mentorButtonLink}
             >
-              <span>Book Your Free Session</span>
+              <span>Book Your Session</span>
               <ArrowRight size={20} />
             </a>
             <p className={styles.mentorCtaSubtext}>
@@ -446,30 +446,6 @@ export function HomePage() {
       ) : (
         <SectionPlaceholder />
       )}
-
-      {/* CTA Section */}
-      <motion.section
-        className={styles.ctaSection}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
-      >
-        <h2 className={styles.ctaTitle}>Ready to Learn?</h2>
-        <Link to="/lessons/what-is-bitcoin">
-          <Button
-            variant="primary"
-            size="large"
-            icon={<ArrowRight size={18} />}
-            iconPosition="right"
-          >
-            Begin Your Journey
-          </Button>
-        </Link>
-        <p className={styles.ctaSubtext}>
-          No account required • Completely free
-        </p>
-      </motion.section>
 
       {/* Footer Contact */}
       <motion.section

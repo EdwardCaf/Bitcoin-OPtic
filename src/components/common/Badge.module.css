@@ -3,6 +3,7 @@
   align-items: center;
   gap: var(--spacing-xs);
   font-weight: 500;
+  border: 1px solid transparent;
   border-radius: var(--radius-full);
   white-space: nowrap;
 }
@@ -58,6 +59,30 @@
   background: transparent;
   border: 1px solid var(--border-medium);
   color: var(--text-secondary);
+}
+
+.primary,
+.success,
+.warning,
+.error,
+.info,
+.purple,
+.cyan,
+.node,
+.exchange {
+  border-color: color-mix(in srgb, currentColor 16%, transparent);
+}
+
+:global(:root[data-theme='light']) .badge {
+  border-color: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+:global(:root[data-theme='light']) .default {
+  border-color: color-mix(in srgb, var(--border-medium) 90%, #8d96a6);
+}
+
+:global(:root[data-theme='light']) .outline {
+  border-color: color-mix(in srgb, var(--border-medium) 84%, #7f8898);
 }
 
 .purple {
