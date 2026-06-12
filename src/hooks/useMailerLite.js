@@ -67,6 +67,15 @@ export function useMailerLiteOnVisible(options = {}) {
     const target = targetRef.current;
     if (!target || isVisible) return;
 
+    const preloadDistance = Number.parseInt(rootMargin, 10) || 0;
+    const rect = target.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    if (rect.top <= viewportHeight + preloadDistance && rect.bottom >= -preloadDistance) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (!entries.some((entry) => entry.isIntersecting)) return;

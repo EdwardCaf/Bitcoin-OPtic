@@ -192,8 +192,8 @@ function LessonNode({ lesson, index, delay = 0 }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "50px" }}
-      transition={{ delay, duration: 0.2, ease: "easeOut" }}
+      viewport={{ once: true, margin: "160px" }}
+      transition={{ delay, duration: 0.12, ease: "easeOut" }}
       className={styles.nodeWrapper}
     >
       <Link to={lesson.path} className={styles.node}>
@@ -232,7 +232,7 @@ export function LearningPath() {
     <section id="learning-path" className={styles.container}>
       <div className={styles.header}>
         <h2 className={styles.title}>Learning Path</h2>
-        <p className={styles.subtitle}>Bitcoin basics to advanced topics.</p>
+        <p className={styles.subtitle}>My recommendations</p>
       </div>
 
       <div className={styles.tree}>
@@ -251,7 +251,7 @@ export function LearningPath() {
                     key={lesson.id}
                     lesson={lesson}
                     index={currentIndex}
-                    delay={currentIndex * 0.025}
+                    delay={currentIndex * 0.01}
                   />
                 );
               })}

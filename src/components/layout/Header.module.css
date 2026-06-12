@@ -305,6 +305,10 @@
     inset 0 1px 0 var(--support-hover-shadow-3);
 }
 
+:global(:root[data-theme='light']) .supportButton:hover {
+  color: var(--support-text);
+}
+
 .supportText {
   white-space: nowrap;
 }

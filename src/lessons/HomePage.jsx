@@ -45,7 +45,9 @@ export function HomePage() {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState("idle");
   const [newsletterError, setNewsletterError] = useState("");
-  const { targetRef: newsletterSectionRef } = useMailerLiteOnVisible();
+  const { targetRef: newsletterSectionRef } = useMailerLiteOnVisible({
+    rootMargin: "1000px 0px",
+  });
 
   useEffect(() => {
     const target = learningPathTriggerRef.current;
@@ -58,7 +60,7 @@ export function HomePage() {
         observer.disconnect();
       },
       {
-        rootMargin: "550px 0px",
+        rootMargin: "1000px 0px",
       },
     );
 
@@ -202,14 +204,14 @@ export function HomePage() {
         className={styles.hero}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.25 }}
       >
         <div className={styles.heroGlow} aria-hidden="true" />
         <motion.div
           className={styles.heroContent}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.3, delay: 0.05 }}
         >
           <h1 className={styles.heroTitle}>
             <span className={styles.heroTitleLine}>Welcome to</span>
@@ -244,9 +246,8 @@ export function HomePage() {
         ref={newsletterSectionRef}
         className={styles.newsletterSection}
         initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.55 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.25 }}
       >
         <div className={styles.newsletterShell}>
           <div className={styles.newsletterIntro}>
@@ -348,8 +349,8 @@ export function HomePage() {
         className={styles.mentorSection}
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.55 }}
+        viewport={{ once: true, margin: "80px" }}
+        transition={{ duration: 0.25 }}
         aria-labelledby="mentor-heading"
       >
         <div className={styles.mentorCopy}>
@@ -363,7 +364,7 @@ export function HomePage() {
             </Badge>
           </div>
           <h2 id="mentor-heading" className={styles.mentorTitle}>
-            I'm Edward, I
+            Gain confidence on your path to financial sovereignty.
           </h2>
           <p className={styles.mentorText}>
             I&apos;ve been fascinated with bitcoin for over a decade and built
@@ -386,7 +387,7 @@ export function HomePage() {
               rel="noopener noreferrer"
               className={styles.mentorButtonLink}
             >
-              <span>Book Your Session</span>
+              <span>Book Your Free Session</span>
               <ArrowRight size={20} />
             </a>
             <p className={styles.mentorCtaSubtext}>
@@ -452,8 +453,8 @@ export function HomePage() {
         className={styles.footerContact}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.5 }}
+        viewport={{ once: true, margin: "80px" }}
+        transition={{ duration: 0.2 }}
       >
         <span className={styles.footerLabel}>Connect with me</span>
         <div className={styles.footerLinks}>

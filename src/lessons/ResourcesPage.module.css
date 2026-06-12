@@ -121,8 +121,8 @@
   display: flex;
   flex-direction: column;
   padding: var(--spacing-md);
-  background: var(--bg-secondary);
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 72%, var(--text-primary) 28%);
+  background: color-mix(in srgb, var(--bg-secondary) 88%, var(--bg-primary) 12%);
+  border: 1px solid color-mix(in srgb, var(--border-subtle) 55%, var(--text-primary) 45%);
   border-radius: var(--radius-md);
   text-decoration: none;
   color: inherit;
@@ -471,7 +471,8 @@
 }
 
 :global(:root[data-theme='light']) .card {
-  border-color: rgba(135, 97, 55, 0.24);
+  background: color-mix(in srgb, var(--bg-secondary) 76%, #ffffff 24%);
+  border-color: rgba(112, 78, 41, 0.38);
 }
 
 :global(:root[data-theme='light']) .cardTags,
@@ -492,7 +493,7 @@
 
 :global(:root[data-theme='light']) .cardFavorite {
   border-color: rgba(184, 114, 16, 0.72);
-  background: var(--bg-secondary);
+  background: color-mix(in srgb, var(--bg-secondary) 80%, #fff7ea 20%);
 }
 
 :global(:root[data-theme='light']) .cardFavorite:hover {

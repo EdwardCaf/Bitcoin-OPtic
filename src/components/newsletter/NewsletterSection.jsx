@@ -13,7 +13,9 @@ export function NewsletterSection({ standalone = false }) {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterStatus, setNewsletterStatus] = useState("idle");
   const [newsletterError, setNewsletterError] = useState("");
-  const { targetRef: newsletterSectionRef } = useMailerLiteOnVisible();
+  const { targetRef: newsletterSectionRef } = useMailerLiteOnVisible({
+    rootMargin: "1000px 0px",
+  });
 
   const submitNewsletter = async (email) => {
     if (typeof window === "undefined") {
@@ -130,9 +132,8 @@ export function NewsletterSection({ standalone = false }) {
       ref={newsletterSectionRef}
       className={`${styles.newsletterSection} ${standalone ? styles.standalone : ""}`.trim()}
       initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.55 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.25 }}
     >
       <div className={styles.newsletterShell}>
         <div className={styles.newsletterIntro}>
