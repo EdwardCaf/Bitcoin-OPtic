@@ -15,9 +15,7 @@
   overflow: hidden;
   text-align: left;
   padding: clamp(1.5rem, 5vw, 3.5rem);
-  background:
-    radial-gradient(circle at 86% 12%, color-mix(in srgb, var(--bitcoin-orange) 18%, transparent), transparent 16rem),
-    linear-gradient(145deg, color-mix(in srgb, var(--bg-tertiary) 86%, transparent), color-mix(in srgb, var(--bg-secondary) 96%, transparent));
+  background: color-mix(in srgb, var(--bg-tertiary) 76%, var(--bg-secondary));
   border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 30%, var(--border-subtle));
   border-radius: 28px;
   box-shadow:
@@ -27,16 +25,7 @@
 }
 
 .heroCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--text-primary) 5%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--text-primary) 5%, transparent) 1px, transparent 1px);
-  background-size: 34px 34px;
-  mask-image: linear-gradient(120deg, transparent 0%, black 18%, transparent 70%);
-  opacity: 0.42;
+  content: none;
 }
 
 .heroIcon {
@@ -46,7 +35,7 @@
   width: 74px;
   height: 74px;
   background:
-    linear-gradient(145deg, color-mix(in srgb, var(--bitcoin-orange) 24%, transparent), color-mix(in srgb, var(--bitcoin-orange-dark) 9%, transparent)),
+    linear-gradient(145deg, color-mix(in srgb, var(--bitcoin-orange) 16%, transparent), color-mix(in srgb, var(--bitcoin-orange-dark) 5%, transparent)),
     var(--bg-elevated);
   border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 48%, var(--border-subtle));
   border-radius: 22px;
@@ -932,8 +921,8 @@
 
 :global(:root[data-theme='light']) .heroCard {
   background:
-    radial-gradient(circle at 86% 12%, color-mix(in srgb, var(--bitcoin-orange) 18%, transparent), transparent 16rem),
-    linear-gradient(145deg, #ffffff, #fff8ed 72%, #fff3df);
+    radial-gradient(circle at 86% 12%, color-mix(in srgb, var(--bitcoin-orange) 7%, transparent), transparent 16rem),
+    color-mix(in srgb, var(--bg-secondary) 92%, #fff7ea 8%);
   border-color: color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-medium));
   box-shadow: 0 22px 50px rgba(146, 92, 24, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }

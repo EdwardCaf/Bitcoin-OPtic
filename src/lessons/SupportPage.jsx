@@ -18,7 +18,7 @@ export function SupportPage() {
         className={styles.heroSection}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.22 }}
       >
         <div className={styles.heroBackground}>
           <div className={styles.heroGlow} />
@@ -31,7 +31,7 @@ export function SupportPage() {
               className={styles.heroBadge}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.24, delay: 0.03 }}
             >
               <Badge
                 variant="primary"
@@ -46,7 +46,7 @@ export function SupportPage() {
               className={styles.heroTitle}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.24, delay: 0.06 }}
             >
               Your path to
               <span className={styles.heroHighlight}>
@@ -59,7 +59,7 @@ export function SupportPage() {
               className={styles.heroSubtitle}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.24, delay: 0.09 }}
             >
               Get personalized guidance for what you need to achieve true
               self-sovereign bitcoin ownership.
@@ -69,7 +69,7 @@ export function SupportPage() {
               className={styles.valueProps}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.24, delay: 0.12 }}
             >
               {valueProps.map((prop, index) => (
                 <div key={index} className={styles.valueProp}>
@@ -83,7 +83,7 @@ export function SupportPage() {
               className={styles.heroCta}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
+              transition={{ duration: 0.24, delay: 0.15 }}
             >
               <a
                 href="https://calendar.proton.me/bookings#hAO6Yxm96KHGyHF8Be-K3A1mMjE-jIMnG2MgNj8UnDg="
@@ -104,7 +104,7 @@ export function SupportPage() {
             className={styles.profileCard}
             initial={{ opacity: 0, y: 24, rotate: 1.5 }}
             animate={{ opacity: 1, y: 0, rotate: 0 }}
-            transition={{ duration: 0.55, delay: 0.25 }}
+            transition={{ duration: 0.26, delay: 0.08 }}
             aria-label="About Edward"
           >
             <div className={styles.profileImageFrame}>

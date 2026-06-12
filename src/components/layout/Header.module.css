@@ -61,6 +61,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  min-width: 0;
   transition: all var(--transition-fast);
 }
 
@@ -78,26 +79,41 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, var(--bitcoin-orange), var(--bitcoin-orange-dark));
+  flex: 0 0 40px;
+  background: #ff9f1c;
   border-radius: var(--radius-md);
-  color: var(--text-inverse);
+  color: #0a0a0a;
   transition: transform var(--transition-fast);
+}
+
+.logoIcon svg {
+  width: 28px;
+  height: 28px;
 }
 
 .logoText {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .logoTitle {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28em;
   font-size: var(--text-lg);
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.2;
 }
 
+.logoTitlePrefix,
+.logoTitleBrand {
+  white-space: nowrap;
+}
+
 .logoOrange {
-  color: var(--bitcoin-orange);
+  color: #ff9f1c;
 }
 
 .logoSubtitle {
@@ -281,7 +297,7 @@
   align-items: center;
   gap: var(--spacing-xs);
   padding: var(--spacing-xs) var(--spacing-md);
-  background: linear-gradient(135deg, var(--support-bg-start) 0%, var(--support-bg-end) 100%);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--support-bg-start) 82%, var(--bg-secondary)) 0%, color-mix(in srgb, var(--support-bg-end) 74%, var(--bg-tertiary)) 100%);
   border: 1px solid var(--support-border);
   border-radius: var(--radius-full);
   color: var(--support-text);
@@ -296,7 +312,7 @@
 }
 
 .supportButton:hover {
-  background: linear-gradient(135deg, var(--support-bg-start) 0%, var(--support-bg-mid) 55%, var(--support-bg-end) 100%);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--support-bg-start) 84%, var(--bg-secondary)) 0%, color-mix(in srgb, var(--support-bg-mid) 76%, var(--bg-tertiary)) 55%, color-mix(in srgb, var(--support-bg-end) 76%, var(--bg-tertiary)) 100%);
   border-color: var(--support-border-hover);
   transform: translateY(-1px);
   box-shadow:
@@ -443,6 +459,30 @@
 
   .logoSubtitle {
     display: none;
+  }
+
+  .logo {
+    gap: 6px;
+  }
+
+  .logoIcon {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+    border-radius: 7px;
+  }
+
+  .logoIcon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .logoTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    font-size: 0.95rem;
+    line-height: 1.02;
   }
   
   .statusText {

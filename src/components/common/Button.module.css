@@ -39,13 +39,14 @@
 
 /* Variants */
 .primary {
-  background: linear-gradient(135deg, var(--bitcoin-orange), var(--bitcoin-orange-dark));
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--bitcoin-orange) 82%, var(--bg-elevated)), color-mix(in srgb, var(--bitcoin-orange-dark) 78%, var(--bg-tertiary)));
   color: var(--text-inverse);
-  box-shadow: 0 2px 8px rgba(247, 147, 26, 0.3);
+  box-shadow: 0 2px 8px rgba(247, 147, 26, 0.22);
 }
 
 .primary:hover:not(.disabled) {
-  box-shadow: 0 4px 16px rgba(247, 147, 26, 0.4);
+  box-shadow: 0 4px 14px rgba(247, 147, 26, 0.28);
 }
 
 .secondary {

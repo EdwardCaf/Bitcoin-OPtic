@@ -231,6 +231,7 @@ export function HomePage() {
               type="button"
               variant="primary"
               size="large"
+              className={styles.heroCtaButton}
               icon={<ArrowRight size={18} />}
               iconPosition="right"
               onClick={handleScrollToLearningPath}

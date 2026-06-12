@@ -166,7 +166,10 @@ export function Header({ sidebarOpen, onToggleSidebar, theme, onToggleTheme }) {
                 <Eye size={28} />
               </div>
               <div className={styles.logoText}>
-                <span className={styles.logoTitle}>The Bitcoin <span className={styles.logoOrange}>OP</span>tic</span>
+                <span className={styles.logoTitle}>
+                  <span className={styles.logoTitlePrefix}>The Bitcoin</span>
+                  <span className={styles.logoTitleBrand}><span className={styles.logoOrange}>OP</span>tic</span>
+                </span>
                 <span className={styles.logoSubtitle}>See Bitcoin Clearly</span>
               </div>
             </motion.div>
