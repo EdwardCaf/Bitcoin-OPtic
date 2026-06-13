@@ -68,7 +68,7 @@
 
 .thumb.active {
   transform: translateX(-50%) scale(1.2);
-  box-shadow: 0 4px 16px rgba(247, 147, 26, 0.5);
+  box-shadow: 0 2px 8px rgba(247, 147, 26, 0.4);
 }
 
 .input {

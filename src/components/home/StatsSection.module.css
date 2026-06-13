@@ -54,9 +54,6 @@
 .statCard:hover {
   border-color: rgba(247, 147, 26, 0.3);
   transform: translateY(-4px);
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(247, 147, 26, 0.08);
 }
 
 .statCard:hover::before {
@@ -80,7 +77,6 @@
 .statCard:hover .iconWrapper {
   background: rgba(247, 147, 26, 0.12);
   border-color: rgba(247, 147, 26, 0.3);
-  box-shadow: 0 0 15px rgba(247, 147, 26, 0.15);
 }
 
 .value {

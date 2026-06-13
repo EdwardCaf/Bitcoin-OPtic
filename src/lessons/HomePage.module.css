@@ -4,7 +4,7 @@
     --home-cta-text: #0a0a0a;
     --home-cta-border: rgba(255, 159, 28, 0.48);
     --home-cta-shadow: 0 2px 10px rgba(217, 120, 6, 0.24);
-    --home-cta-shadow-hover: 0 5px 16px rgba(217, 120, 6, 0.32);
+    --home-cta-shadow-hover: var(--home-cta-shadow);
     max-width: 1200px;
     margin: 0 auto;
     padding: var(--spacing-xl);
@@ -146,7 +146,7 @@
 .mentorButtonLink:hover {
     background: var(--home-cta-bg-hover) !important;
     color: var(--home-cta-text) !important;
-    box-shadow: var(--home-cta-shadow-hover);
+    box-shadow: var(--home-cta-shadow);
 }
 
 .newsletterSection {
@@ -690,7 +690,7 @@
 .mentorButtonLink:hover {
     color: var(--home-cta-text);
     transform: scale(1.02);
-    box-shadow: var(--home-cta-shadow-hover);
+    box-shadow: var(--home-cta-shadow);
 }
 
 .mentorButtonLink:active {
@@ -795,7 +795,6 @@
     border-color: rgba(247, 147, 26, 0.42);
     background: rgba(247, 147, 26, 0.08);
     color: var(--text-primary);
-    box-shadow: 0 0 14px rgba(247, 147, 26, 0.1);
 }
 
 .mentorSocialLink svg {
@@ -988,7 +987,6 @@ button.mentorSocialLink {
 .feature:hover .featureIcon {
     background: rgba(247, 147, 26, 0.15);
     border-color: rgba(247, 147, 26, 0.4);
-    box-shadow: 0 0 20px rgba(247, 147, 26, 0.2);
 }
 
 .feature h4 {
@@ -1121,7 +1119,6 @@ button.mentorSocialLink {
     border-color: rgba(247, 147, 26, 0.4);
     background: var(--bg-tertiary);
     color: var(--text-primary);
-    box-shadow: 0 0 15px rgba(247, 147, 26, 0.1);
 }
 
 .footerLink svg {
@@ -1151,7 +1148,7 @@ button.footerLink {
     --home-cta-text: #1f1304;
     --home-cta-border: rgba(180, 83, 9, 0.28);
     --home-cta-shadow: 0 3px 10px rgba(217, 119, 6, 0.16);
-    --home-cta-shadow-hover: 0 6px 16px rgba(217, 119, 6, 0.22);
+    --home-cta-shadow-hover: var(--home-cta-shadow);
 }
 
 :global(:root[data-theme='light']) .heroTitleMain,
