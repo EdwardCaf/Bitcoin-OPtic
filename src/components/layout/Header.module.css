@@ -16,7 +16,10 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--spacing-lg);
-  background: var(--bg-secondary);
+  background:
+    var(--surface-texture),
+    var(--bg-secondary);
+  background-size: var(--surface-texture-size);
   border-bottom: 1px solid var(--border-subtle);
   z-index: 2;
 }

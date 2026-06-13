@@ -18,7 +18,10 @@
   left: 0;
   bottom: 0;
   width: var(--sidebar-width);
-  background: var(--bg-secondary);
+  background:
+    var(--surface-texture),
+    var(--bg-secondary);
+  background-size: var(--surface-texture-size);
   border-right: 1px solid var(--border-subtle);
   z-index: 50;
   transform: translateX(-100%);

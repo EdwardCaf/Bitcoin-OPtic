@@ -27,6 +27,7 @@
     border: 1px solid rgba(247, 147, 26, 0.3);
     border-radius: var(--radius-xl);
     background: #0d0d0d;
+    box-shadow: var(--surface-card-shadow);
 }
 
 .heroGlow {
@@ -156,7 +157,7 @@
     background: #10100f;
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.05),
-        0 30px 60px rgba(0, 0, 0, 0.4);
+        var(--surface-card-shadow);
     overflow: hidden;
 }
 
@@ -275,7 +276,7 @@
     border: 1px solid rgba(247, 147, 26, 0.4);
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        0 22px 44px rgba(8, 8, 8, 0.35),
+        var(--surface-card-shadow),
         0 0 0 1px rgba(247, 147, 26, 0.09);
 }
 
@@ -291,7 +292,7 @@
         linear-gradient(145deg, rgba(247, 147, 26, 0.025), rgba(185, 93, 8, 0.01));
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.06),
-        0 18px 45px rgba(0, 0, 0, 0.35),
+        var(--surface-card-shadow),
         0 0 0 1px rgba(247, 147, 26, 0.08);
     overflow: hidden;
     text-align: left;
@@ -560,6 +561,7 @@
     background:
         radial-gradient(circle at 90% 10%, rgba(247, 147, 26, 0.025) 0%, transparent 28%),
         linear-gradient(145deg, rgba(247, 147, 26, 0.025) 0%, rgba(247, 147, 26, 0.01) 52%, rgba(185, 93, 8, 0.01) 100%);
+    box-shadow: var(--surface-card-shadow);
     overflow: hidden;
 }
 
@@ -720,7 +722,7 @@
         linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
         rgba(8, 8, 8, 0.42);
     box-shadow:
-        0 24px 70px rgba(0, 0, 0, 0.28),
+        var(--surface-card-shadow),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
@@ -934,9 +936,13 @@ button.mentorSocialLink {
 .feature {
     text-align: center;
     padding: var(--spacing-xl) var(--spacing-lg);
-    background: var(--bg-secondary);
+    background:
+        var(--surface-texture),
+        var(--bg-secondary);
+    background-size: var(--surface-texture-size);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
+    box-shadow: var(--surface-card-shadow);
     position: relative;
     transition: all var(--transition-base);
 }
@@ -958,9 +964,7 @@ button.mentorSocialLink {
 .feature:hover {
     border-color: rgba(247, 147, 26, 0.3);
     transform: translateY(-4px);
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.4),
-        0 0 20px rgba(247, 147, 26, 0.1);
+    box-shadow: var(--surface-card-shadow);
 }
 
 .feature:hover::before {
@@ -1010,14 +1014,17 @@ button.mentorSocialLink {
     text-align: center;
     padding: var(--spacing-2xl);
     background:
+        var(--surface-texture),
         radial-gradient(
             ellipse at center,
             rgba(247, 147, 26, 0.06) 0%,
             transparent 70%
         ),
         var(--bg-secondary);
+    background-size: var(--surface-texture-size), 100% 100%, 100% 100%;
     border: 1px solid rgba(247, 147, 26, 0.15);
     border-radius: var(--radius-xl);
+    box-shadow: var(--surface-card-shadow);
     margin-bottom: var(--spacing-2xl);
     position: relative;
     overflow: hidden;
@@ -1097,7 +1104,10 @@ button.mentorSocialLink {
     align-items: center;
     gap: var(--spacing-sm);
     padding: var(--spacing-sm) var(--spacing-md);
-    background: var(--bg-secondary);
+    background:
+        var(--surface-texture),
+        var(--bg-secondary);
+    background-size: var(--surface-texture-size);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-lg);
     text-decoration: none;
@@ -1173,7 +1183,7 @@ button.footerLink {
         linear-gradient(145deg, #ffffff 0%, #fffefd 56%, #fffcfa 100%);
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.75),
-        0 20px 45px rgba(16, 19, 25, 0.12);
+        var(--surface-card-shadow);
 }
 
 :global(:root[data-theme='light']) .newsletterIntro,
@@ -1220,7 +1230,7 @@ button.footerLink {
         linear-gradient(145deg, rgba(247, 147, 26, 0.006), rgba(185, 93, 8, 0.003));
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.8),
-        0 12px 28px rgba(16, 19, 25, 0.13),
+        var(--surface-card-shadow),
         0 0 0 1px rgba(247, 147, 26, 0.12);
 }
 
@@ -1286,6 +1296,6 @@ button.footerLink {
         linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 254, 252, 0.62)),
         rgba(255, 255, 255, 0.72);
     box-shadow:
-        0 18px 45px rgba(16, 19, 25, 0.12),
+        var(--surface-card-shadow),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }

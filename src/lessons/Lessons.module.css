@@ -19,7 +19,7 @@
   border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 30%, var(--border-subtle));
   border-radius: 28px;
   box-shadow:
-    0 22px 60px color-mix(in srgb, black 26%, transparent),
+    var(--surface-card-shadow),
     inset 0 1px 0 color-mix(in srgb, white 9%, transparent);
   isolation: isolate;
 }
@@ -108,7 +108,7 @@
   border: 1px solid color-mix(in srgb, var(--border-medium) 84%, transparent);
   border-radius: 22px;
   padding: clamp(1rem, 2.5vw, 1.5rem);
-  box-shadow: 0 14px 34px color-mix(in srgb, black 16%, transparent);
+  box-shadow: var(--surface-card-shadow);
 }
 
 .columnHeader {
@@ -166,7 +166,9 @@
   border: 1px solid color-mix(in srgb, var(--border-medium) 84%, transparent);
   border-radius: 24px;
   padding: clamp(1rem, 3vw, 1.75rem);
-  box-shadow: inset 0 1px 0 color-mix(in srgb, white 6%, transparent);
+  box-shadow:
+    var(--surface-card-shadow),
+    inset 0 1px 0 color-mix(in srgb, white 6%, transparent);
 }
 
 .flowTitle {
@@ -362,7 +364,9 @@
   border-left: 4px solid var(--bitcoin-orange);
   border-radius: 20px;
   padding: clamp(1rem, 2.5vw, 1.5rem);
-  box-shadow: inset 0 1px 0 color-mix(in srgb, white 6%, transparent);
+  box-shadow:
+    var(--surface-card-shadow),
+    inset 0 1px 0 color-mix(in srgb, white 6%, transparent);
 }
 
 .keyPoints h3 {
@@ -399,7 +403,9 @@
   border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-subtle));
   border-radius: 24px;
   padding: clamp(1rem, 3vw, 1.75rem);
-  box-shadow: inset 0 1px 0 color-mix(in srgb, white 7%, transparent);
+  box-shadow:
+    var(--surface-card-shadow),
+    inset 0 1px 0 color-mix(in srgb, white 7%, transparent);
 }
 
 .factBox h4 {
@@ -430,6 +436,7 @@
   background: color-mix(in srgb, var(--bg-secondary) 66%, transparent);
   border: 1px solid color-mix(in srgb, var(--border-medium) 76%, transparent);
   border-radius: 18px;
+  box-shadow: var(--surface-card-shadow);
 }
 
 .factValue {
@@ -615,7 +622,7 @@
   border-radius: 24px;
   margin-bottom: var(--spacing-lg);
   align-items: center;
-  box-shadow: 0 14px 34px color-mix(in srgb, black 13%, transparent);
+  box-shadow: var(--surface-card-shadow);
 }
 
 .propertyRow:last-child {
@@ -665,6 +672,7 @@
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-default);
   background: color-mix(in srgb, var(--bg-secondary) 88%, transparent);
+  box-shadow: var(--surface-card-shadow);
 }
 
 .supplyLabel {
@@ -924,7 +932,7 @@
     radial-gradient(circle at 86% 12%, color-mix(in srgb, var(--bitcoin-orange) 7%, transparent), transparent 16rem),
     color-mix(in srgb, var(--bg-secondary) 92%, #fff7ea 8%);
   border-color: color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-medium));
-  box-shadow: 0 22px 50px rgba(146, 92, 24, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  box-shadow: var(--surface-card-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
 :global(:root[data-theme='light']) .heroIcon,
@@ -938,7 +946,7 @@
 :global(:root[data-theme='light']) .columnCard,
 :global(:root[data-theme='light']) .propertyRow {
   border-color: color-mix(in srgb, var(--border-medium) 90%, #8d96a6);
-  box-shadow: 0 14px 30px rgba(16, 19, 25, 0.08);
+  box-shadow: var(--surface-card-shadow);
 }
 
 :global(:root[data-theme='light']) .fact,

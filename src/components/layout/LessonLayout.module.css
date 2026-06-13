@@ -1,7 +1,8 @@
 .layout {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100dvh - var(--header-height));
   min-width: 0;
   background:
     var(--bg-texture),
@@ -10,7 +11,10 @@
 }
 
 .header {
-  background: color-mix(in srgb, var(--bg-secondary) 88%, transparent);
+  background:
+    var(--surface-texture),
+    color-mix(in srgb, var(--bg-secondary) 88%, transparent);
+  background-size: var(--surface-texture-size);
   backdrop-filter: blur(18px) saturate(1.15);
   border-bottom: 1px solid color-mix(in srgb, var(--border-subtle) 72%, transparent);
   box-shadow: 0 1px 0 color-mix(in srgb, white 4%, transparent);
@@ -188,7 +192,10 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1rem clamp(1rem, 3vw, 2rem) 1.25rem;
-  background: color-mix(in srgb, var(--bg-secondary) 88%, transparent);
+  background:
+    var(--surface-texture),
+    color-mix(in srgb, var(--bg-secondary) 88%, transparent);
+  background-size: var(--surface-texture-size);
   border-top: 1px solid color-mix(in srgb, var(--border-subtle) 76%, transparent);
 }
 
