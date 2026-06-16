@@ -441,6 +441,31 @@ function InheritanceSection() {
           </ul>
         </div>
       </div>
+
+      <div className={backupStyles.willPlanningCallout}>
+        <div className={backupStyles.willPlanningContent}>
+          <div className={backupStyles.willPlanningIcon}>
+            <HeartHandshake size={20} />
+          </div>
+          <div className={backupStyles.willPlanningText}>
+            <span className={backupStyles.willPlanningTitle}>
+              Need Bitcoin will planning?
+            </span>
+            <span className={backupStyles.willPlanningTagline}>
+              Work with Dale Warburton to create a practical inheritance plan.
+            </span>
+          </div>
+        </div>
+        <a
+          href="https://mybitcoinwill.com"
+          className={backupStyles.willPlanningButton}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Visit My Bitcoin Will</span>
+          <MoveRight size={16} />
+        </a>
+      </div>
     </motion.div>
   );
 }

@@ -247,6 +247,132 @@
   line-height: 1.58;
 }
 
+.willPlanningCallout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: 1rem 1.25rem;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--bitcoin-orange) 14%, transparent), transparent),
+    color-mix(in srgb, var(--bg-tertiary) 78%, transparent);
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 34%, var(--border-subtle));
+  border-left: 4px solid var(--bitcoin-orange);
+  border-radius: 20px;
+  box-shadow:
+    0 12px 30px color-mix(in srgb, var(--bitcoin-orange) 9%, transparent),
+    inset 0 1px 0 color-mix(in srgb, white 7%, transparent);
+  position: relative;
+}
+
+.willPlanningContent {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  min-width: 0;
+}
+
+.willPlanningIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  background: color-mix(in srgb, var(--bitcoin-orange) 15%, var(--bg-elevated));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 32%, var(--border-subtle));
+  border-radius: 14px;
+  color: var(--bitcoin-orange);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, white 8%, transparent);
+}
+
+.willPlanningText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.willPlanningTitle {
+  color: var(--text-primary);
+  font-size: var(--text-base);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.willPlanningTagline {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.4;
+}
+
+.willPlanningButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background: linear-gradient(135deg, var(--bitcoin-orange-light), var(--bitcoin-orange));
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange-light) 58%, transparent);
+  border-radius: var(--radius-full);
+  box-shadow:
+    0 8px 18px color-mix(in srgb, var(--bitcoin-orange) 22%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: var(--text-inverse);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.willPlanningButton:hover {
+  background: linear-gradient(135deg, var(--bitcoin-orange-light), var(--bitcoin-orange-dark));
+  box-shadow:
+    0 8px 18px color-mix(in srgb, var(--bitcoin-orange) 22%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  color: #0f0f0f;
+  transform: translateY(-1px);
+}
+
+.willPlanningButton:active {
+  box-shadow:
+    0 1px 4px rgba(251, 191, 36, 0.3),
+    0 2px 8px rgba(217, 119, 6, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(0);
+}
+
+:global(:root[data-theme='light']) .willPlanningCallout {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--bitcoin-orange) 16%, transparent), transparent),
+    rgba(255, 255, 255, 0.82);
+  box-shadow: 0 12px 28px rgba(146, 92, 24, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+:global(:root[data-theme='light']) .willPlanningIcon {
+  border-color: rgba(180, 83, 9, 0.35);
+  color: var(--bitcoin-orange-dark);
+  box-shadow: 0 0 10px rgba(217, 119, 6, 0.16);
+}
+
+:global(:root[data-theme='light']) .willPlanningTitle {
+  color: var(--bitcoin-orange-dark);
+}
+
+:global(:root[data-theme='light']) .willPlanningTagline {
+  color: rgba(220, 109, 0, 0.82);
+}
+
+:global(:root[data-theme='light']) .willPlanningButton {
+  border-color: rgba(180, 83, 9, 0.5);
+  color: #111827;
+}
+
+:global(:root[data-theme='light']) .willPlanningButton:hover {
+  color: #0b1220;
+}
+
 .multisigFeature {
   position: relative;
   overflow: hidden;
@@ -402,5 +528,40 @@
 
   .multisigPoints {
     grid-template-columns: 1fr;
+  }
+
+  .willPlanningCallout {
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--spacing-md);
+  }
+
+  .willPlanningContent {
+    gap: var(--spacing-sm);
+  }
+
+  .willPlanningIcon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .willPlanningIcon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .willPlanningTitle {
+    font-size: var(--text-sm);
+  }
+
+  .willPlanningTagline {
+    font-size: var(--text-xs);
+  }
+
+  .willPlanningButton {
+    justify-content: center;
+    min-height: 44px;
+    padding: var(--spacing-sm) var(--spacing-md);
   }
 }
