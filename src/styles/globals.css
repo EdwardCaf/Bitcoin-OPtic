@@ -8,50 +8,6 @@
     --bg-tertiary: #1a1a1a;
     --bg-elevated: #222222;
     --bg-hover: #2a2a2a;
-    --bg-texture:
-        radial-gradient(
-            circle at 18% 14%,
-            rgba(247, 147, 26, 0.04) 0 1px,
-            transparent 1.4px
-        ),
-        radial-gradient(
-            circle at 82% 72%,
-            rgba(255, 255, 255, 0.022) 0 1px,
-            transparent 1.5px
-        ),
-        repeating-linear-gradient(
-            108deg,
-            rgba(255, 255, 255, 0.022) 0 1px,
-            transparent 1px 13px
-        ),
-        repeating-linear-gradient(
-            0deg,
-            rgba(255, 255, 255, 0.015) 0 1px,
-            transparent 1px 5px
-        );
-    --bg-texture-size: 42px 42px, 56px 56px, 100% 100%, 100% 100%;
-    --surface-texture:
-        radial-gradient(
-            circle at 20% 18%,
-            rgba(247, 147, 26, 0.038) 0 1px,
-            transparent 1.6px
-        ),
-        radial-gradient(
-            circle at 78% 68%,
-            rgba(255, 255, 255, 0.022) 0 1px,
-            transparent 1.7px
-        ),
-        repeating-linear-gradient(
-            112deg,
-            rgba(255, 255, 255, 0.019) 0 1px,
-            transparent 1px 15px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            rgba(247, 147, 26, 0.012) 0 1px,
-            transparent 1px 28px
-        );
-    --surface-texture-size: 36px 36px, 52px 52px, 100% 100%, 100% 100%;
 
     /* Bitcoin brand colors */
     --bitcoin-orange: #f7931a;
@@ -190,55 +146,11 @@
     --bitcoin-orange-light: #ffbf47;
     --bitcoin-orange-dark: #e27a00;
 
-    --bg-primary: #f6f7fa;
+    --bg-primary: #fbfcfe;
     --bg-secondary: #ffffff;
-    --bg-tertiary: #f1f3f8;
+    --bg-tertiary: #f7f9fc;
     --bg-elevated: #ffffff;
-    --bg-hover: #e9edf5;
-    --bg-texture:
-        radial-gradient(
-            circle at 14% 18%,
-            rgba(146, 64, 14, 0.12) 0 1px,
-            transparent 1.5px
-        ),
-        radial-gradient(
-            circle at 78% 64%,
-            rgba(16, 19, 25, 0.078) 0 1px,
-            transparent 1.5px
-        ),
-        repeating-linear-gradient(
-            108deg,
-            rgba(146, 64, 14, 0.078) 0 1px,
-            transparent 1px 15px
-        ),
-        repeating-linear-gradient(
-            0deg,
-            rgba(16, 19, 25, 0.052) 0 1px,
-            transparent 1px 6px
-        );
-    --bg-texture-size: 46px 46px, 62px 62px, 100% 100%, 100% 100%;
-    --surface-texture:
-        radial-gradient(
-            circle at 18% 20%,
-            rgba(217, 119, 6, 0.108) 0 1px,
-            transparent 1.6px
-        ),
-        radial-gradient(
-            circle at 82% 70%,
-            rgba(16, 19, 25, 0.056) 0 1px,
-            transparent 1.7px
-        ),
-        repeating-linear-gradient(
-            112deg,
-            rgba(146, 64, 14, 0.06) 0 1px,
-            transparent 1px 16px
-        ),
-        repeating-linear-gradient(
-            90deg,
-            rgba(16, 19, 25, 0.032) 0 1px,
-            transparent 1px 30px
-        );
-    --surface-texture-size: 38px 38px, 56px 56px, 100% 100%, 100% 100%;
+    --bg-hover: #f0f4fa;
 
     --bitcoin-orange-glow: rgba(245, 158, 11, 0.24);
     --bitcoin-orange-subtle: rgba(245, 158, 11, 0.16);
@@ -319,8 +231,6 @@ html {
 body {
     font-family: var(--font-sans);
     background-color: var(--bg-primary);
-    background-image: var(--bg-texture);
-    background-size: var(--bg-texture-size);
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
