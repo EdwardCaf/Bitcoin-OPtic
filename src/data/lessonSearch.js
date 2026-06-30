@@ -62,10 +62,11 @@ export const lessonSections = [
         icon: Archive,
         path: '/lessons/backups',
         description: 'Protect recovery data with strong backup and inheritance practices.',
-        keywords: ['backup', 'backups', 'recovery', 'seed backup', 'passphrase', 'inheritance', 'multisig backup', 'storage'],
+        keywords: ['backup', 'backups', 'recovery', 'seed backup', 'passphrase', 'inheritance', 'multisig backup', 'storage', 'bip85', 'bip-85', 'coldcard', 'derived seeds'],
         sections: buildSections([
           { id: 'intro', title: 'Introduction', keywords: ['backup basics', 'recovery plan'] },
           { id: 'seed-backups', title: 'Seed Backups', keywords: ['seed backup', 'mnemonic backup', 'metal backup'] },
+          { id: 'derived-seeds', title: 'Derived Seeds', keywords: ['bip85', 'bip-85', 'coldcard', 'derived seeds', 'child seeds', 'deterministic entropy', 'hot wallet seeds'] },
           { id: 'passphrases', title: 'Passphrases', keywords: ['bip39 passphrase', '25th word', 'duress wallet'] },
           { id: 'multisig', title: 'Multisig', keywords: ['multisig backup', 'distributed backups', 'quorum recovery'] },
           { id: 'inheritance', title: 'Inheritance', keywords: ['inheritance', 'estate planning', 'family recovery'] },

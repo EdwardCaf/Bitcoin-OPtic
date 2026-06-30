@@ -6,6 +6,7 @@ import {
   CheckCircle,
   FileKey,
   HeartHandshake,
+  KeyRound,
   MapPin,
   MoveRight,
   ShieldCheck,
@@ -14,6 +15,7 @@ import { LessonLayout } from "../components/layout";
 import { Accordion, Card, ResourceLinkCard } from "../components/common";
 import {
   BackupLocationPlanner,
+  Bip85SeedVisualizer,
   InheritanceMultisigVisualizer,
   PassphraseWalletVisualizer,
   RecoveryScenarioExplorer,
@@ -25,6 +27,7 @@ import backupStyles from "./BackupsLesson.module.css";
 const sections = [
   { id: "intro", title: "Introduction" },
   { id: "seed-backups", title: "Seed Backups" },
+  { id: "derived-seeds", title: "Derived Seeds" },
   { id: "passphrases", title: "Passphrases" },
   { id: "multisig", title: "Multisig" },
   { id: "inheritance", title: "Inheritance" },
@@ -40,10 +43,12 @@ export function BackupsLesson() {
       case 1:
         return <SeedBackupsSection />;
       case 2:
-        return <PassphrasesSection />;
+        return <DerivedSeedsSection />;
       case 3:
-        return <MultisigSection />;
+        return <PassphrasesSection />;
       case 4:
+        return <MultisigSection />;
+      case 5:
         return <InheritanceSection />;
       default:
         return <IntroSection />;
@@ -281,6 +286,127 @@ function SeedBackupsSection() {
           Manually splitting seed words across locations often creates more ways
           to lose access. If you need distributed recovery, learn multisig or
           use a standard backup scheme rather than inventing your own.
+        </p>
+      </Accordion>
+    </motion.div>
+  );
+}
+
+function DerivedSeedsSection() {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className={styles.section}
+    >
+      <h2 className={styles.sectionTitle}>Derived Seeds</h2>
+      <p className={styles.sectionText}>
+        BIP-85 lets a you use one master seed to create many BIP-39 seed
+        phrases. Each derived seed becomes its own wallet, while your master
+        seed remains the single root backup. A compromised child seed does not
+        impact root seed and there is no indication the seed was a BIP-85 child
+        seed.
+      </p>
+      <p className={styles.sectionText}>
+        This is useful for wallets such as: mobile hot wallets, travel wallets,
+        testing wallets, or wallets for family members that trust you and might
+        not be ready for their own sophisticated backups. Instead of backing up
+        unrelated seed phrases for every wallet, record the Coldcard master seed
+        and the BIP-85 index number for each child seed.
+      </p>
+
+      <Bip85SeedVisualizer />
+
+      <div className={backupStyles.attentionListGrid}>
+        <div className={backupStyles.attentionListCard}>
+          <div className={backupStyles.attentionListHeader}>
+            <div className={backupStyles.attentionListIcon}>
+              <CheckCircle size={20} />
+            </div>
+            <h3>Good BIP-85 uses</h3>
+          </div>
+          <ul className={backupStyles.attentionList}>
+            <li>
+              <span className={backupStyles.attentionMarker}>01</span>
+              <div>
+                <strong>Hot wallet seeds</strong>
+                <span>
+                  Use derived seeds for mobile wallets that only hold spending
+                  amounts.
+                </span>
+              </div>
+            </li>
+            <li>
+              <span className={backupStyles.attentionMarker}>02</span>
+              <div>
+                <strong>Separated wallets</strong>
+                <span>
+                  Give travel, desktop, and testing wallets their own seeds
+                  without creating many root backups.
+                </span>
+              </div>
+            </li>
+            <li>
+              <span className={backupStyles.attentionMarker}>03</span>
+              <div>
+                <strong>Recoverable labels</strong>
+                <span>
+                  Record the purpose and index for each derived seed so future
+                  recovery is not a guessing game.
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div className={backupStyles.attentionListCard}>
+          <div className={backupStyles.attentionListHeader}>
+            <div className={backupStyles.attentionListIcon}>
+              <KeyRound size={20} />
+            </div>
+            <h3>Root seed discipline</h3>
+          </div>
+          <ul className={backupStyles.attentionList}>
+            <li>
+              <span className={backupStyles.attentionMarker}>01</span>
+              <div>
+                <strong>Master stays cold</strong>
+                <span>
+                  Keep the Coldcard master seed offline. It can recreate every
+                  derived wallet.
+                </span>
+              </div>
+            </li>
+            <li>
+              <span className={backupStyles.attentionMarker}>02</span>
+              <div>
+                <strong>Child seeds are still secrets</strong>
+                <span>
+                  A derived seed can spend that wallet. Treat it like any other
+                  wallet seed.
+                </span>
+              </div>
+            </li>
+            <li>
+              <span className={backupStyles.attentionMarker}>03</span>
+              <div>
+                <strong>Do not over-centralize risk</strong>
+                <span>
+                  For large balances, prefer cold storage discipline or multisig
+                  rather than many high-value wallets under one seed.
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <Accordion title="BIP-85 rule of thumb" defaultOpen>
+        <p>
+          Use Coldcard BIP-85 derived seeds for convenience wallets and small
+          operational balances. Keep your master seed backup durable, offline,
+          and recoverable, because it is the root that can recreate the full
+          wallet tree.
         </p>
       </Accordion>
     </motion.div>
