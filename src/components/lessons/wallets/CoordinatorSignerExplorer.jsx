@@ -1,4 +1,4 @@
-import { 
+import {
   Laptop,
   HardDrive,
   ArrowRight,
@@ -48,7 +48,7 @@ const signerFeatures = {
     'Broadcast transactions',
     'Track your transaction history'
   ],
-  examples: ['Coldcard', 'Trezor', 'Ledger', 'Jade']
+  examples: ['Trezor', 'Ledger', 'Jade']
 };
 
 const communicationMethods = [
@@ -106,8 +106,7 @@ export function CoordinatorSignerExplorer() {
           <h4 className={styles.insightTitle}>The Key Insight</h4>
           <p className={styles.insightText}>
             Your wallet software (like Sparrow) doesn't store your Bitcoin <em>or</em> your keys,
-            it just watches the blockchain and helps you build transactions. Your hardware wallet 
-            (like Coldcard) stores your keys and signs transactions, but never connects to the internet.
+            it just watches the blockchain and helps you build transactions. Your hardware wallet stores your keys and signs transactions, but never connects to the internet.
           </p>
         </div>
       </div>
@@ -298,7 +297,7 @@ export function CoordinatorSignerExplorer() {
         {/* PSBT Simple Note */}
         <div className={styles.psbtNote}>
           <strong>What's a PSBT?</strong> It stands for "Partially Signed Bitcoin Transaction",
-          think of it as an unsigned check. The coordinator fills in all the details, 
+          think of it as an unsigned check. The coordinator fills in all the details,
           but leaves the signature blank for the hardware signer to complete.
         </div>
       </Card>
@@ -307,7 +306,7 @@ export function CoordinatorSignerExplorer() {
       <Card variant="elevated" padding="large">
         <h3 className={styles.sectionTitle}>How They Communicate</h3>
         <p className={styles.sectionSubtitle}>
-          The coordinator and signer need to exchange transaction data. There are several ways to do this, 
+          The coordinator and signer need to exchange transaction data. There are several ways to do this,
           each with varying levels of security.
         </p>
 
@@ -315,15 +314,15 @@ export function CoordinatorSignerExplorer() {
         <div className={styles.airGappedHighlight}>
           <Shield size={20} />
           <div>
-            <strong>Air-gapped is ideal.</strong> Methods that don't require a direct connection 
+            <strong>Air-gapped is ideal.</strong> Methods that don't require a direct connection
             to your computer are the most secure, because malware can't reach your signing device.
           </div>
         </div>
 
         <div className={styles.methodsGrid}>
           {communicationMethods.map((method) => (
-            <div 
-              key={method.name} 
+            <div
+              key={method.name}
               className={`${styles.methodCard} ${method.airGapped ? styles.airGapped : styles.connected}`}
             >
               <div className={styles.methodHeader}>
@@ -391,12 +390,12 @@ export function CoordinatorSignerExplorer() {
         <div className={styles.whyMattersContent}>
           <h4 className={styles.whyMattersTitle}>Why This Separation Matters</h4>
           <p className={styles.whyMattersText}>
-            By keeping your keys on a dedicated device that never touches the internet, you're protected 
-            from malware, hacks, and phishing attacks. Even if your computer is completely compromised, 
+            By keeping your keys on a dedicated device that never touches the internet, you're protected
+            from malware, hacks, and phishing attacks. Even if your computer is completely compromised,
             attackers can't steal your Bitcoin because they don't have access to your signing device.
           </p>
           <p className={styles.whyMattersText}>
-            <strong>This is the power of hardware wallets:</strong> they separate what's convenient 
+            <strong>This is the power of hardware wallets:</strong> they separate what's convenient
             (viewing your balance, building transactions) from what must be secure (your private keys).
           </p>
         </div>
@@ -410,23 +409,23 @@ export function CoordinatorSignerExplorer() {
       >
         <p><strong>"My Sparrow wallet has my Bitcoin"</strong></p>
         <p>
-          Incorrect. Sparrow is a coordinator, meaning it shows your balance by watching the blockchain, 
-          but your Bitcoin is secured by your hardware wallet's private keys. If you lose your 
+          Incorrect. Sparrow is a coordinator, meaning it shows your balance by watching the blockchain,
+          but your Bitcoin is secured by your hardware wallet's private keys. If you lose your
           Sparrow data, you can restore everything with your hardware wallet.
         </p>
 
         <p><strong>"I need to keep my hardware wallet connected"</strong></p>
         <p>
-          Nope! Your hardware wallet only needs to be connected when you're signing a transaction. 
-          The rest of the time, your coordinator software can display your balance and receive payments 
+          Nope! Your hardware wallet only needs to be connected when you're signing a transaction.
+          The rest of the time, your coordinator software can display your balance and receive payments
           without the hardware wallet being present.
         </p>
 
         <p><strong>"USB is just as secure as QR codes"</strong></p>
         <p>
-          Not exactly. While USB hardware wallets are still very secure, a USB connection creates 
-          a direct electronic path between your computer and signing device. Air-gapped methods 
-          (QR, SD card, NFC) eliminate this path entirely, providing an extra layer of protection 
+          Not exactly. While USB hardware wallets are still very secure, a USB connection creates
+          a direct electronic path between your computer and signing device. Air-gapped methods
+          (QR, SD card, NFC) eliminate this path entirely, providing an extra layer of protection
           against sophisticated attackers.
         </p>
       </Accordion>

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  HardDrive, 
-  Monitor, 
+import {
+  HardDrive,
+  Monitor,
   Building,
   FileText,
   MapPin,
@@ -24,10 +24,10 @@ const keyHolderTypes = [
     title: 'Hardware Wallet',
     icon: HardDrive,
     color: 'var(--success)',
-    description: 'Dedicated signing devices like Coldcard, Trezor, or Jade',
+    description: 'Dedicated signing devices like Ledger, Trezor, or Jade',
     pros: ['Air-gapped security', 'Secure elements protect keys', 'Purpose-built for Bitcoin'],
     cons: ['Cost ($50-$250 each)', 'Learning curve', 'Device can fail/break'],
-    examples: ['Coldcard Q', 'Trezor Safe 7', 'BitBox02']
+    examples: ['Ledger Nano', 'Trezor Safe 7', 'BitBox02']
   },
   {
     id: 'software',
@@ -105,7 +105,7 @@ function GeographicDistribution() {
             <span>Hardware wallet for regular use</span>
           </div>
         </div>
-        
+
         <div className={styles.geoLocation}>
           <div className={styles.geoIcon}>
             <Building2 size={24} />
@@ -115,7 +115,7 @@ function GeographicDistribution() {
             <span>Hardware Wallet with PIN and secure element</span>
           </div>
         </div>
-        
+
         <div className={styles.geoLocation}>
           <div className={styles.geoIcon}>
             <Users size={24} />
@@ -127,7 +127,7 @@ function GeographicDistribution() {
         </div>
       </div>
       <p className={styles.geoNote}>
-        With keys in different locations, no single disaster (fire, flood, theft) can compromise 
+        With keys in different locations, no single disaster (fire, flood, theft) can compromise
         enough keys to either steal or lock you out of your funds.
       </p>
     </div>
@@ -136,7 +136,7 @@ function GeographicDistribution() {
 
 export function KeyManagement() {
   const [selectedHolder, setSelectedHolder] = useState('hardware');
-  
+
   const holder = keyHolderTypes.find(h => h.id === selectedHolder);
   const HolderIcon = holder.icon;
 
@@ -148,7 +148,7 @@ export function KeyManagement() {
         <p className={styles.sectionDescription}>
           In a multisig setup, each key can be held by different types of devices or services.
         </p>
-        
+
         <div className={styles.holderSelector}>
           {keyHolderTypes.map(h => {
             const Icon = h.icon;
@@ -165,7 +165,7 @@ export function KeyManagement() {
             );
           })}
         </div>
-        
+
         <motion.div
           key={selectedHolder}
           className={styles.holderDetails}
@@ -181,7 +181,7 @@ export function KeyManagement() {
               <p>{holder.description}</p>
             </div>
           </div>
-          
+
           <div className={styles.prosConsRow}>
             <div className={styles.prosList}>
               <h6><CheckCircle size={14} /> Pros</h6>
@@ -200,7 +200,7 @@ export function KeyManagement() {
               </ul>
             </div>
           </div>
-          
+
           <div className={styles.examplesBox}>
             <span className={styles.examplesLabel}>Examples:</span>
             <div className={styles.examplesTags}>
@@ -211,28 +211,28 @@ export function KeyManagement() {
           </div>
         </motion.div>
       </Card>
-      
+
       {/* Geographic Distribution */}
       <Card variant="elevated" padding="large">
         <h4 className={styles.sectionTitle}>Geographic Distribution</h4>
         <p className={styles.sectionDescription}>
-          Don't keep all keys in the same location. Distribute them geographically to protect 
+          Don't keep all keys in the same location. Distribute them geographically to protect
           against localized disasters.
         </p>
         <GeographicDistribution />
       </Card>
-      
+
       {/* Coordinator Software */}
       <Card variant="elevated" padding="large">
         <h4 className={styles.sectionTitle}>Coordinator Software</h4>
         <p className={styles.sectionDescription}>
-          Coordinator software builds transactions and collects signatures, but never holds your 
+          Coordinator software builds transactions and collects signatures, but never holds your
           private keys. You need one to manage a multisig wallet.
         </p>
-        
+
         <div className={styles.softwareGrid}>
           {coordinatorSoftware.map(software => (
-            <a 
+            <a
               key={software.id}
               href={software.url}
               target="_blank"
@@ -256,15 +256,15 @@ export function KeyManagement() {
           ))}
         </div>
       </Card>
-      
+
       {/* Collaborative Custody */}
       <Card variant="elevated" padding="large">
         <h4 className={styles.sectionTitle}>Collaborative Custody Providers</h4>
         <p className={styles.sectionDescription}>
-          These services hold one key in your multisig as a recovery backup. You retain the 
+          These services hold one key in your multisig as a recovery backup. You retain the
           majority of keys and full control, but have professional support if needed.
         </p>
-        
+
         <div className={styles.custodyGrid}>
           {collaborativeCustody.map(provider => (
             <a
@@ -291,21 +291,21 @@ export function KeyManagement() {
           ))}
         </div>
       </Card>
-      
+
       {/* Output Descriptor Warning */}
       <div className={styles.warningBox}>
         <AlertTriangle size={24} />
         <div>
           <strong>Critical: Back Up Your Output Descriptor</strong>
           <p>
-            Your multisig wallet is defined by an <strong>output descriptor</strong>, a string that 
-            contains all the public keys and the threshold. Without it, you cannot reconstruct the 
-            wallet even if you have all the seed phrases. Export and back up the descriptor 
+            Your multisig wallet is defined by an <strong>output descriptor</strong>, a string that
+            contains all the public keys and the threshold. Without it, you cannot reconstruct the
+            wallet even if you have all the seed phrases. Export and back up the descriptor
             separately from your seeds.
           </p>
         </div>
       </div>
-      
+
       {/* Deep Dive: Descriptors */}
       <Accordion
         title="Understanding Output Descriptors"
@@ -313,26 +313,26 @@ export function KeyManagement() {
         icon={<Info size={16} />}
       >
         <p>
-          An output descriptor is a standardized way to describe how a wallet generates addresses. 
+          An output descriptor is a standardized way to describe how a wallet generates addresses.
           For multisig, it contains:
         </p>
-        
+
         <ul className={styles.descriptorList}>
           <li><strong>Script type</strong> - What kind of multisig (P2SH, P2WSH, etc.)</li>
           <li><strong>Threshold</strong> - The M-of-N requirement</li>
           <li><strong>All public keys</strong> - Extended public keys (xpubs) for all cosigners</li>
           <li><strong>Derivation paths</strong> - How addresses are derived from each key</li>
         </ul>
-        
+
         <div className={styles.descriptorExample}>
           <code>
             wsh(sortedmulti(2,[fingerprint/48'/0'/0'/2']xpub.../0/*,[fingerprint/48'/0'/0'/2']xpub.../0/*,[fingerprint/48'/0'/0'/2']xpub.../0/*))
           </code>
           <span>Example 2-of-3 native SegWit multisig descriptor (abbreviated)</span>
         </div>
-        
+
         <p>
-          All cosigners should have a copy of the descriptor. Store it with your seed backups, 
+          All cosigners should have a copy of the descriptor. Store it with your seed backups,
           but in a separate location (knowing just the descriptor doesn't give access to funds).
         </p>
       </Accordion>

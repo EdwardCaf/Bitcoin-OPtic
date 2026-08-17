@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
+import {
   Smartphone,
   HardDrive,
   Wifi,
@@ -22,46 +22,46 @@ const walletExamples = {
     { name: 'Desktop Wallets', icon: Laptop, examples: ['Sparrow', 'Nunchuk', 'Bitcoin Core'], description: 'Software on your computer' }
   ],
   cold: [
-    { name: 'Hardware Wallets', icon: HardDrive, examples: ['Coldcard', 'Trezor', 'Jade'], description: 'Dedicated physical devices for secure storage' },
+    { name: 'Hardware Wallets', icon: HardDrive, examples: ['Trezor', 'Jade'], description: 'Dedicated physical devices for secure storage' },
     { name: 'Paper/Steel Wallets', icon: Lock, examples: ['Paper backups', 'Steel backups'], description: 'Keys stored on physical media only' },
     { name: 'Air-Gapped Devices', icon: WifiOff, examples: ['Offline computer', 'DIY solutions'], description: 'Completely isolated from internet' }
   ]
 };
 
 const comparisonData = [
-  { 
-    feature: 'Internet Connection', 
-    hot: { value: 'Always connected', icon: Wifi, variant: 'error' }, 
+  {
+    feature: 'Internet Connection',
+    hot: { value: 'Always connected', icon: Wifi, variant: 'error' },
     cold: { value: 'Offline/disconnected', icon: WifiOff, variant: 'success' }
   },
-  { 
-    feature: 'Security Level', 
-    hot: { value: 'Moderate', icon: AlertTriangle, variant: 'warning' }, 
+  {
+    feature: 'Security Level',
+    hot: { value: 'Moderate', icon: AlertTriangle, variant: 'warning' },
     cold: { value: 'Very high', icon: Shield, variant: 'success' }
   },
-  { 
-    feature: 'Transaction Speed', 
-    hot: { value: 'Instant', icon: Zap, variant: 'success' }, 
+  {
+    feature: 'Transaction Speed',
+    hot: { value: 'Instant', icon: Zap, variant: 'success' },
     cold: { value: 'Slower process', icon: AlertTriangle, variant: 'warning' }
   },
-  { 
-    feature: 'Vulnerable To', 
-    hot: { value: 'Malware, hacks, phishing', icon: AlertTriangle, variant: 'error' }, 
+  {
+    feature: 'Vulnerable To',
+    hot: { value: 'Malware, hacks, phishing', icon: AlertTriangle, variant: 'error' },
     cold: { value: 'Physical theft & User error', icon: Shield, variant: 'warning' }
   },
-  { 
-    feature: 'Best Use Case', 
-    hot: { value: 'Daily spending, small amounts', icon: Check, variant: 'neutral' }, 
+  {
+    feature: 'Best Use Case',
+    hot: { value: 'Daily spending, small amounts', icon: Check, variant: 'neutral' },
     cold: { value: 'Long-term savings, large amounts', icon: Check, variant: 'neutral' }
   },
-  { 
-    feature: 'Setup Difficulty', 
-    hot: { value: 'Easy', icon: Check, variant: 'success' }, 
+  {
+    feature: 'Setup Difficulty',
+    hot: { value: 'Easy', icon: Check, variant: 'success' },
     cold: { value: 'Moderate', icon: AlertTriangle, variant: 'warning' }
   },
-  { 
-    feature: 'Cost', 
-    hot: { value: 'Free', icon: Check, variant: 'success' }, 
+  {
+    feature: 'Cost',
+    hot: { value: 'Free', icon: Check, variant: 'success' },
     cold: { value: '$50-$300 for hardware', icon: AlertTriangle, variant: 'warning' }
   }
 ];
@@ -120,7 +120,7 @@ export function WalletTypesExplorer() {
         </div>
 
         {/* Wallet Examples */}
-        <motion.div 
+        <motion.div
           key={selectedType}
           className={styles.examplesSection}
           initial={{ opacity: 0, y: 10 }}
@@ -198,7 +198,7 @@ export function WalletTypesExplorer() {
           <p className={styles.riskQuestion}>
             How much Bitcoin are you storing? (Slide to see recommendation)
           </p>
-          
+
           <div className={styles.riskSlider}>
             <div className={styles.sliderLabels}>
               <span>Small amount<br/>(~$100)</span>
@@ -215,7 +215,7 @@ export function WalletTypesExplorer() {
             />
           </div>
 
-          <motion.div 
+          <motion.div
             key={risk.label}
             className={`${styles.riskResult} ${styles[risk.color]}`}
             initial={{ scale: 0.95, opacity: 0 }}
@@ -262,15 +262,15 @@ export function WalletTypesExplorer() {
           <li><strong>Remote Hacks:</strong> Attackers gaining access to your device over the internet</li>
           <li><strong>Clipboard Hijacking:</strong> Malware that changes Bitcoin addresses when you copy/paste</li>
         </ul>
-        
+
         <p><strong>Cold Wallet Threats:</strong></p>
         <ul>
           <li><strong>Supply Chain Attacks:</strong> Buying tampered devices (always buy from manufacturer)</li>
         </ul>
 
         <p>
-          <strong>Summary:</strong> Hot wallets are vulnerable 
-          to digital attacks. Cold wallets protect against most digital threats but still require careful physical 
+          <strong>Summary:</strong> Hot wallets are vulnerable
+          to digital attacks. Cold wallets protect against most digital threats but still require careful physical
           security. The best approach is layered security using both.
         </p>
       </Accordion>

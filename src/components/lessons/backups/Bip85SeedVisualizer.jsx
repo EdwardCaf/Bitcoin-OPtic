@@ -37,9 +37,9 @@ export function Bip85SeedVisualizer() {
     <Card variant="elevated" padding="large" className={styles.container}>
       <div className={styles.header}>
         <div>
-          <h3>Derived Seed Tree - Coldcard Example</h3>
+          <h3>Derived Seed Tree - Example</h3>
           <p>
-            Coldcard uses BIP-85 to derive separate wallet seeds from one
+            Use BIP-85 to derive separate wallet seeds from one
             offline master seed.
           </p>
         </div>
@@ -48,13 +48,13 @@ export function Bip85SeedVisualizer() {
 
       <div
         className={styles.tree}
-        aria-label="Coldcard BIP-85 derived seed tree"
+        aria-label="BIP-85 derived seed tree"
       >
         <div className={`${styles.treeNode} ${styles.rootNode}`}>
           <div className={styles.nodeIcon}>
             <FileKey size={24} />
           </div>
-          <span>Coldcard Master Seed</span>
+          <span>Master Seed</span>
         </div>
 
         <div className={`${styles.treeNode} ${styles.derivationNode}`}>

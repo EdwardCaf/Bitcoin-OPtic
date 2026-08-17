@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Key, 
+import {
+  Key,
   Grid3X3,
   ArrowRight,
   RefreshCw,
@@ -44,7 +44,7 @@ function derivePath(seedPhrase, path) {
   // Simulated derivation - creates deterministic-looking fake addresses
   const seed = seedPhrase.join('');
   const chars = '123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz';
-  
+
   let address = 'bc1q';
   for (let i = 0; i < 38; i++) {
     const seedIndex = (seed.charCodeAt(i % seed.length) + path.charCodeAt(i % path.length) + i) % chars.length;
@@ -65,19 +65,19 @@ export function SeedPhraseDemo() {
   const [wordCount, setWordCount] = useState(12);
   const [showAllAddresses, setShowAllAddresses] = useState(false);
   const [copied, setCopied] = useState(false);
-  
+
   const addresses = useMemo(() => {
     return derivationPaths.map(item => ({
       ...item,
       address: derivePath(seedPhrase, item.path)
     }));
   }, [seedPhrase]);
-  
+
   const regenerate = () => {
     setSeedPhrase(generateSeedPhrase(wordCount));
     setCopied(false);
   };
-  
+
   const copyPhrase = async () => {
     await navigator.clipboard.writeText(seedPhrase.join(' '));
     setCopied(true);
@@ -99,10 +99,10 @@ export function SeedPhraseDemo() {
               </p>
             </div>
           </div>
-          
+
           <div className={styles.controls}>
-            <select 
-              value={wordCount} 
+            <select
+              value={wordCount}
               onChange={(e) => {
                 setWordCount(Number(e.target.value));
                 setSeedPhrase(generateSeedPhrase(Number(e.target.value)));
@@ -130,7 +130,7 @@ export function SeedPhraseDemo() {
             <span>Recovery Seed Phrase</span>
             <Badge variant="warning" size="small">Demo Only</Badge>
           </div>
-          
+
           <div className={styles.seedGrid}>
             {seedPhrase.map((word, index) => (
               <motion.div
@@ -145,9 +145,9 @@ export function SeedPhraseDemo() {
               </motion.div>
             ))}
           </div>
-          
+
           <div className={styles.seedActions}>
-            <button 
+            <button
               className={styles.copyButton}
               onClick={copyPhrase}
             >
@@ -185,7 +185,7 @@ export function SeedPhraseDemo() {
         <div className={styles.addressesSection}>
           <div className={styles.addressesHeader}>
             <h4>Derived Addresses</h4>
-            <button 
+            <button
               className={styles.toggleButton}
               onClick={() => setShowAllAddresses(!showAllAddresses)}
             >
@@ -193,7 +193,7 @@ export function SeedPhraseDemo() {
               {showAllAddresses ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>
           </div>
-          
+
           <div className={styles.addressesList}>
             {addresses.slice(0, showAllAddresses ? addresses.length : 2).map((item, index) => (
               <motion.div
@@ -211,9 +211,9 @@ export function SeedPhraseDemo() {
               </motion.div>
             ))}
           </div>
-          
+
           <p className={styles.addressNote}>
-            All these addresses are controlled by the same seed phrase. 
+            All these addresses are controlled by the same seed phrase.
             Losing the seed means losing access to all addresses!
           </p>
         </div>
@@ -221,7 +221,7 @@ export function SeedPhraseDemo() {
         <div className={styles.derivationSection}>
           <h4 className={styles.derivationTitle}>BIP39 & Derivation Paths</h4>
           <p className={styles.derivationIntro}>
-            <strong>BIP39</strong> defines how seed phrases are created and validated, and 
+            <strong>BIP39</strong> defines how seed phrases are created and validated, and
             derivation paths tell the wallet exactly which address to generate.
           </p>
 
@@ -251,8 +251,8 @@ export function SeedPhraseDemo() {
           </div>
 
           <p className={styles.derivationNote}>
-            One seed phrase can deterministically create many addresses. If you restore the same 
-            seed with the wrong derivation path, your wallet may appear empty even though your funds 
+            One seed phrase can deterministically create many addresses. If you restore the same
+            seed with the wrong derivation path, your wallet may appear empty even though your funds
             are still there on-chain.
           </p>
         </div>
@@ -273,7 +273,7 @@ export function SeedPhraseDemo() {
           <Shield size={24} className={styles.securityIcon} />
           <h3 className={styles.securityTitle}>Critical Security Information</h3>
         </div>
-        
+
         <div className={styles.criticalWarning}>
           <AlertTriangle size={20} />
           <div>
@@ -288,7 +288,7 @@ export function SeedPhraseDemo() {
             <ul className={styles.securityList}>
               <li>Write seed phrase on paper or engrave on metal backup</li>
               <li>Store in multiple secure physical locations (fireproof safe, bank vault)</li>
-              <li>Use a hardware wallet (Coldcard, Jade) for cold storage</li>
+              <li>Use a hardware wallet (Trezor, Jade) for cold storage</li>
               <li>Test recovery process before funding wallet with real Bitcoin</li>
               <li>Keep it offline and completely private, never share with anyone</li>
             </ul>
@@ -310,14 +310,14 @@ export function SeedPhraseDemo() {
         <div className={styles.threatWarning}>
           <strong>Common Threats:</strong>
           <p>
-            Phishing websites, fake wallet apps, malware/keyloggers, physical theft, 
-            social engineering scams, clipboard hijacking, and shoulder surfing. 
+            Phishing websites, fake wallet apps, malware/keyloggers, physical theft,
+            social engineering scams, clipboard hijacking, and shoulder surfing.
             Always verify wallet software authenticity and generate seeds offline when possible.
           </p>
         </div>
 
         <div className={styles.bestPractice}>
-          <strong>Best Practice:</strong> For significant amounts, use a hardware wallet that generates 
+          <strong>Best Practice:</strong> For significant amounts, use a hardware wallet that generates
           the seed phrase offline and never exposes your private keys to your computer or the internet.
         </div>
       </Card>

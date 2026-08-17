@@ -220,8 +220,7 @@ function SeedBackupsSection() {
               <div>
                 <strong>Safety Deposit Boxes</strong>
                 <span>
-                  Never store plaintext seed words there. Use a hardware wallet
-                  or Coldcard encrypted SD backup.
+                  Never store plaintext seed words there, use a hardware wallet.
                 </span>
               </div>
             </li>
@@ -311,7 +310,7 @@ function DerivedSeedsSection() {
         This is useful for wallets such as: mobile hot wallets, travel wallets,
         testing wallets, or wallets for family members that trust you and might
         not be ready for their own sophisticated backups. Instead of backing up
-        unrelated seed phrases for every wallet, record the Coldcard master seed
+        unrelated seed phrases for every wallet, record the seed phrase
         and the BIP-85 index number for each child seed.
       </p>
 
@@ -372,7 +371,7 @@ function DerivedSeedsSection() {
               <div>
                 <strong>Master stays cold</strong>
                 <span>
-                  Keep the Coldcard master seed offline. It can recreate every
+                  Keep the seed phrase offline. It can recreate every
                   derived wallet.
                 </span>
               </div>
@@ -403,7 +402,7 @@ function DerivedSeedsSection() {
 
       <Accordion title="BIP-85 rule of thumb" defaultOpen>
         <p>
-          Use Coldcard BIP-85 derived seeds for convenience wallets and small
+          Use BIP-85 derived seeds for convenience wallets and small
           operational balances. Keep your master seed backup durable, offline,
           and recoverable, because it is the root that can recreate the full
           wallet tree.

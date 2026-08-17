@@ -279,7 +279,6 @@ export function HomePage() {
                 <ul className={styles.newsletterTrustList}>
                   <li>Seed Security Best Practices</li>
                   <li>First Steps to Self Custody</li>
-                  <li>Sparrow Wallet with Coldcard Q</li>
                 </ul>
               </div>
               <div className={styles.newsletterMeta}>

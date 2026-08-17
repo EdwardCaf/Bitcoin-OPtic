@@ -55,7 +55,7 @@ const scenarios = [
     description:
       "Geographic separation protects you when one location is destroyed or inaccessible.",
     action:
-      "Keep recovery redundancy outside your home, but do not put plaintext seed words in a safe deposit box. Use a hardware wallet, Coldcard encrypted SD backup, metal seed backup in a truly private location, or another protected component.",
+      "Keep recovery redundancy outside your home, but do not put plaintext seed words in a safe deposit box. Use a hardware wallet, metal seed backup in a truly private location, or another protected component.",
   },
 ];
 

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  CheckCircle, 
-  XCircle, 
+import {
+  CheckCircle,
+  XCircle,
   AlertTriangle,
   Shield,
   DollarSign,
@@ -27,7 +27,7 @@ const dosAndDonts = {
     {
       icon: HardDrive,
       title: 'Use different hardware vendors',
-      description: 'Mix brands (e.g., Coldcard + Trezor) to avoid single-vendor firmware vulnerabilities.'
+      description: 'Mix brands (e.g., Ledger + Trezor) to avoid single-vendor firmware vulnerabilities.'
     },
     {
       icon: FileCheck,
@@ -113,7 +113,7 @@ const securityTiers = [
 const commonMistakes = [
   {
     title: 'Single Vendor Dependency',
-    description: 'Using three hardware wallets means one firmware bug could affect all your keys. Mix vendors: Coldcard + Trezor + Jade, or similar.',
+    description: 'Using three hardware wallets means one firmware bug could affect all your keys. Mix vendors: Foundation + Trezor + Jade, or similar.',
     severity: 'high'
   },
   {
@@ -172,7 +172,7 @@ export function BestPractices() {
       {/* Do's and Don'ts */}
       <Card variant="elevated" padding="large">
         <h4 className={styles.sectionTitle}>Best Practices Checklist</h4>
-        
+
         <div className={styles.dosAndDonts}>
           <div className={styles.dosSection}>
             <div className={styles.sectionHeader}>
@@ -183,8 +183,8 @@ export function BestPractices() {
               {dosAndDonts.dos.map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <motion.div 
-                    key={index} 
+                  <motion.div
+                    key={index}
                     className={styles.practiceItem}
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -202,7 +202,7 @@ export function BestPractices() {
               })}
             </div>
           </div>
-          
+
           <div className={styles.dontsSection}>
             <div className={styles.sectionHeader}>
               <XCircle size={20} />
@@ -212,8 +212,8 @@ export function BestPractices() {
               {dosAndDonts.donts.map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <motion.div 
-                    key={index} 
+                  <motion.div
+                    key={index}
                     className={styles.practiceItem}
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -233,14 +233,14 @@ export function BestPractices() {
           </div>
         </div>
       </Card>
-      
+
       {/* Security Tiers */}
       <Card variant="elevated" padding="large">
         <h4 className={styles.sectionTitle}>Recommended Setups by Value</h4>
         <p className={styles.sectionDescription}>
           Security should be proportional to what you're protecting. Here's a general guide:
         </p>
-        
+
         <div className={styles.tiersGrid}>
           {securityTiers.map((tier, index) => (
             <motion.div
@@ -263,7 +263,7 @@ export function BestPractices() {
           ))}
         </div>
       </Card>
-      
+
       {/* Common Mistakes */}
       <Accordion
         title="Common Mistakes to Avoid"
@@ -285,14 +285,14 @@ export function BestPractices() {
           ))}
         </div>
       </Accordion>
-      
+
       {/* When NOT to use multisig */}
       <Card variant="elevated" padding="large">
         <h4 className={styles.sectionTitle}>When NOT to Use Multisig</h4>
         <p className={styles.sectionDescription}>
           Multisig isn't always the answer. Sometimes simpler solutions are better:
         </p>
-        
+
         <div className={styles.whenNotGrid}>
           {whenNotToUse.map((item, index) => {
             const Icon = item.icon;
@@ -310,15 +310,15 @@ export function BestPractices() {
           })}
         </div>
       </Card>
-      
+
       {/* Final Recommendation */}
       <div className={styles.finalRecommendation}>
         <Shield size={24} />
         <div>
           <strong>Start Simple, Upgrade Later</strong>
           <p>
-            Begin with a single-sig hardware wallet or a 2-of-3 setup using two hardware wallets from different vendors plus 
-            a paper/metal backup. Test thoroughly with small amounts. Document everything. 
+            Begin with a single-sig hardware wallet or a 2-of-3 setup using two hardware wallets from different vendors plus
+            a paper/metal backup. Test thoroughly with small amounts. Document everything.
             You can always migrate to a more complex setup as your experience and holdings grow.
           </p>
         </div>

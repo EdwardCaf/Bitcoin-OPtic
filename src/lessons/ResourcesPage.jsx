@@ -198,15 +198,6 @@ const RESOURCES = {
     description: "Physical devices for secure Bitcoin key storage",
     resources: [
       {
-        name: "Coldcard",
-        url: "https://coldcard.com",
-        description:
-          "Air-gapped Bitcoin hardware wallet with advanced security features.",
-        tags: ["Air-gapped"],
-        favorite: true,
-        icon: Shield,
-      },
-      {
         name: "BitBox02",
         url: "https://bitbox.swiss",
         description: "Swiss-made hardware wallet with Bitcoin-only edition.",
@@ -264,14 +255,7 @@ const RESOURCES = {
         description: "Secure stainless steel seed capsule system with washers.",
         tags: ["Steel", "Capsule"],
         icon: Hammer,
-      },
-      {
-        name: "Seedplate",
-        url: "https://seedplate.com",
-        description: "Simple and robust steel backup plate by Coinkite.",
-        tags: ["Steel", "Budget"],
-        icon: Hammer,
-      },
+      }
     ],
   },
   nodes: {

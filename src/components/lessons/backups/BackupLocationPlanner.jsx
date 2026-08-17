@@ -42,7 +42,7 @@ const plans = [
     ratings: { disaster: "Strong", theft: "Strong", inheritance: "Weak" },
     locations: {
       home: ["Seed backup"],
-      bank: ["Hardware wallet", "Coldcard encrypted SD"],
+      bank: ["Hardware wallet"],
       family: [],
       executor: [],
     },
@@ -56,7 +56,7 @@ const plans = [
     ratings: { disaster: "Strong", theft: "Strong", inheritance: "Strong" },
     locations: {
       home: ["Seed backup"],
-      bank: ["Hardware wallet", "Coldcard encrypted SD"],
+      bank: ["Hardware wallet"],
       family: ["Awareness note"],
       executor: ["Sealed instructions"],
     },
@@ -68,7 +68,6 @@ const plans = [
 const itemIcons = {
   "Hardware wallet": Archive,
   "Seed backup": FileKey,
-  "Coldcard encrypted SD": LockKeyhole,
   "Awareness note": CheckCircle,
   "Sealed instructions": ShieldCheck,
 };
