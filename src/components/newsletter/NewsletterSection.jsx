@@ -159,13 +159,6 @@ export function NewsletterSection({ standalone = false }) {
               Get first access to exclusive promotions, resources, and new
               content I create.
             </p>
-            <div className={styles.newsletterTrust}>
-              <p>3 Free PDFs included:</p>
-              <ul className={styles.newsletterTrustList}>
-                <li>Seed Security Best Practices</li>
-                <li>First Steps to Self Custody</li>
-              </ul>
-            </div>
             <div className={styles.newsletterMeta}>
               <span>1-2 emails/month</span>
               <span>100% Free</span>
