@@ -313,13 +313,13 @@
 }
 
 .flowStep.active .flowStepIndicator {
-  background: var(--bitcoin-orange);
-  color: white;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
 }
 
 .flowStep.complete .flowStepIndicator {
   background: var(--success);
-  color: white;
+  color: var(--text-inverse);
 }
 
 .flowStepTitle {
@@ -437,8 +437,8 @@
 }
 
 .startButton {
-  background: var(--bitcoin-orange);
-  color: white;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
 }
 
 .startButton:hover {
@@ -549,9 +549,9 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  background: var(--bitcoin-orange);
+  background: var(--accent-fill);
   border-radius: var(--radius-full);
-  color: white;
+  color: var(--accent-ink);
   font-size: var(--text-sm);
   font-weight: 600;
   flex-shrink: 0;

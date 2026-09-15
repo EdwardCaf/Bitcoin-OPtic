@@ -7,22 +7,23 @@
   position: absolute;
   z-index: 9999;
   padding: var(--spacing-sm) var(--spacing-md);
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-medium);
-  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--cyan);
+  border-radius: 0;
   color: var(--text-primary);
   font-size: var(--text-sm);
   white-space: nowrap;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   pointer-events: none;
+  line-height: 1.5;
 }
 
 .arrow {
   position: absolute;
   width: 8px;
   height: 8px;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-medium);
+  background: var(--bg-secondary);
+  border: 1px solid var(--cyan);
   transform: rotate(45deg);
 }
 

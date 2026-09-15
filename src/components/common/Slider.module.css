@@ -29,7 +29,7 @@
 
 .sliderWrapper {
   position: relative;
-  height: 24px;
+  height: 44px;
   display: flex;
   align-items: center;
 }
@@ -37,38 +37,39 @@
 .track {
   position: absolute;
   width: 100%;
-  height: 6px;
+  height: 8px;
   background: var(--bg-elevated);
-  border-radius: var(--radius-full);
+  border-radius: 0;
   overflow: visible;
+  border: 1px solid var(--border-medium);
 }
 
 .fill {
   position: absolute;
   height: 100%;
-  background: linear-gradient(90deg, var(--bitcoin-orange-dark), var(--bitcoin-orange));
-  border-radius: var(--radius-full);
+  background: var(--bitcoin-orange);
+  border-radius: 0;
   transition: width 0.1s ease;
 }
 
 .thumb {
   position: absolute;
-  width: 18px;
-  height: 18px;
-  background: var(--bitcoin-orange);
-  border: 3px solid var(--bg-primary);
-  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  background: var(--accent-fill);
+  border: 2px solid var(--accent-ink);
+  border-radius: 0;
   transform: translateX(-50%);
-  box-shadow: 0 2px 8px rgba(247, 147, 26, 0.4);
+  box-shadow: 2px 2px 0 var(--bitcoin-orange);
   transition: transform 0.1s ease, box-shadow 0.1s ease;
   pointer-events: none;
   top: 50%;
-  margin-top: -9px;
+  margin-top: -11px;
 }
 
 .thumb.active {
   transform: translateX(-50%) scale(1.2);
-  box-shadow: 0 2px 8px rgba(247, 147, 26, 0.4);
+  box-shadow: 2px 2px 0 var(--bitcoin-orange);
 }
 
 .input {
@@ -80,8 +81,9 @@
   margin: 0;
 }
 
-.input:focus + .track .thumb {
-  box-shadow: 0 0 0 4px rgba(247, 147, 26, 0.2);
+.sliderWrapper:has(.input:focus-visible) .thumb {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
 }
 
 .marks {
@@ -100,7 +102,7 @@
 /* Mobile styles - larger touch targets */
 @media (max-width: 480px) {
   .sliderWrapper {
-    height: 32px;
+    height: 44px;
   }
   
   .track {

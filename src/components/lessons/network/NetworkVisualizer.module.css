@@ -80,12 +80,12 @@
 }
 
 .nodeCircle {
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  filter: none;
   transition: filter 0.2s ease;
 }
 
 .nodeCircle:hover {
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+  filter: none;
 }
 
 /* Stats */
@@ -141,6 +141,6 @@
   width: 16px;
   height: 16px;
   border: 2px solid;
-  border-radius: 50%;
+  border-radius: 0;
   background: var(--bg-tertiary);
 }

@@ -16,7 +16,7 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  border-radius: 16px;
+  border-radius: 0;
   color: var(--bitcoin-orange);
   background: color-mix(in srgb, var(--bitcoin-orange) 14%, var(--bg-tertiary));
   border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 35%, var(--border-subtle));
@@ -52,9 +52,9 @@
   min-height: 112px;
   padding: var(--spacing-lg);
   border: 1px solid var(--border-subtle);
-  border-radius: 18px;
+  border-radius: 0;
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-elevated) 72%, transparent), color-mix(in srgb, var(--bg-tertiary) 96%, transparent));
+    var(--bg-elevated);
   color: var(--text-secondary);
   font: inherit;
   font-weight: 700;
@@ -76,9 +76,9 @@
 
 .details {
   border: 1px solid color-mix(in srgb, var(--border-subtle) 80%, transparent);
-  border-radius: 20px;
+  border-radius: 0;
   padding: var(--spacing-lg);
-  background: linear-gradient(145deg, var(--bg-tertiary), var(--bg-secondary));
+  background: var(--bg-tertiary);
 }
 
 .detailsHeader {
@@ -111,7 +111,7 @@
   gap: var(--spacing-xs);
   padding: var(--spacing-md);
   min-height: 118px;
-  border-radius: 14px;
+  border-radius: 0;
   background: color-mix(in srgb, var(--bg-elevated) 76%, transparent);
   border: 1px solid color-mix(in srgb, var(--border-subtle) 72%, transparent);
   color: var(--text-muted);
@@ -136,7 +136,7 @@
   gap: var(--spacing-xs);
   margin-top: var(--spacing-md);
   padding: var(--spacing-md);
-  border-radius: 14px;
+  border-radius: 0;
   background: color-mix(in srgb, var(--bitcoin-orange) 8%, var(--bg-elevated));
   border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 24%, var(--border-subtle));
 }

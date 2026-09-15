@@ -3,7 +3,6 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 40;
-  backdrop-filter: blur(4px);
 }
 
 @media (min-width: 1024px) {
@@ -19,7 +18,7 @@
   bottom: 0;
   width: var(--sidebar-width);
   background: var(--bg-secondary);
-  border-right: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-medium);
   z-index: 50;
   transform: translateX(-100%);
   transition: transform var(--transition-base);
@@ -40,7 +39,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding: var(--spacing-md);
+  padding: var(--spacing-md) 12px;
   overflow: hidden;
 }
 
@@ -72,7 +71,7 @@
   overflow: hidden;
   margin-left: 5px;
   padding: 5px 0 9px 6px;
-  border-left: 1px solid color-mix(in srgb, var(--border-subtle) 78%, transparent);
+  border-left: 1px dashed var(--border-medium);
 }
 
 .groupHeader {
@@ -82,7 +81,7 @@
   gap: 6px;
   padding: 8px 10px;
   border: 1px solid transparent;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   background: transparent;
   color: var(--text-secondary);
   cursor: pointer;
@@ -90,43 +89,46 @@
   position: relative;
   text-align: left;
   transition: all var(--transition-fast);
+  min-height: 44px;
+  font-family: var(--font-mono);
 }
 
 .groupHeader::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 25%;
-  bottom: 25%;
-  width: 2px;
-  border-radius: var(--radius-full);
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 0;
   background: var(--bitcoin-orange);
   opacity: 0;
   transition: opacity var(--transition-fast);
 }
 
 .groupHeader:hover {
-  border-color: color-mix(in srgb, var(--border-subtle) 72%, transparent);
-  background: color-mix(in srgb, var(--bg-tertiary) 42%, transparent);
+  border-color: var(--border-medium);
+  background: var(--bg-hover);
   color: var(--text-primary);
 }
 
 .groupHeader:hover::before,
 .activeGroupHeader::before {
-  opacity: 0.3;
+  opacity: 1;
 }
 
 .activeGroupHeader {
-  border-color: color-mix(in srgb, var(--bitcoin-orange) 12%, var(--border-subtle));
-  background: color-mix(in srgb, var(--bitcoin-orange-subtle) 48%, transparent);
+  border-color: var(--bitcoin-orange);
+  background: var(--bitcoin-orange-subtle);
 }
 
 .groupTitle {
   flex: 1;
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.005em;
+  line-height: 1.45;
 }
 
 .activeGroupHeader .groupTitle,
@@ -153,28 +155,32 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 9px;
-  border-radius: var(--radius-md);
+  padding: 8px 7px;
+  border-radius: 0;
   color: var(--text-secondary);
   text-decoration: none;
   transition: all var(--transition-fast);
   position: relative;
+  min-height: 44px;
+  border: 1px solid transparent;
 }
 
 .navItem:hover {
-  background: color-mix(in srgb, var(--bg-tertiary) 72%, transparent);
+  background: var(--bg-hover);
   color: var(--text-primary);
+  border-color: var(--border-medium);
 }
 
 .navItem.active {
-  background: color-mix(in srgb, var(--bitcoin-orange-subtle) 62%, transparent);
+  background: var(--bitcoin-orange-subtle);
   color: var(--text-primary);
+  border-color: var(--bitcoin-orange);
 }
 
 .navItem.active .navIcon {
-  color: color-mix(in srgb, var(--bitcoin-orange) 60%, var(--text-primary));
-  background: color-mix(in srgb, var(--bitcoin-orange-subtle) 70%, var(--bg-tertiary));
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 22%, var(--border-subtle));
+  color: var(--accent-ink);
+  background: var(--accent-fill);
+  border: 1px solid var(--accent-ink);
 }
 
 .navItem.active .navIcon svg {
@@ -187,10 +193,10 @@
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 2px;
-  height: 62%;
-  background: color-mix(in srgb, var(--bitcoin-orange) 72%, var(--text-muted));
-  border-radius: var(--radius-full);
+  width: 3px;
+  height: 100%;
+  background: var(--bitcoin-orange);
+  border-radius: 0;
 }
 
 .navIcon {
@@ -200,19 +206,20 @@
   width: 26px;
   height: 26px;
   background: var(--bg-tertiary);
-  border-radius: var(--radius-sm);
-  border: 1px solid transparent;
+  border-radius: 0;
+  border: 1px solid var(--border-medium);
   flex-shrink: 0;
   transition: all var(--transition-fast);
 }
 
 .navTitle {
   font-weight: 500;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   flex: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  font-family: var(--font-mono);
+  line-height: 1.45;
+  overflow-wrap: break-word;
 }
 
 .navArrow {
@@ -254,35 +261,35 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-sm) var(--spacing-sm);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   color: var(--text-secondary);
   text-decoration: none;
   transition: all var(--transition-fast);
   position: relative;
   margin-bottom: var(--spacing-md);
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(34, 197, 94, 0.04));
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  background: var(--success-bg);
+  border: 1px solid var(--terminal-green);
 }
 
 .studyGuidesLink:hover {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.18), rgba(34, 197, 94, 0.08));
-  border-color: rgba(34, 197, 94, 0.5);
+  background: var(--success-bg);
+  border-color: var(--terminal-green);
   color: var(--text-primary);
 }
 
 .studyGuidesLink.active {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.22), rgba(34, 197, 94, 0.12));
+  background: var(--success-bg);
   border-color: var(--success);
   color: var(--text-primary);
 }
 
 .studyGuidesLink.active .navIcon {
-  color: #0a2f17;
-  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: var(--success);
+  background: var(--success-bg);
 }
 
 .studyGuidesLink.active .navIcon svg {
-  color: #0a2f17;
+  color: currentColor;
 }
 
 .studyGuidesLink.active::before {
@@ -294,7 +301,7 @@
   width: 3px;
   height: 70%;
   background: var(--success);
-  border-radius: var(--radius-full);
+  border-radius: 0;
 }
 
 .studyGuidesLink:hover .navArrow {
@@ -314,41 +321,36 @@
   align-items: center;
   gap: 10px;
   padding: 8px 9px;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   color: var(--text-secondary);
   text-decoration: none;
   transition: all var(--transition-fast);
   position: relative;
   margin-bottom: var(--spacing-sm);
-  background: color-mix(in srgb, var(--cyan) 8%, transparent);
-  border: 1px solid color-mix(in srgb, var(--cyan) 14%, transparent);
-  box-shadow:
-    0 2px 8px color-mix(in srgb, var(--cyan) 7%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  background: var(--cyan-bg);
+  border: 1px solid var(--cyan);
+  box-shadow: none;
+  min-height: 44px;
 }
 
 .resourcesLink:hover {
-  background: color-mix(in srgb, var(--cyan) 12%, var(--bg-tertiary));
-  border-color: color-mix(in srgb, var(--cyan) 24%, var(--border-subtle));
+  background: var(--bg-hover);
+  border-color: var(--cyan);
   color: var(--text-primary);
-  box-shadow:
-    0 3px 10px color-mix(in srgb, var(--cyan) 10%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: 2px 2px 0 var(--cyan);
 }
 
 .resourcesLink.active {
-  background: color-mix(in srgb, var(--cyan) 14%, transparent);
-  border-color: color-mix(in srgb, var(--cyan) 28%, var(--border-subtle));
+  background: var(--cyan-bg);
+  border-color: var(--cyan);
   color: var(--text-primary);
-  box-shadow:
-    0 4px 12px color-mix(in srgb, var(--cyan) 12%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 2px 2px 0 var(--cyan);
 }
 
 .resourcesLink.active .navIcon {
-  color: color-mix(in srgb, var(--cyan) 70%, var(--text-primary));
-  background: color-mix(in srgb, var(--cyan) 12%, var(--bg-tertiary));
-  border-color: color-mix(in srgb, var(--cyan) 22%, var(--border-subtle));
+  color: var(--cyan);
+  background: var(--cyan-bg);
+  border-color: var(--cyan);
 }
 
 .resourcesLink.active .navIcon svg {
@@ -363,8 +365,8 @@
   transform: translateY(-50%);
   width: 2px;
   height: 62%;
-  background: color-mix(in srgb, var(--cyan) 72%, var(--text-muted));
-  border-radius: var(--radius-full);
+  background: var(--cyan);
+  border-radius: 0;
 }
 
 .resourcesLink:hover .navArrow {
@@ -384,35 +386,36 @@
   align-items: center;
   gap: 10px;
   padding: 8px 9px;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   color: var(--text-secondary);
   text-decoration: none;
   transition: all var(--transition-fast);
   position: relative;
   margin-bottom: var(--spacing-sm);
-  background: color-mix(in srgb, var(--bitcoin-orange-subtle) 22%, transparent);
-  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 12%, transparent);
-  box-shadow: none;
+  background: var(--bitcoin-orange-subtle);
+  border: 1px solid var(--bitcoin-orange);
+  box-shadow: var(--shadow-sm);
+  min-height: 44px;
 }
 
 .supportLink:hover {
-  background: color-mix(in srgb, var(--bitcoin-orange-subtle) 42%, transparent);
-  border-color: color-mix(in srgb, var(--bitcoin-orange) 22%, var(--border-subtle));
+  background: var(--bg-hover);
+  border-color: var(--bitcoin-orange);
   color: var(--text-primary);
-  box-shadow: none;
+  box-shadow: var(--shadow-sm);
 }
 
 .supportLink.active {
-  background: color-mix(in srgb, var(--bitcoin-orange-subtle) 62%, transparent);
-  border-color: color-mix(in srgb, var(--bitcoin-orange) 28%, var(--border-subtle));
+  background: var(--bitcoin-orange-subtle);
+  border-color: var(--bitcoin-orange);
   color: var(--text-primary);
-  box-shadow: none;
+  box-shadow: var(--shadow-sm);
 }
 
 .supportLink.active .navIcon {
-  color: color-mix(in srgb, var(--bitcoin-orange) 68%, var(--text-primary));
-  background: color-mix(in srgb, var(--bitcoin-orange-subtle) 70%, var(--bg-tertiary));
-  border-color: color-mix(in srgb, var(--bitcoin-orange) 24%, var(--border-subtle));
+  color: var(--accent-ink);
+  background: var(--accent-fill);
+  border-color: var(--accent-ink);
 }
 
 .supportLink.active .navIcon svg {
@@ -428,7 +431,7 @@
   width: 2px;
   height: 62%;
   background: color-mix(in srgb, var(--bitcoin-orange) 72%, var(--text-muted));
-  border-radius: var(--radius-full);
+  border-radius: 0;
 }
 
 .supportLink:hover .navArrow {
@@ -449,294 +452,22 @@
 }
 
 .footerText {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--text-muted);
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-:global(:root[data-theme='light']) .overlay {
-  background: rgba(16, 19, 25, 0.25);
+
+.groupHeader:focus-visible,
+.navItem:focus-visible,
+.resourcesLink:focus-visible,
+.supportLink:focus-visible,
+.studyGuidesLink:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: -3px;
 }
 
-:global(:root[data-theme='light']) .resourcesLink {
-  background: rgba(37, 99, 235, 0.08);
-  border-color: rgba(37, 99, 235, 0.16);
-  color: #50586a;
-  box-shadow:
-    0 2px 8px rgba(37, 99, 235, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.55);
-}
-
-:global(:root[data-theme='light']) .resourcesLink:hover {
-  background: rgba(37, 99, 235, 0.12);
-  border-color: rgba(37, 99, 235, 0.24);
-  color: #30384a;
-  box-shadow:
-    0 3px 10px rgba(37, 99, 235, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.65);
-}
-
-:global(:root[data-theme='light']) .resourcesLink.active {
-  background: rgba(37, 99, 235, 0.14);
-  border-color: rgba(37, 99, 235, 0.28);
-  color: #26364f;
-  box-shadow:
-    0 4px 12px rgba(37, 99, 235, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.72);
-}
-
-:global(:root[data-theme='light']) .resourcesLink .navIcon {
-  background: #efe7da;
-  border: 1px solid #ded0bd;
-  color: #6f5b40;
-}
-
-:global(:root[data-theme='light']) .resourcesLink:hover .navIcon,
-:global(:root[data-theme='light']) .resourcesLink.active .navIcon {
-  background: rgba(37, 99, 235, 0.12);
-  border-color: rgba(37, 99, 235, 0.22);
-  color: #315fa8;
-}
-
-:global(:root[data-theme='light']) .resourcesLink.active .navIcon svg {
-  color: currentColor;
-}
-
-:global(:root[data-theme='light']) .resourcesLink.active::before {
-  background: #3972df;
-}
-
-:global(:root[data-theme='light']) .resourcesLink.active .navArrow {
-  color: #3972df;
-}
-
-:global(:root[data-theme='light']) .supportLink {
-  background: rgba(217, 119, 6, 0.08);
-  border-color: rgba(180, 83, 9, 0.16);
-  color: #50586a;
-  box-shadow: none;
-}
-
-:global(:root[data-theme='light']) .supportLink .navIcon {
-  background: rgba(217, 119, 6, 0.08);
-  border: 1px solid rgba(180, 83, 9, 0.16);
-  color: #8a4d12;
-}
-
-:global(:root[data-theme='light']) .supportLink:hover {
-  background: rgba(217, 119, 6, 0.12);
-  border-color: rgba(180, 83, 9, 0.24);
-  color: #30384a;
-  box-shadow: none;
-}
-
-:global(:root[data-theme='light']) .supportLink:hover .navIcon,
-:global(:root[data-theme='light']) .supportLink.active .navIcon {
-  background: rgba(217, 119, 6, 0.14);
-  color: #8a4d12;
-}
-
-:global(:root[data-theme='light']) .supportLink.active .navIcon svg {
-  color: currentColor;
-}
-
-:global(:root[data-theme='light']) .supportLink.active {
-  border-color: rgba(180, 83, 9, 0.28);
-  background: rgba(217, 119, 6, 0.14);
-}
-
-:global(:root[data-theme='light']) .sidebar {
-  background: linear-gradient(180deg, #ffffff 0%, #f7f9fd 100%);
-  border-right-color: #d6deeb;
-  box-shadow: 4px 0 18px rgba(16, 19, 25, 0.05);
-}
-
-:global(:root[data-theme='light']) .sectionTitle {
-  color: #5b6477;
-}
-
-:global(:root[data-theme='light']) .navItem {
-  color: #50586a;
-}
-
-:global(:root[data-theme='light']) .navItem:hover {
-  background: #e8edf7;
-}
-
-:global(:root[data-theme='light']) .nav {
-  border-left-color: #dce3ef;
-}
-
-:global(:root[data-theme='light']) .groupHeader:hover {
-  background: #edf2fa;
-  border-color: #dce3ef;
-}
-
-:global(:root[data-theme='light']) .activeGroupHeader {
-  background: rgba(217, 119, 6, 0.08);
-  border-color: rgba(180, 83, 9, 0.16);
-}
-
-:global(:root[data-theme='light']) .navIcon {
-  background: #efe7da;
-  border: 1px solid #ded0bd;
-  color: #6f5b40;
-}
-
-:global(:root[data-theme='light']) .navItem.active .navIcon {
-  background: rgba(217, 119, 6, 0.14);
-  border-color: rgba(180, 83, 9, 0.24);
-  color: #4b3a23;
-}
-
-:global(:root[data-theme='light']) .navItem.active .navIcon svg {
-  color: #4b3a23;
-}
-
-:global(:root[data-theme='light']) .navItem.active::before {
-  background: #ae8348;
-}
-
-:global(:root[data-theme='light']) .navItem.active .navArrow {
-  color: #9c7440;
-}
-
-:global(:root[data-theme='light']) .separator {
-  background: #ced6e6;
-}
-
-:global(:root[data-theme='light']) .footer {
-  border-top-color: #ced6e6;
-}
-
-:global(:root[data-theme='dark']) .sidebar {
-  background: linear-gradient(180deg, #131313 0%, #111111 100%);
-  border-right-color: #2b2b2b;
-  box-shadow: 3px 0 14px rgba(0, 0, 0, 0.2);
-}
-
-:global(:root[data-theme='dark']) .sectionTitle {
-  color: #7f7f7f;
-}
-
-:global(:root[data-theme='dark']) .navItem {
-  color: #a7a7a7;
-}
-
-:global(:root[data-theme='dark']) .navItem:hover {
-  background: #1e1e1e;
-}
-
-:global(:root[data-theme='dark']) .nav {
-  border-left-color: #282828;
-}
-
-:global(:root[data-theme='dark']) .groupHeader:hover {
-  background: #1b1b1b;
-  border-color: #2b2b2b;
-}
-
-:global(:root[data-theme='dark']) .activeGroupHeader {
-  background: rgba(245, 158, 11, 0.08);
-  border-color: rgba(245, 158, 11, 0.16);
-}
-
-:global(:root[data-theme='dark']) .navIcon {
-  background: #1b1b1b;
-  border: 1px solid #282828;
-}
-
-:global(:root[data-theme='dark']) .navItem.active .navIcon {
-  background: rgba(245, 158, 11, 0.12);
-  border-color: rgba(245, 158, 11, 0.22);
-  color: #f0e7d7;
-}
-
-:global(:root[data-theme='dark']) .navItem.active .navIcon svg {
-  color: #f0e7d7;
-}
-
-:global(:root[data-theme='dark']) .navItem.active::before {
-  background: #ba8c4b;
-}
-
-:global(:root[data-theme='dark']) .navItem.active .navArrow {
-  color: #ba8c4b;
-}
-
-:global(:root[data-theme='dark']) .separator {
-  background: #2b2b2b;
-}
-
-:global(:root[data-theme='dark']) .footer {
-  border-top-color: #2b2b2b;
-}
-
-:global(:root[data-theme='dark']) .resourcesLink {
-  background: rgba(59, 130, 246, 0.08);
-  border-color: rgba(59, 130, 246, 0.16);
-  color: #a7a7a7;
-  box-shadow:
-    0 2px 8px rgba(59, 130, 246, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.025);
-}
-
-:global(:root[data-theme='dark']) .resourcesLink:hover {
-  background: rgba(59, 130, 246, 0.12);
-  border-color: rgba(59, 130, 246, 0.24);
-  color: #d4d4d4;
-  box-shadow:
-    0 3px 10px rgba(59, 130, 246, 0.11),
-    inset 0 1px 0 rgba(255, 255, 255, 0.035);
-}
-
-:global(:root[data-theme='dark']) .resourcesLink.active {
-  background: rgba(59, 130, 246, 0.14);
-  border-color: rgba(59, 130, 246, 0.28);
-  color: #d4d4d4;
-  box-shadow:
-    0 4px 12px rgba(59, 130, 246, 0.13),
-    inset 0 1px 0 rgba(255, 255, 255, 0.045);
-}
-
-:global(:root[data-theme='dark']) .resourcesLink .navIcon {
-  background: #1b1b1b;
-  border: 1px solid #282828;
-  color: #a7a7a7;
-}
-
-:global(:root[data-theme='dark']) .resourcesLink:hover .navIcon,
-:global(:root[data-theme='dark']) .resourcesLink.active .navIcon {
-  background: rgba(59, 130, 246, 0.12);
-  border-color: rgba(59, 130, 246, 0.22);
-  color: #92b8e8;
-}
-
-:global(:root[data-theme='dark']) .resourcesLink.active .navIcon svg {
-  color: currentColor;
-}
-
-:global(:root[data-theme='dark']) .resourcesLink.active::before {
-  background: #4b84df;
-}
-
-:global(:root[data-theme='dark']) .resourcesLink.active .navArrow {
-  color: #4b84df;
-}
-
-:global(:root[data-theme='dark']) .supportLink .navIcon {
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px solid rgba(245, 158, 11, 0.16);
-  color: #d9a85f;
-}
-
-:global(:root[data-theme='dark']) .supportLink:hover .navIcon,
-:global(:root[data-theme='dark']) .supportLink.active .navIcon {
-  background: rgba(245, 158, 11, 0.14);
-  color: #f0c27d;
-}
-
-:global(:root[data-theme='dark']) .supportLink.active .navIcon svg {
-  color: currentColor;
-}
+.resourcesLink .navIcon { color: var(--cyan); }
+.supportLink .navIcon { color: var(--bitcoin-orange); }
+.supportLink.active .navIcon { color: var(--accent-ink); }

@@ -19,8 +19,8 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
-  color: white;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
   flex-shrink: 0;
 }
 
@@ -40,7 +40,7 @@
 /* Explainer */
 .explainer {
   padding: var(--spacing-md) var(--spacing-lg);
-  background: rgba(59, 130, 246, 0.08);
+  background: var(--info-bg);
   border-radius: var(--radius-lg);
   margin-bottom: var(--spacing-xl);
 }
@@ -83,9 +83,9 @@
   justify-content: center;
   width: 24px;
   height: 24px;
-  background: var(--primary-500);
-  color: white;
-  border-radius: 50%;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
+  border-radius: 0;
   font-size: var(--font-sm);
   font-weight: 700;
 }
@@ -130,19 +130,19 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  color: white;
+  color: var(--text-inverse);
 }
 
 .flowIcon[data-type="lightning"] {
-  background: linear-gradient(135deg, #f59e0b, #d97706);
+  background: var(--warning);
 }
 
 .flowIcon[data-type="mint"] {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  background: var(--info);
 }
 
 .flowIcon[data-type="tokens"] {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: var(--success);
 }
 
 .flowArrow {
@@ -154,7 +154,7 @@
   font-size: var(--font-xs);
   color: var(--text-secondary);
   padding: var(--spacing-sm) var(--spacing-md);
-  background: rgba(59, 130, 246, 0.05);
+  background: var(--info-bg);
   border-left: 3px solid var(--primary-500);
   border-radius: var(--radius-sm);
 }
@@ -162,8 +162,8 @@
 /* Token Section */
 .tokenSection {
   padding: var(--spacing-lg);
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(22, 163, 74, 0.02));
-  border: 1px solid rgba(34, 197, 94, 0.2);
+  background: var(--success-bg);
+  border: 1px solid color-mix(in srgb, var(--success) 20%, transparent);
   border-radius: var(--radius-lg);
   margin-bottom: var(--spacing-xl);
 }
@@ -222,19 +222,19 @@
   border-radius: var(--radius-sm);
   font-size: var(--font-sm);
   font-weight: 700;
-  color: white;
+  color: var(--text-inverse);
 }
 
 .tokenChip[data-value="64"] {
-  background: #10b981;
+  background: var(--success);
 }
 
 .tokenChip[data-value="32"] {
-  background: #22c55e;
+  background: var(--success);
 }
 
 .tokenChip[data-value="4"] {
-  background: #f59e0b;
+  background: var(--warning);
 }
 
 .tokenPlus {

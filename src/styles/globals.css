@@ -2,57 +2,61 @@
 /* Fonts loaded via index.html with preconnect for better performance */
 
 :root {
-    /* Background colors */
-    --bg-primary: #0a0a0a;
-    --bg-secondary: #111111;
-    --bg-tertiary: #1a1a1a;
-    --bg-elevated: #222222;
-    --bg-hover: #2a2a2a;
+    color-scheme: dark;
 
-    /* Bitcoin brand colors */
-    --bitcoin-orange: #f7931a;
-    --bitcoin-orange-light: #ffb84d;
-    --bitcoin-orange-dark: #c77a15;
-    --bitcoin-orange-glow: rgba(247, 147, 26, 0.3);
-    --bitcoin-orange-subtle: rgba(247, 147, 26, 0.1);
+    /* Terminal surfaces: quiet backgrounds keep the colorful signals readable. */
+    --bg-primary: #0b1017;
+    --bg-secondary: #111b26;
+    --bg-tertiary: #192635;
+    --bg-elevated: #213144;
+    --bg-hover: #293c50;
 
-    /* Semantic colors */
-    --success: #22c55e;
-    --success-bg: rgba(34, 197, 94, 0.1);
-    --error: #ef4444;
-    --error-bg: rgba(239, 68, 68, 0.1);
-    --warning: #eab308;
-    --warning-bg: rgba(234, 179, 8, 0.1);
-    --info: #3b82f6;
-    --info-bg: rgba(59, 130, 246, 0.1);
+    /* Text accents adapt to the theme; filled actions keep a bright face. */
+    --bitcoin-orange: #ffb454;
+    --bitcoin-orange-light: #ffd080;
+    --bitcoin-orange-dark: #f5a13d;
+    --bitcoin-orange-glow: color-mix(in srgb, var(--bitcoin-orange) 25%, transparent);
+    --bitcoin-orange-subtle: color-mix(in srgb, var(--bitcoin-orange) 9%, var(--bg-secondary));
+    --accent-fill: #ffb454;
+    --accent-ink: #14231e;
+    --terminal-green: #b4f47a;
+    --terminal-grid: #253544;
 
-    /* Tag-specific colors */
-    --purple: #a855f7;
-    --purple-bg: rgba(168, 85, 247, 0.1);
-    --cyan: #06b6d4;
-    --cyan-bg: rgba(6, 182, 212, 0.1);
-    --node: #ec4899;
-    --node-bg: rgba(236, 72, 153, 0.1);
-    --exchange: #14b8a6;
-    --exchange-bg: rgba(20, 184, 166, 0.1);
+    /* Semantic ink colors also work on the elevated surfaces and tinted badges. */
+    --success: #96eb89;
+    --error: #ff8c98;
+    --warning: #f7d76b;
+    --info: #8bbaff;
+    --purple: #d3a0ff;
+    --cyan: #67d8ef;
+    --node: #f89ed3;
+    --exchange: #77e2c5;
+    --success-bg: color-mix(in srgb, var(--success) 9%, var(--bg-secondary));
+    --error-bg: color-mix(in srgb, var(--error) 9%, var(--bg-secondary));
+    --warning-bg: color-mix(in srgb, var(--warning) 9%, var(--bg-secondary));
+    --info-bg: color-mix(in srgb, var(--info) 9%, var(--bg-secondary));
+    --purple-bg: color-mix(in srgb, var(--purple) 9%, var(--bg-secondary));
+    --cyan-bg: color-mix(in srgb, var(--cyan) 9%, var(--bg-secondary));
+    --node-bg: color-mix(in srgb, var(--node) 9%, var(--bg-secondary));
+    --exchange-bg: color-mix(in srgb, var(--exchange) 9%, var(--bg-secondary));
 
-    /* Text colors */
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    --text-muted: #666666;
-    --text-inverse: #0a0a0a;
+    --text-primary: #eef7ff;
+    --text-secondary: #c1cfdd;
+    --text-muted: #9aaebf;
+    --text-inverse: #0b1017;
 
-    /* Border colors */
-    --border-subtle: #343434;
-    --border-medium: #3a3a3a;
-    --border-accent: rgba(247, 147, 26, 0.3);
+    --border-subtle: #465b6e;
+    --border-medium: #718699;
+    --border-accent: var(--bitcoin-orange);
+    --focus-ring: var(--cyan);
 
-    /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
-    --surface-card-shadow: 0 16px 36px rgba(0, 0, 0, 0.33);
-    --shadow-glow: 0 0 20px rgba(247, 147, 26, 0.2);
+    /* Integer offsets and zero blur create the pixel-edged depth. */
+    --shadow-color: #030609;
+    --shadow-sm: 2px 2px 0 var(--shadow-color);
+    --shadow-md: 4px 4px 0 var(--shadow-color);
+    --shadow-lg: 6px 6px 0 var(--shadow-color);
+    --surface-card-shadow: 4px 4px 0 var(--shadow-color);
+    --shadow-glow: 3px 3px 0 var(--border-accent);
 
     /* Spacing */
     --spacing-xs: 4px;
@@ -64,17 +68,19 @@
     --spacing-3xl: 64px;
 
     /* Border radius */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
-    --radius-full: 9999px;
+    --radius-sm: 0px;
+    --radius-md: 0px;
+    --radius-lg: 0px;
+    --radius-xl: 0px;
+    --radius-full: 0px;
 
     /* Typography */
     --font-sans:
         "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         sans-serif;
-    --font-mono: "JetBrains Mono", "Fira Code", monospace;
+    /* Clear everyday lettering, with a restrained typewriter character in titles. */
+    --font-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
+    --font-display: "IBM Plex Mono", "JetBrains Mono", monospace;
 
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
@@ -89,28 +95,31 @@
     --primary: var(--bitcoin-orange);
     --primary-light: var(--bitcoin-orange-light);
     --primary-dark: var(--bitcoin-orange-dark);
-    --primary-400: #fb923c;
+    --primary-400: var(--bitcoin-orange-light);
     --primary-500: var(--bitcoin-orange);
-    --primary-600: #ea580c;
+    --primary-600: var(--bitcoin-orange-dark);
     --border-light: var(--border-subtle);
+    --border-default: var(--border-subtle);
+    --border-color: var(--border-subtle);
+    --bitcoin-orange-hover: #ffd080;
     --text-tertiary: var(--text-muted);
     --success-500: var(--success);
-    --success-light: #86efac;
+    --success-light: var(--success);
     --warning-500: var(--warning);
-    --warning-dark: #a16207;
+    --warning-dark: var(--warning);
 
-    --support-bg-start: #24180b;
-    --support-bg-mid: #3a2610;
-    --support-bg-end: #6b4312;
-    --support-border: rgba(251, 191, 36, 0.58);
-    --support-border-hover: #f8cd67;
-    --support-text: #ffd78a;
-    --support-shadow-1: rgba(251, 191, 36, 0.2);
-    --support-shadow-2: rgba(0, 0, 0, 0.34);
-    --support-shadow-3: rgba(255, 233, 181, 0.12);
-    --support-hover-shadow-1: rgba(251, 191, 36, 0.34);
-    --support-hover-shadow-2: rgba(0, 0, 0, 0.48);
-    --support-hover-shadow-3: rgba(255, 233, 181, 0.2);
+    --support-bg-start: var(--warning-bg);
+    --support-bg-mid: var(--warning-bg);
+    --support-bg-end: var(--warning-bg);
+    --support-border: var(--warning);
+    --support-border-hover: var(--bitcoin-orange);
+    --support-text: var(--warning);
+    --support-shadow-1: var(--shadow-color);
+    --support-shadow-2: var(--shadow-color);
+    --support-shadow-3: transparent;
+    --support-hover-shadow-1: var(--shadow-color);
+    --support-hover-shadow-2: var(--shadow-color);
+    --support-hover-shadow-3: transparent;
 
     --font-xs: var(--text-xs);
     --font-sm: var(--text-sm);
@@ -142,56 +151,37 @@
 }
 
 :root[data-theme="light"] {
-    --bitcoin-orange: #f59e0b;
-    --bitcoin-orange-light: #ffbf47;
-    --bitcoin-orange-dark: #e27a00;
+    color-scheme: light;
+    /* Warm computer paper, lavender panels, and cobalt/violet terminal ink. */
+    --bg-primary: #f7f3eb;
+    --bg-secondary: #fffdf8;
+    --bg-tertiary: #eeeaf8;
+    --bg-elevated: #e3def1;
+    --bg-hover: #d9d2ed;
 
-    --bg-primary: #fbfcfe;
-    --bg-secondary: #ffffff;
-    --bg-tertiary: #f7f9fc;
-    --bg-elevated: #ffffff;
-    --bg-hover: #f0f4fa;
+    --bitcoin-orange: #944200;
+    --bitcoin-orange-light: #793600;
+    --bitcoin-orange-dark: #743000;
+    --accent-ink: #242039;
+    /* Legacy token name: cobalt replaces the green signal in the light theme. */
+    --terminal-green: #3346bb;
+    --terminal-grid: #ded6cf;
+    --success: #3355ad;
+    --error: #a72336;
+    --warning: #775500;
+    --info: #2457a5;
+    --purple: #70339c;
+    --cyan: #005d91;
+    --node: #922466;
+    --exchange: #5141a5;
 
-    --bitcoin-orange-glow: rgba(245, 158, 11, 0.24);
-    --bitcoin-orange-subtle: rgba(245, 158, 11, 0.16);
-
-    --success-bg: rgba(34, 197, 94, 0.16);
-    --error-bg: rgba(239, 68, 68, 0.14);
-    --warning-bg: rgba(234, 179, 8, 0.2);
-    --info-bg: rgba(59, 130, 246, 0.16);
-
-    --purple-bg: rgba(168, 85, 247, 0.15);
-    --cyan-bg: rgba(6, 182, 212, 0.14);
-    --node-bg: rgba(236, 72, 153, 0.14);
-    --exchange-bg: rgba(20, 184, 166, 0.14);
-
-    --text-primary: #101319;
-    --text-secondary: #454b5a;
-    --text-muted: #676f82;
+    --text-primary: #242039;
+    --text-secondary: #4a435f;
+    --text-muted: #605771;
     --text-inverse: #ffffff;
-
-    --border-subtle: #c5cedd;
-    --border-medium: #b7bfd2;
-    --border-accent: rgba(247, 147, 26, 0.35);
-
-    --shadow-sm: 0 1px 2px rgba(16, 19, 25, 0.08);
-    --shadow-md: 0 4px 10px rgba(16, 19, 25, 0.12);
-    --shadow-lg: 0 14px 30px rgba(16, 19, 25, 0.14);
-    --surface-card-shadow: 0 16px 36px rgba(16, 19, 25, 0.17);
-    --shadow-glow: 0 0 18px rgba(247, 147, 26, 0.2);
-
-    --support-bg-start: #fff7e9;
-    --support-bg-mid: #ffe9c5;
-    --support-bg-end: #ffd38f;
-    --support-border: rgba(245, 158, 11, 0.55);
-    --support-border-hover: rgba(217, 119, 6, 0.75);
-    --support-text: #b45309;
-    --support-shadow-1: rgba(217, 119, 6, 0.2);
-    --support-shadow-2: rgba(16, 19, 25, 0.1);
-    --support-shadow-3: rgba(255, 255, 255, 0.45);
-    --support-hover-shadow-1: rgba(217, 119, 6, 0.28);
-    --support-hover-shadow-2: rgba(16, 19, 25, 0.16);
-    --support-hover-shadow-3: rgba(255, 255, 255, 0.5);
+    --border-subtle: #b8afca;
+    --border-medium: #837592;
+    --shadow-color: #c6bccf;
 }
 
 /* Mobile utility: horizontal scroll container */
@@ -209,6 +199,7 @@
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
 
@@ -231,6 +222,8 @@ html {
 body {
     font-family: var(--font-sans);
     background-color: var(--bg-primary);
+    background-image: radial-gradient(var(--terminal-grid) 0.75px, transparent 0.75px);
+    background-size: 8px 8px;
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
@@ -267,14 +260,50 @@ body {
 
 /* Selection */
 ::selection {
-    background-color: var(--bitcoin-orange);
-    color: var(--text-inverse);
+    background-color: var(--accent-fill);
+    color: var(--accent-ink);
 }
 
 /* Focus styles */
-:focus-visible {
-    outline: 2px solid var(--bitcoin-orange);
-    outline-offset: 2px;
+/* Specificity keeps keyboard focus visible on controls with local :focus resets. */
+:root :focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6,
+button, input, select, textarea, summary, th {
+    font-family: var(--font-mono);
+}
+
+h1, h2 {
+    font-family: var(--font-display);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+input, select, textarea {
+    accent-color: var(--bitcoin-orange);
+    caret-color: var(--bitcoin-orange);
+}
+
+::placeholder {
+    color: var(--text-muted);
+    opacity: 1;
+}
+
+/* Keep descriptive links recognizable within lesson prose. */
+p a, li a:not([class]) {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+}
+
+svg.lucide {
+    stroke-linecap: square;
+    stroke-linejoin: miter;
 }
 
 /* Links */
@@ -300,14 +329,6 @@ code {
 /* Utility classes */
 .text-gradient {
     color: var(--bitcoin-orange);
-    background: linear-gradient(
-        135deg,
-        var(--bitcoin-orange),
-        var(--bitcoin-orange-light)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
     display: inline;
 }
 

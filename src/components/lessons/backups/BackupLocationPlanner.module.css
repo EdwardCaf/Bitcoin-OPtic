@@ -71,7 +71,7 @@
   min-height: 160px;
   padding: var(--spacing-md);
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-tertiary) 82%, transparent), var(--bg-secondary));
+    var(--bg-tertiary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
 }
@@ -104,7 +104,7 @@
   padding: 6px 9px;
   background: color-mix(in srgb, var(--bitcoin-orange) 10%, var(--bg-tertiary));
   border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 22%, var(--border-subtle));
-  border-radius: 999px;
+  border-radius: 0;
   color: var(--text-primary);
   font-size: var(--text-xs);
   font-weight: 650;

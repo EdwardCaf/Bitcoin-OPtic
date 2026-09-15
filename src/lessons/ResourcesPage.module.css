@@ -17,18 +17,21 @@
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  background: color-mix(in srgb, var(--bg-secondary) 88%, var(--bg-primary) 12%);
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 55%, var(--text-primary) 45%);
-  border-radius: var(--radius-xl);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: 0;
   box-shadow: var(--surface-card-shadow);
+  border-top: 4px solid var(--bitcoin-orange);
 }
 
 .heroTitle {
   font-size: 2.5rem;
-  font-weight: 800;
-  line-height: 1.1;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
   margin: var(--spacing-md) 0;
+  font-family: var(--font-display);
 }
 
 .heroHighlight {
@@ -52,6 +55,7 @@
 .section {
   padding: var(--spacing-lg) 0;
   border-top: 1px solid var(--border-subtle);
+  --resource-accent: var(--cyan);
 }
 
 .section:first-child {
@@ -78,12 +82,13 @@
   color: var(--text-primary);
   font-size: clamp(1.35rem, 2.4vw, 1.85rem);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.045em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-family: var(--font-mono);
 }
 
 .sectionBadge svg {
-  color: var(--bitcoin-orange);
+  color: var(--resource-accent);
   width: 1.15em;
   height: 1.15em;
   flex-shrink: 0;
@@ -125,9 +130,9 @@
   display: flex;
   flex-direction: column;
   padding: var(--spacing-md);
-  background: color-mix(in srgb, var(--bg-secondary) 88%, var(--bg-primary) 12%);
-  border: 1px solid color-mix(in srgb, var(--border-subtle) 55%, var(--text-primary) 45%);
-  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: 0;
   text-decoration: none;
   color: inherit;
   transition: all var(--transition-base);
@@ -141,7 +146,7 @@
   border-color: var(--bitcoin-orange);
   background: var(--bg-tertiary);
   box-shadow: var(--surface-card-shadow);
-  transform: translateY(-3px);
+  transform: translate(-2px, -2px);
 }
 
 .card:hover .externalIcon {
@@ -149,9 +154,10 @@
   transform: translate(1px, -1px);
 }
 
-.card:hover .cardIcon {
-  background: var(--bitcoin-orange);
-  color: var(--text-inverse);
+.card:hover .cardIcon,
+.card:focus-visible .cardIcon {
+  background: var(--resource-accent);
+  color: var(--bg-tertiary);
 }
 
 .cardHeader {
@@ -166,16 +172,18 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  background: var(--bitcoin-orange-subtle);
-  border-radius: var(--radius-sm);
-  color: var(--bitcoin-orange);
+  background: var(--bg-tertiary);
+  border-radius: 0;
+  color: var(--resource-accent);
   flex-shrink: 0;
-  transition: all var(--transition-base);
+  /* Swap colors together so the icon stays visible throughout the interaction. */
+  transition: none;
+  border: 1px solid var(--resource-accent);
 }
 
 .externalIcon {
-  color: color-mix(in srgb, var(--text-muted) 72%, var(--text-primary) 28%);
-  opacity: 0.65;
+  color: var(--text-secondary);
+  opacity: 1;
   transition: all var(--transition-base);
   flex-shrink: 0;
 }
@@ -195,12 +203,14 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
+  font-family: var(--font-mono);
+  overflow-wrap: anywhere;
 }
 
 .cardDescription {
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   color: color-mix(in srgb, var(--text-secondary) 82%, var(--text-primary) 18%);
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0;
 }
 
@@ -214,11 +224,11 @@
 
 /* Favorite Card Style */
 .cardFavorite {
-  border-color: rgba(223, 143, 19, 0.78);
+  border-color: var(--bitcoin-orange);
 }
 
 .cardFavorite:hover {
-  border-color: #e29516;
+  border-color: var(--bitcoin-orange);
   box-shadow: var(--surface-card-shadow);
 }
 
@@ -226,30 +236,29 @@
   position: absolute;
   top: -8px;
   left: var(--spacing-sm);
-  background: linear-gradient(135deg, #a56f12 0%, #ddb36b 52%, #bd7f23 100%);
-  color: #1c1205;
-  font-size: 10px;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
+  font-size: 0.6875rem;
   font-weight: 700;
   padding: 1px 6px;
-  border-radius: var(--radius-md);
+  border-radius: 0;
   text-transform: uppercase;
   letter-spacing: 0.3px;
-  border: 1px solid rgba(245, 186, 94, 0.45);
-  box-shadow:
-    0 1px 4px rgba(245, 166, 35, 0.28),
-    0 0 7px rgba(245, 166, 35, 0.16),
-    inset 0 1px 0 rgba(255, 239, 210, 0.45);
+  border: 1px solid var(--bitcoin-orange);
+  box-shadow: none;
+  font-family: var(--font-mono);
 }
 
 .starIcon {
-  color: #f5a623;
-  fill: #f5a623;
+  color: var(--bitcoin-orange);
+  fill: var(--bitcoin-orange);
   flex-shrink: 0;
 }
 
 /* Hide mobile-specific badge on desktop */
 .favoriteBadgeMobile {
   display: none;
+  font-family: var(--font-mono);
 }
 
 /* Disclaimer */
@@ -258,7 +267,7 @@
   padding: var(--spacing-md);
   background: var(--bg-secondary);
   border: 1px solid color-mix(in srgb, var(--border-subtle) 68%, var(--text-primary) 32%);
-  border-radius: var(--radius-md);
+  border-radius: 0;
   text-align: center;
 }
 
@@ -358,21 +367,18 @@
   /* Mobile inline "Recommended" badge */
   .favoriteBadgeMobile {
     display: inline-flex;
-    background: linear-gradient(135deg, #a56f12 0%, #ddb36b 52%, #bd7f23 100%);
-    color: #1c1205;
-    font-size: 10px;
+    background: var(--accent-fill);
+    color: var(--accent-ink);
+    font-size: 0.6875rem;
     font-weight: 700;
     padding: 1px 6px;
-    border-radius: var(--radius-md);
+    border-radius: 0;
     text-transform: uppercase;
     letter-spacing: 0.3px;
     margin-left: var(--spacing-xs);
     flex-shrink: 0;
-    border: 1px solid rgba(245, 186, 94, 0.45);
-    box-shadow:
-      0 1px 4px rgba(245, 166, 35, 0.28),
-      0 0 6px rgba(245, 166, 35, 0.14),
-      inset 0 1px 0 rgba(255, 239, 210, 0.45);
+    border: 1px solid var(--bitcoin-orange);
+    box-shadow: none;
   }
 
   .cardFavorite {
@@ -390,6 +396,7 @@
     display: flex;
     flex-direction: column;
     gap: 0;
+    font-family: var(--font-mono);
   }
 
   .mobileDescription {
@@ -415,7 +422,8 @@
 
   .cardTitle {
     font-size: var(--text-sm);
-    white-space: nowrap;
+    white-space: normal;
+    flex-wrap: wrap;
   }
 
   .cardTags {
@@ -458,65 +466,16 @@
     position: relative;
   }
 }
-
-:global(:root[data-theme='light']) .sectionBadge {
-  background: transparent;
-  border-color: transparent;
-  color: var(--text-primary);
+.mobileTitleGroup {
+  min-width: 0;
 }
-
-:global(:root[data-theme='light']) .favoriteBadge,
-:global(:root[data-theme='light']) .favoriteBadgeMobile {
-  background: linear-gradient(135deg, #c98c3a 0%, #dfb878 55%, #c98532 100%);
-  color: #5b2f00;
-  border: 1px solid rgba(171, 97, 16, 0.3);
-  box-shadow:
-    0 1px 4px rgba(171, 97, 16, 0.22),
-    inset 0 1px 0 rgba(255, 244, 226, 0.55);
+.card:focus-visible {
+  outline: 3px solid var(--terminal-green);
+  outline-offset: 4px;
 }
-
-:global(:root[data-theme='light']) .card {
-  background: color-mix(in srgb, var(--bg-secondary) 76%, #ffffff 24%);
-  border-color: rgba(112, 78, 41, 0.38);
+.section:nth-child(3n + 2) {
+  --resource-accent: var(--purple);
 }
-
-:global(:root[data-theme='light']) .disclaimer {
-  background: color-mix(in srgb, var(--bg-secondary) 82%, #fff7ea 18%);
-}
-
-:global(:root[data-theme='light']) .cardTags,
-:global(:root[data-theme='light']) .disclaimer {
-  border-color: rgba(135, 97, 55, 0.22);
-}
-
-:global(:root[data-theme='light']) .cardDescription,
-:global(:root[data-theme='light']) .mobileDescription,
-:global(:root[data-theme='light']) .sectionDescription {
-  color: #5e5348;
-}
-
-:global(:root[data-theme='light']) .externalIcon {
-  color: #7d6b5a;
-  opacity: 0.78;
-}
-
-:global(:root[data-theme='light']) .cardFavorite {
-  border-color: rgba(184, 114, 16, 0.72);
-  background: color-mix(in srgb, var(--bg-secondary) 80%, #fff7ea 20%);
-}
-
-:global(:root[data-theme='light']) .cardFavorite:hover {
-  border-color: #b96d12;
-}
-
-:global(:root[data-theme='light']) .starIcon {
-  color: #e58a12;
-  fill: #e58a12;
-}
-
-@media (max-width: 768px) {
-  :global(:root[data-theme='light']) .sectionBadge {
-    background: transparent;
-    color: var(--text-primary);
-  }
+.section:nth-child(3n) {
+  --resource-accent: var(--terminal-green);
 }

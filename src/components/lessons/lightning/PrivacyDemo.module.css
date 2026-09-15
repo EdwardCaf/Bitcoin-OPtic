@@ -21,11 +21,11 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: var(--accent-fill);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--accent-ink);
   flex-shrink: 0;
 }
 
@@ -64,11 +64,11 @@
 }
 
 .comparisonColumn[data-type="onchain"] {
-  border-color: rgba(239, 68, 68, 0.3);
+  border-color: color-mix(in srgb, var(--error) 30%, transparent);
 }
 
 .comparisonColumn[data-type="lightning"] {
-  border-color: rgba(34, 197, 94, 0.3);
+  border-color: color-mix(in srgb, var(--success) 30%, transparent);
 }
 
 .columnHeader {
@@ -91,13 +91,13 @@
 }
 
 .columnIcon[data-type="onchain"] {
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
+  background: var(--error-bg);
+  color: var(--error);
 }
 
 .columnIcon[data-type="lightning"] {
-  background: rgba(34, 197, 94, 0.1);
-  color: #22c55e;
+  background: var(--success-bg);
+  color: var(--success);
 }
 
 .columnHeader h4 {
@@ -124,13 +124,13 @@
 }
 
 .visibilityItem[data-visible="true"] {
-  color: #ef4444;
-  background: rgba(239, 68, 68, 0.05);
+  color: var(--error);
+  background: var(--error-bg);
 }
 
 .visibilityItem[data-visible="false"] {
-  color: #22c55e;
-  background: rgba(34, 197, 94, 0.05);
+  color: var(--success);
+  background: var(--success-bg);
 }
 
 .columnFooter {
@@ -144,13 +144,13 @@
 }
 
 .columnFooter[data-type="onchain"] {
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
+  background: var(--error-bg);
+  color: var(--error);
 }
 
 .columnFooter[data-type="lightning"] {
-  background: rgba(34, 197, 94, 0.1);
-  color: #22c55e;
+  background: var(--success-bg);
+  color: var(--success);
 }
 
 /* Section Titles */
@@ -233,11 +233,11 @@
 }
 
 .routeNode[data-role="sender"] {
-  border-color: #f97316;
+  border-color: var(--bitcoin-orange);
 }
 
 .routeNode[data-role="receiver"] {
-  border-color: #a855f7;
+  border-color: var(--purple);
 }
 
 .routeNode[data-role="routing"] {
@@ -247,23 +247,23 @@
 .nodeAvatar {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: var(--font-size-md);
-  color: white;
-  background: var(--primary);
+  color: var(--accent-ink);
+  background: var(--accent-fill);
   flex-shrink: 0;
 }
 
 .routeNode[data-role="sender"] .nodeAvatar {
-  background: #f97316;
+  background: var(--bitcoin-orange);
 }
 
 .routeNode[data-role="receiver"] .nodeAvatar {
-  background: #a855f7;
+  background: var(--purple);
 }
 
 .routeNode[data-role="routing"] .nodeAvatar {
@@ -295,8 +295,8 @@
 
 .routeNode[data-role="sender"] .nodeKnows,
 .routeNode[data-role="receiver"] .nodeKnows {
-  color: #22c55e;
-  background: rgba(34, 197, 94, 0.1);
+  color: var(--success);
+  background: var(--success-bg);
 }
 
 .routeArrow {
@@ -323,8 +323,8 @@
 .arrowLine {
   width: 2px;
   height: 20px;
-  background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%);
-  border-radius: 1px;
+  background: var(--primary);
+  border-radius: 0;
 }
 
 @media (min-width: 769px) {
@@ -374,8 +374,8 @@
   width: 40px;
   height: 40px;
   border-radius: var(--radius-md);
-  background: rgba(34, 197, 94, 0.1);
-  color: #22c55e;
+  background: var(--success-bg);
+  color: var(--success);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -456,11 +456,11 @@
 }
 
 .tableRow span[data-status="visible"] {
-  color: #ef4444;
+  color: var(--error);
 }
 
 .tableRow span[data-status="hidden"] {
-  color: #22c55e;
+  color: var(--success);
 }
 
 @media (max-width: 480px) {

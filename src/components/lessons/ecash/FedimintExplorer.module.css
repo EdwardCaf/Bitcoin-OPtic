@@ -21,8 +21,8 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
-  color: white;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
   flex-shrink: 0;
 }
 
@@ -99,7 +99,7 @@
 .token {
   font-size: 48px;
   opacity: 0.9;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  filter: none;
 }
 
 .diagramLabel {
@@ -123,7 +123,7 @@
   align-items: flex-start;
   gap: var(--spacing-sm);
   padding: var(--spacing-md);
-  background: rgba(59, 130, 246, 0.1);
+  background: var(--info-bg);
   border-left: 3px solid var(--primary-500);
   border-radius: var(--radius-md);
   font-size: var(--font-sm);
@@ -334,9 +334,9 @@
   justify-content: center;
   width: 48px;
   height: 48px;
-  background: var(--primary-500);
-  border-radius: 50%;
-  color: white;
+  background: var(--accent-fill);
+  border-radius: 0;
+  color: var(--accent-ink);
   font-size: var(--font-sm);
   font-weight: 700;
   flex-shrink: 0;

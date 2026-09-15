@@ -22,11 +22,11 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--warning) 0%, var(--warning-dark) 100%);
+  background: var(--warning);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-inverse);
   flex-shrink: 0;
 }
 
@@ -75,40 +75,39 @@
 .avatar {
   width: 72px;
   height: 72px;
-  border-radius: 50%;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: var(--font-size-2xl);
   font-weight: 700;
-  color: white;
+  color: var(--text-inverse);
   position: relative;
   z-index: 1;
   border: 3px solid rgba(255, 255, 255, 0.2);
 }
 
 .avatar[data-party="alice"] {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  background: var(--bitcoin-orange);
 }
 
 .avatar[data-party="bob"] {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: var(--info);
 }
 
 .nodeGlow {
   position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  opacity: 0.3;
-  filter: blur(8px);
+  inset: -4px;
+  border-radius: 0;
+  opacity: 0.2;
 }
 
 .nodeGlow[data-party="alice"] {
-  background: #f97316;
+  background: var(--bitcoin-orange);
 }
 
 .nodeGlow[data-party="bob"] {
-  background: #3b82f6;
+  background: var(--info);
 }
 
 .name {
@@ -149,19 +148,14 @@
 .lineSegment {
   flex: 1;
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    var(--border-medium) 0%,
-    var(--primary) 50%,
-    var(--border-medium) 100%
-  );
-  border-radius: 1px;
+  background: var(--border-medium);
+  border-radius: 0;
 }
 
 .channelIcon {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: 0;
   background: var(--bg-tertiary);
   border: 2px solid var(--border-medium);
   display: flex;
@@ -187,12 +181,12 @@
   display: flex;
   overflow: hidden;
   border: 2px solid var(--border-medium);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .aliceBalance {
   height: 100%;
-  background: linear-gradient(90deg, #f97316 0%, #fb923c 100%);
+  background: var(--bitcoin-orange);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,7 +196,7 @@
 
 .bobBalance {
   height: 100%;
-  background: linear-gradient(90deg, #60a5fa 0%, #3b82f6 100%);
+  background: var(--info);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,8 +206,8 @@
 .balancePercent {
   font-size: var(--font-size-xs);
   font-weight: 600;
-  color: white;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  color: var(--text-inverse);
+  text-shadow: none;
 }
 
 .capacityLabel {
@@ -275,18 +269,18 @@
 }
 
 .propertyIcon[data-type="lock"] {
-  background: rgba(249, 115, 22, 0.1);
-  color: #f97316;
+  background: var(--bitcoin-orange-subtle);
+  color: var(--bitcoin-orange);
 }
 
 .propertyIcon[data-type="zap"] {
-  background: rgba(234, 179, 8, 0.1);
-  color: #eab308;
+  background: var(--warning-bg);
+  color: var(--warning);
 }
 
 .propertyIcon[data-type="unlock"] {
-  background: rgba(34, 197, 94, 0.1);
-  color: #22c55e;
+  background: var(--success-bg);
+  color: var(--success);
 }
 
 .propertyContent {
@@ -345,9 +339,9 @@
 .stepNumber {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  color: white;
+  border-radius: 0;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
   display: flex;
   align-items: center;
   justify-content: center;

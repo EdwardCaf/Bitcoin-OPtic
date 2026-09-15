@@ -22,11 +22,11 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  background: var(--purple);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-inverse);
   flex-shrink: 0;
 }
 
@@ -132,7 +132,7 @@
   justify-content: center;
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: white;
+  color: #0b1017;
 }
 
 .detailsHeader h4 {
@@ -243,9 +243,9 @@
 .stepNumber {
   width: 28px;
   height: 28px;
-  border-radius: 50%;
-  background: var(--primary);
-  color: white;
+  border-radius: 0;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -272,14 +272,14 @@
   display: flex;
   gap: var(--spacing-md);
   padding: var(--spacing-md);
-  background: rgba(168, 85, 247, 0.1);
-  border: 1px solid rgba(168, 85, 247, 0.3);
+  background: var(--purple-bg);
+  border: 1px solid color-mix(in srgb, var(--purple) 30%, transparent);
   border-radius: var(--radius-md);
   margin-top: var(--spacing-lg);
 }
 
 .infoBox svg {
-  color: #a855f7;
+  color: var(--purple);
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -295,4 +295,8 @@
   color: var(--text-secondary);
   margin: 0;
   line-height: 1.6;
+}
+
+:global(:root[data-theme='light']) .assetIcon {
+  color: var(--text-primary) !important;
 }

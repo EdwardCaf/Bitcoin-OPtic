@@ -22,11 +22,11 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: var(--accent-fill);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--accent-ink);
   flex-shrink: 0;
 }
 
@@ -136,9 +136,9 @@
   flex-shrink: 0;
 }
 
-.networkLabel.bitcoin { color: #f97316; }
-.networkLabel.lightning { color: #facc15; }
-.networkLabel.liquid { color: #14b8a6; }
+.networkLabel.bitcoin { color: var(--bitcoin-orange); }
+.networkLabel.lightning { color: var(--warning); }
+.networkLabel.liquid { color: var(--exchange); }
 
 .valueSection {
   display: flex;

@@ -185,7 +185,7 @@
 }
 
 .statCard.healthy .statIcon {
-  background: rgba(34, 197, 94, 0.1);
+  background: var(--success-bg);
   color: var(--success);
 }
 
@@ -195,7 +195,7 @@
 }
 
 .statCard.dust .statIcon {
-  background: rgba(239, 68, 68, 0.1);
+  background: var(--error-bg);
   color: var(--error);
 }
 
@@ -394,7 +394,7 @@
 
 /* Tips Section */
 .tipsSection {
-  background: linear-gradient(135deg, rgba(247, 147, 26, 0.1), transparent);
+  background: var(--bitcoin-orange-subtle);
   border: 1px solid var(--border-accent);
   border-radius: var(--radius-lg);
   padding: var(--spacing-lg);

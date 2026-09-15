@@ -140,9 +140,9 @@
 
 .supplyFill {
   height: 100%;
-  background: linear-gradient(90deg, var(--bitcoin-orange-dark), var(--bitcoin-orange), var(--bitcoin-orange-light));
+  background: var(--bitcoin-orange-dark);
   border-radius: var(--radius-full);
-  box-shadow: 0 0 10px rgba(247, 147, 26, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .supplyLabels {
@@ -158,7 +158,7 @@
   align-items: center;
   gap: var(--spacing-md);
   padding: var(--spacing-md);
-  background: linear-gradient(135deg, rgba(247, 147, 26, 0.1), transparent);
+  background: var(--bitcoin-orange-subtle);
   border: 1px solid var(--border-accent);
   border-radius: var(--radius-lg);
   margin-bottom: var(--spacing-xl);
@@ -170,9 +170,9 @@
   justify-content: center;
   width: 44px;
   height: 44px;
-  background: var(--bitcoin-orange);
+  background: var(--accent-fill);
   border-radius: var(--radius-md);
-  color: var(--text-inverse);
+  color: var(--accent-ink);
 }
 
 .nextHalvingContent {
@@ -248,13 +248,13 @@
   width: 12px;
   height: 12px;
   background: var(--border-medium);
-  border-radius: 50%;
+  border-radius: 0;
   margin-bottom: var(--spacing-sm);
 }
 
 .timelineItem.active .timelineDot {
   background: var(--bitcoin-orange);
-  box-shadow: 0 0 10px var(--bitcoin-orange);
+  box-shadow: var(--shadow-sm);
 }
 
 .timelineItem.past .timelineDot {

@@ -202,7 +202,7 @@
   align-items: center;
   gap: var(--spacing-md);
   padding: var(--spacing-lg);
-  background: linear-gradient(135deg, var(--bitcoin-orange-subtle), transparent);
+  background: var(--bitcoin-orange-subtle);
   border: 2px solid var(--bitcoin-orange);
   border-radius: var(--radius-lg);
   width: 100%;
@@ -217,7 +217,7 @@
   width: 56px;
   height: 56px;
   background: var(--bitcoin-orange-subtle);
-  border-radius: 50%;
+  border-radius: 0;
   color: var(--bitcoin-orange);
 }
 

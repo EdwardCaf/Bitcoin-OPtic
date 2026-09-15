@@ -20,12 +20,12 @@
 .iconWrapper {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  border-radius: 0;
+  background: var(--primary-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-inverse);
   flex-shrink: 0;
 }
 
@@ -62,7 +62,7 @@
   padding: 1rem;
   background: var(--bg-secondary);
   border: 2px solid var(--border-light);
-  border-radius: 8px;
+  border-radius: 0;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -76,7 +76,7 @@
 .scenarioButton.active {
   background: var(--bg-primary);
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px var(--primary-light);
+  box-shadow: var(--shadow-sm);
 }
 
 .scenarioIcons {
@@ -110,7 +110,7 @@
   margin-bottom: 2rem;
   padding: 1rem;
   background: var(--bg-tertiary);
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 .toggleBtn {
@@ -122,7 +122,7 @@
   padding: 0.875rem;
   background: var(--bg-secondary);
   border: 2px solid var(--border-light);
-  border-radius: 8px;
+  border-radius: 0;
   cursor: pointer;
   font-size: 0.875rem;
   font-weight: 600;
@@ -139,7 +139,7 @@
   background: var(--bg-primary);
   border-color: var(--primary);
   color: var(--text-primary);
-  box-shadow: 0 0 0 3px var(--primary-light);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Comparison View */
@@ -155,7 +155,7 @@
 
 .comparisonCard {
   border: 2px solid var(--border-medium);
-  border-radius: 12px;
+  border-radius: 0;
   overflow: hidden;
   background: var(--bg-primary);
 }
@@ -166,6 +166,7 @@
   gap: 0.75rem;
   padding: 1.5rem;
   border-bottom: 2px solid var(--border-light);
+  background: var(--bg-tertiary) !important;
 }
 
 .comparisonHeader h4 {
@@ -222,7 +223,7 @@
   margin-bottom: 2rem;
   padding: 1rem;
   background: var(--bg-tertiary);
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 .progressStep {
@@ -233,7 +234,7 @@
   padding: 0.75rem;
   background: var(--bg-secondary);
   border: 2px solid var(--border-light);
-  border-radius: 8px;
+  border-radius: 0;
   transition: all 0.3s;
 }
 
@@ -244,14 +245,14 @@
 
 .progressStep.stepCurrent {
   border-color: var(--primary);
-  background: var(--primary-light);
-  box-shadow: 0 0 0 3px var(--primary-light);
+  background: var(--bitcoin-orange-subtle);
+  box-shadow: var(--shadow-sm);
 }
 
 .stepNumber {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 0;
   background: var(--bg-tertiary);
   color: var(--text-tertiary);
   display: flex;
@@ -263,8 +264,8 @@
 }
 
 .stepActive .stepNumber {
-  background: var(--primary);
-  color: white;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
 }
 
 .stepInfo {
@@ -307,7 +308,7 @@
   gap: 0.75rem;
   padding: 1rem;
   background: var(--bg-tertiary);
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 .chainHeader h4 {
@@ -330,15 +331,15 @@
   padding: 1rem;
   background: var(--bg-secondary);
   border: 2px solid var(--border-light);
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 .avatar {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  background: var(--primary);
-  color: white;
+  border-radius: 0;
+  background: var(--accent-fill);
+  color: #0b1017;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -367,7 +368,7 @@
 .htlc {
   background: var(--bg-primary);
   border: 2px solid var(--border-medium);
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
 }
 
@@ -413,7 +414,7 @@
   color: var(--text-primary);
   background: var(--bg-tertiary);
   padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 .secretReveal {
@@ -421,19 +422,19 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem;
-  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  background: var(--success-bg);
   border: 2px solid var(--success);
-  border-radius: 6px;
+  border-radius: 0;
   font-size: 0.75rem;
-  color: #065f46;
+  color: var(--exchange);
 }
 
 .secretReveal code {
   font-weight: 700;
-  background: #fff;
+  background: var(--bg-tertiary);
   padding: 0.125rem 0.375rem;
-  border-radius: 3px;
-  color: #059669;
+  border-radius: 0;
+  color: var(--exchange);
 }
 
 /* Center Section */
@@ -449,7 +450,7 @@
 .secretBox {
   background: var(--bg-secondary);
   border: 2px solid var(--border-medium);
-  border-radius: 8px;
+  border-radius: 0;
   padding: 1rem;
   width: 100%;
 }
@@ -490,7 +491,7 @@
   color: var(--text-primary);
   background: var(--bg-tertiary);
   padding: 0.5rem;
-  border-radius: 4px;
+  border-radius: 0;
   word-break: break-all;
 }
 
@@ -499,9 +500,9 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem;
-  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  background: var(--success-bg);
   border: 2px solid var(--success);
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 .secretDisplay div {
@@ -512,7 +513,7 @@
 
 .secretDisplay span {
   font-size: 0.75rem;
-  color: #065f46;
+  color: var(--exchange);
   font-weight: 600;
 }
 
@@ -520,10 +521,10 @@
   font-family: 'Monaco', 'Courier New', monospace;
   font-size: 0.875rem;
   font-weight: 700;
-  color: #059669;
-  background: #fff;
+  color: var(--exchange);
+  background: var(--bg-tertiary);
   padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 .swapArrow {
@@ -531,9 +532,9 @@
 }
 
 .completeIcon {
-  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  background: var(--success-bg);
   border: 3px solid var(--success);
-  border-radius: 50%;
+  border-radius: 0;
   width: 80px;
   height: 80px;
   display: flex;
@@ -547,11 +548,11 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1.5rem;
-  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  background: var(--success-bg);
   border: 2px solid var(--success);
-  border-radius: 8px;
+  border-radius: 0;
   margin-top: 2rem;
-  color: #065f46;
+  color: var(--exchange);
 }
 
 .successBox svg {
@@ -575,9 +576,9 @@
 .privacyBenefit {
   margin-top: 2rem;
   padding: 2rem;
-  background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+  background: var(--bg-secondary);
   border: 2px solid var(--border-medium);
-  border-radius: 12px;
+  border-radius: 0;
 }
 
 .benefitHeader {
@@ -617,7 +618,7 @@
   padding: 0.75rem;
   background: var(--bg-primary);
   border: 2px solid var(--success-light);
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 .privacyBenefit li svg {
@@ -660,4 +661,20 @@
   .scenarioSelector {
     grid-template-columns: 1fr;
   }
+}
+
+.comparisonCard:first-child .comparisonHeader {
+  border-top: 3px solid var(--error);
+}
+
+.comparisonCard:last-child .comparisonHeader {
+  border-top: 3px solid var(--success);
+}
+
+.comparisonCard:first-child .comparisonHeader svg {
+  color: var(--error) !important;
+}
+
+.comparisonCard:last-child .comparisonHeader svg {
+  color: var(--success) !important;
 }

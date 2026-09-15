@@ -22,11 +22,11 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+  background: var(--exchange);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-inverse);
   flex-shrink: 0;
 }
 
@@ -76,8 +76,8 @@
 }
 
 .toggleBtn.active {
-  background: var(--primary);
-  color: white;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
 }
 
 /* Flow Diagram */
@@ -103,31 +103,31 @@
 }
 
 .chainBox.bitcoin {
-  border: 2px solid #f97316;
+  border: 2px solid var(--bitcoin-orange);
 }
 
 .chainBox.liquid {
-  border: 2px solid #14b8a6;
+  border: 2px solid var(--exchange);
 }
 
 .chainBox .chainIcon {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: var(--font-size-lg);
-  color: white;
+  color: var(--text-inverse);
 }
 
 .chainBox.bitcoin .chainIcon {
-  background: #f97316;
+  background: var(--bitcoin-orange);
 }
 
 .chainBox.liquid .chainIcon {
-  background: #14b8a6;
+  background: var(--exchange);
 }
 
 .chainInfo {
@@ -181,9 +181,9 @@
 .stepNumber {
   width: 24px;
   height: 24px;
-  border-radius: 50%;
-  background: var(--primary);
-  color: white;
+  border-radius: 0;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -216,14 +216,14 @@
   justify-content: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-sm) var(--spacing-md);
-  background: rgba(249, 115, 22, 0.1);
+  background: var(--bitcoin-orange-subtle);
   border-radius: var(--radius-md);
   color: var(--text-secondary);
   font-size: var(--font-size-sm);
 }
 
 .federationNote svg {
-  color: #f97316;
+  color: var(--bitcoin-orange);
   flex-shrink: 0;
 }
 
@@ -383,9 +383,9 @@
 
 .privacyStrategy {
   padding: var(--spacing-lg);
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1));
+  background: var(--success-bg);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(34, 197, 94, 0.2);
+  border: 1px solid color-mix(in srgb, var(--success) 20%, transparent);
 }
 
 .privacyStrategy h4 {

@@ -21,8 +21,8 @@
   width: 48px;
   height: 48px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
-  color: white;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
   flex-shrink: 0;
 }
 
@@ -62,12 +62,12 @@
 .layerButton:hover {
   background: var(--bg-tertiary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .layerButton.active {
   background: var(--bg-primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .layerIcon {
@@ -77,7 +77,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #0b1017;
   flex-shrink: 0;
 }
 
@@ -102,7 +102,7 @@
 .ratingDot {
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  border-radius: 0;
   transition: background-color 0.2s ease;
 }
 
@@ -207,9 +207,9 @@
 }
 
 .scenarioButton.active {
-  background: var(--primary-500);
+  background: var(--accent-fill);
   border-color: var(--primary-500);
-  color: white;
+  color: var(--accent-ink);
 }
 
 .scenarioCard {
@@ -224,7 +224,7 @@
   align-items: flex-start;
   gap: var(--spacing-md);
   padding: var(--spacing-md) var(--spacing-lg);
-  background: rgba(245, 158, 11, 0.1);
+  background: var(--warning-bg);
   border-left: 3px solid var(--warning-500);
   border-radius: var(--radius-md);
   margin-bottom: var(--spacing-lg);
@@ -255,7 +255,7 @@
 
 .scenarioItem.selected {
   border-color: var(--primary-500);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .scenarioHeader {
@@ -275,7 +275,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #0b1017;
   flex-shrink: 0;
 }
 

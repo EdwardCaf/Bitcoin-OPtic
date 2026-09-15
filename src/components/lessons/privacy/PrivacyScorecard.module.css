@@ -148,13 +148,13 @@
 .practiceToggle.yes {
   background: var(--success);
   border-color: var(--success);
-  color: white;
+  color: var(--text-inverse);
 }
 
 .practiceToggle.no {
   background: var(--error);
   border-color: var(--error);
-  color: white;
+  color: var(--text-inverse);
 }
 
 .emptyCheck {

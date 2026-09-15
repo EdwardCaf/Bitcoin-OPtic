@@ -407,7 +407,7 @@
   display: flex;
   gap: var(--spacing-md);
   padding: var(--spacing-lg);
-  background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), transparent);
+  background: var(--error-bg);
   border: 1px solid var(--error);
   border-radius: var(--radius-lg);
 }

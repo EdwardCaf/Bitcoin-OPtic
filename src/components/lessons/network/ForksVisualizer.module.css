@@ -142,8 +142,7 @@
   border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 35%, var(--border-subtle));
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(circle at top left, color-mix(in srgb, var(--bitcoin-orange) 22%, transparent), transparent 38%),
-    linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+    var(--bg-secondary);
 }
 
 .competitionBanner h4 {
@@ -261,10 +260,10 @@
   position: absolute;
   inset: auto -20% -45% 30%;
   height: 120px;
-  border-radius: 999px;
+  border-radius: 0;
   background: currentColor;
   opacity: 0.08;
-  filter: blur(28px);
+  pointer-events: none;
 }
 
 .newMinerCamp {
@@ -278,7 +277,7 @@
 .activeCamp {
   transform: translateY(-2px);
   border-color: currentColor;
-  box-shadow: 0 14px 34px color-mix(in srgb, currentColor 18%, transparent);
+  box-shadow: var(--shadow-sm);
 }
 
 .campHeader {
@@ -302,8 +301,8 @@
 .hashMeter span {
   display: block;
   height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, currentColor, color-mix(in srgb, currentColor 55%, white));
+  border-radius: 0;
+  background: currentColor;
 }
 
 .campStats {

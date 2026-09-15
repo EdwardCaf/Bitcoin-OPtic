@@ -103,8 +103,8 @@
 }
 
 .blockCard.selected .blockIcon {
-  background: var(--bitcoin-orange);
-  color: var(--text-inverse);
+  background: var(--accent-fill);
+  color: var(--accent-ink);
 }
 
 .blockInfo {

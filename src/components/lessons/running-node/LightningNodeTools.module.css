@@ -23,7 +23,7 @@
 .headerIcon {
   width: 48px;
   height: 48px;
-  border-radius: 16px;
+  border-radius: 0;
 }
 
 .header h3 {
@@ -51,10 +51,10 @@
   gap: var(--spacing-md);
   padding: clamp(1rem, 2.5vw, 1.5rem);
   border: 1px solid color-mix(in srgb, var(--border-subtle) 76%, transparent);
-  border-radius: 22px;
+  border-radius: 0;
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-elevated) 74%, transparent), color-mix(in srgb, var(--bg-secondary) 94%, transparent));
-  box-shadow: 0 14px 34px color-mix(in srgb, black 16%, transparent);
+    var(--bg-elevated);
+  box-shadow: var(--shadow-sm);
 }
 
 .columnHeader {
@@ -68,7 +68,7 @@
 .columnIcon {
   width: 36px;
   height: 36px;
-  border-radius: 13px;
+  border-radius: 0;
 }
 
 .columnHeader h4 {

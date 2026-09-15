@@ -44,12 +44,11 @@
   min-width: 180px;
   padding: var(--spacing-md) var(--spacing-lg);
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-tertiary) 84%, transparent), var(--bg-secondary));
+    var(--bg-tertiary);
   border: 1px solid var(--border-subtle);
-  border-radius: 999px;
+  border-radius: 0;
   box-shadow:
-    0 14px 30px color-mix(in srgb, black 10%, transparent),
-    inset 0 1px 0 color-mix(in srgb, white 6%, transparent);
+    var(--shadow-sm);
   color: var(--text-primary);
   font-weight: 800;
 }
@@ -57,8 +56,7 @@
 .rootNode {
   border-color: color-mix(in srgb, var(--bitcoin-orange) 45%, var(--border-subtle));
   background:
-    radial-gradient(circle at 15% 50%, color-mix(in srgb, var(--bitcoin-orange) 18%, transparent), transparent 8rem),
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-tertiary) 88%, transparent), var(--bg-secondary));
+    var(--bg-tertiary);
 }
 
 .rootNode::after,
@@ -95,7 +93,7 @@
   flex-shrink: 0;
   background: color-mix(in srgb, var(--bitcoin-orange) 12%, var(--bg-tertiary));
   border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 28%, var(--border-subtle));
-  border-radius: 50%;
+  border-radius: 0;
   color: var(--bitcoin-orange);
 }
 

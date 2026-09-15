@@ -17,7 +17,7 @@
 .iconWrapper {
   width: 48px;
   height: 48px;
-  border-radius: 16px;
+  border-radius: 0;
   color: var(--bitcoin-orange);
   background: color-mix(in srgb, var(--bitcoin-orange) 14%, var(--bg-tertiary));
   border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 35%, var(--border-subtle));
@@ -51,9 +51,9 @@
   min-height: 92px;
   padding: var(--spacing-md);
   border: 1px solid var(--border-subtle);
-  border-radius: 18px;
+  border-radius: 0;
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-elevated) 72%, transparent), color-mix(in srgb, var(--bg-tertiary) 96%, transparent));
+    var(--bg-elevated);
   color: var(--text-secondary);
   font: inherit;
   text-align: left;
@@ -65,18 +65,18 @@
 .selected {
   transform: translateY(-1px);
   border-color: color-mix(in srgb, var(--text-primary) 28%, var(--border-subtle));
-  box-shadow: 0 14px 30px color-mix(in srgb, black 14%, transparent);
+  box-shadow: var(--shadow-sm);
 }
 
 .selected {
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-elevated) 88%, transparent), color-mix(in srgb, var(--bg-tertiary) 96%, transparent));
+    var(--bg-elevated);
 }
 
 .backendIcon {
   width: 42px;
   height: 42px;
-  border-radius: 14px;
+  border-radius: 0;
   color: var(--bitcoin-orange);
   background: color-mix(in srgb, var(--bitcoin-orange) 14%, var(--bg-tertiary));
   border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 35%, var(--border-subtle));
@@ -103,10 +103,10 @@
 
 .details {
   border: 1px solid color-mix(in srgb, var(--border-subtle) 80%, transparent);
-  border-radius: 20px;
+  border-radius: 0;
   padding: var(--spacing-lg);
   background:
-    linear-gradient(145deg, var(--bg-tertiary), var(--bg-secondary));
+    var(--bg-tertiary);
 }
 
 .detailsHeader {
@@ -119,7 +119,7 @@
 .detailsIcon {
   width: 52px;
   height: 52px;
-  border-radius: 16px;
+  border-radius: 0;
   color: var(--text-secondary);
   background: var(--bg-elevated);
   border: 1px solid var(--border-subtle);
@@ -149,7 +149,7 @@
   grid-template-columns: auto 1fr;
   gap: 0.25rem var(--spacing-sm);
   padding: var(--spacing-md);
-  border-radius: 14px;
+  border-radius: 0;
   background: color-mix(in srgb, var(--bg-elevated) 78%, transparent);
   border: 1px solid color-mix(in srgb, var(--border-subtle) 72%, transparent);
 }
@@ -203,7 +203,7 @@
 .summary {
   margin: var(--spacing-md) 0 0;
   padding: var(--spacing-md);
-  border-radius: 14px;
+  border-radius: 0;
   color: var(--text-primary);
   line-height: 1.55;
   background: color-mix(in srgb, var(--bg-elevated) 80%, transparent);

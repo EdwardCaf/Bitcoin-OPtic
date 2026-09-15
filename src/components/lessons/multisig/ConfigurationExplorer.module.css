@@ -62,8 +62,8 @@
   align-items: center;
   gap: 2px;
   padding: 2px 8px;
-  background: var(--bitcoin-orange);
-  color: white;
+  background: var(--accent-fill);
+  color: var(--accent-ink);
   font-size: 9px;
   font-weight: 600;
   border-radius: var(--radius-full);
@@ -152,7 +152,7 @@
   width: 24px;
   height: 12px;
   background: var(--bg-tertiary);
-  border-radius: 2px;
+  border-radius: 0;
 }
 
 .meterBar.active {

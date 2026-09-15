@@ -169,7 +169,7 @@
 
 .node.highlighted {
   border-color: var(--success);
-  box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .nodeIcon {
@@ -184,8 +184,8 @@
 }
 
 .node.leaf .nodeIcon {
-  background: var(--bitcoin-orange);
-  color: var(--text-inverse);
+  background: var(--accent-fill);
+  color: var(--accent-ink);
 }
 
 .nodeContent {
@@ -214,7 +214,7 @@
 /* Root Section */
 .rootSection {
   padding: var(--spacing-lg);
-  background: linear-gradient(135deg, rgba(247, 147, 26, 0.1), transparent);
+  background: var(--bitcoin-orange-subtle);
   border: 1px solid var(--border-accent);
   border-radius: var(--radius-lg);
   text-align: center;

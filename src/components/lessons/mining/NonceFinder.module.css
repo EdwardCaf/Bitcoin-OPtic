@@ -185,7 +185,7 @@
 .hashDisplay.valid {
   border-color: var(--success);
   background: var(--success-bg);
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+  box-shadow: var(--shadow-sm);
 }
 
 .hashText {
@@ -315,7 +315,7 @@
   border-radius: var(--radius-xl);
   padding: var(--spacing-2xl);
   text-align: center;
-  box-shadow: var(--shadow-lg), 0 0 60px rgba(34, 197, 94, 0.3);
+  box-shadow: var(--shadow-lg), 0 0 60px color-mix(in srgb, var(--success) 30%, transparent);
   max-width: 90vw;
   width: 400px;
   cursor: default;

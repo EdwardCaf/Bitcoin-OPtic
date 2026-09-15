@@ -60,7 +60,7 @@
 .walletCard {
   padding: var(--spacing-lg);
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--bg-tertiary) 82%, transparent), var(--bg-secondary));
+    var(--bg-tertiary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
 }
