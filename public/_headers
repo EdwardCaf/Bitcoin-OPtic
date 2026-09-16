@@ -13,11 +13,32 @@
 /icon-512.svg
   Cache-Control: public, max-age=1209600
 
+/apple-touch-icon.png
+  Cache-Control: public, max-age=1209600
+  Content-Type: image/png
+
+/icon-192.png
+  Cache-Control: public, max-age=1209600
+  Content-Type: image/png
+
+/icon-512.png
+  Cache-Control: public, max-age=1209600
+  Content-Type: image/png
+
+/icon-maskable-512.png
+  Cache-Control: public, max-age=1209600
+  Content-Type: image/png
+
 /manifest.json
   Cache-Control: public, max-age=1209600
 
-/og-image-v2.png
+/og-image-terminal.png
   Cache-Control: public, max-age=1209600
+  Content-Type: image/png
+
+/og-image-terminal.svg
+  Cache-Control: public, max-age=1209600
+  Content-Type: image/svg+xml
 
 /index.html
   Cache-Control: public, max-age=0, must-revalidate
