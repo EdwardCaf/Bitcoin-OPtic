@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
+import {
   ChevronRight,
   ChevronDown,
   Library,
@@ -160,11 +160,13 @@ export function Sidebar({ isOpen, onClose }) {
 
             <div className={styles.footer}>
               <p className={styles.footerText}>
-                All visuals are for educational purposes.
                 Nothing stated is finanical advice.
               </p>
               <p className={styles.footerText}>
                 Created by Edward Cafarella
+              </p>
+              <p className={styles.footerText}>
+                Est. Block 930039
               </p>
             </div>
           </div>

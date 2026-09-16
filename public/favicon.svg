@@ -43,6 +43,6 @@ SOFTWARE.
 
 -->
 <rect width="40" height="40" fill="#ffb454"/>
-<rect x="0.5" y="0.5" width="39" height="39" fill="none" stroke="#14231e"/>
+<!-- Full-bleed background lets browsers apply their own corner masks cleanly. -->
 <g transform="translate(6.0 6.0) scale(1.1666666666666667)" fill="none" stroke="#14231e" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></g>
 </svg>
