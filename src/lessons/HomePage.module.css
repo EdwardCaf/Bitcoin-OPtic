@@ -16,48 +16,27 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 430px;
+    min-height: 360px;
     margin-bottom: var(--spacing-2xl);
-    padding: 5rem var(--spacing-xl) 4rem;
+    padding: 3.5rem var(--spacing-xl);
     overflow: hidden;
     border: 1px solid var(--border-medium);
     border-radius: 0;
     background: var(--bg-secondary);
-    box-shadow: var(--surface-card-shadow);
+    box-shadow: 0 2px 12px color-mix(in srgb, var(--text-primary) 5%, transparent);
     text-align: center;
 }
 
 .hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 36px;
-    border-bottom: 1px solid var(--border-medium);
-    background: var(--bg-tertiary);
+    display: none;
 }
 
 .hero::after {
-    content: "";
-    position: absolute;
-    top: 13px;
-    left: 18px;
-    width: 9px;
-    height: 9px;
-    background: var(--bitcoin-orange);
-    box-shadow: 17px 0 0 var(--terminal-green), 34px 0 0 var(--cyan);
+    display: none;
 }
 
 .heroGlow {
-    position: absolute;
-    right: 24px;
-    bottom: 24px;
-    width: 10px;
-    height: 10px;
-    background: var(--terminal-green);
-    box-shadow: -14px 0 0 var(--terminal-green), 0 -14px 0 var(--cyan), -28px 0 0 var(--bitcoin-orange);
-    pointer-events: none;
+    display: none;
 }
 
 .heroContent {
@@ -78,13 +57,13 @@
 
 .heroTitleLine {
     display: block;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
     font-family: var(--font-mono);
     font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--terminal-green);
+    color: var(--text-muted);
 }
 
 .heroTitleMain {
@@ -93,9 +72,7 @@
 }
 
 .heroHighlight {
-    padding: 0 0.055em;
-    background: var(--accent-fill);
-    color: var(--accent-ink);
+    color: var(--bitcoin-orange);
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
 }
@@ -828,8 +805,8 @@ button.footerLink {
     }
 
     .hero {
-        min-height: 380px;
-        padding: 4rem var(--spacing-md) 3.5rem;
+        min-height: 310px;
+        padding: 3rem var(--spacing-md);
     }
 
     .heroTitle {
