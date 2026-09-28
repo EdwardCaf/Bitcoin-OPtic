@@ -72,7 +72,7 @@ function AppLayout({ children, theme, onToggleTheme }) {
 }
 
 function App() {
-  const [theme, setTheme] = useLocalStorage('theme', 'light');
+  const [theme, setTheme] = useLocalStorage('theme', 'dark');
 
   useEffect(() => {
     const normalizedTheme = theme === 'light' ? 'light' : 'dark';

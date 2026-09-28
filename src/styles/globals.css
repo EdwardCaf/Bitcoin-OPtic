@@ -12,25 +12,25 @@
     --bg-hover: #293c50;
 
     /* Text accents adapt to the theme; filled actions keep a bright face. */
-    --bitcoin-orange: #ffb454;
-    --bitcoin-orange-light: #ffd080;
-    --bitcoin-orange-dark: #f5a13d;
+    --bitcoin-orange: color-mix(in srgb, #ffb454 93%, #808080);
+    --bitcoin-orange-light: color-mix(in srgb, #ffd080 93%, #808080);
+    --bitcoin-orange-dark: color-mix(in srgb, #f5a13d 93%, #808080);
     --bitcoin-orange-glow: color-mix(in srgb, var(--bitcoin-orange) 25%, transparent);
     --bitcoin-orange-subtle: color-mix(in srgb, var(--bitcoin-orange) 9%, var(--bg-secondary));
-    --accent-fill: #ffb454;
+    --accent-fill: color-mix(in srgb, #ffb454 93%, #808080);
     --accent-ink: #14231e;
-    --terminal-green: #b4f47a;
+    --terminal-green: color-mix(in srgb, #b4f47a 93%, #808080);
     --terminal-grid: #253544;
 
     /* Semantic ink colors also work on the elevated surfaces and tinted badges. */
-    --success: #96eb89;
-    --error: #ff8c98;
-    --warning: #f7d76b;
-    --info: #8bbaff;
-    --purple: #d3a0ff;
-    --cyan: #67d8ef;
-    --node: #f89ed3;
-    --exchange: #77e2c5;
+    --success: color-mix(in srgb, #96eb89 93%, #808080);
+    --error: color-mix(in srgb, #ff8c98 93%, #808080);
+    --warning: color-mix(in srgb, #f7d76b 93%, #808080);
+    --info: color-mix(in srgb, #8bbaff 93%, #808080);
+    --purple: color-mix(in srgb, #d3a0ff 93%, #808080);
+    --cyan: color-mix(in srgb, #67d8ef 93%, #808080);
+    --node: color-mix(in srgb, #f89ed3 93%, #808080);
+    --exchange: color-mix(in srgb, #77e2c5 93%, #808080);
     --success-bg: color-mix(in srgb, var(--success) 9%, var(--bg-secondary));
     --error-bg: color-mix(in srgb, var(--error) 9%, var(--bg-secondary));
     --warning-bg: color-mix(in srgb, var(--warning) 9%, var(--bg-secondary));
