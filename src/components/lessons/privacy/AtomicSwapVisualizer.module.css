@@ -339,7 +339,7 @@
   height: 48px;
   border-radius: 0;
   background: var(--accent-fill);
-  color: #0b1017;
+  color: var(--accent-ink);
   display: flex;
   align-items: center;
   justify-content: center;

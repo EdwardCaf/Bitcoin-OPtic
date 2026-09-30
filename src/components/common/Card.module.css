@@ -2,10 +2,10 @@
   position: relative;
   overflow: hidden;
   background: var(--bg-secondary);
-  border: 1px solid var(--border-medium);
-  border-radius: 0;
-  box-shadow: var(--shadow-sm);
-  transition: background var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--surface-card-shadow);
+  transition: background-color var(--transition-base), border-color var(--transition-base);
 }
 
 /* Variants */
@@ -15,7 +15,7 @@
 
 .elevated {
   background: var(--bg-elevated);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--surface-card-shadow);
 }
 
 .outlined {
@@ -26,13 +26,13 @@
 
 .gradient {
   background: var(--bitcoin-orange-subtle);
-  border: 1px solid var(--bitcoin-orange);
+  border-color: color-mix(in srgb, var(--bitcoin-orange) 45%, var(--border-subtle));
 }
 
 .interactive {
-  background: var(--bg-tertiary);
-  border: 1px dashed var(--cyan);
-  box-shadow: none;
+  background: var(--info-bg);
+  border: 1px solid color-mix(in srgb, var(--info) 45%, var(--border-subtle));
+  box-shadow: var(--surface-card-shadow);
 }
 
 .warning {
@@ -60,12 +60,12 @@
 /* States */
 .hover:hover {
   border-color: var(--bitcoin-orange);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--surface-card-shadow);
 }
 
 .glow {
   border-color: var(--border-accent);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--surface-card-shadow);
 }
 
 .clickable {
@@ -83,11 +83,11 @@
 
 .title {
   font-size: var(--text-lg);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
   margin: 0;
   letter-spacing: -0.025em;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   line-height: 1.4;
 }
 
@@ -105,7 +105,7 @@
 .footer {
   margin-top: var(--spacing-md);
   padding-top: var(--spacing-md);
-  border-top: 1px dashed var(--border-medium);
+  border-top: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);

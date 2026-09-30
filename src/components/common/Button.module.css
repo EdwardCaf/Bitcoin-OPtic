@@ -3,18 +3,18 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-weight: 600;
   border: 1px solid transparent;
-  border-radius: 0;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
   position: relative;
   overflow: visible;
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--bitcoin-orange);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
@@ -43,13 +43,12 @@
 .primary {
   background: var(--accent-fill);
   color: var(--accent-ink);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--accent-ink);
+  box-shadow: none;
+  border: 1px solid var(--accent-fill);
 }
 
 .primary:hover:not(.disabled) {
-  box-shadow: var(--shadow-md);
-  background: var(--accent-fill);
+  background: color-mix(in srgb, var(--accent-fill) 90%, var(--text-primary));
 }
 
 .secondary {
@@ -65,8 +64,8 @@
 
 .outline {
   background: transparent;
-  color: var(--bitcoin-orange);
-  border: 1px solid var(--bitcoin-orange);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
 }
 
 .outline:hover:not(.disabled) {

@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../common';
@@ -131,16 +130,9 @@ export function LessonLayout({
       </header>
 
       {/* Main Content */}
-      <motion.main
-        className={styles.main}
-        key={currentSection}
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -20 }}
-        transition={{ duration: 0.3 }}
-      >
+      <main className={styles.main} key={currentSection}>
         {children}
-      </motion.main>
+      </main>
 
       {/* Navigation Footer */}
       <footer className={styles.footer}>

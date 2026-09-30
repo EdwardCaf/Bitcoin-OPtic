@@ -4,7 +4,6 @@ import styles from './ResourceLinkCard.module.css';
 
 /**
  * A card component that links to a specific section of the Resources page.
- * Uses the same cyan color scheme as the Resources link in the sidebar.
  * 
  * @param {string} section - The section ID to link to (e.g., "lightningWallets")
  * @param {string} title - The display title (e.g., "Lightning Wallets")

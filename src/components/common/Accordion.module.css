@@ -1,23 +1,24 @@
 .accordion {
-  border-radius: 0;
+  border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: none;
+  box-shadow: var(--surface-card-shadow);
 }
 
 /* Variants */
 .default {
   background: var(--bg-secondary);
-  border: 1px solid var(--border-medium);
+  border: 1px solid var(--border-subtle);
 }
 
 .ghost {
   background: transparent;
   border: none;
+  box-shadow: none;
 }
 
 .deepdive {
   background: var(--bitcoin-orange-subtle);
-  border: 1px solid var(--bitcoin-orange);
+  border: 1px solid color-mix(in srgb, var(--bitcoin-orange) 45%, var(--border-subtle));
   margin: 0;
 }
 
@@ -34,7 +35,7 @@
   transition: background var(--transition-fast), color var(--transition-fast);
   text-align: left;
   min-height: 44px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 .trigger:hover {
@@ -42,7 +43,7 @@
 }
 
 .trigger:focus-visible {
-  outline: 2px solid var(--bitcoin-orange);
+  outline: 2px solid var(--focus-ring);
   outline-offset: -2px;
 }
 
@@ -101,7 +102,7 @@
 .content code {
   background: var(--bg-elevated);
   padding: 0.1em 0.4em;
-  border-radius: 0;
+  border-radius: var(--radius-md);
   font-size: 0.9em;
 }
 

@@ -2,11 +2,11 @@
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
-  font-weight: 600;
-  border: 1px solid var(--border-medium);
-  border-radius: 0;
+  font-weight: 500;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
   white-space: nowrap;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 /* Sizes */
@@ -58,7 +58,7 @@
 
 .outline {
   background: transparent;
-  border: 1px solid var(--border-medium);
+  border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
 }
 
@@ -71,7 +71,7 @@
 .cyan,
 .node,
 .exchange {
-  border-color: currentColor;
+  border-color: color-mix(in srgb, currentColor 35%, transparent);
 }
 
 .purple {

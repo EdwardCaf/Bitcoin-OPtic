@@ -25,8 +25,6 @@ export function Card({
     <motion.div
       className={cardClasses}
       onClick={onClick}
-      whileHover={hover ? { y: -2 } : {}}
-      whileTap={onClick ? { scale: 0.99 } : {}}
       {...props}
     >
       {children}

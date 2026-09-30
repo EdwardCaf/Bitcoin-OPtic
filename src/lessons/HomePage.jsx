@@ -1,13 +1,11 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
   Mail,
   Check,
   Globe,
-  Handshake,
 } from "lucide-react";
-import { Button, Badge } from "../components/common";
+import { Button } from "../components/common";
 import { useMailerLiteOnVisible } from "../hooks/useMailerLite";
 import styles from "./HomePage.module.css";
 
@@ -148,19 +146,8 @@ export function HomePage() {
   return (
     <div className={styles.container}>
       {/* Hero Section */}
-      <motion.section
-        className={styles.hero}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.25 }}
-      >
-        <div className={styles.heroGlow} aria-hidden="true" />
-        <motion.div
-          className={styles.heroContent}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 0.05 }}
-        >
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
           <h1 className={styles.heroTitle}>
             <span className={styles.heroTitleLine}>Welcome to</span>
             <span className={styles.heroTitleMain}>
@@ -173,16 +160,13 @@ export function HomePage() {
             wallets, privacy, Lightning payments, and more. Master the
             technology, all completely for free.
           </p>
-        </motion.div>
-      </motion.section>
+        </div>
+      </section>
 
       {/* Newsletter Section */}
-      <motion.section
+      <section
         ref={newsletterSectionRef}
         className={styles.newsletterSection}
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.25 }}
       >
         <div className={styles.newsletterShell}>
           <div className={styles.newsletterIntro}>
@@ -267,27 +251,15 @@ export function HomePage() {
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Personal Introduction */}
-      <motion.section
+      <section
         className={styles.mentorSection}
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "80px" }}
-        transition={{ duration: 0.25 }}
         aria-labelledby="mentor-heading"
       >
         <div className={styles.mentorCopy}>
-          <div className={styles.mentorBadge}>
-            <Badge
-              variant="primary"
-              size="medium"
-              icon={<Handshake size={14} />}
-            >
-              Work with me 1-on-1
-            </Badge>
-          </div>
+          <p className={styles.mentorEyebrow}>Work with me 1-on-1</p>
           <h2 id="mentor-heading" className={styles.mentorTitle}>
             Gain confidence on your path to financial sovereignty.
           </h2>
@@ -329,7 +301,7 @@ export function HomePage() {
               className={styles.mentorImage}
             />
           </div>
-          <div className={styles.mentorDetails}>
+          <div>
             <div className={styles.mentorIdentityRow}>
               <div>
                 <p className={styles.mentorCardEyebrow}>Your Mentor</p>
@@ -355,16 +327,10 @@ export function HomePage() {
             </p>
           </div>
         </aside>
-      </motion.section>
+      </section>
 
       {/* Footer Contact */}
-      <motion.section
-        className={styles.footerContact}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "80px" }}
-        transition={{ duration: 0.2 }}
-      >
+      <section className={styles.footerContact}>
         <span className={styles.footerLabel}>Connect with me</span>
         <div className={styles.footerLinks}>
           <a
@@ -396,7 +362,7 @@ export function HomePage() {
             </span>
           </button>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 }

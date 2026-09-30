@@ -1,197 +1,107 @@
 .newsletterSection {
-  position: relative;
   margin-bottom: var(--spacing-2xl);
-  border-radius: 0;
-  border: 1px solid var(--border-medium);
-  background:
-    var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--info) 40%, var(--border-subtle));
+  border-top: 3px solid var(--info);
+  background: var(--info-bg);
   box-shadow: var(--surface-card-shadow);
-  overflow: hidden;
-  border-top: 4px solid var(--terminal-green);
-}
-
-.newsletterSection::before {
-  content: none;
 }
 
 .standalone {
-  margin: clamp(3rem, 7vw, 5rem) auto;
-  width: min(1200px, calc(100% - 2rem));
+  margin: clamp(2rem, 5vw, 4rem) auto;
+  width: min(1040px, calc(100% - 2rem));
 }
 
 .newsletterShell {
-  position: relative;
-  z-index: 2;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: clamp(1.1rem, 3vw, 2.8rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
   align-items: center;
-  padding: clamp(1.25rem, 3vw, 2.25rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
 }
 
 .newsletterIntro {
   color: var(--text-primary);
-  text-align: left;
 }
 
 .newsletterIntroEyebrow {
   margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--terminal-green);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--info);
 }
 
 .newsletterIntroTitle {
   margin: 0.5rem 0 0;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
   color: var(--text-primary);
-  font-family: var(--font-display);
-  text-wrap: balance;
+  font-family: var(--font-sans);
 }
 
 .newsletterHeadingMain {
-  background: none;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: currentColor;
-  background-clip: text;
-  font-size: inherit;
-  font-weight: inherit;
-  font-family: var(--font-mono);
-  color: var(--text-primary);
-}
-
-.heroHighlight {
-  -webkit-text-fill-color: var(--bitcoin-orange);
-  text-shadow: none;
-  position: relative;
-  color: var(--bitcoin-orange);
+  color: inherit;
 }
 
 .newsletterTitleAccent {
-  color: var(--bitcoin-orange);
-  font-style: normal;
-  letter-spacing: -0.02em;
-  text-decoration: underline;
-  text-decoration-color: var(--bitcoin-orange);
-  text-decoration-thickness: 0.08em;
-  text-underline-offset: 0.14em;
-  font-family: var(--font-mono);
+  color: var(--info);
 }
 
 .newsletterIntroText {
   margin: 0.9rem 0 0;
-  max-width: 36ch;
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  max-width: 40ch;
+  font-size: var(--text-base);
   line-height: 1.7;
   color: var(--text-secondary);
 }
 
-.newsletterCardWrap {
-  display: flex;
-  justify-content: flex-end;
+.newsletterCardWrap,
+.newsletterSignup {
   width: 100%;
+  min-width: 0;
 }
 
 .newsletterSignup {
-  position: relative;
-  margin: 0 auto;
-  width: min(100%, 510px);
-  padding: clamp(1rem, 2.4vw, 1.4rem);
-  border-radius: 0;
-  border: 1px solid var(--border-medium);
-  background:
-    var(--bg-tertiary);
+  padding: clamp(1rem, 2vw, 1.5rem);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
   box-shadow: var(--surface-card-shadow);
-  overflow: hidden;
-  text-align: left;
-}
-
-.newsletterSignup::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--bitcoin-orange);
-}
-
-.newsletterSignup::after {
-  content: none;
 }
 
 .newsletterTitle {
-  margin: 0.45rem 0 0;
+  margin: 0;
   color: var(--text-primary);
-  font-weight: 650;
-  font-size: clamp(1.15rem, 2.3vw, 1.35rem);
-  letter-spacing: -0.02em;
-  font-family: var(--font-mono);
-  line-height: 1.3;
+  font-weight: 600;
+  font-size: var(--text-lg);
+  line-height: 1.4;
 }
 
 .newsletterPromo {
   margin: 0.55rem 0 0;
   max-width: 46ch;
-  color: color-mix(in srgb, var(--text-secondary) 76%, var(--text-primary) 24%);
-  font-size: var(--text-sm);
-  line-height: 1.5;
-  font-family: var(--font-sans);
-}
-
-.newsletterTrust {
-  margin: 0.6rem 0 0;
   color: var(--text-secondary);
-  font-size: 0.82rem;
+  font-size: var(--text-sm);
   line-height: 1.6;
-  text-align: left;
-}
-
-.newsletterTrust p {
-  margin: 0;
-}
-
-.newsletterTrustList {
-  margin: 0.35rem 0 0;
-  padding-inline-start: 1.25rem;
-}
-
-.newsletterTrustList li + li {
-  margin-top: 0.15rem;
 }
 
 .newsletterMeta {
   margin-top: 0.75rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
-}
-
-.newsletterMeta span {
-  display: inline-flex;
-  align-items: center;
-  border-radius: 0;
-  border: 1px solid var(--terminal-green);
-  background: var(--bg-secondary);
-  color: var(--terminal-green);
-  font-size: 0.73rem;
-  letter-spacing: 0.015em;
-  padding: 0.22rem 0.55rem;
-  white-space: nowrap;
-  font-family: var(--font-mono);
+  gap: var(--spacing-md);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
 }
 
 .newsletterForm {
-  margin-top: 0.95rem;
+  margin-top: 1rem;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 0;
+  gap: var(--spacing-sm);
 }
 
 .newsletterLabel {
@@ -207,52 +117,37 @@
 }
 
 .newsletterInput {
-  flex: 1;
   min-width: 0;
-  height: 52px;
-  padding: 0 0.95rem;
-  border-radius: 0;
+  height: 46px;
+  padding: 0 0.8rem;
+  border-radius: var(--radius-md);
   border: 1px solid var(--border-medium);
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-size: var(--text-sm);
-  transition:
-    border-color var(--transition-base),
-    box-shadow var(--transition-base);
-  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-family: var(--font-sans);
+  transition: border-color var(--transition-fast);
 }
 
 .newsletterInput::placeholder {
   color: var(--text-muted);
 }
 
-.newsletterInput:focus {
-  outline: 3px solid var(--terminal-green);
-  border-color: var(--terminal-green);
-  box-shadow: none;
-  outline-offset: -3px;
+.newsletterInput:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 .newsletterButton {
-  height: 52px;
+  height: 46px;
   padding: 0 var(--spacing-md);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  margin-left: -1px;
-  font-family: var(--font-mono);
 }
 
 .newsletterSuccess {
   margin: var(--spacing-sm) 0 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 2px;
-  text-align: left;
   font-size: var(--text-sm);
   color: var(--success);
 }
@@ -261,7 +156,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  margin-right: 0.4rem;
   font-weight: 600;
 }
 
@@ -269,75 +163,20 @@
   margin: var(--spacing-sm) 0 0;
   font-size: var(--text-sm);
   color: var(--error);
-  text-align: left;
 }
 
 @media (max-width: 900px) {
   .newsletterShell {
     grid-template-columns: 1fr;
   }
-
-  .newsletterCardWrap {
-    justify-content: stretch;
-  }
-
-  .newsletterSignup {
-    width: 100%;
-  }
 }
 
 @media (max-width: 640px) {
-  .newsletterSection {
-    border-radius: 0;
-  }
-
-  .standalone {
-    width: auto;
-    margin: var(--spacing-lg);
-  }
-
   .newsletterShell {
-    grid-template-columns: 1fr;
     padding: var(--spacing-md);
-  }
-
-  .newsletterIntro {
-    text-align: center;
-  }
-
-  .newsletterIntroText {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .newsletterCardWrap {
-    justify-content: center;
   }
 
   .newsletterForm {
     grid-template-columns: 1fr;
-    gap: var(--spacing-sm);
-  }
-
-  .newsletterMeta {
-    justify-content: center;
-  }
-
-  .newsletterSuccess {
-    align-items: center;
-    text-align: center;
-  }
-
-  .newsletterError {
-    text-align: center;
-  }
-
-  .newsletterInput {
-    border-radius: 0;
-  }
-
-  .newsletterButton {
-    margin-left: 0;
-    border-radius: 0;
   }
 }

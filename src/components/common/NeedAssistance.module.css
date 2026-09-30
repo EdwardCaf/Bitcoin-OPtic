@@ -4,12 +4,12 @@
   justify-content: space-between;
   gap: var(--spacing-md);
   padding: 1rem 1.25rem;
-  background: var(--bitcoin-orange-subtle);
-  border: 1px solid var(--bitcoin-orange);
-  border-left: 4px solid var(--bitcoin-orange);
-  border-radius: 0;
+  background: var(--cyan-bg);
+  border: 1px solid color-mix(in srgb, var(--cyan) 45%, var(--border-subtle));
+  border-left: 3px solid var(--cyan);
+  border-radius: var(--radius-md);
   margin-bottom: var(--spacing-xl);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--surface-card-shadow);
   position: relative;
 }
 
@@ -28,9 +28,9 @@
   height: 44px;
   min-width: 44px;
   background: var(--bg-secondary);
-  border-radius: 0;
-  color: var(--bitcoin-orange);
-  border: 1px solid var(--bitcoin-orange);
+  border-radius: var(--radius-md);
+  color: var(--cyan);
+  border: 1px solid color-mix(in srgb, var(--cyan) 35%, var(--border-subtle));
   box-shadow: none;
 }
 
@@ -43,10 +43,10 @@
 
 .title {
   font-size: var(--text-base);
-  font-weight: 700;
+  font-weight: 600;
   color: var(--text-primary);
-  letter-spacing: 0.01em;
-  font-family: var(--font-mono);
+  letter-spacing: normal;
+  font-family: var(--font-sans);
   line-height: 1.4;
 }
 
@@ -66,25 +66,25 @@
   font-size: var(--text-sm);
   font-weight: 600;
   text-decoration: none;
-  border-radius: 0;
+  border-radius: var(--radius-md);
   white-space: nowrap;
-  transition: all var(--transition-fast);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--accent-ink);
-  letter-spacing: 0.02em;
-  font-family: var(--font-mono);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+  box-shadow: none;
+  border: 1px solid var(--accent-fill);
+  letter-spacing: normal;
+  font-family: var(--font-sans);
   min-height: 44px;
 }
 
 .button:hover {
-  background: var(--accent-fill);
-  box-shadow: var(--shadow-md);
-  transform: translate(-1px, -1px);
+  background: color-mix(in srgb, var(--accent-fill) 90%, var(--text-primary));
+  box-shadow: none;
+
   color: var(--accent-ink);
 }
 
 .button:active {
-  transform: translateY(0);
+
   box-shadow: none;
 }
 
@@ -117,7 +117,7 @@
   }
 
   .tagline {
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
   }
 
   .button {

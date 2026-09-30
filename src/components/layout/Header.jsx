@@ -9,12 +9,10 @@ import styles from './Header.module.css';
 export function Header({ sidebarOpen, onToggleSidebar, theme, onToggleTheme }) {
   const { blockHeight, isLoading, error } = useBlockHeight(10000);
   const navigate = useNavigate();
-  const [isNewBlock, setIsNewBlock] = useState(false);
   const [showBlockModal, setShowBlockModal] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [showSearchResults, setShowSearchResults] = useState(false);
-  const prevBlockHeight = useRef(null);
   const statusRef = useRef(null);
   const desktopSearchRef = useRef(null);
   const mobileSearchRef = useRef(null);
@@ -22,23 +20,6 @@ export function Header({ sidebarOpen, onToggleSidebar, theme, onToggleTheme }) {
   const mobileSearchInputRef = useRef(null);
   const searchResults = searchLessons(query);
   const isMobileViewport = typeof window !== 'undefined' && window.innerWidth <= 640;
-
-  // Detect when block height changes
-  useEffect(() => {
-    if (blockHeight && prevBlockHeight.current !== null && blockHeight > prevBlockHeight.current) {
-      // New block detected! Trigger animation
-      setIsNewBlock(true);
-      
-      // Remove animation class after it completes (3 seconds)
-      const timeout = setTimeout(() => {
-        setIsNewBlock(false);
-      }, 3000);
-      
-      return () => clearTimeout(timeout);
-    }
-    
-    prevBlockHeight.current = blockHeight;
-  }, [blockHeight]);
 
   // Determine status display
   const getStatusContent = () => {
@@ -157,11 +138,7 @@ export function Header({ sidebarOpen, onToggleSidebar, theme, onToggleTheme }) {
           </button>
           
           <Link to="/" className={styles.logoLink}>
-            <motion.div 
-              className={styles.logo}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-            >
+            <div className={styles.logo}>
               <div className={styles.logoIcon}>
                 <Eye size={28} />
               </div>
@@ -172,7 +149,7 @@ export function Header({ sidebarOpen, onToggleSidebar, theme, onToggleTheme }) {
                 </span>
                 <span className={styles.logoSubtitle}>See Bitcoin Clearly</span>
               </div>
-            </motion.div>
+            </div>
           </Link>
         </div>
         
@@ -285,7 +262,7 @@ export function Header({ sidebarOpen, onToggleSidebar, theme, onToggleTheme }) {
           </Link>
           <div 
             ref={statusRef}
-            className={`${styles.status} ${isNewBlock ? styles.statusNewBlock : ''}`}
+            className={styles.status}
             onClick={handleStatusClick}
           >
             <span className={dotClass} />

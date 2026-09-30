@@ -17,7 +17,7 @@
   gap: var(--spacing-md);
   padding: 0 var(--spacing-lg);
   background: var(--bg-secondary);
-  border-bottom: 2px solid var(--border-medium);
+  border-bottom: 1px solid var(--border-subtle);
   z-index: 2;
 }
 
@@ -36,11 +36,11 @@
   width: 44px;
   height: 44px;
   background: transparent;
-  border: 1px solid var(--border-medium);
-  border-radius: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .menuButton:hover {
@@ -64,15 +64,7 @@
   align-items: center;
   gap: var(--spacing-sm);
   min-width: 0;
-  transition: all var(--transition-fast);
-}
-
-.logoLink:hover .logo {
-  color: var(--bitcoin-orange);
-}
-
-.logoLink:hover .logoIcon {
-  transform: translate(-1px, -1px);
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .logoIcon {
@@ -82,12 +74,7 @@
   width: 40px;
   height: 40px;
   flex: 0 0 40px;
-  background: var(--accent-fill);
-  border-radius: 0;
-  color: var(--accent-ink);
-  transition: transform var(--transition-fast);
-  border: 1px solid var(--accent-ink);
-  box-shadow: 3px 3px 0 var(--bitcoin-orange);
+  color: var(--bitcoin-orange);
 }
 
 .logoIcon svg {
@@ -109,7 +96,7 @@
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.2;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   letter-spacing: -0.025em;
 }
 
@@ -125,9 +112,8 @@
 .logoSubtitle {
   font-size: var(--text-xs);
   color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  font-family: var(--font-mono);
+  line-height: 1.5;
+  font-family: var(--font-sans);
 }
 
 .right {
@@ -152,11 +138,11 @@
   width: 44px;
   height: 44px;
   background: var(--bg-tertiary);
-  border: 1px solid var(--border-medium);
-  border-radius: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
 }
 
 .searchToggle:hover,
@@ -184,8 +170,8 @@
   gap: var(--spacing-xs);
   padding: 0 calc(var(--spacing-sm) - 2px);
   background: var(--bg-tertiary);
-  border: 1px solid var(--border-medium);
-  border-radius: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
   color: var(--text-secondary);
 }
 
@@ -214,7 +200,7 @@
   border: none;
   color: var(--text-primary);
   font-size: var(--text-sm);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 .searchInput::placeholder {
@@ -234,8 +220,8 @@
   width: min(420px, 80vw);
   padding: var(--spacing-xs);
   background: var(--bg-secondary);
-  border: 1px solid var(--cyan);
-  border-radius: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   z-index: 102;
 }
@@ -253,7 +239,7 @@
   padding: calc(var(--spacing-sm) - 2px) var(--spacing-sm);
   background: transparent;
   border: none;
-  border-radius: 0;
+  border-radius: var(--radius-md);
   color: var(--text-primary);
   cursor: pointer;
   text-align: left;
@@ -267,7 +253,7 @@
 .searchResultTitle {
   font-size: var(--text-sm);
   font-weight: 600;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 .searchResultMeta,
@@ -294,17 +280,17 @@
   gap: var(--spacing-xs);
   padding: var(--spacing-xs) var(--spacing-sm);
   background: var(--bg-tertiary);
-  border: 1px solid var(--border-medium);
-  border-radius: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
   color: var(--text-secondary);
   font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
   min-height: 44px;
   min-width: 44px;
   justify-content: center;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 .themeToggle:hover {
@@ -323,25 +309,22 @@
   align-items: center;
   gap: var(--spacing-xs);
   padding: var(--spacing-xs) var(--spacing-md);
-  background: var(--accent-fill);
-  border: 1px solid var(--accent-ink);
-  border-radius: 0;
-  color: var(--accent-ink);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
   text-decoration: none;
   font-size: var(--text-sm);
   font-weight: 600;
-  transition: all var(--transition-fast);
-  box-shadow: var(--shadow-sm);
+  transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
   min-height: 44px;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 .supportButton:hover {
-  background: var(--accent-fill);
-  border-color: var(--accent-ink);
-  transform: translate(-1px, -1px);
-  box-shadow: var(--shadow-md);
-  color: var(--accent-ink);
+  background: var(--bg-hover);
+  border-color: var(--border-medium);
+  color: var(--text-primary);
 }
 
 .supportText {
@@ -385,28 +368,16 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-xs) var(--spacing-md);
-  background: var(--bg-tertiary);
-  border-radius: 0;
-  border: 1px solid var(--border-medium);
-  transition: border-color 0.3s ease;
+  background: transparent;
   min-height: 44px;
-  font-family: var(--font-mono);
-}
-
-.statusNewBlock {
-  animation: blockSignal 1.2s steps(2, end);
-}
-
-@keyframes blockSignal {
-  0%, 100% { border-color: var(--border-medium); }
-  50% { border-color: var(--terminal-green); }
+  font-family: var(--font-sans);
 }
 
 .statusDot {
   width: 8px;
   height: 8px;
-  background: var(--terminal-green);
-  border-radius: 0;
+  background: var(--success);
+  border-radius: 50%;
   animation: none;
 }
 
@@ -414,7 +385,7 @@
   width: 8px;
   height: 8px;
   background: var(--warning);
-  border-radius: 0;
+  border-radius: 50%;
   animation: none;
 }
 
@@ -472,7 +443,7 @@
     width: 32px;
     height: 32px;
     flex-basis: 32px;
-    border-radius: 0;
+    border-radius: var(--radius-md);
   }
 
   .logoIcon svg {
@@ -515,7 +486,7 @@
     padding: var(--spacing-sm) var(--spacing-md);
     background: var(--bg-secondary);
     border: 1px solid var(--border-subtle);
-    border-radius: 0;
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     white-space: nowrap;
     z-index: 101;
@@ -524,8 +495,6 @@
   .blockModalLabel {
     font-size: var(--text-xs);
     color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
   }
   
   .blockModalValue {
@@ -540,12 +509,12 @@
 .searchToggle:focus-visible,
 .themeToggle:focus-visible,
 .supportButton:focus-visible {
-  outline: 2px solid var(--cyan);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
 }
 
 .searchResult:focus-visible {
-  outline: 2px solid var(--cyan);
+  outline: 2px solid var(--focus-ring);
   outline-offset: -2px;
   background: var(--bg-hover);
 }
@@ -583,8 +552,4 @@
     overflow: hidden;
     clip-path: inset(50%);
   }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .statusNewBlock { animation: none; border-color: var(--terminal-green); }
 }

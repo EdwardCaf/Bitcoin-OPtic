@@ -29,8 +29,6 @@ export function Button({
       className={buttonClasses}
       onClick={onClick}
       disabled={disabled || loading}
-      whileHover={!disabled ? { scale: 1.02 } : {}}
-      whileTap={!disabled ? { scale: 0.98 } : {}}
       {...props}
     >
       {loading && (

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { Check, Globe, Mail } from "lucide-react";
 import styles from "./ConnectSection.module.css";
 
@@ -9,7 +8,7 @@ const XIcon = ({ size = 20 }) => (
   </svg>
 );
 
-export function ConnectSection({ delay = 0 }) {
+export function ConnectSection() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
@@ -19,12 +18,7 @@ export function ConnectSection({ delay = 0 }) {
   };
 
   return (
-    <motion.section
-      className={styles.footerContact}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay }}
-    >
+    <section className={styles.footerContact}>
       <span className={styles.footerLabel}>Connect with me</span>
       <div className={styles.footerLinks}>
         <a
@@ -52,7 +46,7 @@ export function ConnectSection({ delay = 0 }) {
           </span>
         </button>
       </div>
-    </motion.section>
+    </section>
   );
 }
 

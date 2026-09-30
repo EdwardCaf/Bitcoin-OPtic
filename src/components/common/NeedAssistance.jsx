@@ -1,16 +1,10 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Handshake, ArrowRight } from 'lucide-react';
 import styles from './NeedAssistance.module.css';
 
 export function NeedAssistance({ tagline, className = '' }) {
   return (
-    <motion.div
-      className={`${styles.container} ${className}`}
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.2 }}
-    >
+    <div className={`${styles.container} ${className}`}>
       <div className={styles.content}>
         <div className={styles.iconWrapper}>
           <Handshake size={20} />
@@ -24,7 +18,7 @@ export function NeedAssistance({ tagline, className = '' }) {
         <span>Get Help</span>
         <ArrowRight size={16} />
       </Link>
-    </motion.div>
+    </div>
   );
 }
 

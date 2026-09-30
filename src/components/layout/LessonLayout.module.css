@@ -9,7 +9,7 @@
 
 .header {
   background: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-medium);
+  border-bottom: 1px solid var(--border-subtle);
   box-shadow: none;
   padding: clamp(1rem, 2vw, 1.35rem) clamp(1rem, 3vw, 2rem);
   position: sticky;
@@ -40,11 +40,9 @@
   width: 52px;
   height: 52px;
   background: var(--bitcoin-orange-subtle);
-  border: 1px solid var(--bitcoin-orange);
-  border-radius: 0;
+  border-radius: var(--radius-md);
   color: var(--bitcoin-orange);
   flex-shrink: 0;
-  box-shadow: 3px 3px 0 var(--bitcoin-orange);
 }
 
 .title {
@@ -80,11 +78,11 @@
   padding: var(--spacing-sm) var(--spacing-md);
   background: var(--success-bg);
   color: var(--success);
-  border-radius: 0;
+  border-radius: var(--radius-md);
   font-size: var(--text-sm);
   font-weight: 500;
-  border: 1px solid var(--success);
-  font-family: var(--font-mono);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--font-sans);
 }
 
 .tabsShell {
@@ -112,29 +110,27 @@
   gap: 0.55rem;
   min-height: 44px;
   padding: 0.45rem 0.8rem;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-medium);
-  border-radius: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
   color: var(--text-secondary);
   font-size: var(--text-sm);
   cursor: pointer;
-  transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+  transition: background var(--transition-fast), color var(--transition-fast);
   white-space: nowrap;
   box-shadow: none;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
 }
 
 .tab:hover {
   background: var(--bg-hover);
-  border-color: var(--bitcoin-orange);
   color: var(--text-primary);
 }
 
 .tab.active {
   background: var(--bitcoin-orange-subtle);
   border-color: var(--bitcoin-orange);
-  color: var(--text-primary);
-  box-shadow: 3px 3px 0 var(--bitcoin-orange);
+  color: var(--bitcoin-orange);
 }
 
 .tab.complete .tabNumber {
@@ -149,17 +145,13 @@
   justify-content: center;
   width: 1.35rem;
   height: 1.35rem;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-medium);
-  border-radius: 0;
+  color: var(--text-muted);
   font-size: var(--text-xs);
   font-weight: 700;
 }
 
 .tab.active .tabNumber {
-  background: var(--accent-fill);
-  color: var(--accent-ink);
-  border-color: var(--accent-ink);
+  color: var(--bitcoin-orange);
 }
 
 .tabTitle {
@@ -185,7 +177,7 @@
   gap: 0.75rem;
   padding: 1rem clamp(1rem, 3vw, 2rem) 1.25rem;
   background: var(--bg-secondary);
-  border-top: 1px solid var(--border-medium);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .footerCenter {
@@ -203,10 +195,9 @@
 
 .sectionIndicator {
   font-size: var(--text-sm);
-  color: var(--terminal-green);
-  font-weight: 650;
-  letter-spacing: 0.02em;
-  font-family: var(--font-mono);
+  color: var(--text-muted);
+  font-weight: 500;
+  font-family: var(--font-sans);
 }
 
 @media (max-width: 768px) {
@@ -278,10 +269,10 @@
     padding: 0.3rem;
     background: color-mix(in srgb, var(--bg-secondary) 96%, var(--bg-elevated));
     border: 1px solid var(--border-medium);
-    border-radius: 0;
+    border-radius: var(--radius-md);
     color: var(--text-primary);
     margin: 0 var(--spacing-xs);
-    box-shadow: var(--shadow-sm);
+    box-shadow: none;
   }
 
   .main {
@@ -306,7 +297,7 @@
   .headerIcon {
     width: 44px;
     height: 44px;
-    border-radius: 0;
+    border-radius: var(--radius-md);
   }
 
   .footerButtons {
@@ -320,6 +311,6 @@
 }
 
 .tab:focus-visible {
-  outline: 2px solid var(--cyan);
+  outline: 2px solid var(--focus-ring);
   outline-offset: -3px;
 }

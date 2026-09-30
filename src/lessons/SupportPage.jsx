@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Handshake, Shield, Map, Zap, ArrowRight } from "lucide-react";
 import { Badge } from "../components/common";
 import { ConnectSection } from "../components/common/ConnectSection";
@@ -14,25 +13,10 @@ export function SupportPage() {
   return (
     <div className={styles.container}>
       {/* Hero Section */}
-      <motion.section
-        className={styles.heroSection}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.22 }}
-      >
-        <div className={styles.heroBackground}>
-          <div className={styles.heroGlow} />
-          <div className={styles.heroGrid} />
-        </div>
-
+      <section className={styles.heroSection}>
         <div className={styles.heroContent}>
           <div className={styles.heroCopy}>
-            <motion.div
-              className={styles.heroBadge}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.24, delay: 0.03 }}
-            >
+            <div>
               <Badge
                 variant="primary"
                 size="medium"
@@ -40,51 +24,31 @@ export function SupportPage() {
               >
                 Work with me 1-on-1
               </Badge>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              className={styles.heroTitle}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.24, delay: 0.06 }}
-            >
+            <h1 className={styles.heroTitle}>
               Your path to
               <span className={styles.heroHighlight}>
                 {" "}
                 Financial Sovereignty
               </span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              className={styles.heroSubtitle}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.24, delay: 0.09 }}
-            >
+            <p className={styles.heroSubtitle}>
               Get personalized guidance for what you need to achieve true
               self-sovereign bitcoin ownership.
-            </motion.p>
+            </p>
 
-            <motion.div
-              className={styles.valueProps}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.24, delay: 0.12 }}
-            >
+            <div className={styles.valueProps}>
               {valueProps.map((prop, index) => (
                 <div key={index} className={styles.valueProp}>
                   <prop.icon size={18} className={styles.valuePropIcon} />
                   <span>{prop.text}</span>
                 </div>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.div
-              className={styles.heroCta}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.24, delay: 0.15 }}
-            >
+            <div className={styles.heroCta}>
               <a
                 href="https://calendar.proton.me/bookings#hAO6Yxm96KHGyHF8Be-K3A1mMjE-jIMnG2MgNj8UnDg="
                 target="_blank"
@@ -97,14 +61,11 @@ export function SupportPage() {
               <p className={styles.ctaSubtext}>
                 15-minute call &bull; No commitment &bull; 100% free
               </p>
-            </motion.div>
+            </div>
           </div>
 
-          <motion.aside
+          <aside
             className={styles.profileCard}
-            initial={{ opacity: 0, y: 24, rotate: 1.5 }}
-            animate={{ opacity: 1, y: 0, rotate: 0 }}
-            transition={{ duration: 0.26, delay: 0.08 }}
             aria-label="About Edward"
           >
             <div className={styles.profileImageFrame}>
@@ -139,11 +100,11 @@ export function SupportPage() {
                 planning, and all of the latest freedom tech.
               </p>
             </div>
-          </motion.aside>
+          </aside>
         </div>
-      </motion.section>
+      </section>
 
-      <ConnectSection delay={0.6} />
+      <ConnectSection />
     </div>
   );
 }

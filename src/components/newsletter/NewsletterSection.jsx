@@ -1,5 +1,4 @@
 import { useId, useState } from "react";
-import { motion } from "framer-motion";
 import { Mail, Check } from "lucide-react";
 import { Button } from "../common/Button";
 import { useMailerLiteOnVisible } from "../../hooks/useMailerLite";
@@ -128,12 +127,9 @@ export function NewsletterSection({ standalone = false }) {
   };
 
   return (
-    <motion.section
+    <section
       ref={newsletterSectionRef}
       className={`${styles.newsletterSection} ${standalone ? styles.standalone : ""}`.trim()}
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.25 }}
     >
       <div className={styles.newsletterShell}>
         <div className={styles.newsletterIntro}>
@@ -208,6 +204,6 @@ export function NewsletterSection({ standalone = false }) {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

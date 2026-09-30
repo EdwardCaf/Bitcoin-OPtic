@@ -1,7 +1,5 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-import { Badge } from "../common";
 import styles from "./LearningPath.module.css";
 
 const LEARNING_TREE = {
@@ -174,28 +172,16 @@ const LEARNING_SECTIONS = [
   },
 ];
 
-const getDifficultyColor = (difficulty) => {
-  switch (difficulty) {
-    case "Beginner":
-      return "success";
-    case "Intermediate":
-      return "warning";
-    case "Advanced":
-      return "error";
-    default:
-      return "secondary";
-  }
-};
+const LESSON_ORDER = new Map(
+  LEARNING_SECTIONS.flatMap(({ lessons }) => lessons).map((lesson, index) => [
+    lesson.id,
+    index,
+  ]),
+);
 
-function LessonNode({ lesson, index, delay = 0 }) {
+function LessonNode({ lesson, index }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "160px" }}
-      transition={{ delay, duration: 0.12, ease: "easeOut" }}
-      className={styles.nodeWrapper}
-    >
+    <div className={styles.nodeWrapper}>
       <Link to={lesson.path} className={styles.node}>
         <span className={styles.stepNumber}>
           {String(index + 1).padStart(2, "0")}
@@ -211,23 +197,17 @@ function LessonNode({ lesson, index, delay = 0 }) {
           </div>
         </div>
         <div className={styles.nodeFooter}>
-          <Badge
-            variant={getDifficultyColor(lesson.difficulty)}
-            size="small"
-            className={styles.difficultyBadge}
-          >
+          <span className={styles.difficulty}>
             {lesson.difficulty}
-          </Badge>
+          </span>
           <ChevronRight size={14} className={styles.nodeArrow} />
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }
 
 export function LearningPath() {
-  let lessonIndex = 0;
-
   return (
     <section id="learning-path" className={styles.container}>
       <div className={styles.header}>
@@ -242,19 +222,13 @@ export function LearningPath() {
               <h3 className={styles.levelTitle}>{section.title}</h3>
             </div>
             <div className={styles.nodeContainer}>
-              {section.lessons.map((lesson) => {
-                const currentIndex = lessonIndex;
-                lessonIndex += 1;
-
-                return (
-                  <LessonNode
-                    key={lesson.id}
-                    lesson={lesson}
-                    index={currentIndex}
-                    delay={currentIndex * 0.01}
-                  />
-                );
-              })}
+              {section.lessons.map((lesson) => (
+                <LessonNode
+                  key={lesson.id}
+                  lesson={lesson}
+                  index={LESSON_ORDER.get(lesson.id)}
+                />
+              ))}
             </div>
           </div>
         ))}

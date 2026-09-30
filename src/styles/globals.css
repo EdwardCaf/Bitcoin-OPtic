@@ -4,33 +4,33 @@
 :root {
     color-scheme: dark;
 
-    /* Terminal surfaces: quiet backgrounds keep the colorful signals readable. */
-    --bg-primary: #0b1017;
-    --bg-secondary: #111b26;
-    --bg-tertiary: #192635;
-    --bg-elevated: #213144;
-    --bg-hover: #293c50;
+    /* Deep slate backdrop with distinct cards and warm orange accents. */
+    --bg-primary: #171c24;
+    --bg-secondary: #26313d;
+    --bg-tertiary: #2e3b49;
+    --bg-elevated: #354253;
+    --bg-hover: #3b4a5b;
 
-    /* Text accents adapt to the theme; filled actions keep a bright face. */
-    --bitcoin-orange: color-mix(in srgb, #ffb454 93%, #808080);
-    --bitcoin-orange-light: color-mix(in srgb, #ffd080 93%, #808080);
-    --bitcoin-orange-dark: color-mix(in srgb, #f5a13d 93%, #808080);
-    --bitcoin-orange-glow: color-mix(in srgb, var(--bitcoin-orange) 25%, transparent);
+    --bitcoin-orange: #f2b66f;
+    --bitcoin-orange-light: #ffca8c;
+    --bitcoin-orange-dark: #e2a156;
+    --bitcoin-orange-hover: #ffca8c;
+    --bitcoin-orange-glow: transparent;
     --bitcoin-orange-subtle: color-mix(in srgb, var(--bitcoin-orange) 9%, var(--bg-secondary));
-    --accent-fill: color-mix(in srgb, #ffb454 93%, #808080);
-    --accent-ink: #14231e;
-    --terminal-green: color-mix(in srgb, #b4f47a 93%, #808080);
-    --terminal-grid: #253544;
+    --accent-fill: #f2b66f;
+    --accent-ink: #241e18;
+    --terminal-green: var(--success);
+    --terminal-grid: var(--border-subtle);
 
-    /* Semantic ink colors also work on the elevated surfaces and tinted badges. */
-    --success: color-mix(in srgb, #96eb89 93%, #808080);
-    --error: color-mix(in srgb, #ff8c98 93%, #808080);
-    --warning: color-mix(in srgb, #f7d76b 93%, #808080);
-    --info: color-mix(in srgb, #8bbaff 93%, #808080);
-    --purple: color-mix(in srgb, #d3a0ff 93%, #808080);
-    --cyan: color-mix(in srgb, #67d8ef 93%, #808080);
-    --node: color-mix(in srgb, #f89ed3 93%, #808080);
-    --exchange: color-mix(in srgb, #77e2c5 93%, #808080);
+    /* Semantic colors retain meaning in the interactive lessons. */
+    --success: #9dcb9d;
+    --error: #efa39a;
+    --warning: #e1bf76;
+    --info: #9abfe3;
+    --purple: #c3abe8;
+    --cyan: #80ccbe;
+    --node: #dfa8c6;
+    --exchange: #94cfb3;
     --success-bg: color-mix(in srgb, var(--success) 9%, var(--bg-secondary));
     --error-bg: color-mix(in srgb, var(--error) 9%, var(--bg-secondary));
     --warning-bg: color-mix(in srgb, var(--warning) 9%, var(--bg-secondary));
@@ -40,23 +40,23 @@
     --node-bg: color-mix(in srgb, var(--node) 9%, var(--bg-secondary));
     --exchange-bg: color-mix(in srgb, var(--exchange) 9%, var(--bg-secondary));
 
-    --text-primary: #eef7ff;
-    --text-secondary: #c1cfdd;
-    --text-muted: #9aaebf;
-    --text-inverse: #0b1017;
+    --text-primary: #f7f4ee;
+    --text-secondary: #d1d7dd;
+    --text-muted: #b4bec8;
+    --text-inverse: #171c24;
 
-    --border-subtle: #465b6e;
-    --border-medium: #718699;
+    --border-subtle: #4b5b6d;
+    --border-medium: #8293a5;
     --border-accent: var(--bitcoin-orange);
-    --focus-ring: var(--cyan);
+    --focus-ring: var(--bitcoin-orange);
 
-    /* Integer offsets and zero blur create the pixel-edged depth. */
-    --shadow-color: #030609;
-    --shadow-sm: 2px 2px 0 var(--shadow-color);
-    --shadow-md: 4px 4px 0 var(--shadow-color);
-    --shadow-lg: 6px 6px 0 var(--shadow-color);
-    --surface-card-shadow: 4px 4px 0 var(--shadow-color);
-    --shadow-glow: 3px 3px 0 var(--border-accent);
+    /* Soft depth separates cards without decorative glow. */
+    --shadow-color: rgb(0 0 0 / 0.22);
+    --shadow-sm: 0 2px 4px var(--shadow-color);
+    --shadow-md: 0 4px 12px var(--shadow-color);
+    --shadow-lg: 0 8px 24px var(--shadow-color);
+    --surface-card-shadow: var(--shadow-sm);
+    --shadow-glow: 0 0 0 transparent;
 
     /* Spacing */
     --spacing-xs: 4px;
@@ -68,19 +68,19 @@
     --spacing-3xl: 64px;
 
     /* Border radius */
-    --radius-sm: 0px;
-    --radius-md: 0px;
-    --radius-lg: 0px;
-    --radius-xl: 0px;
-    --radius-full: 0px;
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 10px;
+    --radius-full: 999px;
 
     /* Typography */
     --font-sans:
         "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         sans-serif;
-    /* Clear everyday lettering, with a restrained typewriter character in titles. */
-    --font-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
-    --font-display: "IBM Plex Mono", "JetBrains Mono", monospace;
+    /* Monospace is reserved for code, addresses, and numeric readouts. */
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --font-display: var(--font-sans);
 
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
@@ -101,7 +101,6 @@
     --border-light: var(--border-subtle);
     --border-default: var(--border-subtle);
     --border-color: var(--border-subtle);
-    --bitcoin-orange-hover: #ffd080;
     --text-tertiary: var(--text-muted);
     --success-500: var(--success);
     --success-light: var(--success);
@@ -111,9 +110,9 @@
     --support-bg-start: var(--warning-bg);
     --support-bg-mid: var(--warning-bg);
     --support-bg-end: var(--warning-bg);
-    --support-border: var(--warning);
-    --support-border-hover: var(--bitcoin-orange);
-    --support-text: var(--warning);
+    --support-border: var(--border-subtle);
+    --support-border-hover: var(--border-medium);
+    --support-text: var(--text-primary);
     --support-shadow-1: var(--shadow-color);
     --support-shadow-2: var(--shadow-color);
     --support-shadow-3: transparent;
@@ -152,36 +151,35 @@
 
 :root[data-theme="light"] {
     color-scheme: light;
-    /* Warm computer paper, lavender panels, and cobalt/violet terminal ink. */
-    --bg-primary: #f7f3eb;
+    /* Ivory cards stand apart from a warm parchment background. */
+    --bg-primary: #efe7db;
     --bg-secondary: #fffdf8;
-    --bg-tertiary: #eeeaf8;
-    --bg-elevated: #e3def1;
-    --bg-hover: #d9d2ed;
+    --bg-tertiary: #f1e5d2;
+    --bg-elevated: #e8dac5;
+    --bg-hover: #e2d1b8;
 
-    --bitcoin-orange: #944200;
-    --bitcoin-orange-light: #793600;
-    --bitcoin-orange-dark: #743000;
-    --accent-ink: #242039;
-    /* Legacy token name: cobalt replaces the green signal in the light theme. */
-    --terminal-green: #3346bb;
-    --terminal-grid: #ded6cf;
-    --success: #3355ad;
-    --error: #a72336;
-    --warning: #775500;
-    --info: #2457a5;
-    --purple: #70339c;
-    --cyan: #005d91;
-    --node: #922466;
-    --exchange: #5141a5;
+    --bitcoin-orange: #9c471a;
+    --bitcoin-orange-light: #783411;
+    --bitcoin-orange-dark: #783411;
+    --bitcoin-orange-hover: #783411;
+    --accent-fill: #9c471a;
+    --accent-ink: #fffaf4;
+    --success: #376b43;
+    --error: #a4473f;
+    --warning: #7c612a;
+    --info: #386995;
+    --purple: #795096;
+    --cyan: #236e63;
+    --node: #934565;
+    --exchange: #376e52;
 
-    --text-primary: #242039;
-    --text-secondary: #4a435f;
-    --text-muted: #605771;
-    --text-inverse: #ffffff;
-    --border-subtle: #b8afca;
-    --border-medium: #837592;
-    --shadow-color: #c6bccf;
+    --text-primary: #29251f;
+    --text-secondary: #514b41;
+    --text-muted: #60584e;
+    --text-inverse: #fffdf9;
+    --border-subtle: #cdbca5;
+    --border-medium: #95826b;
+    --shadow-color: rgb(70 44 17 / 0.10);
 }
 
 /* Mobile utility: horizontal scroll container */
@@ -222,8 +220,6 @@ html {
 body {
     font-family: var(--font-sans);
     background-color: var(--bg-primary);
-    background-image: radial-gradient(var(--terminal-grid) 0.75px, transparent 0.75px);
-    background-size: 8px 8px;
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
@@ -267,13 +263,13 @@ body {
 /* Focus styles */
 /* Specificity keeps keyboard focus visible on controls with local :focus resets. */
 :root :focus-visible {
-    outline: 3px solid var(--focus-ring);
+    outline: 2px solid var(--focus-ring);
     outline-offset: 3px;
 }
 
 h1, h2, h3, h4, h5, h6,
 button, input, select, textarea, summary, th {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
 }
 
 h1, h2 {
@@ -302,8 +298,8 @@ p a, li a:not([class]) {
 }
 
 svg.lucide {
-    stroke-linecap: square;
-    stroke-linejoin: miter;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 /* Links */
