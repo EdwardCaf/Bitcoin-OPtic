@@ -4,49 +4,52 @@
 :root {
     color-scheme: dark;
 
-    /* Deep slate backdrop with distinct cards and warm orange accents. */
-    --bg-primary: #171c24;
-    --bg-secondary: #26313d;
-    --bg-tertiary: #2e3b49;
-    --bg-elevated: #354253;
-    --bg-hover: #3b4a5b;
+    /* Deep slate surfaces give the richer accents room to stand out. */
+    --bg-primary: #0e151f;
+    --bg-secondary: #1b2735;
+    --bg-tertiary: #243243;
+    --bg-elevated: #2b3b4e;
+    --bg-hover: #324357;
 
-    --bitcoin-orange: #f2b66f;
-    --bitcoin-orange-light: #ffca8c;
-    --bitcoin-orange-dark: #e2a156;
-    --bitcoin-orange-hover: #ffca8c;
+    /* Keep tinted surfaces distinct in dark mode and airy in light mode. */
+    --surface-tint-strength: 12%;
+
+    --bitcoin-orange: #ffad52;
+    --bitcoin-orange-light: #ffc078;
+    --bitcoin-orange-dark: #ee9a3c;
+    --bitcoin-orange-hover: #ffc078;
     --bitcoin-orange-glow: transparent;
-    --bitcoin-orange-subtle: color-mix(in srgb, var(--bitcoin-orange) 9%, var(--bg-secondary));
-    --accent-fill: #f2b66f;
+    --bitcoin-orange-subtle: color-mix(in srgb, var(--bitcoin-orange) var(--surface-tint-strength), var(--bg-secondary));
+    --accent-fill: var(--bitcoin-orange);
     --accent-ink: #241e18;
     --terminal-green: var(--success);
     --terminal-grid: var(--border-subtle);
 
     /* Semantic colors retain meaning in the interactive lessons. */
-    --success: #9dcb9d;
-    --error: #efa39a;
-    --warning: #e1bf76;
-    --info: #9abfe3;
-    --purple: #c3abe8;
-    --cyan: #80ccbe;
-    --node: #dfa8c6;
-    --exchange: #94cfb3;
-    --success-bg: color-mix(in srgb, var(--success) 9%, var(--bg-secondary));
-    --error-bg: color-mix(in srgb, var(--error) 9%, var(--bg-secondary));
-    --warning-bg: color-mix(in srgb, var(--warning) 9%, var(--bg-secondary));
-    --info-bg: color-mix(in srgb, var(--info) 9%, var(--bg-secondary));
-    --purple-bg: color-mix(in srgb, var(--purple) 9%, var(--bg-secondary));
-    --cyan-bg: color-mix(in srgb, var(--cyan) 9%, var(--bg-secondary));
-    --node-bg: color-mix(in srgb, var(--node) 9%, var(--bg-secondary));
-    --exchange-bg: color-mix(in srgb, var(--exchange) 9%, var(--bg-secondary));
+    --success: #83d69b;
+    --error: #ff9b91;
+    --warning: #edc36a;
+    --info: #83bbf3;
+    --purple: #c7a7f7;
+    --cyan: #65d4c2;
+    --node: #eb9ec7;
+    --exchange: #79d3ae;
+    --success-bg: color-mix(in srgb, var(--success) var(--surface-tint-strength), var(--bg-secondary));
+    --error-bg: color-mix(in srgb, var(--error) var(--surface-tint-strength), var(--bg-secondary));
+    --warning-bg: color-mix(in srgb, var(--warning) var(--surface-tint-strength), var(--bg-secondary));
+    --info-bg: color-mix(in srgb, var(--info) var(--surface-tint-strength), var(--bg-secondary));
+    --purple-bg: color-mix(in srgb, var(--purple) var(--surface-tint-strength), var(--bg-secondary));
+    --cyan-bg: color-mix(in srgb, var(--cyan) var(--surface-tint-strength), var(--bg-secondary));
+    --node-bg: color-mix(in srgb, var(--node) var(--surface-tint-strength), var(--bg-secondary));
+    --exchange-bg: color-mix(in srgb, var(--exchange) var(--surface-tint-strength), var(--bg-secondary));
 
-    --text-primary: #f7f4ee;
-    --text-secondary: #d1d7dd;
-    --text-muted: #b4bec8;
-    --text-inverse: #171c24;
+    --text-primary: #fffaf3;
+    --text-secondary: #e2e9f0;
+    --text-muted: #c8d3df;
+    --text-inverse: #0e151f;
 
-    --border-subtle: #4b5b6d;
-    --border-medium: #8293a5;
+    --border-subtle: #61768c;
+    --border-medium: #95abc2;
     --border-accent: var(--bitcoin-orange);
     --focus-ring: var(--bitcoin-orange);
 
@@ -151,34 +154,34 @@
 
 :root[data-theme="light"] {
     color-scheme: light;
-    /* Ivory cards stand apart from a warm parchment background. */
-    --bg-primary: #efe7db;
-    --bg-secondary: #fffdf8;
-    --bg-tertiary: #f1e5d2;
-    --bg-elevated: #e8dac5;
-    --bg-hover: #e2d1b8;
+    /* Near-white surfaces keep panels light while text and borders define them. */
+    --bg-primary: #f7f5f0;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f6f4ef;
+    --bg-elevated: #f2efe8;
+    --bg-hover: #eeebe3;
+    --surface-tint-strength: 6%;
 
-    --bitcoin-orange: #9c471a;
-    --bitcoin-orange-light: #783411;
-    --bitcoin-orange-dark: #783411;
-    --bitcoin-orange-hover: #783411;
-    --accent-fill: #9c471a;
+    --bitcoin-orange: #a3420b;
+    --bitcoin-orange-light: #7f3008;
+    --bitcoin-orange-dark: #7f3008;
+    --bitcoin-orange-hover: #7f3008;
     --accent-ink: #fffaf4;
-    --success: #376b43;
-    --error: #a4473f;
-    --warning: #7c612a;
-    --info: #386995;
-    --purple: #795096;
-    --cyan: #236e63;
-    --node: #934565;
-    --exchange: #376e52;
+    --success: #236b38;
+    --error: #ac3028;
+    --warning: #805900;
+    --info: #225f9e;
+    --purple: #79409c;
+    --cyan: #086b5c;
+    --node: #a03268;
+    --exchange: #176b47;
 
-    --text-primary: #29251f;
-    --text-secondary: #514b41;
-    --text-muted: #60584e;
+    --text-primary: #1d1915;
+    --text-secondary: #3c352d;
+    --text-muted: #51483e;
     --text-inverse: #fffdf9;
-    --border-subtle: #cdbca5;
-    --border-medium: #95826b;
+    --border-subtle: #b3a38f;
+    --border-medium: #7d6a53;
     --shadow-color: rgb(70 44 17 / 0.10);
 }
 
